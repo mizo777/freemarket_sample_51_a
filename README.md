@@ -27,8 +27,10 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false,index: true|
-|kana_name|string|null: false|
+|first_name|string|null: false,index: true|
+|last_name|string|null: false,index: true|
+|first_kana_name|string|null: false|
+|last_kana_name|string|null: false|
 |nickname|string|null: false|
 |mail|string|null: false, unique: true|
 |password|integer|null: false|
@@ -55,7 +57,7 @@ Things you may want to cover:
 - has_many :likes
 - has_many :comments
 - belongs_to :bank_account
-- belongs_to :identity_infomations
+- belongs_to :identity_infomation
 
 
 ## productsテーブル
@@ -63,13 +65,12 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false,index: true|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |price|integer|null: false,index: true|
-|image|text|null: false|
-|large_category_id|integer|null: false, foreign_key: true,index: true|
-|middle_category_id|integer|null: false, foreign_key: true,index: true|
-|small_category_id|integer|null: false, foreign_key: true,index: true|
-|brand_id|integer|null: false, foreign_key: true,index: true|
+|large_category_id|references|null: false, foreign_key: true,index: true|
+|middle_category_id|references|null: false, foreign_key: true,index: true|
+|small_category_id|references|null: false, foreign_key: true,index: true|
+|brand_id|references|null: false, foreign_key: true,index: true|
 |size|string|null: false,index: true|
 |state|string|null: false,index: true|
 |delivery_fee|integer|null: false,index: true|
@@ -83,37 +84,47 @@ Things you may want to cover:
 ### Association
 - has_many :likes
 - has_many :comments
-- belongs_to :brands
+- belongs_to :brand
 - belongs_to :small_cateory
 - belongs_to :middle_category
 - belongs_to :large_category
-- belongs_to :orders
-- belongs_to :users
+- belongs_to :order
+- belongs_to :user
+
+## product_imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|image_name|text|null: false|
+|product_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :product
 
 ## likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :informations
-- belongs_to :users
-- belongs_to :products, counter_cache: :likes_count
+- belongs_to :user
+- belongs_to :product, counter_cache: :likes_count
 
 ## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :informations
-- belongs_to :users
-- belongs_to :products
+- belongs_to :user
+- belongs_to :product
 
 
 ## brandsテーブル
@@ -132,25 +143,25 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |small_category|string|null: false|
-|middle_category_id|integer|null: false, foreign_key: true|
+|middle_category_id|references|null: false, foreign_key: true|
 
 
 ### Association
 - has_many :products
-- belongs_to :middle_categorys
+- belongs_to :middle_category
 
 ## middle_categorysテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |middle_category|string|null: false|
-|large_category_id|integer|null: false, foreign_key: true|
+|large_category_id|references|null: false, foreign_key: true|
 
 
 ### Association
 - has_many :products
 - has_many :small_categorys
-- belongs_to :large_categorys
+- belongs_to :large_category
 
 ## large_categorysテーブル
 
@@ -168,8 +179,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|kana_name|string|null: false, foreign_key: true|
-|birthday|integer|null: false, foreign_key: true|
+|kana_name|string|null: false|
+|birthday|integer|null: false|
 |confirmation_document|text|null: false|
 |postal_code|integer|
 |region|string|
@@ -178,28 +189,28 @@ Things you may want to cover:
 |building|string|
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 ## informationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|point_id|integer|null: false, foreign_key: true|
-|order_id|integer|null: false, foreign_key: true|
-|sale_id|integer|null: false, foreign_key: true|
-|comment_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|point_id|references|null: false, foreign_key: true|
+|order_id|references|null: false, foreign_key: true|
+|sale_id|references|null: false, foreign_key: true|
+|comment_id|references|null: false, foreign_key: true|
 |checked|boolean|default: false|
 
 ### Association
-- belongs_to :users
-- belongs_to :likes
+- belongs_to :user
+- belongs_to :like
 - belongs_to :order
-- belongs_to :comments
-- belongs_to :points
+- belongs_to :comment
+- belongs_to :point
 - belongs_to :news
-- belongs_to :sales
+- belongs_to :sale
 
 
 
@@ -207,9 +218,9 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|seller_id|integer|null: false, foreign_key: true,index: true|
-|buyer_id|integer|null: false, foreign_key: true,index: true|
-|product_id|integer|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true,index: true|
+|buyer_id|references|null: false, foreign_key: true,index: true|
+|product_id|references|null: false, foreign_key: true|
 |product_name|string|null: false|
 |product_image|string|null: false|
 |price|integer|null: false|
@@ -230,9 +241,9 @@ Things you may want to cover:
 ### Association
 - has_many :todo_lists
 - has_many :transaction_messages
-- belongs_to :products
-- belongs_to :users
-- belongs_to :points
+- belongs_to :product
+- belongs_to :user
+- belongs_to :point
 - has_many :informatinos
 
 ## transfer_applicatonsテーブル
@@ -241,70 +252,70 @@ Things you may want to cover:
 
 |transfer_price|integer|null: false|
 |transfer_applicaton_price|integer|null: false|
-|sale_id|integer|null: false, foreign_key: true|
+|sale_id|references|null: false, foreign_key: true|
 |transfer_fee|integer|null: false|
-|bank_account_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|bank_account_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :sales
+- belongs_to :sale
 - belongs_to :bank_account
-- belongs_to :users
+- belongs_to :user
 
 ## salesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|price|integer|null: false, foreign_key: true|
+|price|references|null: false, foreign_key: true|
 |reason|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |dead_line|integer|
 
 ### Association
 - has_many :transfer_applicatons
-- belongs_to :informatinos
-- belongs_to :users
+- belongs_to :informatino
+- belongs_to :user
 
 ## transaction_messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|order_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|order_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |message|text|null: false|
 
 ### Association
-- belongs_to :transaction_messages
-- belongs_to :orders
-- belongs_to :users
+- belongs_to :transaction_message
+- belongs_to :order
+- belongs_to :user
 
 ## todo_listsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|order_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|order_id|references|null: false, foreign_key: true|
 |content|text|null: false|
-|transaction_message_id|integer|foreign_key: true|
+|transaction_message_id|references|foreign_key: true|
 
 ### Association
-- belongs_to :transaction_messages
-- belongs_to :orders
-- belongs_to :users
+- belongs_to :transaction_message
+- belongs_to :order
+- belongs_to :user
 
 
 ## contactsテーブル
 |Column|Type|Options|
 |------|----|-------|
 
-|product_id|integer||
-|position|string||
+|product_id|references|
+|position|string|
 |content|text|null: false|
 |category|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :news
-- belongs_to :users
+- belongs_to :user
 
 ## bank_accountテーブル
 |Column|Type|Options|
@@ -317,12 +328,12 @@ Things you may want to cover:
 |account_holder_sei|string|null: false|
 |account_holder_mei|string|null: false|
 |adress|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|identity_information_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|identity_information_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :transfer_applicatons
-- belongs_to :users
+- belongs_to :user
 
 ## newsテーブル
 |Column|Type|Options|
@@ -330,14 +341,14 @@ Things you may want to cover:
 
 |title|string|
 |content|text|null: false|
-|user_id|integer|foreign_key: true|
-|contact_id|integer|foreign_key: true|
-|information_id|integer|foreign_key: true|
+|user_id|references|foreign_key: true|
+|contact_id|references|foreign_key: true|
+|information_id|references|foreign_key: true|
 
 ### Association
-- belongs_to :contacts
-- belongs_to :informatinos
-- belongs_to :users
+- belongs_to :contact
+- belongs_to :informatino
+- belongs_to :user
 
 ## pointsテーブル
 
@@ -346,9 +357,9 @@ Things you may want to cover:
 
 |point|integer|null: false|
 |reason|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |dead_line|integer|null: false|
 
 ### Association
-- belongs_to :users
-- belongs_to :orders
+- belongs_to :user
+- belongs_to :order
