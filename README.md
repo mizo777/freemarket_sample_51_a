@@ -41,7 +41,8 @@ Things you may want to cover:
 |street|string|null: false|
 |building|string|
 |payment_way|string|null: false|
-|identity_information_id|integer|null: false, foreign_key: true|
+|birthday|string|
+|confirmation_document(本人確認書類)|text|
 
 ### Association
 - has_many :products
@@ -56,7 +57,6 @@ Things you may want to cover:
 - has_many :likes
 - has_many :comments
 - belongs_to :bank_account
-- belongs_to :identity_information
 
 
 ## productsテーブル
@@ -143,23 +143,6 @@ Things you may want to cover:
 - belongs_to :parent
 
 
-## identity_informationテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|kana_name|string|null: false|
-|birthday|integer|null: false|
-|confirmation_document|text|null: false|
-|postal_code|integer|
-|region|string|
-|city|string|
-|street|string|
-|building|string|
-
-### Association
-- belongs_to :user
-
-
 ## noticesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -204,10 +187,10 @@ Things you may want to cover:
 ### Association
 - has_many :todo_lists
 - has_many :transaction_messages
+- has_many :notices
 - belongs_to :product
 - belongs_to :user
 - belongs_to :point
-- has_many :notices
 
 
 ## transfer_applicatonsテーブル
