@@ -65,13 +65,11 @@ Things you may want to cover:
 |name|string|null: false,index: true|
 |user_id|references|null: false, foreign_key: true|
 |price|integer|null: false,index: true|
-|large_category_id|references|null: false, foreign_key: true,index: true|
-|middle_category_id|references|null: false, foreign_key: true,index: true|
-|small_category_id|references|null: false, foreign_key: true,index: true|
+|category_id|references|null: false, foreign_key: true,index: true|
 |brand_id|references|null: false, foreign_key: true,index: true|
 |size|string|null: false,index: true|
 |state|string|null: false,index: true|
-|delivery_fee|integer|null: false,index: true|
+|delivery_burden|integer|null: false,index: true|
 |delivery_way|string|null: false|
 |delivery_from|string|null: false|
 |delivery_time|string|null: false|
@@ -84,9 +82,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :product_images
 - belongs_to :brand
-- belongs_to :small_cateory
-- belongs_to :middle_category
-- belongs_to :large_category
+- belongs_to :cateory
 - belongs_to :order
 - belongs_to :user
 
@@ -191,9 +187,6 @@ Things you may want to cover:
 |seller_id|references|null: false, foreign_key: true,index: true|
 |buyer_id|references|null: false, foreign_key: true,index: true|
 |product_id|references|null: false, foreign_key: true|
-|product_name|string|null: false|
-|product_image|string|null: false|
-|price|integer|null: false|
 |use_point|integer|null: false|
 |payment|integer|null: false|
 |payment_way|string|null: false|
