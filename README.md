@@ -52,12 +52,12 @@ Things you may want to cover:
 - has_many :transfer_applications
 - has_many :points
 - has_many :contacts
-- has_many :news
 - has_many :informations
+- has_many :notices
 - has_many :likes
 - has_many :comments
 - belongs_to :bank_account
-- belongs_to :identity_infomation
+- belongs_to :identity_information
 
 
 ## productsテーブル
@@ -84,6 +84,7 @@ Things you may want to cover:
 ### Association
 - has_many :likes
 - has_many :comments
+- has_many :product_images
 - belongs_to :brand
 - belongs_to :small_cateory
 - belongs_to :middle_category
@@ -109,7 +110,7 @@ Things you may want to cover:
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :informations
+- has_many :notices
 - belongs_to :user
 - belongs_to :product, counter_cache: :likes_count
 
@@ -122,7 +123,7 @@ Things you may want to cover:
 |product_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :informations
+- has_many :notices
 - belongs_to :user
 - belongs_to :product
 
@@ -191,7 +192,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## informationsテーブル
+## noticesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -209,7 +210,7 @@ Things you may want to cover:
 - belongs_to :order
 - belongs_to :comment
 - belongs_to :point
-- belongs_to :news
+- belongs_to :information
 - belongs_to :sale
 
 
@@ -244,7 +245,7 @@ Things you may want to cover:
 - belongs_to :product
 - belongs_to :user
 - belongs_to :point
-- has_many :informatinos
+- has_many :notices
 
 ## transfer_applicatonsテーブル
 |Column|Type|Options|
@@ -272,7 +273,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :transfer_applicatons
-- belongs_to :informatino
+- belongs_to :notice
 - belongs_to :user
 
 ## transaction_messagesテーブル
@@ -314,7 +315,7 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :news
+- belongs_to :information
 - belongs_to :user
 
 ## bank_accountテーブル
@@ -335,7 +336,7 @@ Things you may want to cover:
 - has_many :transfer_applicatons
 - belongs_to :user
 
-## newsテーブル
+## informationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 
@@ -343,11 +344,11 @@ Things you may want to cover:
 |content|text|null: false|
 |user_id|references|foreign_key: true|
 |contact_id|references|foreign_key: true|
-|information_id|references|foreign_key: true|
+|notice_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :contact
-- belongs_to :informatino
+- belongs_to :notice
 - belongs_to :user
 
 ## pointsテーブル
