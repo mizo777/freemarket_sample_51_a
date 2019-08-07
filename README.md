@@ -24,7 +24,6 @@ Things you may want to cover:
 * ...
 
 ## usersテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false,index: true|
@@ -61,7 +60,6 @@ Things you may want to cover:
 
 
 ## productsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false,index: true|
@@ -92,8 +90,8 @@ Things you may want to cover:
 - belongs_to :order
 - belongs_to :user
 
-## product_imagesテーブル
 
+## product_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image_name|text|null: false|
@@ -102,8 +100,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :product
 
-## likesテーブル
 
+## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -114,8 +112,8 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :product, counter_cache: :likes_count
 
-## commentsテーブル
 
+## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
@@ -129,54 +127,27 @@ Things you may want to cover:
 
 
 ## brandsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
-|brand|string|null: false|
-
+|name|string|null: false|
 
 ### Association
 - has_many :products
 
 
-## small_categorysテーブル
-
+## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|small_category|string|null: false|
-|middle_category_id|references|null: false, foreign_key: true|
-
+|name|string|null: false|
+|parent_id|references|null: false, foreign_key: true|
 
 ### Association
 - has_many :products
-- belongs_to :middle_category
+- has_many children
+- belongs_to :parent
 
-## middle_categorysテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|middle_category|string|null: false|
-|large_category_id|references|null: false, foreign_key: true|
-
-
-### Association
-- has_many :products
-- has_many :small_categorys
-- belongs_to :large_category
-
-## large_categorysテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|large_category|string|null: false|
-
-
-### Association
-- has_many :products
-- has_many :middle_categorys
 
 ## identity_informationテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -192,8 +163,8 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## noticesテーブル
 
+## noticesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
@@ -214,9 +185,7 @@ Things you may want to cover:
 - belongs_to :sale
 
 
-
 ## ordersテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |seller_id|references|null: false, foreign_key: true,index: true|
@@ -247,10 +216,10 @@ Things you may want to cover:
 - belongs_to :point
 - has_many :notices
 
+
 ## transfer_applicatonsテーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |transfer_price|integer|null: false|
 |transfer_applicaton_price|integer|null: false|
 |sale_id|references|null: false, foreign_key: true|
@@ -262,6 +231,7 @@ Things you may want to cover:
 - belongs_to :sale
 - belongs_to :bank_account
 - belongs_to :user
+
 
 ## salesテーブル
 |Column|Type|Options|
@@ -276,8 +246,8 @@ Things you may want to cover:
 - belongs_to :notice
 - belongs_to :user
 
-## transaction_messagesテーブル
 
+## transaction_messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |order_id|references|null: false, foreign_key: true|
@@ -289,8 +259,8 @@ Things you may want to cover:
 - belongs_to :order
 - belongs_to :user
 
-## todo_listsテーブル
 
+## todo_listsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -307,7 +277,6 @@ Things you may want to cover:
 ## contactsテーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |product_id|references|
 |position|string|
 |content|text|null: false|
@@ -318,10 +287,10 @@ Things you may want to cover:
 - belongs_to :information
 - belongs_to :user
 
+
 ## bank_accountテーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |bank|string|null: false|
 |account_type|string|null: false|
 |branch_code|integer|null: false|
@@ -336,10 +305,10 @@ Things you may want to cover:
 - has_many :transfer_applicatons
 - belongs_to :user
 
+
 ## informationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |title|string|
 |content|text|null: false|
 |user_id|references|foreign_key: true|
@@ -351,11 +320,10 @@ Things you may want to cover:
 - belongs_to :notice
 - belongs_to :user
 
-## pointsテーブル
 
+## pointsテーブル
 |Column|Type|Options|
 |------|----|-------|
-
 |point|integer|null: false|
 |reason|text|null: false|
 |user_id|references|null: false, foreign_key: true|
