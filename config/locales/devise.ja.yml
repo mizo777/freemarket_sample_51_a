@@ -13,8 +13,8 @@ ja:
             password:
               taken: "は既に使用されています。"
               blank: "を入力してください"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
+              too_short: "は7文字以上128文字以下で入力してください"
+              too_long: "は7文字以上128文字以下で入力してください"
               invalid: "は7文字以上128文字以下で入力してください"
               confirmation: "が内容とあっていません。"  
             password_confirmation:
@@ -30,7 +30,7 @@ ja:
             last_kana_name:
               blank: "を入力してください" 
             birthday:
-              blank: "を入力してください" 
+              blank: "を正しく入力してください" 
     attributes:
       user:
         current_password: "現在のパスワード"
