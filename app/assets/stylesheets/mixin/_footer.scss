@@ -1,0 +1,16 @@
+@mixin head {
+  color: $white;
+  font-size: 16px;
+  font-weight: 100;
+}
+@mixin detail-lists($padding: 40px) {
+  padding-right: $padding;
+  &__item {
+    display: block;
+    margin: 14px 0 0;
+    color: $white;
+    font-size: 12px;
+    line-height: 1.5em;
+    opacity: .7;
+  }
+}
