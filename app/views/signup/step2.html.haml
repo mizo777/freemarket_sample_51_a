@@ -1,0 +1,8 @@
+%h2 電話番号認証
+%hr
+
+= form_for @user, url: step3_signup_index_path, method: :get, html: {class: 'second-wrapper__box'} do |f|
+  = f.label :name, "名前"
+  = f.label :name, "名前"
+  = f.text_field :last_name, placeholder: '例) 山田'
+  = f.text_field :first_name, placeholder: '例) 彩'

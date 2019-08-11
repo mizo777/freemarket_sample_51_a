@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %h2 会員情報入力
 %hr
 
@@ -84,3 +85,10 @@
 
   %a{href: ""} 本人情報の登録について
   
+=======
+= form_for @user, url: step2_signup_path, method: :get, html: {class: 'first-main__box', novalidate: "novalidate"} do |f|
+  = f.text_field :nickname, placeholder: '例) メルカリ太郎'
+  = f.email_field :email, placeholder: 'PC・携帯どちらでも可'
+  = f.password_field :password, placeholder: '6文字以上'
+  = f.password_field :password_confirmation, placeholder: '6文字以上'
+>>>>>>> 0d50406... Create  form_split
