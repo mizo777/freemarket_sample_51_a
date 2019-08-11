@@ -8,7 +8,7 @@
 
 .mercari-header {
   width: auto;
-  height: 100px;
+  height: auto;
   background-color: $white;
   &__inner {
     width: 70.833333%;
@@ -40,7 +40,7 @@
           &__search {
             float: right;
             padding-right: 25px;
-            background: url("assets/images/iconfinder_icon-111-search_314478.png") no-repeat 5px 2px;
+            background: url("iconfinder_icon-111-search_314478.png") no-repeat 5px 2px;
           }
         }
       }
@@ -109,6 +109,8 @@
   width: auto;
   &__top {
     position: relative;
+    width: auto;
+    height: auto;
     &__dots {
       position: absolute;
       top: 360px;
