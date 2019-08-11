@@ -113,7 +113,6 @@ Things you may want to cover:
 |product_id|references|null: false, foreign_key: true|
 ​
 ### Association
-- has_many :notices
 - belongs_to :user
 - belongs_to :product, counter_cache: :likes_count
 ​
@@ -126,7 +125,6 @@ Things you may want to cover:
 |product_id|references|null: false, foreign_key: true|
 ​
 ### Association
-- has_many :notices
 - belongs_to :user
 - belongs_to :product
 ​
@@ -156,21 +154,12 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|point_id|references|null: false, foreign_key: true|
-|order_id|references|null: false, foreign_key: true|
-|sale_id|references|null: false, foreign_key: true|
 |comment_id|references|null: false, foreign_key: true|
 |checked|boolean|default: false|
 ​
 ### Association
 - belongs_to :user
-- belongs_to :like
-- belongs_to :order
-- belongs_to :comment
-- belongs_to :point
 - belongs_to :information
-- belongs_to :sale
 ​
 ​
 ## ordersテーブル
@@ -196,7 +185,6 @@ Things you may want to cover:
 ### Association
 - has_many :todo_lists
 - has_many :transaction_messages
-- has_many :notices
 - belongs_to :product
 - belongs_to :user
 - belongs_to :point
@@ -228,7 +216,6 @@ Things you may want to cover:
 ​
 ### Association
 - has_many :transfer_applicatons
-- belongs_to :notice
 - belongs_to :user
 ​
 ​
