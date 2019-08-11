@@ -69,4 +69,5 @@ gem 'devise'
 gem 'devise-i18n'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails'
+gem 'haml-rails'
 
