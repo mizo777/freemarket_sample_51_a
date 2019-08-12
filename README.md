@@ -62,6 +62,7 @@ Things you may want to cover:
 |city|string|null: false|
 |street|string|null: false|
 |building|string|
+|user_id|references|null: false, foreign_key: true|
 ​
 ### Association
 - belongs_to :user
@@ -156,10 +157,13 @@ Things you may want to cover:
 |content|text|null: false|
 |comment_id|references|null: false, foreign_key: true|
 |checked|boolean|default: false|
+|user_id|references|null: false, foreign_key: true|
+|information_id|references|null: false, foreign_key: true|
 ​
 ### Association
 - belongs_to :user
 - belongs_to :information
+- belongs_to :comment
 ​
 ​
 ## ordersテーブル
@@ -254,10 +258,12 @@ Things you may want to cover:
 |content|text|null: false|
 |category|set|null: false|
 |user_id|references|null: false, foreign_key: true|
+|information_id|references|null: false, foreign_key: true|
 ​
 ### Association
 - belongs_to :information
 - belongs_to :user
+- belongs_to :product
 ​
 ​
 ## bank_accountテーブル
