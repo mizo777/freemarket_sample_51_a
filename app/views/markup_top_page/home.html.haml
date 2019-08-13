@@ -81,20 +81,5 @@
         = render partial: 'nike_items'
       .mercari-main__bottom__4__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__4__view-all__text"
-  %aside.mercari-main__app-banner
-    .mercari-main__app-banner__contents
-      .mercari-main__app-banner__contents__inner
-        .mercari-main__app-banner__contents__inner__text
-          %h2.mercari-main__app-banner__contents__inner__text__1 スマホでかんたんフリマアプリ
-          %p.mercari-main__app-banner__contents__inner__text__2 今すぐ無料ダウンロード!
-        .mercari-main__app-banner__contents__inner__icons
-          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?863303983", width: "68", class: "mercari-main__app-banner__contents__inner__icons__figure-1"
-          %ul.mercari-main__app-banner__contents__inner__icons__app-google
-            %li.mercari-main__app-banner__contents__inner__icons__app-google__app
-              = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8" do
-                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", width: "133", height:"40"
-            %li.mercari-main__app-banner__contents__inner__icons__app-google__google
-              = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja" do
-                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", width: "133", height: "40"
-      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?863303983", width: "300", height: "263", class: "mercari-main__app-banner__contents__figure-2"
+= render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
