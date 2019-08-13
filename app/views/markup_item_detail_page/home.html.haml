@@ -1,0 +1,182 @@
+%header.mercari-header
+  .mercari-header__inner
+    .mercari-header__inner__top
+      %h1.mercari-header__inner__top__link
+        = link_to "https://www.mercari.com/jp/" do
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2787198863", width: "134", height: "36"
+      %p.mercari-header__inner__top__form{action: "https://www.mercari.com/jp/search/"}
+        %span
+          %input.mercari-header__inner__top__form__input{type: "text", name: "text", value: "", placeholder: "何かお探しですか？", maxlength: "100"}
+            %i.mercari-header__inner__top__form__input__search
+    .mercari-header__inner__bottom
+      %nav.mercari-header__inner__bottom--left
+        %ul.mercari-header__inner__bottom--left__nav
+          %li.mercari-header__inner__bottom--left__nav__search-category
+            = link_to "https://www.mercari.com/jp/category/" do
+              = fa_icon 'list-ul', class: "list-ul"
+              %span.mercari-header__inner__bottom--left__nav__search-category__text カテゴリーから探す
+          %li.mercari-header__inner__bottom--left__nav__search-brand
+            = link_to "https://www.mercari.com/jp/brand/" do
+              = fa_icon 'tag', class: "tag"
+              %span.mercari-header__inner__bottom--left__nav__search-brand__text ブランドから探す
+      .mercari-header__inner__bottom--right2
+        %ul.mercari-header__inner__bottom--left__nav
+          %li.mercari-header__inner__bottom--left__nav__like-list
+            = link_to "https://www.mercari.com/jp/mypage/like/history/" do
+              = fa_icon 'heart', class: "heart"
+              %span.mercari-header__inner__bottom--left__nav__like-list__text いいね！一覧
+          %li.mercari-header__inner__bottom--left__nav__notification
+            = link_to "https://www.mercari.com/jp/mypage/notification/" do
+              = fa_icon 'bell', class: "bell"
+              %span.mercari-header__inner__bottom--left__nav__notification__text お知らせ
+          %li.mercari-header__inner__bottom--left__nav__todo-list
+            = link_to "https://www.mercari.com/jp/mypage/todo/" do
+              = fa_icon 'check', class: "check"
+              %span.mercari-header__inner__bottom--left__nav__notification__text やることリスト
+          %li.mercari-header__inner__bottom--left__nav__my-page
+            = link_to "https://www.mercari.com/jp/mypage/" do
+              = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32"
+              %span.mercari-header__inner__bottom--left__nav__my-page__text マイページ
+%section.item-container
+  %h1.item-container__name
+    ロングワンピース
+  .item-container__content
+    .item-container__content__photo
+      .item-container__content__photo__top
+        .item-container__content__photo__top__item-1
+        .item-container__content__photo__top__item-2
+        .item-container__content__photo__top__item-3
+        .item-container__content__photo__top__item-4
+      .item-container__content__photo__bottom
+        .item-container__content__photo__bottom__item-1
+        .item-container__content__photo__bottom__item-2
+        .item-container__content__photo__bottom__item-3
+        .item-container__content__photo__bottom__item-4
+    .item-container__content__detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to "hana☆", "https://www.mercari.com/jp/u/948587394/"
+            .item-container__content__detail-table__item-user-ratings
+              = fa_icon 'good', class: "good"
+              %span 4
+            .item-container__content__detail-table__item-user-ratings
+              = fa_icon 'normal', class: "normal"
+              %span 1
+            .item-container__content__detail-table__item-user-ratings
+              = fa_icon 'good', class: "good"
+              %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "レディース", "https://www.mercari.com/jp/category/1/"
+            = link_to "https://www.mercari.com/jp/category/15/" do
+              = fa_icon 'arrow-right', class: "arrow-right"
+              %span ワンピース
+            = link_to "https://www.mercari.com/jp/category/174/" do
+              = fa_icon 'arrow-right', class: "arrow-right"
+              %span ロングワンピース
+        %tr
+          %th ブランド
+          %td
+            = link_to "レイ  ビームス", "https://www.mercari.com/jp/brand/1339/"
+        %tr 
+          %th 商品のサイズ
+          %td FREE SIZE
+        %tr
+          %th 商品の状態
+          %td 目立った傷や汚れなし
+        %tr
+          %th 配送料の負担
+          %td 送料込み（出品者負担）
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "福岡県", "https://www.mercari.com/jp/area/40/"
+        %tr
+          %th 発送日の目安
+          %td 4~7日で発送
+  .item-container__price-box
+    %span.item-container__price-box__item-price ¥ 2,000
+    %span.item-container__price-box__item-tax (税込)
+    %span.item-container__price-box__item-shipping-fee 送料込み
+  .item-container__buy-btn
+    = link_to "購入画面に進む", "https://www.mercari.com/jp/transaction/buy/m43988409821/"
+  .item-container__item-description
+    %p.item-container__item-description__inner
+      ご覧頂きありがとうございます。
+
+      数年前にビームスで購入しました。
+      着る機会がなくなった為、出品いたします。
+
+      2〜3回着用しましたが、
+      目立った傷や汚れはございません。
+  .item-container__buttons
+    .item-container__buttons--left
+      %button.item-container__buttons--left__like-btn
+        = fa_icon 'heart', class: "heart"
+        %span いいね！
+        %span 1
+      %button.item-container__buttons--left__flag-btn
+        = fa_icon 'flag', class: "flag"
+        %span 不適切な商品の報告
+    .item-container__buttons--right
+      = link_to "https://www.mercari.com/jp/safe/description/" do
+        = fa_icon 'lock', class: "lock"
+        %span あんしん・あんぜんへの取り組み
+.item-detail-message
+  .item-detail-message__container
+    .item-detail-message__container__content
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.item-detail-message__container__content__textarea
+      %button.item-detail-message__container__content__comment-btn
+        %span コメントする
+%ul.item-link
+  %li.item-link__prev
+    = link_to "https://item.mercari.com/jp/m86000929666/" do
+      = fa_icon 'arrow-left', class: "arrow-left"
+    %span 燃えるデット・ソード 2枚 デュエルマスターズ デュエマ
+  %li.item-link__next
+    = link_to "https://item.mercari.com/jp/m10360293918/" do
+      = fa_icon 'arrow-right', class: "arrow-right"
+    %span プリエネージュ 薬用ホワイトニングジェル 4個セット
+.social-media-box
+  %ul.social-media-box__icons
+    %li.social-media-box__icons__facebook
+      = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F" do
+        = fa_icon 'facebook', class: "facebook"
+    %li.social-media-box__icons__twitter
+      = link_to "http://twitter.com/share?count=horizontal&amp;original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;text=%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%28%C2%A5%202%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
+        = fa_icon 'twitter', class: "twitter"
+    %li.social-media-box__icons__pinterest
+      = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm43988409821_1.jpg%3F1565087077&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
+        = fa_icon 'pinterest', class: "pinterest"
+.user-items-profile
+  %section.user-items-profile__related-items
+    %h2.user-items-profile__related-items__title
+      = link_to "hana☆さんのその他の出品", "https://www.mercari.com/jp/u/948587394/"
+    .user-items-profile__related-items__items
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+  %section.user-items-profile__related-items
+    %h2.user-items-profile__related-items__title
+      = link_to "レイ  ビームスのロングワンピース その他の商品", "https://www.mercari.com/jp/brand/1339/174/"
+    .user-items-profile__related-items__items
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+      .user-items-profile__related-items__items__item
+%nav.pos-bottom
+  %ul.pos-bottom__lists
+    %li.pos-bottom__list
+    %li.pos-bottom__list
