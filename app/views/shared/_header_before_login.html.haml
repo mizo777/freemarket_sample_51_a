@@ -1,0 +1,24 @@
+%header.mercari-header
+  .mercari-header__inner
+    .mercari-header__inner__top
+      %h1.mercari-header__inner__top__link
+        = link_to "" do
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2787198863", width: "134", height: "36"
+      %p.mercari-header__inner__top__form{action: ""}
+        %input.mercari-header__inner__top__form__input{type: "text", name: "text", value: "", placeholder: "何かお探しですか？", maxlength: "100"}
+          %i.mercari-header__inner__top__form__input__search
+    .mercari-header__inner__bottom
+      %nav.mercari-header__inner__bottom--left
+        %ul.mercari-header__inner__bottom--left__nav
+          %li.mercari-header__inner__bottom--left__nav__search-category
+            = link_to "" do
+              = fa_icon 'list-ul', class: "list-ul"
+              %span.mercari-header__inner__bottom--left__nav__search-category__text カテゴリーから探す
+          %li.mercari-header__inner__bottom--left__nav__search-brand
+            = link_to "" do
+              = fa_icon 'tag', class: "tag"
+              %span.mercari-header__inner__bottom--left__nav__search-brand__text ブランドから探す
+      .mercari-header__inner__bottom--right-before-login
+        %ul.mercari-header__inner__bottom--right-before-login__nav
+          %li= link_to "新規会員登録", "", class: "mercari-header__inner__bottom--right-before-login__nav__sign-up"
+          %li= link_to "ログイン", "", class: "mercari-header__inner__bottom--right-before-login__nav__log-in"
