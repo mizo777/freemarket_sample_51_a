@@ -73,6 +73,12 @@ a {
 .camera {
   margin: 8px 0 0;
   font-size: 54px;
+  @media screen and (max-width: 768px) {
+    position: relative;
+    bottom: 29px;
+    margin: 4px 0 0;
+    font-size: 24px;
+  }
 }
 
 .prev-arrow {

@@ -17,11 +17,15 @@
     }
   }
   &__items {
-    width: 932px;
-    margin: 0 auto;
-    display: flex;
+    @media screen and (min-width: 1068px) {
+      display: flex;
+      margin: 0 auto;
+      width: 932px;
+      height: 100%;
+    }
     &__item {
-      margin-left: 20px;
+      display: inline-block;
+      margin: 0 0 0 20px;
       width: 213px;
       height: 330px;
       &__bottom {
@@ -71,7 +75,7 @@
     bottom: 4px;
     &__text {
       position: relative;
-      left: 28.65%;
+      left: 28.2%;
       line-height: 1;
       color: $dark_blue;
       font-size: 14px;

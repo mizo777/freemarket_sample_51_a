@@ -14,3 +14,134 @@
     opacity: .7;
   }
 }
+
+@mixin footer {
+  bottom: 0;
+  padding: 0 20px 10px 20px;
+  background-color: #212121;
+  color: $white;
+  &__top {
+    margin: 0 auto;
+    width: 72.857%;
+    height: 298px;
+    &__cells {
+      margin: 0 auto;
+      padding-top: 18px;
+      width: 100%;
+      height: 298px;
+      &__cell-1 {
+        float: left;
+        width: 20%;
+        &__head {
+          @include head;
+        }
+        &__items {
+          @include detail-lists(20px);
+          &__icon {
+            display: inline-block;
+            position: relative;
+            margin: 14px 0 0;
+            width: 47.531px;
+            height: 42px;
+            font-size: 12px;
+            line-height: 1.5em;
+            opacity: .7;
+            &__twitter {
+              display: inline;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              background: transparent;
+              margin: 16px 18px 0 0;
+              font-size: 33px;
+              color: $white;
+            }
+            &__facebook {
+              display: inline;
+              position: absolute;
+              left: 0;
+              bottom: 1px;
+              background: transparent;
+              margin: 16px 18px 0 0;
+              font-size: 32px;
+              color: $white;
+            }
+          }
+        }
+      }
+      &__cell-2 {
+        float: left;
+        width: 23%;
+        &__head {
+          @include head;
+        }
+        &__items {
+          @include detail-lists();
+        }
+      }
+      &__cell-3 {
+        float: left;
+        padding-right: 40px;
+        width: 38.077%;
+        &__head {
+          color: $white;
+          font-size: 16px;
+          font-weight: 100;
+        }
+        &--left {
+          float: left;
+          padding-right: 10px;
+          width: 47.4%;
+          &__items {
+            @include detail-lists(0);
+          }
+        }
+        &--right {
+          float: left;
+          padding-left: 10px;
+          width: 47.4%;
+          &__items {
+            @include detail-lists(0);
+          }
+        }
+      }
+      &__cell-4 {
+        float: left;
+        width: 9.4%;
+        &__head {
+          @include head;
+        }
+        &__items {
+          @include detail-lists(0);
+        }
+      }
+    }
+  }
+  &__bottom {
+    margin: 30px auto 20px;
+    width: 1020px;
+    height: 37px;
+    position: relative;
+    display: flex;
+    &__image {
+      margin-right: 6px;
+      color: $white;
+    }
+    &__copyright {
+      position: relative;
+      top: 10px;
+      left: 30px;
+      @media screen and (min-width: 768px) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 0.92vw;
+        margin: 10px 0 0;
+        vertical-align: sub;
+      }
+    }
+  }
+}
