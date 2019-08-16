@@ -14,21 +14,21 @@
         .item-container__content__photo__bottom__item
         .item-container__content__photo__bottom__item
         .item-container__content__photo__bottom__item
-    .item-container__content__detail-table
+    %table.item-container__content__detail-table
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
         %td.item-container__content__detail-table__row__data
-          .item-container__content__detail-table__row__data__text
-            = link_to "hana☆", "https://www.mercari.com/jp/u/948587394/"
-          .item-container__content__detail-table__row__data__item-user-ratings
-            = fa_icon 'good', class: "good"
-            %span 4
-          .item-container__content__detail-table__row__data__item-user-ratings
-            = fa_icon 'normal', class: "normal"
-            %span 1
-          .item-container__content__detail-table__row__data__item-user-ratings
-            = fa_icon 'good', class: "good"
-            %span 0
+          = link_to "hana☆", "https://www.mercari.com/jp/u/948587394/", class: "item-container__content__detail-table__row__data__text"
+          %ul.item-container__content__detail-table__row__data__wrapper
+            %li.item-container__content__detail-table__row__data__wrapper__first-item-user-rating
+              = fa_icon 'heart', class: "heart"
+              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-rating__count 4
+            %li.item-container__content__detail-table__row__data__wrapper__item-user-rating
+              = fa_icon 'heart', class: "heart"
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-rating__count 1
+            %li.item-container__content__detail-table__row__data__wrapper__item-user-rating
+              = fa_icon 'heart', class: "heart"
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-rating__count 0
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header カテゴリー
         %td.item-container__content__detail-table__row__data
