@@ -1,7 +1,4 @@
 class SignupController < ApplicationController
-  def method_name
-    
-  end
   def step1
   end
   def step2   
@@ -12,5 +9,4 @@ class SignupController < ApplicationController
   end
   def done   
   end
-
 end
