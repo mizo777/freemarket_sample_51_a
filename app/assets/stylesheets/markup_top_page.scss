@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import "config/color";
-@import "mixin/items";
-@import "mixin/header_before_login";
-@import "mixin/app-banner";
-@import "mixin/footer";
-
 .mercari-header {
   overflow-x: hidden;
   @include header_before_login;

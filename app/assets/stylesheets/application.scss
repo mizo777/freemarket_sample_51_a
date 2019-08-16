@@ -10,92 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 @import "font-awesome";
-@import 'slick';
-@import 'slick-theme';
+@import "slick";
+@import "slick-theme";
+@import "config/color";
+@import "config/font-size";
+@import "mixin/header_before_login";
+@import "mixin/items";
+@import "mixin/app-banner";
+@import "mixin/footer";
+@import "./all-elements.scss";
+@import "./icon.scss";
 @import "./markup_top_page.scss";
 
-* {
-  margin: 0px;
-  padding: 0px;
-}
-body {
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-ul {
-  list-style: none;
-}
-li {
-  display: inline;
-}
-a {
-  text-decoration: none;
-}
 
-.chevron-left {
-  font-size: 46px;
-  color: $white;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
-}
-.chevron-right {
-  font-size: 46px;
-  color: $white;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
- }
-.search {
-  width: 40px;
-  height: 40px;
-}
-.icon-twitter {
-  width: 29.53px;
-  height: 24px;
-}
-.list-ul {
-  position: relative;
-  top: 0.45px;
-  width: 15.031px;
-  height: 12px;
-  color: $cinnabar;
-}
-.tag {
-  position: relative;
-  top: 0.8px;
-  width: 15.031px;
-  height: 12px;
-  color: $cinnabar;
-}
-.heart {
-  font-weight: 400;
-}
-.camera {
-  margin: 8px 0 0;
-  font-size: 54px;
-  @media screen and (max-width: 768px) {
-    position: relative;
-    bottom: 29px;
-    margin: 4px 0 0;
-    font-size: 24px;
-  }
-}
-.search {
-  font-weight: lighter;
-  color: $black;
-}
-
-.prev-arrow {
-  position: absolute;
-  top: 172px;
-  padding-left: 60px;
-  z-index: 1;
-}
-.next-arrow {
-  float: right;
-  position: relative;
-  bottom: 215px;
-  padding-right: 60px;
-  z-index: 1;
-}
 
