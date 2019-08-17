@@ -316,18 +316,36 @@
   }
 }
 .item-link {
+  position: relative;
+  width: 43%;
+  
   @media screen and (min-width: 768px) {
     margin: 24px auto 0;
     width: 700px;
   }
   &__prev {
+    float: left;
+    padding: 0 0 0 14px;
+    text-align: left;
+    @media screen and (min-width: 768px) {
+      width: 45%;
+    }
     &__text {
-
+      word-wrap: break-word;
+      font-size: 14px;
+      color: #0099e8;
     }
   }
   &__next {
+    float: right;
+    padding: 0 14px 0 0;
+    text-align: right;
+    @media screen and (min-width: 768px) {
+      width: 45%;
+    }
     &__text {
-      
+      font-size: 14px;
+      color: #0099e8;
     }
   }
 }
