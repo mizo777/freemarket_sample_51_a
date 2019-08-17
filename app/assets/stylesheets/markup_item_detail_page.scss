@@ -1,0 +1,205 @@
+// Place all the styles related to the markup_item_detail_page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "config/color";
+@import "header_after_login";
+@import "app-banner";
+@import "footer";
+
+.mercari-header {
+  @include header_after_login;
+}
+.item-container {
+  //margin: 40px auto 0;
+  margin: 40px 370px 0;
+  padding: 24px 16px 55px 16px;
+  background: #fff;
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+    padding: 24px 40px 40px;
+    width: 700px;
+  }
+  &__name {
+    font-size: 24px;
+    text-align: center;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+  &__content {
+    margin: 16px 0 0;
+    width: 620px;
+    height: 420px;
+    &__photo {
+      //display: inline-block;
+      float: left;
+      position: relative;
+      min-width: 280px;
+      max-width: 360px;
+      min-height: 280px;
+      margin: 0 auto;
+      background: #fafafa;
+      @media screen and (min-width: 768px) {
+        float: left;
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 375px;
+      }
+      &__top {
+        &__item {
+
+        }
+      }
+      &__bottom {
+        &__item {
+
+        }
+      }
+    }
+    &__detail-table {
+      display: table;
+      float: right;
+      margin: 8px auto 0;
+      width: 100%;
+      max-width: 360px;
+      border-collapse: collapse;
+      border: 1px solid #f5f5f5;
+      @media screen and (min-width: 768px) {
+        float: right;
+        max-width: 300px;
+        height: 420px;
+        margin: 0 auto;
+      }
+      &__row {
+        display: table-row;
+        &__header {
+          display: table-cell;
+          padding: 16px 8px;
+          text-align: left;
+          width: 39%;
+          font-weight: 400;
+          background: #fafafa;
+          border: 1px solid #f5f5f5;
+          @media screen and (min-width: 768px) {
+            padding: 8px;
+          }
+        }
+        &__data {
+          display: table-cell;
+          padding: 16px 8px;
+          width: 61%;
+          background: $white;
+          border-collapse: collapse;
+          border: 1px solid #f5f5f5;
+          @media screen and (min-width: 768px) {
+            padding: 8px;
+          }
+          &__text {
+            display: block;
+            color: #0099e8;
+          }
+          &__wrapper {
+            display: block;
+            &__first-item-user-ratings {
+              display: inline-block;
+              &__count {
+
+              }
+            }
+            &__item-user-ratings {
+              display: inline-block;
+              &__count {
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__price-box {
+    margin: 16px 0 0;
+    &__item-price {
+      margin: 0 8px 0 0;
+      font-size: 32px;
+      @media screen and (min-width: 768px) {
+        margin: 0 16px 0 0;
+        font-size: 50px;
+      }
+    }
+    &__item-tax {
+      font-size: 10px;
+    }
+    &__item-shipping-fee {
+
+    }
+  }
+  &__buy-btn {
+    display: block;
+    height: 56px;
+    margin: 16px 0 24px;
+    background: $cinnabar;
+    line-height: 56px;
+    text-align: center;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    @media screen and (min-width: 768px) {
+      height: 60px;
+      line-height: 60px;
+    }
+    &__text {
+      color: $white;
+      font-size: 18px;
+      font-weight: 600;
+      @media screen and (min-width: 768px) {
+        font-size: 24px;
+      } 
+    }
+  }
+  &__item-description {
+    padding: 24px 0 0;
+    line-height: 1.5;
+    @media screen and (min-width: 768px) {
+      padding: 32px 0 0;
+    }
+    &__inner {
+      font-size: 14px;
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+  &__buttons {
+    margin: 16px 0 0;
+    font-size: 0;
+    &--left {
+      &__like-btn {
+        // border: 1px solid #ea352d;
+        // background: none;
+        // color: #ea352d;
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 40px;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        color: #333;
+        border: 1px solid #f5f5f5;
+        background: #f5f5f5;
+      }
+      &__flag-btn {
+
+      }
+    }
+    &--right {
+      &__text {
+
+      }
+    }
+  }
+}
+.app-banner {
+  @include app-banner;
+}
+.mercari-footer {
+  @include footer;
+}

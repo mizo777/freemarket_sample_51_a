@@ -66,6 +66,9 @@ group :production do
 end
 
 gem 'haml-rails'
-gem "font-awesome-rails"
+gem 'erb2haml'
+gem 'font-awesome-rails'
 gem 'devise'
 gem 'active_hash'
+gem 'jquery-rails'
+gem "jquery-slick-rails"
