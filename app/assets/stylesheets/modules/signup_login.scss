@@ -11,6 +11,10 @@ body.signup-login{
       display: inline-block;
       a{
         cursor: pointer;
+        img{
+          width: 120px;
+          height: 33px;          
+        }
       }
     }
   }
@@ -225,7 +229,11 @@ body.signup-login{
     height: 128px; 
     h1{
       margin: 40px 0 0;
-    } 
+    }
+    img {
+      width: 185px !important;
+      height: 49px !important;
+  }
   }  
   .progress-bar {
     padding: 40px 0 0 44px !important;
