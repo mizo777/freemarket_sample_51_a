@@ -32,10 +32,12 @@
 }
 .heart {
   font-weight: 400;
+  color: #ccc;
 }
 .camera {
   margin: 8px 0 0;
   font-size: 54px;
+  color: $white;
   @media screen and (max-width: 768px) {
     position: relative;
     bottom: 29px;
