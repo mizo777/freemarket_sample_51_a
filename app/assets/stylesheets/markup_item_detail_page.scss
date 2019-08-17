@@ -14,7 +14,7 @@
   //margin: 40px auto 0;
   margin: 40px 370px 0;
   padding: 24px 16px 55px 16px;
-  background: #fff;
+  background: $white;
   @media screen and (min-width: 768px) {
     margin: 0 auto;
     padding: 24px 40px 40px;
@@ -254,6 +254,80 @@
           font-size: 14px;
         }
       }
+    }
+  }
+}
+.item-detail-message {
+  margin: 8px auto;
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+  &__container {
+    &__content {
+      padding: 24px 7.5%;
+      background: $white;
+      @media screen and (min-width: 768px) {
+        padding: 24px;
+      }
+      &__text {
+        padding: 8px;
+        line-height: 1;
+        font-size: 14px;
+        background: #fff6de;
+
+      }
+      &__textarea {
+        display: block;
+        resize: vertical;
+        margin: 8px 0 0;
+        width: 100%;
+        max-width: 100%;
+        //width: 652px;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+
+      }
+      &__comment-btn {
+        display: block;
+        width: 100%;
+        margin: 8px 0 0;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        
+        &__text {
+          font-size: 14px;
+          color: #fff;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+.item-link {
+  @media screen and (min-width: 768px) {
+    margin: 24px auto 0;
+    width: 700px;
+  }
+  &__prev {
+    &__text {
+
+    }
+  }
+  &__next {
+    &__text {
+      
     }
   }
 }
