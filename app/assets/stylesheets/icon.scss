@@ -34,6 +34,11 @@
   font-weight: 400;
   color: #ccc;
 }
+.heart-2 {
+  font-size: 15px;
+  color: #ccc;
+  vertical-align: middle;
+}
 .camera {
   margin: 8px 0 0;
   font-size: 54px;
@@ -61,4 +66,15 @@
   bottom: 215px;
   padding-right: 60px;
   z-index: 1;
+}
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.lock {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #0099e8;
 }
