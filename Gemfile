@@ -68,5 +68,8 @@ end
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-rails'
+gem 'devise'
+gem 'active_hash'
 gem 'jquery-rails'
 gem "jquery-slick-rails"
+
