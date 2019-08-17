@@ -68,3 +68,4 @@ end
 gem 'haml-rails'
 gem "font-awesome-rails"
 gem 'devise'
+gem 'active_hash'
