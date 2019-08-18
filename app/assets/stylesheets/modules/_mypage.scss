@@ -128,7 +128,11 @@ body.mypage{
                   }
                   time{
                     display: inline-block;
-                    color: #888;                                        
+                    color: #888;
+                    i{
+                      margin-top: 3px;
+                      font-size: 20px;
+                    }                                        
                   }
     
                 }
@@ -174,6 +178,8 @@ body.mypage{
           display:block;
         }
       }
+      // 個別ページ
+      // 購入した商品
       section.purchased-index{
           background: #fff;
           h2{
@@ -330,3 +336,26 @@ body.mypage{
     margin: 40px 0 0 !important;
   }  
 }
+
+//お問合せ、ポイント
+.light-list{
+  width: 100% !important;
+  li{
+    border-top: none !important;
+  }
+  a{
+    text-align: left;
+  }
+}
+
+// 発送元
+.delivery-form{
+  height: 100%;
+  h2{
+    line-height: 33px;
+  }
+  .form-format__content{
+    max-width: 343px !important;
+  }
+}
+

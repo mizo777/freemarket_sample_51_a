@@ -21,3 +21,39 @@
 .inlign-block{
   display: inline-block;
 } 
+.float-right{
+  float: right;
+}
+p.text-gray{
+  color: #888;
+}
+p.text{
+  margin: 8px 0 0;
+  line-height: 1.5;
+  color: #333;
+  font-size: 14px;
+}  
+p.text-right{
+  text-align: right;
+}
+p.text-center{
+  text-align: center;
+}
+.text-center{
+  text-align: center;
+}
+p.gray{
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+}
+a.nodeco-blue{
+  color: #0099e8;
+  text-decoration: none; 
+}
+.decoration-non{
+  text-decoration: none; 
+  list-style: none; 
+  padding: 0;
+}
