@@ -18,31 +18,31 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
         %td.item-container__content__detail-table__row__data
-          = link_to "hana☆", "https://www.mercari.com/jp/u/948587394/", class: "item-container__content__detail-table__row__data__text"
+          = link_to "hana☆", "", class: "item-container__content__detail-table__row__data__text"
           %ul.item-container__content__detail-table__row__data__wrapper
-            %li.item-container__content__detail-table__row__data__wrapper__first-item-user-rating
-              = fa_icon 'heart', class: "heart"
-              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-rating__count 4
-            %li.item-container__content__detail-table__row__data__wrapper__item-user-rating
-              = fa_icon 'heart', class: "heart"
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-rating__count 1
-            %li.item-container__content__detail-table__row__data__wrapper__item-user-rating
-              = fa_icon 'heart', class: "heart"
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-rating__count 0
+            %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
+              %i.fas.fa-smile
+              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings__count 4
+            %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
+              %i.fas.fa-meh
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count 1
+            %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
+              %i.fas.fa-frown
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count 0
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header カテゴリー
         %td.item-container__content__detail-table__row__data
-          = link_to "レディース", "https://www.mercari.com/jp/category/1/"
+          = link_to "レディース", "https://www.mercari.com/jp/category/1/", class: "item-container__content__detail-table__row__data__text"
           = link_to "https://www.mercari.com/jp/category/15/" do
-            = fa_icon 'arrow-right', class: "arrow-right"
-            %span ワンピース
+            = fa_icon 'chevron-right', class: "chevron-right-2"
+            %span.item-container__content__detail-table__row__data__text ワンピース
           = link_to "https://www.mercari.com/jp/category/174/" do
-            = fa_icon 'arrow-right', class: "arrow-right"
-            %span ロングワンピース
+            = fa_icon 'chevron-right', class: "chevron-right-2"
+            %span.item-container__content__detail-table__row__data__text ロングワンピース
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header ブランド
         %td.item-container__content__detail-table__row__data
-          = link_to "レイ  ビームス", "https://www.mercari.com/jp/brand/1339/"
+          = link_to "レイ  ビームス", "https://www.mercari.com/jp/brand/1339/", class: "item-container__content__detail-table__row__data__link"
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 商品のサイズ
         %td.item-container__content__detail-table__row__data FREE SIZE
@@ -58,7 +58,7 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 配送元地域
         %td.item-container__content__detail-table__row__data
-          = link_to "福岡県", "https://www.mercari.com/jp/area/40/"
+          = link_to "福岡県", "https://www.mercari.com/jp/area/40/", class: "item-container__content__detail-table__row__data__link"
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 発送日の目安
         %td.item-container__content__detail-table__row__data 4~7日で発送
