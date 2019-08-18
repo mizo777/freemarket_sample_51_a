@@ -3,10 +3,10 @@
   color: $white;
   text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
 }
-.chevron-left-2 {
-  color: #0099e8;
-  font-size: 14px;
-}
+// .chevron-left-2 {
+//   color: #0099e8;
+//   font-size: 14px;
+// }
 .chevron-right {
   font-size: 46px;
   color: $white;
@@ -15,7 +15,6 @@
  .chevron-right-2 {
   color: #0099e8;
   font-size: 14px;
-  //float: right;
   float: left;
  }
  .chevron-right-3 {
@@ -23,6 +22,16 @@
   font-size: 9px;
   color: #888;
  }
+//  .chevron-right-4 {
+//   color: #0099e8;
+//   font-size: 14px;
+//   float: right;
+//   height: 100%;
+//   padding-left: 3px;
+//   vertical-align: middle;
+//   float: left;
+//   text-align: right;
+//  }
 .search {
   width: 40px;
   height: 40px;
@@ -53,18 +62,6 @@
   font-size: 15px;
   color: #ccc;
   vertical-align: middle;
-}
-.heart-red {
-  vertical-align: middle;
-  color: #ff6699;
-}
-.heart-orange {
-  vertical-align: middle;
-  color: #ff9933;
-}
-.heart-blue {
-  vertical-align: middle;
-  color: #0099ff
 }
 .camera {
   margin: 8px 0 0;
