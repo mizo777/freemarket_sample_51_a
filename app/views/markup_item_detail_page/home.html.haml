@@ -5,15 +5,19 @@
   .item-container__content
     .item-container__content__photo
       .item-container__content__photo__top
-        .item-container__content__photo__top__item
-        .item-container__content__photo__top__item
-        .item-container__content__photo__top__item
-        .item-container__content__photo__top__item
-      .item-container__content__photo__bottom
-        .item-container__content__photo__bottom__item
-        .item-container__content__photo__bottom__item
-        .item-container__content__photo__bottom__item
-        .item-container__content__photo__bottom__item
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_1.jpg?1565087077", class: "item-container__content__photo__top__wrapper__image"
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_2.jpg?1565087077", class: "item-container__content__photo__top__wrapper__image"
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_3.jpg?1565087077", class: "item-container__content__photo__top__wrapper__image"
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_4.jpg?1565087077", class: "item-container__content__photo__top__wrapper__last-image"
+      %ul.item-container__content__photo__bottom
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_1.jpg?1565087077", class: "item-container__content__photo__bottom__image"
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_2.jpg?1565087077", class: "item-container__content__photo__bottom__image"
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_3.jpg?1565087077", class: "item-container__content__photo__bottom__image"
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_4.jpg?1565087077", class: "item-container__content__photo__bottom__image"
     %table.item-container__content__detail-table
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
@@ -114,13 +118,16 @@
   %ul.social-media-box__icons
     %li.social-media-box__icons__facebook
       = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F" do
-        = fa_icon 'facebook', class: "facebook"
+        %i.fab.fa-facebook-square
+        //= fa_icon 'facebook', class: "facebook"
     %li.social-media-box__icons__twitter
       = link_to "http://twitter.com/share?count=horizontal&amp;original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;text=%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%28%C2%A5%202%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
-        = fa_icon 'twitter', class: "twitter"
+        %i.fab.fa-twitter-square
+        //= fa_icon 'twitter', class: "twitter"
     %li.social-media-box__icons__pinterest
       = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm43988409821_1.jpg%3F1565087077&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
-        = fa_icon 'pinterest', class: "pinterest"
+        %i.fab.fa-pinterest-square
+        //= fa_icon 'pinterest', class: "pinterest"
 .user-items-profile
   %section.user-items-profile__related-items
     %h2.user-items-profile__related-items__title

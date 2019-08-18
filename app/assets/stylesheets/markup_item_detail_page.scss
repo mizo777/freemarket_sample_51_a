@@ -49,16 +49,49 @@ body {
         float: left;
         min-width: 300px;
         max-width: 300px;
-        min-height: 375px;
+        height: 375px;
       }
       &__top {
-        &__item {
-
+        position: relative;
+        overflow: hidden;
+        &__wrapper {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          background-size: cover;
+          &__image {
+            margin: 0 auto;
+            width: 225px;
+            height: 300px;
+          }
+          &__last-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 300px;
+            height: 269.156px;
+          }
         }
       }
       &__bottom {
-        &__item {
-
+        font-size: 0;
+        &__image {
+          position: relative;
+          overflow: hidden;
+          display: inline-block;
+          display: none;
+          width: 20%;
+          max-height: 90px;
+          opacity: .4;
+          cursor: pointer;
+          @media screen and (min-width: 768px) {
+            width: 60px;
+            height: 60px;
+            margin: 0;
+          } 
         }
       }
     }
@@ -282,7 +315,6 @@ body {
       }
       &__text {
         display: inline-block;
-        
         margin: 1px 0 0 8px;
         font-size: 12px;
         vertical-align: middle;
@@ -398,6 +430,8 @@ body {
     text-align: center;
     //font-size: 0;
     &__facebook {
+      position: relative;
+      top: 2px;
       line-height: 38px;
     }
     &__twitter {
