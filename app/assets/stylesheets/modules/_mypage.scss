@@ -170,6 +170,7 @@ body.mypage{
           display:block;
         }
       }
+      // 個別ページ
       section.purchased-index{
           background: #fff;
           h2{
@@ -267,7 +268,8 @@ body.mypage{
         background-color: #888;
       }
   } 
-}
+}   
+
 
 @media screen and (min-width: 768px){
   .breadcrumbs ul {
@@ -317,5 +319,8 @@ body.mypage{
       width: 280px;
       margin: 0 40px 0 0 !important;
     }   
+  }
+  .mypage-history {
+    margin: 40px 0 0 !important;
   }  
 }

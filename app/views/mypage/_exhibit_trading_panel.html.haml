@@ -1,0 +1,13 @@
+%ul
+  /  - if message.present?
+  %li
+    = link_to "", class: "item-link" do
+      %figure
+        = image_tag "/images/camera.jpeg", alt: "商品画像"  
+      .message-box
+        .message 
+          事務局から個別メッセージ「ログイン通知」
+        .item-status.doing 取引中
+      = fa_icon "chevron-right"
+  / - else
+  /   %li.not-found.bold 現在、やることリストはありません      
