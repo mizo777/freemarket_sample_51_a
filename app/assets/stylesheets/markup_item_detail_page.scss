@@ -13,14 +13,14 @@ body {
   @include header_after_login;
 }
 .item-container {
-  //margin: 40px auto 0;
-  margin: 40px 370px 0;
+  margin: 40px auto 0;
+  //margin: 40px 370px 0;
   padding: 24px 16px 55px 16px;
   background: $white;
   
   @media screen and (min-width: 768px) {
     //margin: 0 auto;
-    margin: 40px 370px 0;
+    //margin: 40px 370px 0;
     padding: 24px 40px 40px;
     width: 620px;
     //width: 700px;
@@ -410,7 +410,7 @@ body {
 }
 .user-items-profile {
   @media screen and (min-width: 768px) {
-    width: 720px;
+    width: 700px;
     margin: 0 auto;
   }
   &__related-items {
@@ -446,6 +446,12 @@ body {
         @media screen and (min-width: 768px) {
           width: 220px;
           margin: 0 20px 20px 0;
+        }
+        &:nth-child(3n) {
+          @media screen and (min-width: 768px) {
+            width: 220px;
+            margin: 0 0 20px 0;
+          }
         }
         &__bottom {
           width: 100%;
