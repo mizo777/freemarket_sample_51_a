@@ -15,7 +15,8 @@
  .chevron-right-2 {
   color: #0099e8;
   font-size: 14px;
-  float: right;
+  //float: right;
+  float: left;
  }
  .chevron-right-3 {
   margin: 0 4px;
@@ -52,6 +53,18 @@
   font-size: 15px;
   color: #ccc;
   vertical-align: middle;
+}
+.heart-red {
+  vertical-align: middle;
+  color: #ff6699;
+}
+.heart-orange {
+  vertical-align: middle;
+  color: #ff9933;
+}
+.heart-blue {
+  vertical-align: middle;
+  color: #0099ff
 }
 .camera {
   margin: 8px 0 0;
