@@ -8,16 +8,18 @@
 @import "footer";
 body {
   background-color: #f5f5f5;
+  overflow-x: hidden;
 }
 .mercari-header {
   @include header_after_login;
+  overflow-x: hidden;
 }
 .item-container {
   margin: 40px auto 0;
   //margin: 40px 370px 0;
   padding: 24px 16px 55px 16px;
   background: $white;
-  
+  overflow-x: hidden;
   @media screen and (min-width: 768px) {
     //margin: 0 auto;
     //margin: 40px 370px 0;
@@ -33,12 +35,23 @@ body {
     font-weight: bold;
   }
   &__content {
+    display: block;
     margin: 16px 0 0;
     width: 620px;
     height: 420px;
+    @media screen and (max-width: 768px) {
+      height: 880px;
+      margin: 16px auto 0;
+      //position: relative;
+      //left: 30px;
+    }
+    @media screen and (max-width: 620px) {
+      position: relative;
+      right: 70px;
+    }
     &__photo {
-      //display: inline-block;
-      float: left;
+      display: block;
+      //float: left;
       position: relative;
       min-width: 280px;
       max-width: 360px;
@@ -96,8 +109,11 @@ body {
       }
     }
     &__detail-table {
+      display: inline-block;
       display: table;
-      float: right;
+      
+      //margin: 0 auto;
+      //float: right;
       margin: 8px auto 0;
       width: 100%;
       max-width: 360px;
@@ -108,6 +124,9 @@ body {
         max-width: 300px;
         height: 420px;
         margin: 0 auto;
+      }
+      @media screen and (max-width: 768px) {
+        position: relative;
       }
       &__row {
         display: table-row;
@@ -157,7 +176,6 @@ body {
               &__count {
                 vertical-align: middle;
                 font-size: 14px;
-
               }
             }
             &__item-user-ratings {
@@ -183,6 +201,8 @@ body {
     }
   }
   &__price-box {
+    //display: inline-block;
+    display: block;
     margin: 16px 0 0;
     text-align: center;
     &__item-price {
@@ -194,13 +214,16 @@ body {
       }
     }
     &__item-tax {
+      display: inline-block;
       font-size: 10px;
     }
     &__item-shipping-fee {
-
+      display: inline-block;
+      font-size: 16px;
     }
   }
   &__buy-btn {
+    //display: inline-block;
     display: block;
     height: 56px;
     margin: 16px 0 24px;
@@ -228,6 +251,10 @@ body {
     @media screen and (min-width: 768px) {
       padding: 32px 0 0;
     }
+    @media screen and (max-width: 768px) {
+      //display: block;
+      text-align: center;
+    }
     &__inner {
       font-size: 14px;
       @media screen and (min-width: 768px) {
@@ -244,6 +271,9 @@ body {
       @media screen and (min-width: 768px) {
         float: left;
       }
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
       &__like-btn {
         // border: 1px solid #ea352d;
         // background: none;
@@ -256,6 +286,7 @@ body {
         color: #333;
         border: 1px solid #f5f5f5;
         background: #f5f5f5;
+        
         &__text {
           display: inline-block;
           margin: 1px 0 0 8px;
@@ -313,6 +344,9 @@ body {
         margin: 8px 0 0;
         float: right;
       }
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
       &__text {
         display: inline-block;
         margin: 1px 0 0 8px;
@@ -356,7 +390,10 @@ body {
         background: #fff;
         font-size: 16px;
         line-height: 1.5;
-
+        @media screen and (max-width: 768px) {
+          //margin: auto;
+          width: calc(100% - 22px);
+        }
       }
       &__comment-btn {
         display: block;
@@ -385,34 +422,58 @@ body {
 .item-link {
   position: relative;
   width: 43%;
-  
   @media screen and (min-width: 768px) {
     margin: 24px auto 0;
     width: 700px;
+    height: 28px;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
   &__prev {
     float: left;
-    padding: 0 0 0 14px;
     text-align: left;
     @media screen and (min-width: 768px) {
       width: 45%;
+      height: 100%;
+    }
+    &__icon {
+      float: left;
+      text-align: left;
+      padding-right: 3px;
+      height: 100%;
+      line-height: 100%;
+      color: #0099e8;
+      font-size: 14px;
     }
     &__text {
-      word-wrap: break-word;
       font-size: 14px;
       color: #0099e8;
+      line-height: 100%;
+      word-wrap: break-word;
     }
   }
   &__next {
     float: right;
-    padding: 0 14px 0 0;
     text-align: right;
     @media screen and (min-width: 768px) {
       width: 45%;
+      height: 100%
+    }
+    &__icon {
+      float: right;
+      text-align: right;
+      padding-left: 3px;
+      height: 100%;
+      //vertical-align: middle; 
+      color: #0099e8;
+      font-size: 14px;
     }
     &__text {
       font-size: 14px;
       color: #0099e8;
+      height: 100%;
+      word-wrap: break-word;
     }
   }
 }
@@ -473,9 +534,9 @@ body {
       &__item {
         display: inline-block;
         //margin: 0 0 0 20px;
-        //width: 213px;
-        margin: 0 4px 4px 0;
-        width: calc(33.3333% - 2.666666px);
+        width: 213px;
+        margin: 0 17px 4px 0;
+        //width: calc(33.3333% - 2.666666px);
         height: 330px;
         @media screen and (min-width: 768px) {
           width: 220px;
@@ -493,10 +554,12 @@ body {
           background-color: $white;
           text-align: center;
           &__image {
-            //width: 213px;
-            //height: 213px;
-            width: 220px;
-            height: 220px;
+            width: 213px;
+            height: 213px;
+            @media screen and (min-width: 768px) {
+              width: 220px;
+              height: 220px;
+            }
           }
           &__article-name {
             overflow: auto;
@@ -541,7 +604,6 @@ body {
   &__lists {
     padding: 16px;
     line-height: 1.2;
-    font-size: 0;
     overflow: auto;
     @media screen and (min-width: 1068px) {
       font-size: 14px;
