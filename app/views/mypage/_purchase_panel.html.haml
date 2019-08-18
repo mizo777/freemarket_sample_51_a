@@ -1,0 +1,40 @@
+%ul
+  /  - if message.present?
+  %li
+    = link_to "", class: "item-link" do
+      %figure
+        = image_tag "/images/camera.jpeg", alt: "商品画像"  
+      .message-box
+        .message 
+          事務局から個別メッセージ「ログイン通知」
+        %time
+          = fa_icon "clock m-right8"          
+          %span １日前
+      = fa_icon "chevron-right"
+  %li
+    = link_to "", class: "item-link" do
+      %figure
+        = image_tag "/images/camera.jpeg", alt: "商品画像"  
+      .message-box
+        .message 
+          事務局から個別メッセージ「ログイン通知」
+        %time
+          = fa_icon "clock m-right8"          
+          %span １日前
+      = fa_icon "chevron-right"
+  %li
+    = link_to "", class: "item-link" do
+      %figure
+        = image_tag "/images/camera.jpeg", alt: "商品画像"  
+      .message-box
+        .message 
+          事務局から個別メッセージ「ログイン通知」
+        %time
+          = fa_icon "clock m-right8"          
+          %span １日前
+      = fa_icon "chevron-right"
+  %li.more-list
+    = link_to "/mypage/purchase", class: "" do
+      一覧を見る
+  / - else
+  /   %li.not-found.bold 現在、やることリストはありません      
