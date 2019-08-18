@@ -114,6 +114,7 @@ body.mypage{
                   }
                 }
                 .message-box{
+                  box-sizing: border-box;
                   text-align: left;
                   width: 100%;
                   padding-left: 20px;
@@ -137,6 +138,9 @@ body.mypage{
                   top: 40%;
                 }                 
               }
+              .item-link:hover {
+                background-color: #fbfbfb;
+              } 
             }
             li.more-list{
               box-sizing: border-box;
@@ -305,7 +309,10 @@ body.mypage{
   .mypage-title {
     font-size: 24px !important;
     padding: 8px 24px !important;
-  }    
+  }
+  .news-list{
+    padding: 40px !important;
+  }   
 }
 
 @media screen and (min-width: 1068px){

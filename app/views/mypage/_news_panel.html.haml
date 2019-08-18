@@ -1,0 +1,11 @@
+%ul
+  /  - if message.present?
+  %li
+    = link_to "", class: "item-link news-list" do
+      .message-box
+        %time
+          = fa_icon "clock m-right8"          
+          %span 8月15日 17:30
+        %h3《夏のカテゴリー巡りキャンペーン》の対象となるお客さまへのポイント、お得チケット(ポイントバック)の付与を完了しました
+  / - else
+  /   %li.not-found.bold 現在、やることリストはありません      
