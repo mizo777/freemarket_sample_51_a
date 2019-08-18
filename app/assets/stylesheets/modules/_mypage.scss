@@ -210,6 +210,7 @@ body.mypage{
         }
       }
       // 追加タイトル
+    }
       .mypage-title{
         background-color: white;
         padding: 12px 4%;
@@ -265,8 +266,7 @@ body.mypage{
       .item-status.done{
         background-color: #888;
       }
-    } 
-  }
+  } 
 }
 
 @media screen and (min-width: 768px){
@@ -296,7 +296,14 @@ body.mypage{
         }
       }       
     }      
-  }  
+  }
+  .mypage-history {
+    margin: 16px 0 0;
+  }
+  .mypage-title {
+    font-size: 24px !important;
+    padding: 8px 24px !important;
+  }    
 }
 
 @media screen and (min-width: 1068px){
