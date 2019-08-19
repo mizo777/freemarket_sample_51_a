@@ -1,0 +1,51 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %section.mypage-content__r-content__user-icon
+        = link_to "", class: "" do
+          %figure
+            = image_tag "/images/user-icon.jpg", size: "60x60", alt: "ユーザーアイコン"
+          %h2.bold#hoge user
+          .user-info.m-top8
+            %div.inlign-block 
+              評価
+              %span.bold 19
+            %div.inlign-block.m-left16
+              出品数
+              %span.bold 19
+
+      %section.mypage-content__r-content__index
+        %ul.mypage-content__r-content__index__tab.flex
+          %li.mypage-tab.is-active
+            %h3.bold
+              = link_to "", class: "" do
+                お知らせ
+          %li.mypage-tab
+            %h3.bold
+              = link_to "", class: "" do
+                やることリスト
+        .mypage-content__r-content__index__content.mypage-panel.is-show
+          = render partial: 'notification_panel'
+        .mypage-content__r-content__index__content.mypage-panel
+          = render partial: 'todo_panel'
+
+      %section.mypage-content__r-content__index.purchased-index.m-top40
+        %h2.purchased-index__title.bold 購入した商品
+        %ul.mypage-content__r-content__index__tab.flex
+          %li.mypage-tab2.is-active2
+            %h3.bold
+              = link_to "", class: "" do
+                取引中
+          %li.mypage-tab2
+            %h3.bold
+              = link_to "", class: "" do
+                過去の取引
+        .mypage-content__r-content__index__content.mypage-panel2.is-show2
+          = render partial: 'purchase_panel'
+        .mypage-content__r-content__index__content.mypage-panel2
+          = render partial: 'purchased_panel'
+
+

@@ -3,7 +3,8 @@ body.signup-login{
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
-  font-size: 14px;  
+  font-size: 14px; 
+} 
   // 共通ヘッダー
   header.signup-login__header{
     text-align: center;
@@ -21,25 +22,6 @@ body.signup-login{
   // 新規登録プログレスバー
   .progress-bar {
     @include progressFormat();
-  }
-  // 共通コンテント
-  .signup-login__box{
-    background-color: #fff;
-    width: 700px;
-    margin: 0 auto;
-    &__title h2{
-      margin: 0;
-      font-size: 22px;
-      padding: 32px;
-      text-align: center;
-    }
-    &__content{
-      border-top: 1px solid #f5f5f5;
-      padding: 40px 40px 64px;
-      &__btn{
-       
-      }            
-    } 
   }
   // 共通フッター
   footer.signup-login__footer{
@@ -70,51 +52,10 @@ body.signup-login{
     p{
       margin: 8px 0 0;
     }
-  }
-  // 共通フォーム
-  .form-format{
-    border-top: 1px solid #f5f5f5;
-    padding: 40px;  
-    @include formFormat();
-    .form-format__content{
-      max-width: 320px;
-      margin: 0 auto;
-      label{
-        font-weight: 600;
-      }
-    }  
   }  
+ 
   //テキストcss 
-  p.text-gray{
-    color: #888;
-  }
-  p.text{
-    margin: 8px 0 0;
-    line-height: 1.5;
-    color: #333;
-    font-size: 14px;
-  }  
-  p.text-right{
-    text-align: right;
-  }
-  p.text-center{
-    text-align: center;
-  }
-  p.gray{
-    margin: 8px 0 0;
-    font-size: 12px;
-    color: #888;
-    line-height: 1.5;
-  }
-  a.nodeco-blue{
-    color: #0099e8;
-    text-decoration: none; 
-  }
-  .decoration-non{
-    text-decoration: none; 
-    list-style: none; 
-    padding: 0;
-  }  
+    
   // 必須・任意
   span.require{
     background: #ea352d;
@@ -222,7 +163,39 @@ body.signup-login{
       margin-top: 30px;    
     }
   }
+ // 他のテンプレートで使用するために外に記述
+ // 共通コンテント
+ .signup-login__box{
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+  &__title h2{
+    margin: 0;
+    font-size: 22px;
+    padding: 32px;
+    text-align: center;
+  }
+  &__content{
+    border-top: 1px solid #f5f5f5;
+    padding: 40px 40px 64px;
+    &__btn{
+     
+    }            
+  } 
 }
+// 共通フォーム
+.form-format{
+  border-top: 1px solid #f5f5f5;
+  padding: 40px;  
+  @include formFormat();
+  .form-format__content{
+    max-width: 320px;
+    margin: 0 auto;
+    label{
+      font-weight: 600;
+    }
+  }  
+}  
 
 @media screen and (min-width: 768px){
   header.signup-login__header{
