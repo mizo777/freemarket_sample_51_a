@@ -38,6 +38,7 @@
 
 @mixin btnFormat(){
   display: block;
+  color: white !important;
   width: 100%;
   line-height: 48px;
   font-size: 14px;
@@ -128,7 +129,7 @@
       .progress-bar__status__line{
         position: absolute;
         left: 50%;
-        top: 30px;
+        top: 25px;
         bottom: 5px;
         display: block;
         width: 170%;
@@ -139,6 +140,9 @@
         width: 0px;
       }           
     }
+    li:last-child{
+      margin: 0;
+    }    
     li.complete{
       color: #888;
       .progress-bar__status__circle{
