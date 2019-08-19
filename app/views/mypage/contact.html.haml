@@ -1,0 +1,48 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %section.mypage-content__r-content__index
+        .mypage-content__r-content__index__content.is-show2
+          %h2.mypage-title.bold お問い合せ項目を選ぶ
+          .side.light-list
+            %nav.sidebar
+              %ul.sidebar__nav#sidebar-active
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    会員登録・ログインについて
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    購入・支払いについて
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    発送・受取・評価について
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    売上の振込申請について
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    トラブルがあった
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    機能要望
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    不具合の報告
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    退会したい
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    その他
+                    = fa_icon "chevron-right" 

@@ -8,6 +8,16 @@
   color: $white;
   text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
  }
+ .chevron-right-2 {
+  color: #0099e8;
+  font-size: 14px;
+  float: left;
+ }
+ .chevron-right-3 {
+  margin: 0 4px;
+  font-size: 9px;
+  color: #888;
+ }
 .search {
   width: 40px;
   height: 40px;
@@ -32,6 +42,17 @@
 }
 .heart {
   font-weight: 400;
+  color: #ccc;
+}
+.heart-2 {
+  font-size: 15px;
+  color: #ccc;
+  vertical-align: middle;
+}
+.bell {
+  color: #ccc;
+}
+.check {
   color: #ccc;
 }
 .camera {
@@ -62,3 +83,39 @@
   padding-right: 60px;
   z-index: 1;
 }
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.lock {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #0099e8;
+}
+#icon-facebook-1 {
+  border-radius: 4px;
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: #385185;
+}
+#icon-twitter-1 {
+  border-radius: 4px;
+  font-size: 47px;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: #5d9dc9;
+}
+#icon-pinterest-1 {
+  border-radius: 4px;
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: #aa262a;
+}
+
