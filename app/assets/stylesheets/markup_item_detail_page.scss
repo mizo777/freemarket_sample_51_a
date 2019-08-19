@@ -1,38 +1,42 @@
-// Place all the styles related to the markup_item_detail_page controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-@import "config/color";
-@import "header_after_login";
-@import "app-banner";
-@import "footer";
-
+body.markup_item_detail_page {
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
 .mercari-header {
   @include header_after_login;
+  overflow-x: hidden;
 }
 .item-container {
-  //margin: 40px auto 0;
-  margin: 40px 370px 0;
+  margin: 40px auto 0;
   padding: 24px 16px 55px 16px;
-  background: #fff;
+  background: $white;
+  overflow-x: hidden;
   @media screen and (min-width: 768px) {
-    margin: 0 auto;
     padding: 24px 40px 40px;
-    width: 700px;
+    width: 620px;
   }
   &__name {
     font-size: 24px;
     text-align: center;
     word-wrap: break-word;
     line-height: 1.4;
+    font-weight: bold;
   }
   &__content {
+    display: block;
     margin: 16px 0 0;
     width: 620px;
     height: 420px;
+    @media screen and (max-width: 768px) {
+      height: 880px;
+      margin: 16px auto 0;
+    }
+    @media screen and (max-width: 620px) {
+      position: relative;
+      right: 70px;
+    }
     &__photo {
-      //display: inline-block;
-      float: left;
+      display: block;
       position: relative;
       min-width: 280px;
       max-width: 360px;
@@ -43,22 +47,55 @@
         float: left;
         min-width: 300px;
         max-width: 300px;
-        min-height: 375px;
+        height: 375px;
       }
       &__top {
-        &__item {
-
+        position: relative;
+        overflow: hidden;
+        &__wrapper {
+          position: relative;
+          width: 300px;
+          height: 300px;
+          background-size: cover;
+          &__image {
+            margin: 0 auto;
+            width: 225px;
+            height: 300px;
+          }
+          &__last-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 300px;
+            height: 269.156px;
+          }
         }
       }
       &__bottom {
-        &__item {
-
+        font-size: 0;
+        &__image {
+          position: relative;
+          overflow: hidden;
+          display: inline-block;
+          display: none;
+          width: 20%;
+          max-height: 90px;
+          opacity: .4;
+          cursor: pointer;
+          @media screen and (min-width: 768px) {
+            width: 60px;
+            height: 60px;
+            margin: 0;
+          } 
         }
       }
     }
     &__detail-table {
+      display: inline-block;
       display: table;
-      float: right;
       margin: 8px auto 0;
       width: 100%;
       max-width: 360px;
@@ -70,13 +107,18 @@
         height: 420px;
         margin: 0 auto;
       }
+      @media screen and (max-width: 768px) {
+        position: relative;
+      }
       &__row {
         display: table-row;
         &__header {
           display: table-cell;
           padding: 16px 8px;
           text-align: left;
+          vertical-align: middle;
           width: 39%;
+          font-size: 14px;
           font-weight: 400;
           background: #fafafa;
           border: 1px solid #f5f5f5;
@@ -86,29 +128,52 @@
         }
         &__data {
           display: table-cell;
+          vertical-align: middle;
           padding: 16px 8px;
           width: 61%;
           background: $white;
           border-collapse: collapse;
           border: 1px solid #f5f5f5;
+          font-size: 14px;
           @media screen and (min-width: 768px) {
             padding: 8px;
+          }
+          &__link {
+            color: #0099e8;
           }
           &__text {
             display: block;
             color: #0099e8;
+            font-size: 14px;
+            line-height: 1;
           }
           &__wrapper {
             display: block;
             &__first-item-user-ratings {
               display: inline-block;
+              .fa-smile {
+                vertical-align: middle;
+                color: #ff6699;
+              }
               &__count {
-
+                vertical-align: middle;
+                font-size: 14px;
               }
             }
             &__item-user-ratings {
               display: inline-block;
+              margin: 8px 0 0 16px;
+              .fa-meh {
+                vertical-align: middle;
+                color: #ff9933;
+              }
+              .fa-frown {
+                vertical-align: middle;
+                color: #0099ff;
+              }
               &__count {
+                vertical-align: middle;
+                font-size: 14px;
 
               }
             }
@@ -118,7 +183,9 @@
     }
   }
   &__price-box {
+    display: block;
     margin: 16px 0 0;
+    text-align: center;
     &__item-price {
       margin: 0 8px 0 0;
       font-size: 32px;
@@ -128,10 +195,12 @@
       }
     }
     &__item-tax {
+      display: inline-block;
       font-size: 10px;
     }
     &__item-shipping-fee {
-
+      display: inline-block;
+      font-size: 16px;
     }
   }
   &__buy-btn {
@@ -162,6 +231,9 @@
     @media screen and (min-width: 768px) {
       padding: 32px 0 0;
     }
+    @media screen and (max-width: 768px) {
+      text-align: center;
+    }
     &__inner {
       font-size: 14px;
       @media screen and (min-width: 768px) {
@@ -172,11 +244,16 @@
   &__buttons {
     margin: 16px 0 0;
     font-size: 0;
+    width: 100%;
+    height: 40px;
     &--left {
+      @media screen and (min-width: 768px) {
+        float: left;
+      }
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
       &__like-btn {
-        // border: 1px solid #ea352d;
-        // background: none;
-        // color: #ea352d;
         display: inline-block;
         padding: 8px 16px;
         border-radius: 40px;
@@ -185,15 +262,329 @@
         color: #333;
         border: 1px solid #f5f5f5;
         background: #f5f5f5;
+        
+        &__text {
+          display: inline-block;
+          margin: 1px 0 0 8px;
+          font-size: 12px;
+          vertical-align: middle;
+          @media screen and (min-width: 768px) {
+            font-size: 14px;
+          }
+        }
+        &__count {
+          display: inline-block;
+          position: relative;
+          bottom: 1px;
+          right: 1px;
+          margin: 1px 0 0 8px;
+          font-size: 12px;
+          vertical-align: middle;
+          animation: fade-in-up ease-out .4s forwards;
+          @media screen and (min-width: 768px) {
+            font-size: 14px;
+          }
+        }
       }
       &__flag-btn {
-
+        display: inline-block;
+        margin: 0 0 0 8px;
+        color: #333;
+        background: #f5f5f5;
+        padding: 8px 16px;
+        border-radius: 40px;
+        border-width: 0;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        @media screen and (min-width: 768px) {
+          margin: 0 0 0 16px;
+        }
+        &__text {
+          display: inline-block;
+          margin: 1px 0 0 8px;
+          font-size: 12px;
+          vertical-align: middle;
+          @media screen and (min-width: 768px) {
+            font-size: 14px;
+          }
+        }
       }
     }
     &--right {
+      line-height: 22px;
+      @media screen and (min-width: 768px) {
+        margin: 8px 0 0;
+        float: right;
+      }
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
       &__text {
+        display: inline-block;
+        margin: 1px 0 0 8px;
+        font-size: 12px;
+        vertical-align: middle;
+        color: #0099e8;
+        @media screen and (min-width: 768px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+.item-detail-message {
+  margin: 8px auto;
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+  &__container {
+    &__content {
+      padding: 24px 7.5%;
+      background: $white;
+      @media screen and (min-width: 768px) {
+        padding: 24px;
+      }
+      &__text {
+        padding: 8px;
+        line-height: 1;
+        font-size: 14px;
+        background: #fff6de;
 
       }
+      &__textarea {
+        display: block;
+        resize: vertical;
+        margin: 8px 0 0;
+        width: 630px;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+        @media screen and (max-width: 768px) {
+          width: calc(100% - 22px);
+        }
+      }
+      &__comment-btn {
+        display: block;
+        width: 100%;
+        margin: 8px 0 0;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        
+        &__text {
+          font-size: 14px;
+          color: #fff;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+.item-link {
+  position: relative;
+  width: 43%;
+  @media screen and (min-width: 768px) {
+    margin: 24px auto 0;
+    width: 700px;
+    height: 28px;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  &__prev {
+    float: left;
+    text-align: left;
+    @media screen and (min-width: 768px) {
+      width: 45%;
+      height: 100%;
+    }
+    &__icon {
+      float: left;
+      text-align: left;
+      padding-right: 3px;
+      height: 100%;
+      line-height: 100%;
+      color: #0099e8;
+      font-size: 14px;
+    }
+    &__text {
+      font-size: 14px;
+      color: #0099e8;
+      line-height: 100%;
+      word-wrap: break-word;
+    }
+  }
+  &__next {
+    float: right;
+    text-align: right;
+    @media screen and (min-width: 768px) {
+      width: 45%;
+      height: 100%
+    }
+    &__icon {
+      float: right;
+      text-align: right;
+      padding-left: 3px;
+      height: 100%;
+      color: #0099e8;
+      font-size: 14px;
+    }
+    &__text {
+      font-size: 14px;
+      color: #0099e8;
+      height: 100%;
+      word-wrap: break-word;
+    }
+  }
+}
+.social-media-box {
+  margin: 24px 0 0;
+  background: $white;
+  padding: 16px 0 8px;
+  @media screen and (min-width: 768px) {
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+  }
+  &__icons {
+    margin: 30px 0 0;
+    text-align: center;
+    &__facebook {
+      position: relative;
+      top: 2px;
+      line-height: 38px;
+    }
+    &__twitter {
+      line-height: 38px;
+    }
+    &__pinterest {
+      line-height: 38px;
+    }
+  }
+}
+.user-items-profile {
+  @media screen and (min-width: 768px) {
+    width: 700px;
+    margin: 0 auto;
+  }
+  &__related-items {
+    margin-bottom: 40px;
+    &__title {
+      margin: 24px 4% 8px;
+      @media screen and (min-width: 768px) {
+        margin: 24px 0 8px;
+      }
+      &__text {
+        line-height: 1.4;
+        font-size: 18px;
+        font-weight: bold;
+        color: #0099e8;
+        @media screen and (min-width: 768px) {
+          font-size: 22px;
+        }
+      }
+    }
+    &__items {
+      width: 92%;
+      margin: 0 auto;
+      @media screen and (min-width: 768px) {
+        width: auto;
+      }
+      &__item {
+        display: inline-block;
+        margin: 0 17px 4px 0;
+        width: 213px;
+        height: 330px;
+        @media screen and (min-width: 768px) {
+          width: 220px;
+          margin: 0 20px 20px 0;
+        }
+        &:nth-child(3n) {
+          @media screen and (min-width: 768px) {
+            width: 220px;
+            margin: 0 0 20px 0;
+          }
+        }
+        &__bottom {
+          width: 100%;
+          height: 100%;
+          background-color: $white;
+          text-align: center;
+          &__image {
+            width: 213px;
+            height: 213px;
+            @media screen and (min-width: 768px) {
+              width: 220px;
+              height: 220px;
+            }
+          }
+          &__article-name {
+            overflow: auto;
+            position: relative;
+            padding: 16px 16px 0 16px;
+            font-weight: 400;
+            color: $black;
+            height: 3em;
+            line-height: 1.5;
+            text-align: left;
+            @media screen and (min-width: 768px) {
+              padding: 10px 16px 0 16px;
+            }
+          }
+          &__price-heart {
+            margin-top: 8px;
+            padding: 0 16px 16px;
+            &__article-price {
+              float: left;
+              font-size: 17px;
+              font-weight: 600;
+              color: $black;
+            }
+            &__article-heart {
+              float: right;
+              &__count {
+                display: inline-block;
+                margin-left: -3px;
+                font-weight: 400;
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.pos-bottom {
+  background: #f5f5f5;
+  box-shadow: none;
+  position: relative;
+  border-top: 1px solid #eee;
+  &__lists {
+    padding: 16px;
+    line-height: 1.2;
+    overflow: auto;
+    @media screen and (min-width: 1068px) {
+      font-size: 14px;
+      width: 1020px;
+      margin: 0 auto;
+      padding: 16px 0;
+    }
+    &__left-list {
+      color: $black;
+    }
+    &__right-list {
+      font-weight: 600;
     }
   }
 }
