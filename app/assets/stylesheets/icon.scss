@@ -3,10 +3,6 @@
   color: $white;
   text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
 }
-// .chevron-left-2 {
-//   color: #0099e8;
-//   font-size: 14px;
-// }
 .chevron-right {
   font-size: 46px;
   color: $white;
@@ -22,16 +18,6 @@
   font-size: 9px;
   color: #888;
  }
-//  .chevron-right-4 {
-//   color: #0099e8;
-//   font-size: 14px;
-//   float: right;
-//   height: 100%;
-//   padding-left: 3px;
-//   vertical-align: middle;
-//   float: left;
-//   text-align: right;
-//  }
 .search {
   width: 40px;
   height: 40px;
@@ -62,6 +48,12 @@
   font-size: 15px;
   color: #ccc;
   vertical-align: middle;
+}
+.bell {
+  color: #ccc;
+}
+.check {
+  color: #ccc;
 }
 .camera {
   margin: 8px 0 0;
@@ -102,28 +94,7 @@
   font-size: 14px;
   color: #0099e8;
 }
-.facebook {
-  border-radius: 4px;
-  font-size: 44px;
-  width: 44px;
-  height: 44px;
-  background-color: aqua;
-}
-.twitter {
-  border-radius: 4px;
-  font-size: 44px;
-  width: 44px;
-  height: 44px;
-  background-color: aqua;
-}
-.pinterest {
-  border-radius: 4px;
-  font-size: 44px;
-  width: 44px;
-  height: 44px;
-  background-color: aqua;
-}
-.fa-facebook-square {
+#icon-facebook-1 {
   border-radius: 4px;
   font-size: 44px;
   width: 44px;
@@ -131,7 +102,7 @@
   color: #fff;
   background: #385185;
 }
-.fa-twitter-square {
+#icon-twitter-1 {
   border-radius: 4px;
   font-size: 47px;
   width: 44px;
@@ -139,7 +110,7 @@
   background: #fff;
   color: #5d9dc9;
 }
-.fa-pinterest-square {
+#icon-pinterest-1 {
   border-radius: 4px;
   font-size: 44px;
   width: 44px;

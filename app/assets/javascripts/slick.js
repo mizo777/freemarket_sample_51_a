@@ -28,10 +28,4 @@ $(function(){
       return '<img src=" ' + targetImage + ' " alt="" width="60" height="60" class="">';
     }
   });
-
-  // $('.item-container__content__photo__bottom').slick ({
-  //   dots: true,
-    
-  //   } 
-  // });
 });
