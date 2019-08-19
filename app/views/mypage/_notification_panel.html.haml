@@ -1,0 +1,17 @@
+%ul
+  /  - if message.present?
+  %li
+    = link_to "/mypage/news", class: "item-link" do
+      %figure
+        = image_tag "/images/mercari-icon.png", alt: "メルカリアイコン"
+      .message-box
+        .message 事務局から個別メッセージ「ログイン通知」
+        %time
+          = fa_icon "clock m-right8"          
+          %span １日前
+      = fa_icon "chevron-right"
+  %li.more-list
+    = link_to "/mypage/notification", class: " " do
+      一覧を見る
+  / - else
+  /   %li.not-found.bold 現在、やることリストはありません

@@ -1,0 +1,19 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %section.mypage-content__r-content__index
+        .mypage-content__r-content__index__content.is-show2
+          %h2.mypage-title.bold いいね一覧
+          = render partial: 'like_panel'
+      %ul.mypage-history
+        %li.prev
+          = link_to "", class: "" do
+            = fa_icon "chevron-left"
+        %li.foward
+          = link_to "", class: "" do
+            = fa_icon "chevron-right"
+
+
