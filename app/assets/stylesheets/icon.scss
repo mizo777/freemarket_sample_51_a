@@ -1,0 +1,121 @@
+.chevron-left {
+  font-size: 46px;
+  color: $white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+}
+.chevron-right {
+  font-size: 46px;
+  color: $white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+ }
+ .chevron-right-2 {
+  color: #0099e8;
+  font-size: 14px;
+  float: left;
+ }
+ .chevron-right-3 {
+  margin: 0 4px;
+  font-size: 9px;
+  color: #888;
+ }
+.search {
+  width: 40px;
+  height: 40px;
+}
+.icon-twitter {
+  width: 29.53px;
+  height: 24px;
+}
+.list-ul {
+  position: relative;
+  top: 0.45px;
+  width: 15.031px;
+  height: 12px;
+  color: $cinnabar;
+}
+.tag {
+  position: relative;
+  top: 0.8px;
+  width: 15.031px;
+  height: 12px;
+  color: $cinnabar;
+}
+.heart {
+  font-weight: 400;
+  color: #ccc;
+}
+.heart-2 {
+  font-size: 15px;
+  color: #ccc;
+  vertical-align: middle;
+}
+.bell {
+  color: #ccc;
+}
+.check {
+  color: #ccc;
+}
+.camera {
+  margin: 8px 0 0;
+  font-size: 54px;
+  color: $white;
+  @media screen and (max-width: 768px) {
+    position: relative;
+    bottom: 29px;
+    margin: 4px 0 0;
+    font-size: 24px;
+  }
+}
+.search {
+  font-weight: lighter;
+  color: $black;
+}
+.prev-arrow {
+  position: absolute;
+  top: 172px;
+  padding-left: 60px;
+  z-index: 1;
+}
+.next-arrow {
+  float: right;
+  position: relative;
+  bottom: 215px;
+  padding-right: 60px;
+  z-index: 1;
+}
+.flag {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.lock {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #0099e8;
+}
+#icon-facebook-1 {
+  border-radius: 4px;
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: #385185;
+}
+#icon-twitter-1 {
+  border-radius: 4px;
+  font-size: 47px;
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  color: #5d9dc9;
+}
+#icon-pinterest-1 {
+  border-radius: 4px;
+  font-size: 44px;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: #aa262a;
+}
+
