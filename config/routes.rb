@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'markup_top_page#home'
-  root 'markup_item_detail_page#home'
+
+  resources :markup_item_detail_page do
+    collection do
+      get 'home'
+      get 'purchase_confirmation'
+    end
+  end
+
   resources :signup do
     collection do
       get 'step1'
