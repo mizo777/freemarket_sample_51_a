@@ -1,3 +1,8 @@
+@import "reset";
 @import 'font-awesome';
 @import "mixin";
 @import "modules/signup_login";
+@import "mixin/text-mixin";
+@import "modules/breadcrumb";
+@import "modules/sidebar";
+@import "modules/mypage";

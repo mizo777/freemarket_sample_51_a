@@ -1,0 +1,45 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %section.mypage-content__r-content__index.purchased-index
+        %h2.purchased-index__title.bold 評価一覧
+        %ul.mypage-content__r-content__index__tab.flex.review-list
+          %li.mypage-tab.is-active
+            %h3.bold
+              = link_to "", class: "" do
+                すべて
+          %li.mypage-tab
+            %h3.bold
+              = link_to "", class: "" do
+                %i.fas.fa-smile                
+                良い
+          %li.mypage-tab
+            %h3.bold
+              = link_to "", class: "" do
+                %i.fas.fa-meh                
+                普通
+          %li.mypage-tab
+            %h3.bold
+              = link_to "", class: "" do
+                %i.fas.fa-frown                
+                悪い
+        .mypage-content__r-content__index__content.mypage-panel.is-show
+          = render partial: 'review_index'
+        .mypage-content__r-content__index__content.mypage-panel
+          = render partial: 'review_good'
+        .mypage-content__r-content__index__content.mypage-panel
+          = render partial: 'review_normal'
+        .mypage-content__r-content__index__content.mypage-panel
+          = render partial: 'review_bad'
+      %ul.mypage-history
+        %li.prev
+          = link_to "", class: "" do
+            = fa_icon "chevron-left"
+        %li.foward
+          = link_to "", class: "" do
+            = fa_icon "chevron-right"          
+
+
