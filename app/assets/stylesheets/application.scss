@@ -1,7 +1,7 @@
 /*
  *= require_self
  */
-@import "reset";
+@import "_reset";
 @import "font-awesome";
 @import "slick";
 @import "slick-theme";
@@ -17,7 +17,7 @@
 @import "./all-elements.scss";
 @import "./icon.scss";
 @import "./markup_top_page.scss";
-@import "./markup_item_detail_page.scss"
+@import "./markup_item_detail_page.scss";
 @import "modules/breadcrumb";
 @import "modules/sidebar";
 @import "modules/mypage";
