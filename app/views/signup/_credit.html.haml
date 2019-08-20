@@ -13,7 +13,6 @@
       = image_tag "/images/saison.png", height: "20", alt: "saison"
     %li   
       = image_tag "/images/JCB.png", height: "20", alt: "JCB"
-    
     %li
       = image_tag "/images/americanExpress.jpg", height: "20", alt: "americanExpress"
     %li
@@ -25,14 +24,17 @@
   %span.require 必須
   %br
   /date_selectで書き換える
-  .select-box{style: "display:flex;"}
+  .select-box
     %select{name: "", placeholder: "", class: "select-form"}
+    =fa_icon "chevron-down"    
     %span{style: "margin:0 3px; line-height: 52px;"} 月
+  .select-box    
     %select{name: "", placeholder: "", class: "select-form"}
+    =fa_icon "chevron-down"        
     %span{style: "margin:0 3px; line-height: 52px;"} 年
   %br 
 .field.field-first 
-  %label セキュリティーコード
+  %label セキュリティコード
   %span.require 必須
   %br
   %input{name: "", placeholder: "カード背面4桁もしは3桁の番号"}
@@ -40,4 +42,4 @@
 %p.text.text-right
   =link_to "", class: "nodeco-blue" do
     =fa_icon "question-circle"
-    カード裏面番号とは?
+    カード裏面の番号とは?

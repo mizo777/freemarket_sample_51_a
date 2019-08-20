@@ -1,0 +1,30 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .signup-login__box.delivery-form
+      %h2.mypage-title.bold.text-center 支払い方法
+      .content-inner
+        %section
+          .content-inner__box
+            %h3.bold.sub-head クレジットカード一覧  
+          %ul.payment-list
+            %li
+              %form{class: ""}
+                %figure
+                  = image_tag "/images/JCB.png", height: "20", alt: "JCB"
+                .payment-num *********0162
+                .payment-num 02/21
+                %input{type: "submit", value: "削除する", class:"payment-remove"}                
+        /カードの登録・削除で切り替え
+        /%section.creditcard
+        /  .content-inner__box
+        /    = link_to "card_create", class: "btn mail" do
+        /      %i.far.fa-credit-card.m-right16
+        /      クレジットカードを追加する
+        .field
+          %p.text-right.m-top40
+            = link_to "", class: "nodeco-blue" do
+              支払い方法について
+              =fa_icon "chevron-right"

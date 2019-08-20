@@ -11,11 +11,17 @@
 .m-left16{
   margin: 0 0 0 16px;
 }
+.m-right16{
+  margin: 0 16px 0 0;
+}
 .m-top40{
   margin: 40px 0 0;
 }
 .margin-zero{
   margin: 0;
+}  
+.padding-zero{
+  padding: 0;
 }  
 .flex{
   display: flex;
@@ -38,7 +44,7 @@ p.text{
 p.text-right{
   text-align: right;
 }
-p.text-center{
+.text-center{
   text-align: center;
 }
 .text-center{

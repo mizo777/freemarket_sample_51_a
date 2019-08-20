@@ -46,10 +46,13 @@ class MypageController < ApplicationController
   
   def delivery_address
   end
-  
-  def payment
+
+  def card
   end
-  
+
+  def card_create
+  end
+    
   def email_password
   end
   

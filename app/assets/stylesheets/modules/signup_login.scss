@@ -150,11 +150,11 @@ body.signup-login{
 @media screen and (min-width: 1068px){
   .form-format {
     padding: 40px 40px 64px !important;
-    .field{
-      margin-top: 32px !important;
+    .field:not(:first-of-type){
+      margin-top: 32px ;
     }   
     .field-first{
-      margin: 0 !important;
+      margin: 0;
     }     
 }
 }

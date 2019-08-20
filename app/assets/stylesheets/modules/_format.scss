@@ -74,20 +74,22 @@ padding: 40px;
 }  
 // date_select
 .select-box{
-  margin-top: 10px;
+  display: inline-block;
+  width: calc(50% - 2px);
   position: relative;
-  background: #fff;    
+  margin: 8px 0 0;
+
   .fa {
     position: absolute;
-    right: 16px;
-    top: 50%;
-    z-index: 2;
+    right: 50px;
+    top: 45%;
+    z-index: 1;
     color: #888;
-    font-size: 8px;
+    font-size: 18px;
     transform: translate(0, -50%);
   }
   select.select-form{
-    width: 100%;
+    width: calc(100% - 38px);
     position: relative;
     z-index: 2;
     height: 48px;
