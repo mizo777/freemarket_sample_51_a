@@ -1,0 +1,89 @@
+= render partial: 'shared/header_before_login'
+.mercari-main
+  %section.mercari-main__top
+    .mercari-main__top--1
+      .mercari-main__top--1__visual
+        .mercari-main__top--1__visual__content
+          %h2.mercari-main__top--1__visual__content__text-1
+            スマホでかんたん
+            %br フリマアプリ
+          %p.mercari-main__top--1__visual__content__text-2
+            メルカリはスマホアプリからすぐに出品できる
+            %br 購入時も安心な独自システムのアプリです
+          %ul.mercari-main__top--1__visual__content__store
+            %li.mercari-main__top--1__visual__content__store__app
+              = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&amp;mt=8" do
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", class: "mercari-main__top--1__visual__content__store__app__image"
+            %li.mercari-main__top--1__visual__content__store__google
+              = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja" do
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", class: "mercari-main__top--1__visual__content__store__google__image"
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?863303983", class: "mercari-main__top--1__visual__top-image"
+    %a.mercari-main__top--2{href: "https://www.mercari.com/jp/featured/camp/"}
+  %section.mercari-main__middle
+    %h2.mercari-main__middle__pickup-category
+      ピックアップカテゴリー
+    %section.mercari-main__middle__1
+      %h3.mercari-main__middle__1__title
+        = link_to "レディース 新着アイテム", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__1__title__font"
+      .mercari-main__middle__1__items
+        = render partial: 'ladies_items'
+      .mercari-main__middle__1__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__1__view-all__text"
+    %section.mercari-main__middle__2
+      %h3.mercari-main__middle__2__title
+        = link_to "メンズ 新着アイテム", "https://www.mercari.com/jp/category/2/", class: "mercari-main__middle__2__title__font"
+      .mercari-main__middle__2__items
+        = render partial: 'mens_items'
+      .mercari-main__middle__2__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__2__view-all__text"
+    %section.mercari-main__middle__3
+      %h3.mercari-main__middle__3__title
+        = link_to "ベビー・キッズ 新着アイテム", "https://www.mercari.com/jp/category/3/", class: "mercari-main__middle__3__title__font"
+      .mercari-main__middle__3__items
+        = render partial: 'babys_and_kids_items'
+      .mercari-main__middle__3__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__3__view-all__text"
+    %section.mercari-main__middle__4
+      %h3.mercari-main__middle__4__title
+        = link_to "コスメ・香水・美容 新着アイテム", "https://www.mercari.com/jp/category/6/", class: "mercari-main__middle__4__title__font"
+      .mercari-main__middle__4__items
+        = render partial: 'cosmetics_and_perfume_and_beauty_items'
+      .mercari-main__middle__4__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__4__view-all__text"
+  %section.mercari-main__bottom
+    %h2.mercari-main__bottom__pickup-brand
+      ピックアップブランド
+    %section.mercari-main__bottom__1
+      %h3.mercari-main__bottom__1__title
+        = link_to "シャネル 新着アイテム", "https://www.mercari.com/jp/brand/658/", class: "mercari-main__bottom__1__title__font"
+      .mercari-main__bottom__1__items
+        = render partial: 'chanel_items'
+      .mercari-main__bottom__1__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__1__view-all__text"
+    %section.mercari-main__bottom__2
+      %h3.mercari-main__bottom__2__title
+        = link_to "ルイ ヴィトン 新着アイテム", "https://www.mercari.com/jp/brand/1326/", class: "mercari-main__bottom__2__title__font"
+      .mercari-main__bottom__2__items
+        = render partial: 'louis_vuitton_items'
+      .mercari-main__bottom__2__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__2__view-all__text"
+    %section.mercari-main__bottom__3
+      %h3.mercari-main__bottom__3__title
+        = link_to "シュプリーム 新着アイテム", "https://www.mercari.com/jp/brand/1620/", class: "mercari-main__bottom__3__title__font"
+      .mercari-main__bottom__3__items
+        = render partial: 'supreme_items'
+      .mercari-main__bottom__3__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__3__view-all__text"
+    %section.mercari-main__bottom__4
+      %h3.mercari-main__bottom__4__title
+        = link_to "ナイキ 新着アイテム", "https://www.mercari.com/jp/brand/857/", class: "mercari-main__bottom__4__title__font"
+      .mercari-main__bottom__4__items
+        = render partial: 'nike_items'
+      .mercari-main__bottom__4__view-all
+        = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__4__view-all__text"
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"
