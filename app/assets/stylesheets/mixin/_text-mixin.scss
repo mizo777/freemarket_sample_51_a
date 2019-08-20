@@ -1,5 +1,4 @@
 // テキスト
-
 .bold {
   font-weight: 600;
 }
@@ -15,6 +14,9 @@
 .m-top40{
   margin: 40px 0 0;
 }
+.margin-zero{
+  margin: 0;
+}  
 .flex{
   display: flex;
 }
@@ -49,7 +51,7 @@ p.gray{
   line-height: 1.5;
 }
 a.nodeco-blue{
-  color: #0099e8;
+  color: #0099e8 !important;
   text-decoration: none; 
 }
 .decoration-non{

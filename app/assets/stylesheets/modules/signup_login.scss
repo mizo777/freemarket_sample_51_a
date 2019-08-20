@@ -53,83 +53,7 @@ body.signup-login{
       margin: 8px 0 0;
     }
   }  
- 
-  //テキストcss 
-    
-  // 必須・任意
-  span.require{
-    background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;    
-  }  
-  span.optional{
-    background: #ccc;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;    
-  }
-  // 空間
-  .flex{
-    display: flex;
-  }
-  .margin-zero{
-    margin: 0;
-  }  
-  // ボタン
-  .btn{
-    @include btnFormat();          
-  }
-  .mail{
-    @include mailFormat();
-  }
-  .facebook{
-    @include facebookFormat();
-  }
-  .google{ 
-    @include googleFormat();
-  }
-  .signupbtn{
-    @include signupFormat();
-  }
-  // form
-  .form-format{
-    @include formFormat();
-  }  
-  // date_select
-  .select-box{
-    margin-top: 10px;
-    position: relative;
-    background: #fff;    
-    .fa {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      z-index: 2;
-      color: #888;
-      font-size: 8px;
-      transform: translate(0, -50%);
-    }
-    select.select-form{
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      height: 48px;
-      padding: 0 16px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: 0;
-      font-size: 16px;
-      line-height: 1.5;
-      cursor: pointer;    
-    }    
-  }
+
   // login
   main.login{
     background-color: #fff;
@@ -183,19 +107,6 @@ body.signup-login{
     }            
   } 
 }
-// 共通フォーム
-.form-format{
-  border-top: 1px solid #f5f5f5;
-  padding: 40px;  
-  @include formFormat();
-  .form-format__content{
-    max-width: 320px;
-    margin: 0 auto;
-    label{
-      font-weight: 600;
-    }
-  }  
-}  
 
 @media screen and (min-width: 768px){
   header.signup-login__header{
