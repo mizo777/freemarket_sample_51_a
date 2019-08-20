@@ -28,7 +28,7 @@
     .signup-login__box__title
       %h2 会員情報入力
     %form{action: "/", method: "post", class: "form-format"} 
-      .form-format__content
+      .form-format__content.signup-content
         .field.field-first
           %label ニックネーム
           %span.require 必須
@@ -95,7 +95,7 @@
               利用規約
             に同意したものとみなします
 
-        %input{type: "submit", value: "次へ進む"}
+        %input{type: "submit", value: "次へ進む", class: "btn"}
         .field
           %p.text.text-right
             =link_to "", class: "nodeco-blue" do

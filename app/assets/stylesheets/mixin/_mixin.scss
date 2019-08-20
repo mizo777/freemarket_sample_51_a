@@ -1,9 +1,7 @@
 @mixin formFormat{
   padding: 24px 32px;
   .field{
-    width: 100%;
-    margin: 0;
-    margin: 24px 0 0;
+    margin: 40px 0 0;
     input{
       margin-top: 10px;
       height: 48px;
@@ -26,7 +24,6 @@
     color: #fff;
     display: block;
     width: 100%;
-    line-height: 48px;
     font-size: 14px;
     border: 1px solid transparent;
     -webkit-transition: all ease-out .3s;
@@ -64,7 +61,7 @@
 
 @mixin googleFormat{ 
   background-color: #fff;
-  color: #333;
+  color: #333 !important;
   border: #979797 solid 1px;
   margin: 16px 0 0;
   position: relative;

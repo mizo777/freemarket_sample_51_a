@@ -15,7 +15,7 @@
     border: 0;
   } 
   .form-format{
-    padding: 64px !important;
+    padding: 64px;
   } 
   .login{
     max-width: none;
@@ -75,16 +75,6 @@
   .news-list{
     padding: 40px !important;
   }  
-  .form-format {
-    padding: 40px 40px 64px !important;
-    .field:not(:first-of-type){
-      margin-top: 32px ;
-    }   
-    .field-first{
-      margin: 0;
-    }     
-  }
-
 }
 
 
@@ -103,8 +93,8 @@
   .mypage-history {
     margin: 40px 0 0 !important;
   }  
-  .form-format {
-    padding: 40px 40px 64px !important;
+  .input-format {
+    padding: 40px 40px 64px;
     .field:not(:first-of-type){
       margin-top: 32px ;
     }   

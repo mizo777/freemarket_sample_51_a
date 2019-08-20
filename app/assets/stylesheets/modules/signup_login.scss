@@ -53,6 +53,10 @@ body.signup-login{
       margin: 8px 0 0;
     }
   }  
+  // signup
+  .signup-content{
+    max-width: 343px !important;
+  }
 
   // login
   main.login{
@@ -88,7 +92,6 @@ body.signup-login{
       margin-top: 30px;    
     }
   }
- // 他のテンプレートで使用するために外に記述
  // 共通コンテント
  .signup-login__box{
   background-color: #fff;

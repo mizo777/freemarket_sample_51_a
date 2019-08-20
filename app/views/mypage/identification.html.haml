@@ -28,11 +28,12 @@
           %label 郵便番号
           %span.optional 任意
           %input{type: "text", class: "setting-input", placeholder: "例）1234-567", value: "5380035"}
-        .field.select-box
+        .field
           %label 都道府県
           %span.optional 任意
-          =fa_icon "chevron-down"
-          %select{name: "", class: "m-top8 select-form", value: "大阪"}
+          .select-box
+            =fa_icon "chevron-down"
+            %select{name: "", class: "m-top8 select-form", value: "大阪"}
         .field
           %label 市区町村
           %span.optional 任意
