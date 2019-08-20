@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'markup_top_page#home'
 
-  resources :markup_item_detail_page do
+  resources :products do
     collection do
-      get 'home'
+      get 'detail'
       get 'purchase_confirmation'
     end
   end
