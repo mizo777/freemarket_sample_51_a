@@ -1,0 +1,62 @@
+.side {
+  margin: 40px auto 0;
+  .sidebar{
+    &__nav{
+      li{
+        border-top: 1px solid #eee;
+      }
+      margin: 8px 0 0;
+      li a{
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;  
+      }
+      a:hover {
+        background-color: #fbfbfb;
+      }      
+      // カレントページのサイドバーリストの背景変更
+      .active a{
+        background: #eee;
+        font-weight: 600;
+        color: #333;
+      }
+      .active i{
+        color: #333;
+      }        
+      li i{
+        position: absolute;
+        right: 16px;
+        color: #ccc;
+      }
+    }
+    &__nav:first-child{
+      margin: 0;
+    }        
+    &__nav-title{
+      margin: 40px 4% 0;
+      font-size: 16px;        
+      font-weight: bold;        
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .side {
+      width: 700px;
+      .sidebar__nav-title {
+        margin: 40px 0 0 !important;
+    }      
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .side {
+      width: 280px;
+      margin: 0 40px 0 0 !important;
+  }
+}

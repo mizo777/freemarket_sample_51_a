@@ -1,0 +1,36 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %section.mypage-content__r-content__index.purchased-index
+        %h2.purchased-index__title.bold 出品した商品
+        %ul.mypage-content__r-content__index__tab.flex
+          %li
+            %h3.bold
+              = link_to "/mypage/exhibiting", class: "" do
+                出品中
+          %li
+            %h3.bold
+              = link_to "/mypage/exhibit_trading", class: "" do
+                取引中
+          %li.is-active2
+            %h3.bold
+              = link_to "", class: "" do
+                売却済
+        .mypage-content__r-content__index__content.mypage-panel2
+          = render partial: 'exhibiting_panel'
+        .mypage-content__r-content__index__content.mypage-panel2
+          = render partial: 'exhibit_trading_panel'
+        .mypage-content__r-content__index__content.mypage-panel2.is-show2
+          = render partial: 'exhibited_panel'
+      %ul.mypage-history
+        %li.prev
+          = link_to "", class: "" do
+            = fa_icon "chevron-left"
+        %li.foward
+          = link_to "", class: "" do
+            = fa_icon "chevron-right"
+
+

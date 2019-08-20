@@ -1,3 +1,4 @@
+%body.markup_item_detail_page
 = render 'shared/header_after_login'
 %section.item-container
   %h1.item-container__name
@@ -5,44 +6,48 @@
   .item-container__content
     .item-container__content__photo
       .item-container__content__photo__top
-        .item-container__content__photo__top__item
-        .item-container__content__photo__top__item
-        .item-container__content__photo__top__item
-        .item-container__content__photo__top__item
-      .item-container__content__photo__bottom
-        .item-container__content__photo__bottom__item
-        .item-container__content__photo__bottom__item
-        .item-container__content__photo__bottom__item
-        .item-container__content__photo__bottom__item
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_1.jpg?1565087077", class: "item-container__content__photo__top__wrapper__image"
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_2.jpg?1565087077", class: "item-container__content__photo__top__wrapper__image"
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_3.jpg?1565087077", class: "item-container__content__photo__top__wrapper__image"
+        .item-container__content__photo__top__wrapper
+          = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_4.jpg?1565087077", class: "item-container__content__photo__top__wrapper__last-image"
+      %ul.item-container__content__photo__bottom
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_1.jpg?1565087077", class: "item-container__content__photo__bottom__image"
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_2.jpg?1565087077", class: "item-container__content__photo__bottom__image"
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_3.jpg?1565087077", class: "item-container__content__photo__bottom__image"
+        %li= image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_4.jpg?1565087077", class: "item-container__content__photo__bottom__image"
     %table.item-container__content__detail-table
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
         %td.item-container__content__detail-table__row__data
-          = link_to "hana☆", "https://www.mercari.com/jp/u/948587394/", class: "item-container__content__detail-table__row__data__text"
+          = link_to "hana☆", "", class: "item-container__content__detail-table__row__data__text"
           %ul.item-container__content__detail-table__row__data__wrapper
-            %li.item-container__content__detail-table__row__data__wrapper__first-item-user-rating
-              = fa_icon 'heart', class: "heart"
-              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-rating__count 4
-            %li.item-container__content__detail-table__row__data__wrapper__item-user-rating
-              = fa_icon 'heart', class: "heart"
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-rating__count 1
-            %li.item-container__content__detail-table__row__data__wrapper__item-user-rating
-              = fa_icon 'heart', class: "heart"
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-rating__count 0
+            %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
+              %i.fas.fa-smile
+              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings__count 4
+            %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
+              %i.fas.fa-meh
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count 1
+            %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
+              %i.fas.fa-frown
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count 0
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header カテゴリー
         %td.item-container__content__detail-table__row__data
-          = link_to "レディース", "https://www.mercari.com/jp/category/1/"
+          = link_to "レディース", "https://www.mercari.com/jp/category/1/", class: "item-container__content__detail-table__row__data__text"
           = link_to "https://www.mercari.com/jp/category/15/" do
-            = fa_icon 'arrow-right', class: "arrow-right"
-            %span ワンピース
+            = fa_icon 'chevron-right', class: "chevron-right-2"
+            %span.item-container__content__detail-table__row__data__text ワンピース
           = link_to "https://www.mercari.com/jp/category/174/" do
-            = fa_icon 'arrow-right', class: "arrow-right"
-            %span ロングワンピース
+            = fa_icon 'chevron-right', class: "chevron-right-2"
+            %span.item-container__content__detail-table__row__data__text ロングワンピース
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header ブランド
         %td.item-container__content__detail-table__row__data
-          = link_to "レイ  ビームス", "https://www.mercari.com/jp/brand/1339/"
+          = link_to "レイ  ビームス", "https://www.mercari.com/jp/brand/1339/", class: "item-container__content__detail-table__row__data__link"
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 商品のサイズ
         %td.item-container__content__detail-table__row__data FREE SIZE
@@ -58,7 +63,7 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 配送元地域
         %td.item-container__content__detail-table__row__data
-          = link_to "福岡県", "https://www.mercari.com/jp/area/40/"
+          = link_to "福岡県", "https://www.mercari.com/jp/area/40/", class: "item-container__content__detail-table__row__data__link"
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 発送日の目安
         %td.item-container__content__detail-table__row__data 4~7日で発送
@@ -84,12 +89,12 @@
   .item-container__buttons
     .item-container__buttons--left
       %button.item-container__buttons--left__like-btn
-        = fa_icon 'heart', class: "heart"
-        %span いいね！
-        %span 1
+        = fa_icon 'heart', class: "heart-2"
+        %span.item-container__buttons--left__like-btn__text いいね！
+        %span.item-container__buttons--left__like-btn__count 1
       %button.item-container__buttons--left__flag-btn
         = fa_icon 'flag', class: "flag"
-        %span 不適切な商品の報告
+        %span.item-container__buttons--left__flag-btn__text 不適切な商品の報告
     .item-container__buttons--right
       = link_to "https://www.mercari.com/jp/safe/description/" do
         = fa_icon 'lock', class: "lock"
@@ -97,54 +102,45 @@
 .item-detail-message
   .item-detail-message__container
     .item-detail-message__container__content
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %p.item-detail-message__container__content__text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %textarea.item-detail-message__container__content__textarea
       %button.item-detail-message__container__content__comment-btn
-        %span コメントする
+        %span.item-detail-message__container__content__comment-btn__text コメントする
 %ul.item-link
   %li.item-link__prev
     = link_to "https://item.mercari.com/jp/m86000929666/" do
-      = fa_icon 'arrow-left', class: "arrow-left"
-    %span 燃えるデット・ソード 2枚 デュエルマスターズ デュエマ
+      = fa_icon 'chevron-left', class: "item-link__prev__icon"
+      %span.item-link__prev__text 燃えるデット・ソード 2枚 デュエルマスターズ デュエマ
   %li.item-link__next
     = link_to "https://item.mercari.com/jp/m10360293918/" do
-      = fa_icon 'arrow-right', class: "arrow-right"
-    %span プリエネージュ 薬用ホワイトニングジェル 4個セット
+      = fa_icon 'chevron-right', class: "item-link__next__icon"
+      %span.item-link__next__text プリエネージュ 薬用ホワイトニングジェル 4個セット
 .social-media-box
   %ul.social-media-box__icons
     %li.social-media-box__icons__facebook
       = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F" do
-        = fa_icon 'facebook', class: "facebook"
+        %i.fab.fa-facebook-square#icon-facebook-1
     %li.social-media-box__icons__twitter
       = link_to "http://twitter.com/share?count=horizontal&amp;original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;text=%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%28%C2%A5%202%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
-        = fa_icon 'twitter', class: "twitter"
+        %i.fab.fa-twitter-square#icon-twitter-1
     %li.social-media-box__icons__pinterest
       = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm43988409821_1.jpg%3F1565087077&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
-        = fa_icon 'pinterest', class: "pinterest"
+        %i.fab.fa-pinterest-square#icon-pinterest-1
 .user-items-profile
   %section.user-items-profile__related-items
     %h2.user-items-profile__related-items__title
-      = link_to "hana☆さんのその他の出品", "https://www.mercari.com/jp/u/948587394/"
+      = link_to "hana☆さんのその他の出品", "https://www.mercari.com/jp/u/948587394/", class: "user-items-profile__related-items__title__text"
     .user-items-profile__related-items__items
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
+      = render 'shared/exhibitor_related_items'
   %section.user-items-profile__related-items
     %h2.user-items-profile__related-items__title
-      = link_to "レイ  ビームスのロングワンピース その他の商品", "https://www.mercari.com/jp/brand/1339/174/"
+      = link_to "レイ  ビームスのロングワンピース その他の商品", "https://www.mercari.com/jp/brand/1339/174/", class: "user-items-profile__related-items__title__text"
     .user-items-profile__related-items__items
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
-      .user-items-profile__related-items__items__item
+      = render 'shared/exhibit_related_items'
 %nav.pos-bottom
   %ul.pos-bottom__lists
-    %li.pos-bottom__list
-    %li.pos-bottom__list
+    %li=link_to "メルカリ", "", class: "pos-bottom__lists__left-list"
+    = fa_icon 'chevron-right', class: "chevron-right-3"
+    %li.pos-bottom__lists__right-list ロングワンピース
 = render 'shared/app-banner'
 = render 'shared/footer'

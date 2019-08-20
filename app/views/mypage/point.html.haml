@@ -1,0 +1,28 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %section.mypage-content__r-content__index
+        .mypage-content__r-content__index__content.is-show2
+          %h2.mypage-title.bold ポイント
+          .side.light-list
+            %nav.sidebar
+              %ul.sidebar__nav#sidebar-active
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    所持ポイント
+                    %p.float-right P 300
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    ポイント履歴
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    ポイントの有効期限
+                    = fa_icon "chevron-right" 
+                %li.sidebar__nav__list
+                  = link_to "", class: "nav-list contact-item" do
+                    ポイントとは？
+                    = fa_icon "chevron-right" 
