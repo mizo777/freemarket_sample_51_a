@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get 'identification'
       get 'sms_confirmation'
       get 'help_center'
+      get 'logout'
     end
   end
   # 新規登録

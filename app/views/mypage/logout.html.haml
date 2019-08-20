@@ -1,0 +1,9 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .signup-login__box.delivery-form
+      .content-inner
+        .content-inner__box
+          = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn mail"
