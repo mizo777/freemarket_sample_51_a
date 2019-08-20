@@ -1,15 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :signup do
-    collection do
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4' 
-      get 'done'
-    end
-  end
+  # 商品関連
+  resources  :products 
   # マイページ
   resources :mypage do
     collection do
@@ -33,8 +25,17 @@ Rails.application.routes.draw do
       get 'email_password'
       get 'identification'
       get 'sms_confirmation'
+      get 'help_center'
     end
   end
-  # メルカリガイド
-  get 'help_center' => 'mypage#index'
+  # 新規登録
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' 
+      get 'done'
+    end
+  end
 end
