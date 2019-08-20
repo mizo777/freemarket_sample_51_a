@@ -12,24 +12,7 @@ body.markup-item-purchase-confirmation-page {
   }
 }
 .mercari-confirmation-header {
-  text-align: center;
-  @media screen and (min-width: 768px) {
-    height: 128px;
-  }
-  &__image {
-    font-size: 0;
-    margin: 11px 0 12px;
-    width: 120px;
-    height: 33px;
-    &:hover {
-      opacity: 0.5;
-    }
-    @media screen and (min-width: 768px) {
-      margin-top: 40px;
-      width: 193px;
-      height: 49px;
-    }
-  }
+  @include header_2;
 }
 .mercari-confirmation {
   display: block;
@@ -189,53 +172,5 @@ body.markup-item-purchase-confirmation-page {
   }
 }
 .mercari-confirmation-footer {
-  padding: 40px 0;
-  text-align: center;
-  height: 170px;
-  @media screen and (min-width: 768px) {
-    width: 456px;
-    height: 140px;
-    margin: 0 auto;
-  }
-  nav {
-    ul {
-      font-size: 0;
-      li {
-        display: block;
-        margin: 16px 0 0;
-        font-size: 12px;
-        @media screen and (min-width: 768px) {
-          display: inline-block;
-          margin-left: 16px;
-        }
-        &:first-child {
-          display: inline-block;
-          margin: 0;
-          font-size: 12px;
-        }
-      }
-    }
-  }
-  &__link {
-    text-decoration: none;
-    color: #333;
-    &:hover {
-      text-decoration: underline;
-    }
-    &__image {
-      display: block;
-      width: 80px;
-      height: 65px;
-      margin: 40px auto 0;
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-  p {
-    margin-top: 8px;
-    small {
-      font-size: 12px;
-    }
-  }
+  @include footer_2;
 }

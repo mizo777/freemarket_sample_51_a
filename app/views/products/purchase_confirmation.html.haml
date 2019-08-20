@@ -1,8 +1,5 @@
 %body.markup-item-purchase-confirmation-page
-%header.mercari-confirmation-header
-  %h1
-    = link_to '/' do
-      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?615905397", class: "mercari-confirmation-header__image"
+= render 'shared/header_2'
 %main.mercari-confirmation
   %section.mercari-confirmation__container
     %h2 購入内容の確認
@@ -49,13 +46,4 @@
         = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
           %span 変更する
           = fa_icon 'chevron-right', class: "chevron-right-4"
-%footer.mercari-confirmation-footer
-  %nav
-    %ul
-      %li= link_to 'プライバシーポリシー', "https://www.mercari.com/jp/privacy/", class: "mercari-confirmation-footer__link"
-      %li= link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/", class: "mercari-confirmation-footer__link"
-      %li= link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei/", class: "mercari-confirmation-footer__link"
-  = link_to '/', class: "mercari-confirmation-footer__link" do
-    = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?615905397", width: "80", height: "65", alt: "mercari", class: "mercari-confirmation-footer__link__image"
-  %p
-    %small © 2019 Mercari
+= render 'shared/footer_2'
