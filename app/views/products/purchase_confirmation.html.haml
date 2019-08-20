@@ -1,0 +1,61 @@
+%body.markup-item-purchase-confirmation-page
+%header.mercari-confirmation-header
+  %h1
+    = link_to '' do
+      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?615905397", class: "mercari-confirmation-header__image"
+%main.mercari-confirmation
+  %section.mercari-confirmation__container
+    %h2 購入内容の確認
+    %section.mercari-confirmation__container__buy-item
+      .mercari-confirmation__container__buy-item__inner
+        .mercari-confirmation__container__buy-item__inner__item
+          %h3= image_tag "https://static.mercdn.net/thumb/photos/m43988409821_1.jpg?1565087077", width: "64", height: "85"
+          %p ロングワンピース
+        .mercari-confirmation__container__buy-item__inner__price-box
+          .mercari-confirmation__container__buy-item__inner__price-box__text
+            %p ¥2,000
+            %p 送料込み
+        .mercari-confirmation__container__buy-item__inner__point-info
+          %p ポイントはありません
+        .mercari-confirmation__container__buy-item__inner__payment-box
+          %ul
+            %li 支払い金額
+            %li ¥2,000
+        %button.mercari-confirmation__container__buy-item__inner__buy-btn
+          購入する
+    %section.mercari-confirmation__container__buy-user-info
+      .mercari-confirmation__container__buy-user-info__inner
+        %h3 配送先
+        %address
+          〒601-8343
+          %br 
+          京都府京都市南区吉祥院稲葉町24
+          %br
+          ヤマト運輸
+        %address 
+        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+          %span 変更する
+          = fa_icon 'chevron-right', class: "chevron-right-4"
+          
+    %section.mercari-confirmation__container__buy-user-info
+      .mercari-confirmation__container__buy-user-info__inner
+        %h3 支払い方法
+        %p
+          ************5555
+          %br
+          03 / 24
+        %figure
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", width: "49", height: "15", alt: "visa"
+        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+          %span 変更する
+          = fa_icon 'chevron-right', class: "chevron-right-4"
+%footer.mercari-confirmation-footer
+  %nav
+    %ul
+      %li= link_to 'プライバシーポリシー', "https://www.mercari.com/jp/privacy/", class: "mercari-confirmation-footer__link"
+      %li= link_to 'メルカリ利用規約', "https://www.mercari.com/jp/tos/", class: "mercari-confirmation-footer__link"
+      %li= link_to '特定商取引に関する表記', "https://www.mercari.com/jp/tokutei/", class: "mercari-confirmation-footer__link"
+  = link_to "", class: "mercari-confirmation-footer__link" do
+    = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?615905397", width: "80", height: "65", alt: "mercari", class: "mercari-confirmation-footer__link__image"
+  %p
+    %small © 2019 Mercari
