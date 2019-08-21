@@ -1,0 +1,49 @@
+%body.markup-item-purchase-confirmation-page
+= render 'shared/header_2'
+%main.mercari-confirmation
+  %section.mercari-confirmation__container
+    %h2 購入内容の確認
+    %section.mercari-confirmation__container__buy-item
+      .mercari-confirmation__container__buy-item__inner
+        .mercari-confirmation__container__buy-item__inner__item
+          %h3= image_tag "https://static.mercdn.net/thumb/photos/m43988409821_1.jpg?1565087077", width: "64", height: "85"
+          %p ロングワンピース
+        .mercari-confirmation__container__buy-item__inner__price-box
+          .mercari-confirmation__container__buy-item__inner__price-box__text
+            %p ¥2,000
+            %p 送料込み
+        .mercari-confirmation__container__buy-item__inner__point-info
+          %p ポイントはありません
+        .mercari-confirmation__container__buy-item__inner__payment-box
+          %ul
+            %li 支払い金額
+            %li ¥2,000
+        %button.mercari-confirmation__container__buy-item__inner__buy-btn
+          購入する
+    %section.mercari-confirmation__container__buy-user-info
+      .mercari-confirmation__container__buy-user-info__inner
+        %h3 配送先
+        %address
+          〒601-8343
+          %br 
+          京都府京都市南区吉祥院稲葉町24
+          %br
+          ヤマト運輸
+        %address 
+        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+          %span 変更する
+          = fa_icon 'chevron-right', class: "chevron-right-4"
+          
+    %section.mercari-confirmation__container__buy-user-info
+      .mercari-confirmation__container__buy-user-info__inner
+        %h3 支払い方法
+        %p
+          ************5555
+          %br
+          03 / 24
+        %figure
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", width: "49", height: "15", alt: "visa"
+        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+          %span 変更する
+          = fa_icon 'chevron-right', class: "chevron-right-4"
+= render 'shared/footer_2'
