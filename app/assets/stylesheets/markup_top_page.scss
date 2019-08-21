@@ -1,0 +1,178 @@
+.mercari-header {
+  overflow-x: hidden;
+  @include header_before_login;
+}
+.mercari-main {
+  overflow-x: hidden;
+  background: #f5f5f5;
+  width: auto;
+  &__top {
+    position: relative;
+    width: auto;
+    height: auto;
+    &__dots {
+      position: absolute;
+      top: 360px;
+      width: 100%;
+      height: 12px;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin: 0 7.5px;
+        button {
+          position: relative;
+          text-indent: -9999px;
+          background-color: $white;
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+        }
+        &.slick-active {
+          background-color: rgba(0,0,0,0.5);
+          border-radius: 50%;
+          width: 12px;
+          height: 12px;
+        }
+      }
+    }
+    &--1 {
+      position: relative;
+      background: url(https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg);
+      background-size: cover;
+      width: auto;
+      height: 390px;
+      &__visual {
+        position: relative;
+        margin: 0 auto;
+        max-width: 860px;
+        height: 100%;
+        &__content {
+          position: absolute;
+          top: 44px;
+          left: 0;
+          &__text-1 {
+            font-size: 60px;
+            line-height: 1.2;
+            color: $black;
+          }
+          &__text-2 {
+            margin: 16px 0 0;
+            font-size: 18px;
+            line-height: 1.77778;
+            color: $black;
+          }
+          &__store {
+            margin: 24px 0 0;
+            line-height: 0;
+            &__app {
+              display: inline-block;
+              &__image {
+                width: 170px;
+                height: 50px;
+              }
+            }
+            &__google {
+              display: inline-block;
+              margin: 0 0 0 8px;
+              &__image {
+                width: 170px;
+                height: 50px;
+              }
+            }
+          }
+        }
+        &__top-image {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
+    &--2 {
+      background: url(https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg);
+      background-size: cover;
+      width: auto;
+      height: 390px;
+    }
+  }
+  &__middle {
+    padding: 40px 0;
+    margin-top: -30px;
+    width: auto;
+    &__pickup-category {
+      @include pickup-title();
+    }
+    &__1 {
+      @include items;
+    }
+    &__2 {
+      @include items;
+    }
+    &__3 {
+      @include items;
+    }
+    &__4 {
+      @include items;
+    }
+  }
+  &__bottom {
+    padding: 40px 0;
+    width: auto;
+    &__pickup-brand {
+      @include pickup-title(40.2%);
+    }
+    &__1 {
+      @include items;
+    }
+    &__2 {
+      @include items;
+    }
+    &__3 {
+      @include items;
+    }
+    &__4 {
+      @include items;
+    }
+  }
+}
+.app-banner {
+  overflow-x: hidden;
+  @include app-banner;
+}
+.mercari-footer {
+  overflow-x: hidden;
+  @include footer;
+}
+.mercari-sell-btn {
+  position: fixed;
+  bottom: -14px;
+  right: -14px;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  font-size: 57px;
+  border-radius: 50%;
+  background-color: $cinnabar;
+  color: $white;
+  @media screen and (min-width: 768px) {
+    bottom: 32px;
+    right: 32px;
+    width: 160px;
+    height: 160px;
+    font-size: 22px;
+  }
+  &__text {
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: $white;
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      margin: 32px 0 0;
+      font-size: 22px;
+      line-height: 1;
+    }
+  }
+}

@@ -1,0 +1,165 @@
+@mixin header_after_login {
+  overflow-x: hidden;
+  width: auto;
+  height: auto;
+  background-color: $white;
+  border-bottom: 1px solid #EEE;
+  box-shadow:rgba(122, 122, 122, 0.0588235) 0px 0px 10px 5px;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+  &__inner {
+    margin: 0 auto;
+    padding: 8px 0 0;
+    width: 700px;
+    height: 92px;
+    @media screen and (min-width: 1068px) {
+      width: 1020px;
+    }
+    &__top {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      &__link {
+        float: left;
+        position: relative;
+        top: 1.5px;
+      }
+      &__form {
+        float: left;
+        width: 77.15%;
+        height: 40px;
+        margin-left: 45px;
+        &__input {
+          float: left;
+          width: calc(100% + 42px);
+          height: 40px;
+          padding-left: 10px;
+          background-color: rgb(245, 245, 245);
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        }
+        &__icon {
+          position: relative;
+          float: right;
+          right: 16%;
+          bottom: 30px;
+          line-height: 16px;
+          font-size: 16px;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          padding: 0;
+          appearance: none;
+          @media screen and (min-width: 630px) {
+            position: relative;
+            float: right;
+            left: 40px;
+            bottom: 30px;
+          }
+        }
+      }
+    }
+    &__bottom {
+      margin-top: 8px;
+      width: 100%;
+      height: 44px;
+      &--left {
+        float: left;
+        width: 315px;
+        height: 44px;
+        &__nav {
+          font-size: 14px;
+          line-height: 35px;
+          &__search-category {
+            padding-right: 11px;
+            &__text {
+              vertical-align: middle;
+              font-weight: bold;
+              color: $black;
+            }
+          }
+          &__search-brand {
+            padding-left: 11px;
+            &__text {
+              vertical-align: middle;
+              font-weight: bold;
+              color: $black;
+            }
+          }
+        }
+      }
+      &--right-after-login {
+        float: right;
+        @media screen and (max-width: 768px) {
+          float: left;
+        }
+        &__nav {
+          width: 100%;
+          height:44px;
+          
+          &__like-list {
+            position: relative;
+            bottom: 8px;
+            padding: 0 14px 0 0;
+            @media screen and (max-width: 768px) {
+              padding: 0 7px 0 0;
+            }
+            &__text {
+              margin-left: 5px;
+              font-size: 14px;
+              color: #333;
+            }
+          }
+          &__notification {
+            position: relative;
+            bottom: 8px;
+            padding: 0 14px;
+            @media screen and (max-width: 768px) {
+              padding: 0 7px;
+            }
+            &__text {
+              margin-left: 6px;
+              font-size: 14px;
+              color: #333;
+            }
+          }
+          &__todo-list {
+            position: relative;
+            bottom: 8px;
+            padding: 0 14px;
+            @media screen and (max-width: 768px) {
+              padding: 0 7px;
+            }
+            &__text {
+              margin-left: 6px;
+              font-size: 14px;
+              color: #333;
+            }
+          }
+          &__my-page {
+            position: relative;
+            bottom: 8px;
+            padding: 0 0 0 14px;
+            @media screen and (max-width: 768px) {
+              padding: 0 0 0 7px;
+            }
+            &__image {
+              position: relative;
+              top: 10px;
+              border-radius: 50%;
+            }
+            &__text {
+              margin-left: 5px;
+              font-size: 14px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}

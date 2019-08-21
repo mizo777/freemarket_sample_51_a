@@ -1,14 +1,29 @@
-@import "reset";
-@import 'font-awesome';
+/*
+ *= require_self
+ */
+@import "_reset";
+@import "font-awesome";
+@import "slick";
+@import "slick-theme";
+@import "config/color";
+@import "config/font-size";
 // ここからmixin
 @import "mixin/mixin";
+@import "mixin/header_before_login";
+@import "mixin/header_after_login";
+@import "mixin/items";
+@import "mixin/app-banner";
+@import "mixin/footer";
 // ここからmodule(下に書いた方が優勢して読み込まれる)
 @import "modules/format";
 @import "modules/mediaquery";
+@import "./all-elements.scss";
+@import "./icon.scss";
+@import "./markup_top_page.scss";
+@import "./markup_item_detail_page.scss";
 @import "modules/breadcrumb";
 @import "modules/sidebar";
 @import "modules/signup_login";
 @import "modules/mypage";
 @import "modules/mypage-setting";
 @import "modules/text-mixin";
-

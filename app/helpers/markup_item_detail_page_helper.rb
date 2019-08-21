@@ -1,0 +1,2 @@
+module MarkupItemDetailPageHelper
+end
