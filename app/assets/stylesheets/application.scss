@@ -14,6 +14,8 @@
 @import "mixin/items";
 @import "mixin/app-banner";
 @import "mixin/footer";
+@import "mixin/header_2";
+@import "mixin/footer_2";
 // ここからmodule(下に書いた方が優勢して読み込まれる)
 @import "modules/format";
 @import "modules/mediaquery";
@@ -21,6 +23,7 @@
 @import "./icon.scss";
 @import "./markup_top_page.scss";
 @import "./markup_item_detail_page.scss";
+@import "./markup_item_purchase_confirmation_page.scss";
 @import "modules/breadcrumb";
 @import "modules/sidebar";
 @import "modules/signup_login";

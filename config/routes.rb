@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   root 'markup_top_page#home'
   root 'markup_item_detail_page#home'  
   # 商品関連
-  resources  :products 
+  resources :products 
+  resources :products do
+    collection do
+      get 'detail'
+      get 'purchase_confirmation'
+    end
+  end
+
   resources :signup do
     collection do
       get 'step1'
