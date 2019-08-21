@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+  resources :products, only: [:index]
   # マイページ
   resources :mypage do
     collection do
