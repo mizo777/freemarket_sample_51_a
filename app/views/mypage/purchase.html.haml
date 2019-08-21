@@ -13,7 +13,7 @@
                 取引中
           %li
             %h3.bold
-              = link_to "/mypage/purchased", class: "" do
+              = link_to purchased_mypage_index_path, class: "" do
                 過去の取引
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
           = render partial: 'purchase_panel'

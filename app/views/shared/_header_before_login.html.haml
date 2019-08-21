@@ -20,5 +20,5 @@
               %span.mercari-header__inner__bottom--left__nav__search-brand__text ブランドから探す
       .mercari-header__inner__bottom--right-before-login
         %ul.mercari-header__inner__bottom--right-before-login__nav
-          %li= link_to "新規会員登録", '/signup/step1', class: "mercari-header__inner__bottom--right-before-login__nav__sign-up"
-          %li= link_to "ログイン", '/users/sign_in', class: "mercari-header__inner__bottom--right-before-login__nav__log-in"
+          %li= link_to "新規会員登録", step1_signup_index_path, class: "mercari-header__inner__bottom--right-before-login__nav__sign-up"
+          %li= link_to "ログイン", new_user_session_path, class: "mercari-header__inner__bottom--right-before-login__nav__log-in"
