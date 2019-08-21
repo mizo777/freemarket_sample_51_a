@@ -1,5 +1,4 @@
 // テキスト
-
 .bold {
   font-weight: 600;
 }
@@ -12,9 +11,21 @@
 .m-left16{
   margin: 0 0 0 16px;
 }
+.m-right16{
+  margin: 0 16px 0 0;
+}
+.m-top16{
+  margin: 16px 0 0 0;
+}
 .m-top40{
   margin: 40px 0 0;
 }
+.margin-zero{
+  margin: 0;
+}  
+.padding-zero{
+  padding: 0;
+}  
 .flex{
   display: flex;
 }
@@ -36,7 +47,7 @@ p.text{
 p.text-right{
   text-align: right;
 }
-p.text-center{
+.text-center{
   text-align: center;
 }
 .text-center{
@@ -49,7 +60,7 @@ p.gray{
   line-height: 1.5;
 }
 a.nodeco-blue{
-  color: #0099e8;
+  color: #0099e8 !important;
   text-decoration: none; 
 }
 .decoration-non{

@@ -20,7 +20,7 @@
         = f.password_field :password, autocomplete: "current-password"
       .field 私はロボットではありません。      
       .actions
-        = f.submit "ログイン"
+        = f.submit "ログイン", class: "btn"
       - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
         = link_to "パスワードをお忘れの方", new_password_path(resource_name), class: "nodeco-blue"
   %footer.signup-login__footer

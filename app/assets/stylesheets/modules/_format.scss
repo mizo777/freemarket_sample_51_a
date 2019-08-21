@@ -1,0 +1,127 @@
+.setting-input{
+  box-sizing: border-box;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+.textarea-default{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+ // 必須・任意
+ span.require{
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;    
+}  
+span.optional{
+  background: #ccc;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;    
+}
+// ボタン
+.btn{
+  @include btnFormat();          
+}
+.mail{
+  @include mailFormat();
+}
+.facebook{
+  @include facebookFormat();
+}
+.google{ 
+  @include googleFormat();
+}
+.signupbtn{
+  @include signupFormat();
+}
+// form
+.form-format{
+  @include formFormat();
+}  
+
+// 共通フォーム
+.form-format{
+  border-top: 1px solid #f5f5f5;
+  padding: 40px;
+  @include formFormat();
+  .form-format__content{
+    max-width: 320px;
+    margin: 0 auto;
+    label{
+      font-weight: 600;
+    }
+  }
+  select{
+    width: 100%;
+  } 
+}  
+// date_select
+.select-box{
+  position: relative;
+  background: #fff;
+  margin: 8px 0 0;
+
+  .fa {
+    position: absolute;
+    right: 16px;
+    top:  55%;
+    z-index: 1;
+    color: #888;
+    font-size: 18px;
+    transform: translate(0, -50%);
+  }
+  select.select-form{
+    position: relative;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;  
+  }        
+  select::-ms-expand {
+    display: none;
+  }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }    
+}
+.select-harf{
+  display: inline-block;
+  width: calc(50% - 2px);
+  .select-form{
+    width: calc(100% - 38px);
+  }  
+    .fa{
+      font-size: 10px;
+      margin: 0 6px 0 -15px;
+      position: relative;
+      top: 50%;
+      pointer-events: none;     
+    }
+}   

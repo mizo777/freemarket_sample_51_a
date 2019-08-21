@@ -1,0 +1,57 @@
+
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'
+    .mypage-content__r-content
+      %h2.mypage-title.bold 本人情報の登録
+      %form{class: "identification form-format"}
+        .identification__description
+          %p
+            お客さまの本人情報をご登録ください。
+            %br 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          %p.text-right
+            = link_to "", class: "nodeco-blue" do
+              本人確認書類のアップロードについて
+              =fa_icon "chevron-right"
+        .field
+          %label お名前
+          %p 溝口  祐紀
+        .field
+          %label お名前カナ
+          %p ミゾグチ  ユウキ
+        .field
+          %label 生年月日
+          %p 1987/11/11
+        .field
+          %label 郵便番号
+          %span.optional 任意
+          %input{type: "text", class: "setting-input", placeholder: "例）1234-567", value: "5380035"}
+        .field
+          %label 都道府県
+          %span.optional 任意
+          .select-box
+            =fa_icon "chevron-down"
+            %select{name: "", class: "m-top8 select-form", value: "大阪"}
+        .field
+          %label 市区町村
+          %span.optional 任意
+          %input{type: "text", class: "setting-input", placeholder: "例）横浜市緑区", value: "大阪市鶴見区"}
+        .field
+          %label 番地
+          %span.optional 任意
+          %input{type: "text", class: "setting-input", placeholder: "例）青山1-1", value: ""}
+        .field
+          %label 建物名
+          %span.optional 任意
+          %input{type: "text", class: "setting-input", placeholder: "例）柳ビル103", value: ""}
+        .field
+          %input{type: "submit", value: "登録する", class: "btn"}
+        .field
+          %p.text-right
+            = link_to "", class: "nodeco-blue" do
+              本人情報の登録について
+              =fa_icon "chevron-right"
+
+        

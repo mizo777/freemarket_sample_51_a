@@ -280,63 +280,6 @@ body.mypage{
 }   
 
 
-@media screen and (min-width: 768px){
-  .breadcrumbs ul {
-    overflow: visible !important;
-    width: 700px;
-    margin: 0 auto;
-    padding: 16px 0!important;
-    white-space: normal !important;
-  }  
-  .mypage-content {
-      width: 700px;
-      .side {
-        width: 700px;
-        .sidebar__nav-title {
-          margin: 40px 0 0 !important;
-      }      
-    }
-    &__r-content {
-      width: 700px !important;
-      &__user-icon {
-        height: 200px !important;
-      }
-      section.purchased-list {
-        h2{
-          padding: 0 16px !important;
-        }
-      }       
-    }      
-  }
-  .mypage-history {
-    margin: 16px 0 0;
-  }
-  .mypage-title {
-    font-size: 24px !important;
-    padding: 8px 24px !important;
-  }
-  .news-list{
-    padding: 40px !important;
-  }   
-}
-
-@media screen and (min-width: 1068px){
-  .breadcrumbs ul {
-    width: 1020px;
-  }  
-  main.mypage-content {
-    margin: 40px auto 0 !important;
-    width: 1020px;
-    .side {
-      width: 280px;
-      margin: 0 40px 0 0 !important;
-    }   
-  }
-  .mypage-history {
-    margin: 40px 0 0 !important;
-  }  
-}
-
 //お問合せ、ポイント
 .light-list{
   width: 100% !important;
