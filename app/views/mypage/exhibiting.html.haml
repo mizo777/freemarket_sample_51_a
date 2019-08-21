@@ -13,11 +13,11 @@
                 出品中
           %li
             %h3.bold
-              = link_to "/mypage/exhibit_trading", class: "" do
+              = link_to exhibit_trading_mypage_index_path, class: "" do
                 取引中
           %li
             %h3.bold
-              = link_to "/mypage/exhibited", class: "" do
+              = link_to exhibited_mypage_index_path, class: "" do
                 売却済
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
           = render partial: 'exhibiting_panel'

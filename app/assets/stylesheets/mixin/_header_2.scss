@@ -1,0 +1,20 @@
+@mixin header_2 {
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    height: 128px;
+  }
+  &__image {
+    font-size: 0;
+    margin: 11px 0 12px;
+    width: 120px;
+    height: 33px;
+    &:hover {
+      opacity: 0.5;
+    }
+    @media screen and (min-width: 768px) {
+      margin-top: 40px;
+      width: 193px;
+      height: 49px;
+    }
+  }
+}

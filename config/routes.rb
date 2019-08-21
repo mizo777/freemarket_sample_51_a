@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'markup_top_page#home'
-  root 'markup_item_detail_page#home'
+  root 'markup_item_detail_page#home'  
+  # 商品関連
+  resources :products 
+  resources :products do
+    collection do
+      get 'detail'
+      get 'purchase_confirmation'
+    end
+  end
+
   resources :signup do
     collection do
       get 'step1'
@@ -29,12 +38,23 @@ Rails.application.routes.draw do
       get 'point'
       get 'profile'
       get 'delivery_address'
-      get 'payment'
+      get 'card'
+      get 'card_create'
       get 'email_password'
       get 'identification'
       get 'sms_confirmation'
+      get 'help_center'
+      get 'logout'
     end
   end
-  # メルカリガイド
-  get 'help_center' => 'mypage#index'
+  # 新規登録
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'step3'
+      get 'step4' 
+      get 'done'
+    end
+  end
 end

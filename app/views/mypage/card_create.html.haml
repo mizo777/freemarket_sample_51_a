@@ -1,0 +1,12 @@
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content.flex
+    .side
+      = render partial: 'sidebar'     
+    .signup-login__box.delivery-form
+      .mypage-head
+        %h2.bold.text-center クレジットカード情報入力
+      %form{action: "/", method: "post", class: "form-format"} 
+        .form-format__content
+          = render partial: 'signup/credit'     
+          %input{type: "submit", value: "次へ進む", class: "btn"}

@@ -2,7 +2,7 @@
   .mercari-header__inner
     .mercari-header__inner__top
       %h1.mercari-header__inner__top__link
-        = link_to "" do
+        = link_to '/' do
           = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2787198863", width: "134", height: "36"
       %form.mercari-header__inner__top__form{action: ""}
         %input.mercari-header__inner__top__form__input{type: "text", name: "text", value: "", placeholder: "何かお探しですか？", maxlength: "100"}
@@ -21,18 +21,18 @@
       %nav.mercari-header__inner__bottom--right-after-login
         %ul.mercari-header__inner__bottom--right-after-login__nav
           %li.mercari-header__inner__bottom--right-after-login__nav__like-list
-            = link_to "" do
+            = link_to like_mypage_index_path do
               = fa_icon 'heart', class: "heart"
               %span.mercari-header__inner__bottom--right-after-login__nav__like-list__text いいね！一覧
           %li.mercari-header__inner__bottom--right-after-login__nav__notification
-            = link_to "" do
+            = link_to notification_mypage_index do
               = fa_icon 'bell', class: "bell"
               %span.mercari-header__inner__bottom--right-after-login__nav__notification__text お知らせ
           %li.mercari-header__inner__bottom--right-after-login__nav__todo-list
-            = link_to "" do
+            = link_to todo_mypage_index_path do
               = fa_icon 'check', class: "check"
               %span.mercari-header__inner__bottom--right-after-login__nav__todo-list__text やることリスト
           %li.mercari-header__inner__bottom--right-after-login__nav__my-page
-            = link_to "" do
+            = link_to mypage_index_path do
               = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "mercari-header__inner__bottom--right-after-login__nav__my-page__image"
               %span.mercari-header__inner__bottom--right-after-login__nav__my-page__text マイページ
