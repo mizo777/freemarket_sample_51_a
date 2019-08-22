@@ -18,3 +18,4 @@
 config/secrets.yml
 # ここより追記
 /public/images
+config/secrets.yml
