@@ -7,15 +7,15 @@
       %section.mypage-content__r-content__index.purchased-index
         %h2.purchased-index__title.bold 出品した商品
         %ul.mypage-content__r-content__index__tab.flex
-          %li.is-active2
+          %li.status-title.is-active2
             %h3.bold
               = link_to "", class: "" do
                 出品中
-          %li
+          %li.status-title
             %h3.bold
               = link_to exhibit_trading_mypage_index_path, class: "" do
                 取引中
-          %li
+          %li.status-title
             %h3.bold
               = link_to exhibited_mypage_index_path, class: "" do
                 売却済

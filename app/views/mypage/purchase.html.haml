@@ -7,17 +7,32 @@
       %section.mypage-content__r-content__index.purchased-index
         %h2.purchased-index__title.bold 購入した商品
         %ul.mypage-content__r-content__index__tab.flex
-          %li.is-active2
+          %li.status-title.is-active2
             %h3.bold
               = link_to "", class: "" do
                 取引中
-          %li
+          %li.status-title
             %h3.bold
               = link_to purchased_mypage_index_path, class: "" do
                 過去の取引
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
-          = render partial: 'purchase_panel'
+          %ul
+            = render partial: 'purchase_panel'
         .mypage-content__r-content__index__content.mypage-panel2
-          = render partial: 'purchased_panel'
-
-
+          %ul
+            = render partial: 'purchased_panel'
+      %ul.mypage-history
+        %li.prev
+          = link_to "", class: "" do
+            = fa_icon "chevron-left"
+        %li.foward
+          = link_to "", class: "" do
+            = fa_icon "chevron-right"            
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"

@@ -44,8 +44,23 @@
               = link_to "", class: "" do
                 過去の取引
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
-          = render partial: 'purchase_panel'
+          %ul
+            = render partial: 'purchase_panel'
+            %li.more-list
+              = link_to "", class: " " do
+                一覧を見る
+
         .mypage-content__r-content__index__content.mypage-panel2
-          = render partial: 'purchased_panel'
-
-
+          %ul
+            = render partial: 'purchased_panel'
+            %li.more-list
+              = link_to "", class: " " do
+                一覧を見る          
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"
