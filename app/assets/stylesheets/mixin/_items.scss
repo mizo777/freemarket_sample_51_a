@@ -3,6 +3,7 @@
   font-size: 28px;
   line-height: 1.4;
   color: $black;
+  font-weight: bold;
 }
 @mixin items {
   text-align: center;
@@ -42,9 +43,13 @@
           position: relative;
           padding: 16px 16px 0 16px;
           font-weight: 400;
+          color: $black;
           height: 3em;
           line-height: 1.5;
           text-align: left;
+        }
+        &__article-name::-webkit-scrollbar {
+          display: none;
         }
         &__price-heart {
           margin-top: 8px;
@@ -54,7 +59,6 @@
             font-size: 17px;
             font-weight: 600;
             color: $black;
-            
           }
           &__article-heart {
             float: right;
@@ -62,6 +66,7 @@
               display: inline-block;
               margin-left: -3px;
               font-weight: 400;
+              color: $black;
             }
           }
         }

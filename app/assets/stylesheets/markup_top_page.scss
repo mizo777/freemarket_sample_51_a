@@ -51,9 +51,13 @@
           top: 44px;
           left: 0;
           &__text-1 {
-            font-size: 60px;
+            font-size: 40px;
             line-height: 1.2;
             color: $black;
+            font-weight: bold;
+            @media screen and (min-width: 1068px) {
+              font-size: 60px;
+            }
           }
           &__text-2 {
             margin: 16px 0 0;
@@ -87,6 +91,12 @@
           right: 0;
           width: auto;
           height: 100%;
+          @media screen and (max-width: 768px) {
+            position: relative;
+            left: 300px;
+            width: 50%;
+            height: 100%;
+          }
         }
       }
     }

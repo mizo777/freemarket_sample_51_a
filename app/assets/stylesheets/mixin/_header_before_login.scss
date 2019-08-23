@@ -24,12 +24,20 @@
         float: left;
         position: relative;
         top: 1.5px;
+        @media screen and (max-width: 700px) {
+          position: relative;
+          left: 2px;
+        }
       }
       &__form {
         float: left;
         width: 77.15%;
         height: 40px;
         margin-left: 45px;
+        @media screen and (max-width: 630px) {
+          position: relative;
+          right: 42px;
+        }
         &__input {
           float: left;
           width: calc(100% + 42px);
@@ -44,7 +52,6 @@
         &__icon {
           position: relative;
           float: right;
-          right: 16%;
           bottom: 30px;
           line-height: 16px;
           font-size: 16px;
@@ -71,11 +78,19 @@
         float: left;
         width: 305.64px;
         height: 44px;
+        @media screen and (max-width: 1068px) {
+          position: relative;
+          top: 6px;
+          left: 1px;
+        }
         &__nav {
           font-size: 14px;
           line-height: 35px;
           &__search-category {
             margin-right: 11px;
+            @media screen and (max-width: 768px) {
+              margin-right: -6px;
+            }
             &__text {
               vertical-align: middle;
               font-weight: bold;
@@ -95,6 +110,10 @@
         float: right;
         width: 194.81px;
         height: 32px;
+        @media screen and (max-width: 1068px) {
+          position: relative;
+          top: 6px;
+        }
         &__nav {
           font-size: 14px;
           position: relative;
