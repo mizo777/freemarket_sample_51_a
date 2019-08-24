@@ -1,38 +1,39 @@
-%body.signup-login
-  %header.signup-login__header
-    = render partial: 'signup/header'
-    %nav.progress-bar
-      %ul.progress-bar__status
-        %li.complete
-          会員情報
-          .progress-bar__status__circle
-          .progress-bar__status__line
-        %li.complete
-          電話番号認証
-          .progress-bar__status__circle
-          .progress-bar__status__line
-        %li.complete
-          お届け先住所入力
-          .progress-bar__status__circle
-          .progress-bar__status__line
-        %li.complete
-          支払い方法
-          .progress-bar__status__circle
-          .progress-bar__status__line
-        %li.active
-          完了
-          .progress-bar__status__circle
-          .progress-bar__status__line.end      
-  %main.signup-login__box
-    .signup-login__box__title
-      %h2 会員登録完了
+%body.signup-login-body
+  .signup-login
+    %header.signup-login__header
+      = render partial: 'signup/header'
+      %nav.progress-bar
+        %ul.progress-bar__status
+          %li.complete
+            会員情報
+            .progress-bar__status__circle
+            .progress-bar__status__line
+          %li.complete
+            電話番号認証
+            .progress-bar__status__circle
+            .progress-bar__status__line
+          %li.complete
+            お届け先住所入力
+            .progress-bar__status__circle
+            .progress-bar__status__line
+          %li.complete
+            支払い方法
+            .progress-bar__status__circle
+            .progress-bar__status__line
+          %li.active
+            完了
+            .progress-bar__status__circle
+            .progress-bar__status__line.end      
+    %main.signup-login__box
+      .signup-login__box__title
+        %h2 会員登録完了
 
-    .form-format.done-content
-      .form-format__content
-        %p.text-center ありがとうございます。
-        %p.text-center 会員登録が完了しました。
-        =link_to "", class: "mail btn" do
-          メルカリをはじめる
-    = image_tag "/images/done.png", width: "100%", alt: "アプリインストール"
-  %footer.signup-login__footer
-    = render partial: 'signup/footer'
+        .form-format.done-content
+          .form-format__content
+            %p.text-center ありがとうございます。
+            %p.text-center 会員登録が完了しました。
+            =link_to "", class: "mail btn" do
+              メルカリをはじめる
+        = image_tag "done.png", width: "100%", alt: "アプリインストール"
+    %footer.signup-login__footer
+      = render partial: 'signup/footer'

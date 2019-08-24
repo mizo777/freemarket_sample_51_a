@@ -62,7 +62,7 @@ span.optional{
 // 共通フォーム
 .form-format{
   border-top: 1px solid #f5f5f5;
-  padding: 40px;
+  padding: 24px 16px 40px;
   @include formFormat();
   .form-format__content{
     max-width: 320px;

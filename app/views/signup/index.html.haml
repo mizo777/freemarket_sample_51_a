@@ -1,19 +1,20 @@
-%body.signup-login
-  %header.signup-login__header
-    = render partial: 'header'
-  %main.signup-login__box
-    .signup-login__box__title
-      %h2.bold 新規会員登録
-    .form-format
-      .form-format__content.signup-content
-        =link_to "signup/step1", class: "mail btn" do
-          = fa_icon "envelope mail-icon"
-          メールアドレスで登録する
-        =link_to "", class: "facebook btn m-top16" do
-          = fa_icon 'facebook-square'
-          facebookで登録する
-        =link_to "", class: "google btn" do
-          = fa_icon 'google'
-          Googleで登録する
-  %footer.signup-login__footer
-    = render partial: 'footer'
+%body.signup-login-body
+  .signup-login
+    %header.signup-login__header
+      = render partial: 'header'
+    %main.signup-login__box
+      .signup-login__box__title
+        %h2.bold 新規会員登録
+        .form-format
+          .form-format__content.signup-content
+            =link_to "signup/step1", class: "mail btn" do
+              %i.far.fa-envelope
+              メールアドレスで登録する
+            =link_to "", class: "facebook btn m-top16" do
+              = fa_icon 'facebook-square'
+              Facebookで登録する
+            =link_to "", class: "google btn" do
+              = fa_icon 'google'
+              Googleで登録する
+    %footer.signup-login__footer
+      = render partial: 'footer'

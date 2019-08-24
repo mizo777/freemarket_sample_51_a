@@ -10,7 +10,7 @@
 .profile{
   &__name{
     padding: 72px 16px 24px;
-    background-image: url("/images/user-backimage.jpeg");
+    background-image: url("user-backimage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
@@ -59,8 +59,14 @@
   }
 }
 
+
 // クレジットカード
+.delivery-form{
+  background-color: #fff;
+  width: 100%;
+}
 .content-inner{
+  background-color: #fff;
   border-top: 1px solid #f5f5f5;
   padding: 40px;
   &__box{

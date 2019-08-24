@@ -1,0 +1,73 @@
+// テキスト
+.bold {
+  font-weight: 600;
+}
+p.text{
+  margin: 8px 0 0;
+  line-height: 1.5;
+  color: #333;
+  font-size: 14px;
+}  
+p.text-right{
+  text-align: right;
+}
+.text-center{
+  text-align: center;
+}
+.text-center{
+  text-align: center;
+}
+p.gray{
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.5;
+}
+a.nodeco-blue{
+  color: #0099e8 !important;
+  text-decoration: none; 
+}
+.decoration-non{
+  text-decoration: none; 
+  list-style: none; 
+  padding: 0;
+}
+// 間隔
+.m-top8{
+  margin: 8px 0 0;
+}
+.m-right8{
+  margin: 0 8px 0 0;
+}
+.m-left16{
+  margin: 0 0 0 16px;
+}
+.m-right16{
+  margin: 0 16px 0 0;
+}
+.m-top16{
+  margin: 16px 0 0 0;
+}
+.m-top40{
+  margin: 40px 0 0;
+}
+.margin-zero{
+  margin: 0;
+}  
+.padding-zero{
+  padding: 0;
+}
+// 配置
+.flex{
+  display: flex;
+}
+.inlign-block{
+  display: inline-block;
+} 
+.float-right{
+  float: right;
+}
+p.text-gray{
+  color: #888;
+}
+
