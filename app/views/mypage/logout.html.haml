@@ -2,7 +2,7 @@
 %body.mypage
   = render partial: 'breadcrumb'
   %main.mypage-content
-    .signup-login__box.delivery-form.float-right
+    .signup-login__box.mypage-content__r-content
       .content-inner
         .content-inner__box
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn mail"
