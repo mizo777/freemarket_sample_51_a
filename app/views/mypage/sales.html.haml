@@ -1,9 +1,7 @@
 = render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
+  %main.mypage-content
     .mypage-content__r-content
       %section.mypage-content__r-content__index
         .mypage-content__r-content__index__content.is-show2
@@ -39,7 +37,9 @@
                 %li.sidebar__nav__list
                   = link_to "", class: "nav-list contact-item" do
                     振込申請スケジュール
-                    = fa_icon "chevron-right" 
+                    = fa_icon "chevron-right"
+    .side
+      = render partial: 'sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn

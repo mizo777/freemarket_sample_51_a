@@ -1,10 +1,8 @@
 = render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
-    .signup-login__box.delivery-form
+  %main.mypage-content
+    .signup-login__box.delivery-form.float-right
       %h2.mypage-title.bold.text-center 支払い方法
       .content-inner
         %section
@@ -29,6 +27,8 @@
             = link_to "", class: "nodeco-blue" do
               支払い方法について
               =fa_icon "chevron-right"
+    .side
+      = render partial: 'sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn

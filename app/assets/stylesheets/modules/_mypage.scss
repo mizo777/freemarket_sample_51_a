@@ -11,12 +11,12 @@ body.mypage{
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
   color: #333;
-  line-height: 1;
-
-  .mypage-content{
+  line-height: 1; 
+  .mypage-content{ 
     margin: 24px auto 0;
     padding: 0 0 40px;
     &__r-content{
+      float: right;      
       &__user-icon{
         position: relative;
         height: 155px;
@@ -280,7 +280,10 @@ body.mypage{
       .item-status.done{
         background-color: #888;
       }
-  } 
+  }
+  .mypage-content:after {
+      @include clearFix();
+  }    
 }   
 
 

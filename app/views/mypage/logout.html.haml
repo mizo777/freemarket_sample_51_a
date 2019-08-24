@@ -1,13 +1,13 @@
 = render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
-    .signup-login__box.delivery-form
+  %main.mypage-content
+    .signup-login__box.delivery-form.float-right
       .content-inner
         .content-inner__box
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn mail"
+    .side
+      = render partial: 'sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn
