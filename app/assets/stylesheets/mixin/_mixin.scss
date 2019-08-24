@@ -51,7 +51,7 @@
   color: #fff;
   position: relative;
   .fa-facebook-square{
-    font-size: 26px;
+    font-size: 30px;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -79,7 +79,7 @@
   color: #fff;
   position: relative;
   .fa-envelope{
-    font-size: 18px;
+    font-size: 20px;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -96,17 +96,15 @@
 }
 
 @mixin progressFormat{
-  padding: 40px 0 10px 44px;
+  padding: 16px 0;
   border: 0;
-  display: inline-block;
-  vertical-align: top;
   font-size: 0;
   text-align: center;
   &__status{
     margin: 0;
     li{
-      margin: 0 40px 0 0;
-      padding: 0;
+      margin: 0 10px 0 0;
+      padding-bottom: 20px;
       position: relative;
       z-index: 40;
       display: inline-block;
@@ -129,12 +127,12 @@
         top: 25px;
         bottom: 5px;
         display: block;
-        width: 170%;
+        width: 120%;
         height: 2px;
         background: #ccc;
       }
       .end {
-        width: 0px;
+        width: 0px !important;
       }           
     }
     li:last-child{
@@ -156,4 +154,10 @@
       }
     } 
   } 
+}
+
+@mixin clearFix{
+  content: "";
+  display: block;
+  clear: both;
 }

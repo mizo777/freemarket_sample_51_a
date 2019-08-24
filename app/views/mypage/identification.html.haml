@@ -1,9 +1,7 @@
-
+= render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
+  %main.mypage-content
     .mypage-content__r-content
       %h2.mypage-title.bold 本人情報の登録
       %form{class: "identification form-format"}
@@ -53,5 +51,11 @@
             = link_to "", class: "nodeco-blue" do
               本人情報の登録について
               =fa_icon "chevron-right"
-
-        
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"

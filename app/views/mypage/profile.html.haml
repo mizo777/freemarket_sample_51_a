@@ -1,8 +1,7 @@
+= render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
+  %main.mypage-content
     .mypage-content__r-content
       %h2.mypage-title.bold プロフィール
       %form{class: "profile"}
@@ -14,5 +13,11 @@
           /placeholderに改行つける（）
           = text_area :profile, :profile, class: "textarea-default profile-area", placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィス&#13;&#10;カジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できる&#13;&#10;よう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪'.html_safe       
           %input{type: "submit", value: "変更する", class: "btn"}
-
-           
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"

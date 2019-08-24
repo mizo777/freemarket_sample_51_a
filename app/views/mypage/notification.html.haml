@@ -1,16 +1,15 @@
+= render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
+  %main.mypage-content
     .mypage-content__r-content
       %section.mypage-content__r-content__index
         %ul.mypage-content__r-content__index__tab.flex
-          %li.is-active
+          %li.status-title.is-active
             %h3.bold
               = link_to "", class: "" do
                 お知らせ
-          %li
+          %li.status-title
             %h3.bold
               = link_to todo_mypage_index_path, class: "" do
                 やることリスト
@@ -18,4 +17,11 @@
           = render partial: 'notification_panel'
         .mypage-content__r-content__index__content.mypage-panel
           = render partial: 'todo_panel'
-
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"
