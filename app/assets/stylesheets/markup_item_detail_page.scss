@@ -436,6 +436,9 @@ body.markup_item_detail_page {
   &__prev {
     float: left;
     text-align: left;
+    &:hover {
+      opacity: .4;
+    }
     @media screen and (min-width: 768px) {
       width: 45%;
       height: 100%;
@@ -448,17 +451,25 @@ body.markup_item_detail_page {
       line-height: 100%;
       color: $dark_blue;
       font-size: 14px;
+      position: relative;
+      top: 10px;
     }
     &__text {
       font-size: 14px;
       color: $dark_blue;
       line-height: 100%;
       word-wrap: break-word;
+      &:hover {
+        border-bottom: 1px solid $dark_blue;
+      }
     }
   }
   &__next {
     float: right;
     text-align: right;
+    &:hover {
+      opacity: .4;
+    }
     @media screen and (min-width: 768px) {
       width: 45%;
       height: 100%
@@ -470,12 +481,17 @@ body.markup_item_detail_page {
       height: 100%;
       color: $dark_blue;
       font-size: 14px;
+      position: relative;
+      top: 10px;
     }
     &__text {
       font-size: 14px;
       color: $dark_blue;
       height: 100%;
       word-wrap: break-word;
+      &:hover {
+        border-bottom: 1px solid $dark_blue;
+      }
     }
   }
 }
