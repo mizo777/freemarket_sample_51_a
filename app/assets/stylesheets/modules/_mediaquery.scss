@@ -1,6 +1,19 @@
 // 768px
 @media screen and (min-width: 768px){
   // 新規登録・ログイン
+  .signup-login {
+    padding: 0 0 220px !important;
+    .signup-login__box{
+      &__title{
+      width: 700px;
+      margin: 0 auto;
+      h2{
+        font-size: 22px;
+        padding: 32px;        
+      }
+      }      
+    }    
+  }
   header.signup-login__header{
     height: 128px; 
     h1{
@@ -14,6 +27,15 @@
   .progress-bar {
     padding: 40px 0 0 44px !important;
     border: 0;
+    display: inline-block;
+    vertical-align: top;
+    li{
+      margin: 0 40px 0 0 !important;
+      .progress-bar__status__line{
+        width: 170% !important;
+      }
+
+    } 
   } 
   .form-format{
     padding: 64px;
@@ -33,7 +55,7 @@
   }  
   footer.signup-login__footer {
     width: 456px;
-    height: 220px;
+    height: 220px !important;
     margin: 0 auto;
   }
   // パンくず
@@ -77,6 +99,17 @@
   }
   .news-list{
     padding: 40px !important;
+  }
+  // クレジット
+  .delivery-form{
+    width: 700px !important;
+    .mypage-head{
+      font-size: 24px;
+      padding: 8px 24px;
+    }
+  }
+  .identification{
+    padding: 64px !important;
   }  
 }
 
@@ -97,7 +130,10 @@
   }
   .mypage-history {
     margin: 40px 0 0 !important;
-  }  
+  }
+  .form-format{
+    padding: 40px 40px 64px;
+  }
   .input-format {
     padding: 40px 40px 64px;
     .field:not(:first-of-type){
