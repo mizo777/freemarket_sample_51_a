@@ -113,6 +113,11 @@
     width: auto;
     &__pickup-category {
       @include pickup-title();
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
+        text-align: center;
+        margin-left: 90px; 
+      }
     }
     &__1 {
       @include items;
@@ -132,6 +137,11 @@
     width: auto;
     &__pickup-brand {
       @include pickup-title(40.2%);
+      @media screen and (max-width: 768px) {
+        font-size: 20px;
+        text-align: center;
+        margin-left: 0; 
+      }
     }
     &__1 {
       @include items;

@@ -1,9 +1,10 @@
-@mixin pickup-title($margin: 39.5%) {
-  margin-left: $margin;
+@mixin pickup-title($margin1: 39.5%) {
+  margin-left: $margin1;
   font-size: 28px;
   line-height: 1.4;
   color: $black;
   font-weight: bold;
+  
 }
 @mixin items {
   text-align: center;
@@ -40,10 +41,10 @@
       margin: 0 0 0 20px;
       width: 213px;
       height: 330px;
-      @media screen and (max-width: 1068px) {
-        
-      }
       &:first-child {
+        @media screen and (max-width: 1068px) {
+          margin: 0;
+        }
         @media screen and (max-width: 700px) {
           margin: 0 20px 0 0;
         }
@@ -53,7 +54,7 @@
           margin: 0;
         }
       }
-      &:nth-child(3n) {
+      &:nth-child(3) {
         @media screen and (max-width: 700px) {
           display: inline-block;
           margin: 20px 20px 0 0;
@@ -62,10 +63,6 @@
         }
       }
       &:last-child {
-        display: inline-block;
-        margin: 0 0 0 20px;
-        width: 213px;
-        height: 330px;
         @media screen and (max-width: 1068px) {
           visibility: hidden;
         }
@@ -129,6 +126,9 @@
       line-height: 1;
       color: $dark_blue;
       font-size: 14px;
+      @media screen and (max-width: 1068px) {
+        left: 32%;
+      }
     }
   }
 }
