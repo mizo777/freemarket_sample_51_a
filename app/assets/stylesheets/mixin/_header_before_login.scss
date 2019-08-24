@@ -52,6 +52,7 @@
         &__icon {
           position: relative;
           float: right;
+          right: 10%;
           bottom: 30px;
           line-height: 16px;
           font-size: 16px;
@@ -76,7 +77,7 @@
       height: 44px;
       &--left {
         float: left;
-        width: 305.64px;
+        width: 315px;
         height: 44px;
         @media screen and (max-width: 1068px) {
           position: relative;
