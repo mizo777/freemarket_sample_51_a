@@ -25,7 +25,18 @@ $(function(){
       // スライダーのインデックス番号に対応した画像のsrcを取得
       var targetImage = slick.$slides.eq(index).find('img').attr('src');
       // slick-dots > li　の中に上記で取得した画像を設定
-      return '<img src=" ' + targetImage + ' " alt="" width="60" height="60" class="">';
+      return '<img src=" ' + targetImage + ' " alt="" width="60" height="60" class="item-container__content__photo__bottom__slick-image">';
     }
+  });
+
+  $('.item-container__content__photo__bottom__slick-image li').on('mouseover', function(e) {
+    var $currTarget = $(e.currentTarget),
+    index = $currTarget.data('slick-index'),
+    slickObj = $('.item-container__content__photo__top').slick('getSlick');
+    slickObj.slickGoTo(index, true);    // アニメーション中でも切り替える
+    $slide.slick('slickPause');     // 自動切り替え停止
+  })
+  .on('mouseout', function(e) {
+    $slide.slick('slickPlay');  // 自動切り替え再開
   });
 });

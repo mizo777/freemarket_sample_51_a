@@ -106,23 +106,32 @@
   font-size: 44px;
   width: 44px;
   height: 44px;
-  color: #fff;
+  color: $white;
   background: #385185;
+  &:hover {
+    opacity: .4;
+  }
 }
 #icon-twitter-1 {
   border-radius: 4px;
   font-size: 47px;
   width: 44px;
   height: 44px;
-  background: #fff;
+  background: $white;
   color: #5d9dc9;
+  &:hover {
+    opacity: .4;
+  }
 }
 #icon-pinterest-1 {
   border-radius: 4px;
   font-size: 44px;
   width: 44px;
   height: 44px;
-  color: #fff;
+  color: $white;
   background: #aa262a;
+  &:hover {
+    opacity: .4;
+  }
 }
 

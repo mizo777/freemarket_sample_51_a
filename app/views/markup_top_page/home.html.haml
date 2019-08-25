@@ -18,7 +18,8 @@
               = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&amp;hl=ja" do
                 = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", class: "mercari-main__top--1__visual__content__store__google__image"
         = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?863303983", class: "mercari-main__top--1__visual__top-image"
-    %a.mercari-main__top--2{href: "https://www.mercari.com/jp/featured/camp/"}
+    = link_to "https://www.mercari.com/jp/featured/camp/" do
+      = image_tag "https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg", class: "mercari-main__top--2" 
   %section.mercari-main__middle
     %h2.mercari-main__middle__pickup-category
       ピックアップカテゴリー
