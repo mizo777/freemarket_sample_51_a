@@ -8,7 +8,6 @@
 @import "config/color";
 @import "config/font-size";
 // ここからmixin
-@import "mixin/mixin";
 @import "mixin/header_before_login";
 @import "mixin/header_after_login";
 @import "mixin/items";
@@ -16,6 +15,7 @@
 @import "mixin/footer";
 @import "mixin/header_2";
 @import "mixin/footer_2";
+@import "mixin/mixin";
 // ここからmodule(下に書いた方が優勢して読み込まれる)
 @import "./all-elements.scss";
 @import "./icon.scss";
