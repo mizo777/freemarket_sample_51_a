@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   # 取引情報
   resources :orders 
   # 商品関連
-  resources :products 
   resources :products do
     collection do
       get 'detail'
