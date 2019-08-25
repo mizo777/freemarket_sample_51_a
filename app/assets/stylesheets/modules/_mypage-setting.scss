@@ -1,0 +1,107 @@
+
+// title
+.mypage-head{
+  padding: 12px 4%;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+// pfofile
+.profile{
+  &__name{
+    padding: 72px 16px 24px;
+    background-image: url("user-backimage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-size: 0;
+    input[type="text"]{
+      width: 220px;
+      margin: 0 0 0 8px;
+      vertical-align: middle;      
+    }
+    figure{
+      display: inline-block;
+      overflow: hidden;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      vertical-align: middle;
+    }          
+  }
+  &__content{
+    background-color: white;
+    padding: 40px 16px;
+    .profile-area{
+      box-sizing: border-box;
+      min-height: 216px;
+    }
+
+    input[type="submit"]{
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      margin: 16px 0 0;
+    }
+  }
+}
+
+// 本人情報
+.identification{
+  background-color: white;
+  border-top: 1px solid #f5f5f5;
+  p{
+    line-height: 1.5;
+    margin: 8px 0 0 0;
+  }
+  label{
+    font-weight: 600;
+  }
+}
+
+
+// クレジットカード
+.delivery-form{
+  background-color: #fff;
+  width: 100%;
+}
+.content-inner{
+  background-color: #fff;
+  border-top: 1px solid #f5f5f5;
+  padding: 40px;
+  &__box{
+    max-width: 320px;
+    margin: 0 auto;
+  }
+ .creditcard{
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;   
+ }
+ .payment-list{
+   li{
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;     
+   }
+   form{
+    position: relative;
+    max-width: 320px;
+    margin: 0 auto;
+    .payment-num{
+      margin: 8px 0 0;
+      font-size: 16px;
+    }  
+    .payment-remove{
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 4px 6px;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #ea352d;
+      color: #ea352d;
+      width: 70px;
+      font-size: 12px;
+    }      
+   }
+ } 
+}

@@ -1,0 +1,45 @@
+.field.field-first
+  %label カード番号
+  %span.require 必須
+  %br
+  %input{name: "", placeholder: "半角数字のみ"}
+  %br
+  %ul.card-list.flex.decoration-non
+    %li   
+      = image_tag "visa.png", height: "20", alt: "visa"
+    %li   
+      = image_tag "mastercard.png", height: "20", alt: "mastercard"    
+    %li   
+      = image_tag "saison.png", height: "20", alt: "saison"
+    %li   
+      = image_tag "JCB.png", height: "20", alt: "JCB"
+    %li
+      = image_tag "americanExpress.jpg", height: "20", alt: "americanExpress"
+    %li
+      = image_tag "dinersClub.jpg", height: "20", alt: "dinersClub"
+    %li   
+      = image_tag "discover.png", height: "20", alt: "discover"
+.field
+  %label 有効期限
+  %span.require 必須
+  %br
+  /date_selectで書き換える
+  .select-harf.select-box
+    %select{name: "", placeholder: "", class: "select-form"}
+    =fa_icon "chevron-down"    
+    %span{style: "margin:0 3px; line-height: 52px;"} 月
+  .select-harf.select-box    
+    %select{name: "", placeholder: "", class: "select-form"}
+    =fa_icon "chevron-down"        
+    %span{style: "margin:0 3px; line-height: 52px;"} 年
+  %br 
+.field 
+  %label セキュリティコード
+  %span.require 必須
+  %br
+  %input{name: "", placeholder: "カード背面4桁もしは3桁の番号"}
+  %br
+%p.text.text-right
+  =link_to "", class: "nodeco-blue" do
+    =fa_icon "question-circle"
+    カード裏面の番号とは?

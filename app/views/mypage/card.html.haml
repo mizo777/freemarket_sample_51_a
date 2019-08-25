@@ -1,0 +1,37 @@
+= render partial: 'shared/header_before_login'
+%body.mypage
+  = render partial: 'breadcrumb'
+  %main.mypage-content
+    .signup-login__box.mypage-content__r-content
+      %h2.mypage-title.bold.text-center 支払い方法
+      .content-inner
+        %section
+          .content-inner__box
+            %h3.bold.sub-head クレジットカード一覧  
+          %ul.payment-list
+            %li
+              %form{class: ""}
+                %figure
+                  = image_tag "JCB.png", height: "20", alt: "JCB"
+                .payment-num *********0162
+                .payment-num 02/21
+                %input{type: "submit", value: "削除する", class:"payment-remove"}                
+        /カードの登録・削除で切り替え
+        /%section.creditcard
+        /  .content-inner__box
+        /    = link_to card_create_mypage_index_path, class: "btn mail" do
+        /      %i.far.fa-credit-card.m-right16
+        /      クレジットカードを追加する
+        .field
+          %p.text-right.m-top40
+            = link_to "", class: "nodeco-blue" do
+              支払い方法について
+              =fa_icon "chevron-right"
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"              

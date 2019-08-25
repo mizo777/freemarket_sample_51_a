@@ -1,10 +1,21 @@
-body.signup-login{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-  font-size: 14px; 
-} 
+.signup-login-body{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  .fa{
+    font-family: FontAwesome;
+    font-weight: 100;
+    display: inline-block;
+  }
+  .signup-login{
+    padding: 0 0 250px;
+}   
+}
+
   // 共通ヘッダー
   header.signup-login__header{
     text-align: center;
@@ -25,19 +36,23 @@ body.signup-login{
   }
   // 共通フッター
   footer.signup-login__footer{
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 1;
     height: 250px;
     padding: 40px 0;
-    text-align: center;
-    box-sizing: border-box;    
+    text-align: center;    
     ul{
+      justify-content: center;
       display: flex;
-      list-style: none;    
+      list-style: none;
       li a{
         margin-left: 16px;        
         text-decoration: none;
         font-size: 12px;
-        display: block;
         color: #333;
       }
       li.privacy a{
@@ -51,85 +66,19 @@ body.signup-login{
     }  
     p{
       margin: 8px 0 0;
+      small{
+        font-size: 13px;
+      }
     }
   }  
- 
-  //テキストcss 
-    
-  // 必須・任意
-  span.require{
-    background: #ea352d;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;    
-  }  
-  span.optional{
-    background: #ccc;
-    margin: 0 0 0 8px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;    
+  // signup
+  .signup{
+    padding: 24px 32px;
   }
-  // 空間
-  .flex{
-    display: flex;
+  .signup-content{
+    max-width: 343px !important;
   }
-  .margin-zero{
-    margin: 0;
-  }  
-  // ボタン
-  .btn{
-    @include btnFormat();          
-  }
-  .mail{
-    @include mailFormat();
-  }
-  .facebook{
-    @include facebookFormat();
-  }
-  .google{ 
-    @include googleFormat();
-  }
-  .signupbtn{
-    @include signupFormat();
-  }
-  // form
-  .form-format{
-    @include formFormat();
-  }  
-  // date_select
-  .select-box{
-    margin-top: 10px;
-    position: relative;
-    background: #fff;    
-    .fa {
-      position: absolute;
-      right: 16px;
-      top: 50%;
-      z-index: 2;
-      color: #888;
-      font-size: 8px;
-      transform: translate(0, -50%);
-    }
-    select.select-form{
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      height: 48px;
-      padding: 0 16px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      background: 0;
-      font-size: 16px;
-      line-height: 1.5;
-      cursor: pointer;    
-    }    
-  }
+
   // login
   main.login{
     background-color: #fff;
@@ -149,6 +98,7 @@ body.signup-login{
   }
   // step4
   ul.card-list{
+    margin: 8px 0 0;
     li{
      margin-right: 8px;
     }
@@ -163,86 +113,19 @@ body.signup-login{
       margin-top: 30px;    
     }
   }
- // 他のテンプレートで使用するために外に記述
  // 共通コンテント
  .signup-login__box{
-  background-color: #fff;
-  width: 700px;
-  margin: 0 auto;
-  &__title h2{
-    margin: 0;
-    font-size: 22px;
-    padding: 32px;
-    text-align: center;
+  &__title {
+    background: #fff;
+    h2{
+      padding: 24px 8px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;      
+    }
   }
   &__content{
     border-top: 1px solid #f5f5f5;
-    padding: 40px 40px 64px;
-    &__btn{
-     
-    }            
+    padding: 40px 40px 64px;      
   } 
-}
-// 共通フォーム
-.form-format{
-  border-top: 1px solid #f5f5f5;
-  padding: 40px;  
-  @include formFormat();
-  .form-format__content{
-    max-width: 320px;
-    margin: 0 auto;
-    label{
-      font-weight: 600;
-    }
-  }  
-}  
-
-@media screen and (min-width: 768px){
-  header.signup-login__header{
-    height: 128px; 
-    h1{
-      margin: 40px 0 0;
-    }
-    img {
-      width: 185px !important;
-      height: 49px !important;
-  }
-  }  
-  .progress-bar {
-    padding: 40px 0 0 44px !important;
-    border: 0;
-  } 
-  .form-format{
-    padding: 64px !important;
-  } 
-  .login{
-    max-width: none;
-    width: 456px;
-    .signup{
-      padding: 40px 64px;
-    }
-    .login__way{
-      padding: 32px 64px !important;
-    } 
-    .login-form{
-      padding: 24px 64px 32px !important;
-    }         
-  }  
-  footer.signup-login__footer {
-    width: 456px;
-    height: 220px;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (min-width: 1068px){
-  .form-format {
-    padding: 40px 40px 64px !important;
-    .field{
-      margin-top: 32px !important;
-    }   
-    .field-first{
-      margin: 0 !important;
-    }     
-}
 }

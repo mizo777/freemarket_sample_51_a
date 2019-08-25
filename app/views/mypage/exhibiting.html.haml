@@ -1,23 +1,22 @@
+= render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
+  %main.mypage-content
     .mypage-content__r-content
       %section.mypage-content__r-content__index.purchased-index
         %h2.purchased-index__title.bold 出品した商品
         %ul.mypage-content__r-content__index__tab.flex
-          %li.is-active2
+          %li.status-title.is-active2
             %h3.bold
               = link_to "", class: "" do
                 出品中
-          %li
+          %li.status-title
             %h3.bold
-              = link_to "/mypage/exhibit_trading", class: "" do
+              = link_to exhibit_trading_mypage_index_path, class: "" do
                 取引中
-          %li
+          %li.status-title
             %h3.bold
-              = link_to "/mypage/exhibited", class: "" do
+              = link_to exhibited_mypage_index_path, class: "" do
                 売却済
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
           = render partial: 'exhibiting_panel'
@@ -32,5 +31,11 @@
         %li.foward
           = link_to "", class: "" do
             = fa_icon "chevron-right"
-
-
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"

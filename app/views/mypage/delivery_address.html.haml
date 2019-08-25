@@ -1,65 +1,71 @@
+= render partial: 'shared/header_before_login'
 %body.mypage
   = render partial: 'breadcrumb'
-  %main.mypage-content.flex
-    .side
-      = render partial: 'sidebar'
-    .signup-login__box.delivery-form
+  %main.mypage-content
+    .signup-login__box.mypage-content__r-content
       %h2.mypage-title.bold.text-center 発送元・お届け先住所変更
       .signup-login__box__title
-      %form{action: "/", method: "post", class: "form-format"} 
-        .form-format__content
-          .field.field-first
-            %label お名前
-            %span.require 必須
-            %br
-            %input{name: "", placeholder: "例）山田"}
-            %br
-            %input{name: "", placeholder: "例）彩"}
-            %br          
-          .field  
-            %label お名前カナ
-            %span.require 必須
-            %br
-            %input{name: "", placeholder: "例）ヤマダ"}
-            %input{name: "", placeholder: "例）アヤ"}
-            %br          
-          .field  
-            %label 郵便番号
-            %span.require 必須
-            %br
-            %input{name: "", placeholder: "例）1234-567"}
-            %br          
-          .field  
-            %label 都道府県
-            %span.require 必須
-            %br
-            .select-box
-              -# active_hashで書き換え（Regionモデル作成済み）
-              %select{name: "", class: "select-form"}
-            %br          
-          .field  
-            %label 市区町村
-            %span.require 必須
-            %br
-            %input{name: "", placeholder: "例）横浜市緑区"}
-            %br          
-          .field  
-            %label 番地
-            %span.require 必須
-            %br
-            %input{name: "", placeholder: "例）青山1-1"}
-            %br          
-          .field  
-            %label 建物名
-            %span.optional 任意
-            %br
-            %input{name: "", placeholder: "例）柳ビル103"}
-            %br 
-          .field  
-            %label 電話
-            %span.optional 任意
-            %br
-            %input{name: "", placeholder: "例）09012345678"}
-            %br          
-          %input{type: "submit", value: "変更する"}
-
+        %form{action: "/", method: "post", class: "form-format input-format"} 
+          .form-format__content
+            .field.field-first
+              %label お名前
+              %span.require 必須
+              %br
+              %input{name: "", placeholder: "例）山田"}
+              %br
+              %input{name: "", placeholder: "例）彩"}
+              %br          
+            .field  
+              %label お名前カナ
+              %span.require 必須
+              %br
+              %input{name: "", placeholder: "例）ヤマダ"}
+              %input{name: "", placeholder: "例）アヤ"}
+              %br          
+            .field  
+              %label 郵便番号
+              %span.require 必須
+              %br
+              %input{name: "", placeholder: "例）1234-567"}
+              %br          
+            .field  
+              %label 都道府県
+              %span.require 必須
+              %br
+              .select-box
+                -# active_hashで書き換え（Regionモデル作成済み）
+                %select{name: "", class: "select-form"}
+              %br          
+            .field  
+              %label 市区町村
+              %span.require 必須
+              %br
+              %input{name: "", placeholder: "例）横浜市緑区"}
+              %br          
+            .field  
+              %label 番地
+              %span.require 必須
+              %br
+              %input{name: "", placeholder: "例）青山1-1"}
+              %br          
+            .field  
+              %label 建物名
+              %span.optional 任意
+              %br
+              %input{name: "", placeholder: "例）柳ビル103"}
+              %br 
+            .field  
+              %label 電話
+              %span.optional 任意
+              %br
+              %input{name: "", placeholder: "例）09012345678"}
+              %br          
+            %input{type: "submit", value: "変更する", class: "btn"}
+    .side
+      = render partial: 'sidebar'
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to "https://www.mercari.com/jp/sell/" do
+    = fa_icon 'camera', class: "camera"

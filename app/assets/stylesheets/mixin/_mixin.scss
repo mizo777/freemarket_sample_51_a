@@ -1,9 +1,7 @@
 @mixin formFormat{
   padding: 24px 32px;
   .field{
-    width: 100%;
-    margin: 0;
-    margin: 24px 0 0;
+    margin: 40px 0 0;
     input{
       margin-top: 10px;
       height: 48px;
@@ -26,7 +24,6 @@
     color: #fff;
     display: block;
     width: 100%;
-    line-height: 48px;
     font-size: 14px;
     border: 1px solid transparent;
     -webkit-transition: all ease-out .3s;
@@ -38,6 +35,7 @@
 
 @mixin btnFormat(){
   display: block;
+  color: white !important;
   width: 100%;
   line-height: 48px;
   font-size: 14px;
@@ -53,7 +51,7 @@
   color: #fff;
   position: relative;
   .fa-facebook-square{
-    font-size: 26px;
+    font-size: 30px;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -63,7 +61,7 @@
 
 @mixin googleFormat{ 
   background-color: #fff;
-  color: #333;
+  color: #333 !important;
   border: #979797 solid 1px;
   margin: 16px 0 0;
   position: relative;
@@ -81,7 +79,7 @@
   color: #fff;
   position: relative;
   .fa-envelope{
-    font-size: 18px;
+    font-size: 20px;
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -98,17 +96,15 @@
 }
 
 @mixin progressFormat{
-  padding: 40px 0 10px 44px;
+  padding: 16px 0;
   border: 0;
-  display: inline-block;
-  vertical-align: top;
   font-size: 0;
   text-align: center;
   &__status{
     margin: 0;
     li{
-      margin: 0 40px 0 0;
-      padding: 0;
+      margin: 0 10px 0 0;
+      padding-bottom: 20px;
       position: relative;
       z-index: 40;
       display: inline-block;
@@ -128,17 +124,20 @@
       .progress-bar__status__line{
         position: absolute;
         left: 50%;
-        top: 30px;
+        top: 25px;
         bottom: 5px;
         display: block;
-        width: 170%;
+        width: 120%;
         height: 2px;
         background: #ccc;
       }
       .end {
-        width: 0px;
+        width: 0px !important;
       }           
     }
+    li:last-child{
+      margin: 0;
+    }    
     li.complete{
       color: #888;
       .progress-bar__status__circle{
@@ -155,4 +154,10 @@
       }
     } 
   } 
+}
+
+@mixin clearFix{
+  content: "";
+  display: block;
+  clear: both;
 }
