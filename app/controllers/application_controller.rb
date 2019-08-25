@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
-  before_action :basic_auth, if: :production?
+  before_action :basic_auth, if: :development?
   protect_from_forgery with: :exception
 
   private
 
-  def production?
-    Rails.env.production?
+  def development?
+    Rails.env.development?
   end
 
   def basic_auth
