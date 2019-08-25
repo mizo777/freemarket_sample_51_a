@@ -1,23 +1,14 @@
 Rails.application.routes.draw do
+  # ログイン
   devise_for :users
-  root 'markup_top_page#home'
-  root 'markup_item_detail_page#home'  
+  root 'products#index'
+  # 取引情報
+  resources :orders 
   # 商品関連
   resources :products 
   resources :products do
     collection do
       get 'detail'
-      get 'purchase_confirmation'
-    end
-  end
-
-  resources :signup do
-    collection do
-      get 'step1'
-      get 'step2'
-      get 'step3'
-      get 'step4' 
-      get 'done'
     end
   end
   # マイページ

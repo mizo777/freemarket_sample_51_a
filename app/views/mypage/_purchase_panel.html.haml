@@ -1,34 +1,30 @@
-%ul
-  /  - if message.present?
-  %li
-    = link_to "", class: "item-link" do
-      %figure
-        = image_tag "/images/camera.jpeg", alt: "商品画像"  
-      .message-box
-        .message 
-          MacBook Air 1600/13.3 MMGF2J/A A1466 中古」 を購入しました。
-        .item-status.doing 取引中
-      = fa_icon "chevron-right"
-  %li
-    = link_to "", class: "item-link" do
-      %figure
-        = image_tag "/images/camera.jpeg", alt: "商品画像"  
-      .message-box
-        .message 
-          MacBook Air 1600/13.3 MMGF2J/A A1466 中古」 を購入しました。
-        .item-status.doing 取引中
-      = fa_icon "chevron-right"
-  %li
-    = link_to "", class: "item-link" do
-      %figure
-        = image_tag "/images/camera.jpeg", alt: "商品画像"  
-      .message-box
-        .message 
-          MacBook Air 1600/13.3 MMGF2J/A A1466 中古」 を購入しました。
-        .item-status.doing 取引中
-      = fa_icon "chevron-right"
-  %li.more-list
-    = link_to "", class: " " do
-      一覧を見る      
-  / - else
-  /   %li.not-found.bold 現在、やることリストはありません      
+/  - if message.present?
+%li
+  = link_to "", class: "item-list" do
+    %figure
+      = image_tag "camera.jpg", alt: "商品画像"  
+    .message-box
+      .message 
+        MacBook Air 1600/13.3 MMGF2J/A A1466 中古」 を購入しました。
+      .item-status.doing 取引中
+    = fa_icon "chevron-right"
+%li
+  = link_to "", class: "item-list" do
+    %figure
+      = image_tag "camera.jpg", alt: "商品画像"  
+    .message-box
+      .message 
+        MacBook Air 1600/13.3 MMGF2J/A A1466 中古」 を購入しました。
+      .item-status.doing 取引中
+    = fa_icon "chevron-right"
+%li
+  = link_to "", class: "item-list" do
+    %figure
+      = image_tag "camera.jpg", alt: "商品画像"  
+    .message-box
+      .message 
+        MacBook Air 1600/13.3 MMGF2J/A A1466 中古」 を購入しました。
+      .item-status.doing 取引中
+    = fa_icon "chevron-right"
+/ - else
+/   %li.not-found.bold 現在、やることリストはありません      

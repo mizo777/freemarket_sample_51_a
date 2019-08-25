@@ -1,10 +1,21 @@
-body.signup-login{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f5f5f5;
-  font-size: 14px; 
-} 
+.signup-login-body{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  .fa{
+    font-family: FontAwesome;
+    font-weight: 100;
+    display: inline-block;
+  }
+  .signup-login{
+    padding: 0 0 250px;
+}   
+}
+
   // 共通ヘッダー
   header.signup-login__header{
     text-align: center;
@@ -25,19 +36,23 @@ body.signup-login{
   }
   // 共通フッター
   footer.signup-login__footer{
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 1;
     height: 250px;
     padding: 40px 0;
-    text-align: center;
-    box-sizing: border-box;    
+    text-align: center;    
     ul{
+      justify-content: center;
       display: flex;
-      list-style: none;    
+      list-style: none;
       li a{
         margin-left: 16px;        
         text-decoration: none;
         font-size: 12px;
-        display: block;
         color: #333;
       }
       li.privacy a{
@@ -51,9 +66,15 @@ body.signup-login{
     }  
     p{
       margin: 8px 0 0;
+      small{
+        font-size: 13px;
+      }
     }
   }  
   // signup
+  .signup{
+    padding: 24px 32px;
+  }
   .signup-content{
     max-width: 343px !important;
   }
@@ -94,20 +115,17 @@ body.signup-login{
   }
  // 共通コンテント
  .signup-login__box{
-  background-color: #fff;
-  width: 700px;
-  margin: 0 auto;
-  &__title h2{
-    margin: 0;
-    font-size: 22px;
-    padding: 32px;
-    text-align: center;
+  &__title {
+    background: #fff;
+    h2{
+      padding: 24px 8px;
+      font-size: 18px;
+      line-height: 1.5;
+      text-align: center;      
+    }
   }
   &__content{
     border-top: 1px solid #f5f5f5;
-    padding: 40px 40px 64px;
-    &__btn{
-     
-    }            
+    padding: 40px 40px 64px;      
   } 
 }
