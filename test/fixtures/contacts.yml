@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  position: 
+  content: MyText
+  category: 
+  user: one
+  information: one
+
+two:
+  product: two
+  position: 
+  content: MyText
+  category: 
+  user: two
+  information: two

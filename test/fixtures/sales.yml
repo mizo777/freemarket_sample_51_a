@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  reason: MyString
+  user: one
+  dead_line: 1
+
+two:
+  price: 1
+  reason: MyString
+  user: two
+  dead_line: 1

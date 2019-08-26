@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  order: one
+  content: MyText
+  transaction_message: one
+
+two:
+  user: two
+  order: two
+  content: MyText
+  transaction_message: two
