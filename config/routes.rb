@@ -6,11 +6,6 @@ Rails.application.routes.draw do
   resources :orders 
   # 商品関連
   resources :products 
-  resources :products do
-    collection do
-      get 'detail'
-    end
-  end
   # マイページ
   resources :mypage do
     collection do
