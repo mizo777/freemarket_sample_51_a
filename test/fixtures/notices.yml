@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  comment: one
+  checked: false
+  user: one
+  information: one
+
+two:
+  content: MyText
+  comment: two
+  checked: false
+  user: two
+  information: two

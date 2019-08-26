@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  point: 1
+  reason: MyText
+  user: one
+  order: one
+  dead_line: 1
+
+two:
+  point: 1
+  reason: MyText
+  user: two
+  order: two
+  dead_line: 1

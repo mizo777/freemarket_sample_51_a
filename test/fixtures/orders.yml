@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  product: one
+  use_point: 1
+  payment: 1
+  payment_way: MyString
+  delivery_fee: 1
+  adress: MyString
+  sell_fee: 1
+  sell_gain: 1
+  buyer_rank: MyString
+  buyer_review: MyString
+  seller_rank: MyString
+  seller_reveiw: MyString
+  payment_check: false
+  delivery_check: false
+
+two:
+  user: two
+  product: two
+  use_point: 1
+  payment: 1
+  payment_way: MyString
+  delivery_fee: 1
+  adress: MyString
+  sell_fee: 1
+  sell_gain: 1
+  buyer_rank: MyString
+  buyer_review: MyString
+  seller_rank: MyString
+  seller_reveiw: MyString
+  payment_check: false
+  delivery_check: false
