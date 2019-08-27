@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_061845) do
+ActiveRecord::Schema.define(version: 2019_08_27_064637) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mail", null: false
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 2019_08_26_061845) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "parent_id_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parent_id_id"], name: "index_categories_on_parent_id_id"
+    t.integer "parent_id"
+    t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -171,12 +171,10 @@ ActiveRecord::Schema.define(version: 2019_08_26_061845) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_image_id", null: false
-    t.bigint "order_id", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["delivery_burden"], name: "index_products_on_delivery_burden"
     t.index ["name"], name: "index_products_on_name"
-    t.index ["order_id"], name: "index_products_on_order_id"
     t.index ["product_image_id"], name: "index_products_on_product_image_id"
     t.index ["size"], name: "index_products_on_size"
     t.index ["sold"], name: "index_products_on_sold"
@@ -224,7 +222,19 @@ ActiveRecord::Schema.define(version: 2019_08_26_061845) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_kana_name", null: false
+    t.string "last_kana_name", null: false
+    t.string "nickname", null: false
+    t.integer "password", null: false
+    t.text "profile", null: false
+    t.string "payment_way", null: false
+    t.string "birthday"
+    t.text "confirmation_document"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -248,7 +258,6 @@ ActiveRecord::Schema.define(version: 2019_08_26_061845) do
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "orders"
   add_foreign_key "products", "product_images"
   add_foreign_key "products", "users"
   add_foreign_key "sales", "users"
