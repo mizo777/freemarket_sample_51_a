@@ -1,46 +1,12 @@
 = link_to 'products/show', class: "mercari-main__middle__1__items__item" do
   .mercari-main__middle__1__items__item__bottom
-    = image_tag "https://static.mercdn.net/item/detail/orig/photos/m43988409821_1.jpg?1565087077", class: "mercari-main__middle__1__items__item__bottom__image", alt: "帽子 ハット 石田欧子さん H.at オートモード平田"
+    = image_tag image_url("#{@ladies_product_image.name}"), class: "mercari-main__middle__1__items__item__bottom__image", alt: ""
     .mercari-main__middle__1__items__item__bottom__article-name
-      ロングワンピース
+      = product.name
     .mercari-main__middle__1__items__item__bottom__price-heart
       .mercari-main__middle__1__items__item__bottom__price-heart__article-price
-        ¥ 2,000
+        = number_to_currency(product.price, unit: "￥", precision: 0)
       .mercari-main__middle__1__items__item__bottom__price-heart__article-heart
         = fa_icon 'heart', class: "heart"
         .mercari-main__middle__1__items__item__bottom__price-heart__article-heart__count
-          3
-= link_to "", class: "mercari-main__middle__1__items__item" do
-  .mercari-main__middle__1__items__item__bottom
-    = image_tag "https://static.mercdn.net/thumb/photos/m41622401688_1.jpg?1557048481", class: "mercari-main__middle__1__items__item__bottom__image", alt: "ディズニー カチューシャ ミッキー"
-    .mercari-main__middle__1__items__item__bottom__article-name
-      ディズニー カチューシャ ミッキー
-    .mercari-main__middle__1__items__item__bottom__price-heart
-      .mercari-main__middle__1__items__item__bottom__price-heart__article-price
-        ¥ 900
-      .mercari-main__middle__1__items__item__bottom__price-heart__article-heart
-        = fa_icon 'heart', class: "heart"
-        .mercari-main__middle__1__items__item__bottom__price-heart__article-heart__count
-          1
-= link_to "", class: "mercari-main__middle__1__items__item" do
-  .mercari-main__middle__1__items__item__bottom
-    = image_tag "https://static.mercdn.net/thumb/photos/m48525172635_1.jpg?1562713301", class: "mercari-main__middle__1__items__item__bottom__image", alt: "セリーヌ 保存袋"
-    .mercari-main__middle__1__items__item__bottom__article-name
-      セリーヌ 保存袋
-    .mercari-main__middle__1__items__item__bottom__price-heart
-      .mercari-main__middle__1__items__item__bottom__price-heart__article-price
-        ¥ 1,900
-      .mercari-main__middle__1__items__item__bottom__price-heart__article-heart
-        = fa_icon 'heart', class: "heart"
-        .mercari-main__middle__1__items__item__bottom__price-heart__article-heart__count
-          8
-= link_to "", class: "mercari-main__middle__1__items__item" do
-  .mercari-main__middle__1__items__item__bottom
-    = image_tag "https://static.mercdn.net/thumb/photos/m76958794687_1.jpg?1565190498", class: "mercari-main__middle__1__items__item__bottom__image", alt: "GUロ水玉ロングワンピース"
-    .mercari-main__middle__1__items__item__bottom__article-name
-      GUロ水玉ロングワンピース
-    .mercari-main__middle__1__items__item__bottom__price-heart
-      .mercari-main__middle__1__items__item__bottom__price-heart__article-price
-        ¥ 1,200
-      .mercari-main__middle__1__items__item__bottom__price-heart__article-heart
-        .mercari-main__middle__1__items__item__bottom__price-heart__article-heart__count
+          = product.likes_count
