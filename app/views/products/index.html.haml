@@ -27,28 +27,32 @@
       %h3.mercari-main__middle__1__title
         = link_to "レディース 新着アイテム", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__1__title__font"
       .mercari-main__middle__1__items
-        = render partial: 'ladies_items'
+        - @ladies_products.shuffle.first(4).each do |product|
+          = render partial: 'ladies_items' , locals: { product: product }
       .mercari-main__middle__1__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__1__view-all__text"
     %section.mercari-main__middle__2
       %h3.mercari-main__middle__2__title
         = link_to "メンズ 新着アイテム", "https://www.mercari.com/jp/category/2/", class: "mercari-main__middle__2__title__font"
       .mercari-main__middle__2__items
-        = render partial: 'mens_items'
+        - @mens_products.shuffle.first(4).each do |product|
+          = render partial: 'mens_items', locals: { product: product }
       .mercari-main__middle__2__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__2__view-all__text"
     %section.mercari-main__middle__3
       %h3.mercari-main__middle__3__title
         = link_to "ベビー・キッズ 新着アイテム", "https://www.mercari.com/jp/category/3/", class: "mercari-main__middle__3__title__font"
       .mercari-main__middle__3__items
-        = render partial: 'babys_and_kids_items'
+        - @babys_and_kids_products.shuffle.first(4).each do |product|
+          = render partial: 'babys_and_kids_items', locals: { product: product }
       .mercari-main__middle__3__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__3__view-all__text"
     %section.mercari-main__middle__4
       %h3.mercari-main__middle__4__title
         = link_to "コスメ・香水・美容 新着アイテム", "https://www.mercari.com/jp/category/6/", class: "mercari-main__middle__4__title__font"
       .mercari-main__middle__4__items
-        = render partial: 'cosmetics_and_perfume_and_beauty_items'
+        - @cosmetics_and_perfume_and_beauty_products.shuffle.first(4).each do |product|
+          = render partial: 'cosmetics_and_perfume_and_beauty_items', locals: { product: product }
       .mercari-main__middle__4__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__middle__4__view-all__text"
   %section.mercari-main__bottom
