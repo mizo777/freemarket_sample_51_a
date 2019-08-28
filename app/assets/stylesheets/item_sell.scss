@@ -1,4 +1,4 @@
-body {
+body.trade {
   position: relative;
   min-height: 100%;
   font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
@@ -6,12 +6,12 @@ body {
   color: rgb(51, 51, 51);
   line-height: 1;
   background: rgb(245, 245, 245);
-}
+
 
 
 
 img {
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 
 input {
@@ -625,4 +625,5 @@ a {
 
 .l-right.sell-price-input div {
   display: inline-block;
+}
 }
