@@ -79,3 +79,4 @@ gem 'devise'
 gem 'active_hash'
 gem 'jquery-rails'
 gem "jquery-slick-rails"
+gem 'ancestry'
