@@ -1,6 +1,6 @@
 = link_to "", class: "mercari-main__middle__4__items__item" do
   .mercari-main__middle__4__items__item__bottom
-    = image_tag image_url("#{@cosmetics_and_perfume_and_beauty_product_image.name}"), class: "mercari-main__middle__4__items__item__bottom__image", alt: "帽子 ハット 石田欧子さん H.at オートモード平田"
+    = image_tag image_url("#{product.product_images.first.name}"), class: "mercari-main__middle__4__items__item__bottom__image", alt: "帽子 ハット 石田欧子さん H.at オートモード平田"
     .mercari-main__middle__4__items__item__bottom__article-name
       = product.name
     .mercari-main__middle__4__items__item__bottom__price-heart
