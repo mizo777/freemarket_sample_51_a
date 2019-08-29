@@ -62,28 +62,32 @@
       %h3.mercari-main__bottom__1__title
         = link_to "シャネル 新着アイテム", "https://www.mercari.com/jp/brand/658/", class: "mercari-main__bottom__1__title__font"
       .mercari-main__bottom__1__items
-        = render partial: 'chanel_items'
+        - @chanel_products.shuffle.first(4).each do |product|
+          = render partial: 'chanel_items', locals: { product: product }
       .mercari-main__bottom__1__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__1__view-all__text"
     %section.mercari-main__bottom__2
       %h3.mercari-main__bottom__2__title
         = link_to "ルイ ヴィトン 新着アイテム", "https://www.mercari.com/jp/brand/1326/", class: "mercari-main__bottom__2__title__font"
       .mercari-main__bottom__2__items
-        = render partial: 'louis_vuitton_items'
+        - @louis_vuitton_products.shuffle.first(4).each do |product|
+          = render partial: 'louis_vuitton_items', locals: { product: product }
       .mercari-main__bottom__2__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__2__view-all__text"
     %section.mercari-main__bottom__3
       %h3.mercari-main__bottom__3__title
         = link_to "シュプリーム 新着アイテム", "https://www.mercari.com/jp/brand/1620/", class: "mercari-main__bottom__3__title__font"
       .mercari-main__bottom__3__items
-        = render partial: 'supreme_items'
+        - @supreme_products.shuffle.first(4).each do |product|
+          = render partial: 'supreme_items', locals: { product: product }
       .mercari-main__bottom__3__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__3__view-all__text"
     %section.mercari-main__bottom__4
       %h3.mercari-main__bottom__4__title
         = link_to "ナイキ 新着アイテム", "https://www.mercari.com/jp/brand/857/", class: "mercari-main__bottom__4__title__font"
       .mercari-main__bottom__4__items
-        = render partial: 'nike_items'
+        - @nike_products.shuffle.first(4).each do |product|
+          = render partial: 'nike_items', locals: { product: product }
       .mercari-main__bottom__4__view-all
         = link_to "すべての商品を見る", "https://www.mercari.com/jp/category/1/", class: "mercari-main__bottom__4__view-all__text"
 = render partial: 'shared/app-banner'
