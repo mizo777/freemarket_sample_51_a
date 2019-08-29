@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_023909) do
+ActiveRecord::Schema.define(version: 2019_08_29_063431) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mail", null: false
@@ -147,10 +147,8 @@ ActiveRecord::Schema.define(version: 2019_08_29_023909) do
 
   create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name"
-    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -227,8 +225,7 @@ ActiveRecord::Schema.define(version: 2019_08_29_023909) do
     t.string "first_kana_name", null: false
     t.string "last_kana_name", null: false
     t.string "nickname", null: false
-    t.integer "password", null: false
-    t.text "profile", null: false
+    t.text "profile"
     t.string "payment_way", null: false
     t.string "birthday"
     t.text "confirmation_document"
@@ -255,7 +252,6 @@ ActiveRecord::Schema.define(version: 2019_08_29_023909) do
   add_foreign_key "orders", "products"
   add_foreign_key "points", "orders"
   add_foreign_key "points", "users"
-  add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "product_images"

@@ -1,3 +1,3 @@
 class ProductImage < ApplicationRecord
-  belongs_to :product_id
+  has_one :product
 end
