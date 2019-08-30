@@ -4,7 +4,7 @@
   .single-container
     %header.single-header
       %h1
-        = link_to "https://www.mercari.com/jp/" do
+        = link_to "root_path" do
           = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3779932675"
     %main.single-main
       %section.l-single-container.buy-item-container
@@ -23,7 +23,7 @@
                       .sell-upload-items.have-item-0
                         %ul
                     .sell-upload-drop-box.have-item-0
-                      = f.file_field :image, class: "sell-upload-drop-file", multiple: "multiple", style: ""
+                      = f.file_field :image, class: "sell-upload-drop-file", multiple: "multiple"
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
@@ -51,7 +51,25 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.select :category, ["---", "レディース", "メンズ", "ベビー・キッズ", "インテリア・住まい・小物", "本・音楽・ゲーム", "おもちゃ・ホビー・グッズ", "コスメ・香水・美容", "家電・スマホ・カメラ", "スポーツ・レジャー", "ハンドメイド", "チケット", "自動車・オートバイ", "その他",], {}, class:"select-default"
+                          = f.collection_select :category_id, Category.all, :id, :name, {include_blank: "---"}, {class:"select-default" }
+                    .form-group
+                      %label
+                        サイズ
+                        %span.form-require
+                          必須
+                      %div
+                        .select-wrap
+                          %i.icon-arrow-bottom
+                          = f.select :size, ["---", "S","M"], {}, class:"select-default"
+                    .form-group
+                      %label
+                        ブランド
+                        %span.form-arbitrary
+                          任意
+                      %div
+                        .select-wrap
+                          %i.icon-arrow-bottom
+                          = f.collection_select :brand_id, Brand.all, :id, :name, {include_blank: "---"}, {class:"select-default" }
                     .form-group
                       %label
                         商品の状態
@@ -73,11 +91,18 @@
                         = f.select :delivery_burden, ["---", "送料込み(出品者負担)", "着払い(購入者負担)"], {}, class:"select-default"
                     .form-group
                       %label
+                        配送の方法
+                        %span.form-require 必須
+                      .select-wrap
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, ["---", "ヤマト"], {}, class:"select-default"
+                    .form-group
+                      %label
                         発送元の地域
                         %span.form-require 必須
                       .select-wrap
                         %i.icon-arrow-bottom
-                        = f.select :delivery_from, ["---", "北海道","青森",], {}, class: "select-default"
+                        = f.collection_select :delivery_from, Region.all, :id, :name, {include_blank: "---"}, {class:"select-default"}
                     .form-group
                       %label
                         発送までの日数
