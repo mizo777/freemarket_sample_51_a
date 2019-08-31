@@ -23,7 +23,8 @@
                       .sell-upload-items.have-item-0
                         %ul
                     .sell-upload-drop-box.have-item-0
-                      = f.file_field :image, class: "sell-upload-drop-file", multiple: "multiple"
+                      = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
+                        = image.file_field :image                      
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
