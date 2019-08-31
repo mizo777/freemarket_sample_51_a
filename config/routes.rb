@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # 商品関連
   resources :products do
     collection do
-      get 'detail'
+      get 'category', defaults: { format: 'json' }
+      get 'child_category', defaults: { format: 'json' }
+      get 'size_category', defaults: { format: 'json' }
     end
   end
   # マイページ

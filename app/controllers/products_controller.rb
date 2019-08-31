@@ -1,12 +1,14 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+
   end
 
   def show
   end
 
   def new
+    @parents = Category.order("id ASC").limit(15)
     @product = Product.new
     10.times { @product.product_images.build }    
   end
@@ -20,7 +22,34 @@ class ProductsController < ApplicationController
   #  end    
   end
   
-  def purchase_confirmation
+  def category
+    respond_to do |format|
+      format.html
+      format.json do
+       @children = Category.find(params[:parent_id]).children
+       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
+  end
+
+  def child_category
+    respond_to do |format|
+      format.html
+      format.json do
+       @grandchildren = Category.find(params[:child_id]).children
+       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
+  end
+
+  def size_category
+    respond_to do |format|
+      format.html
+      format.json do
+       @size = Category.find(params[:grandchild_id]).children
+       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
   end
 end
 
