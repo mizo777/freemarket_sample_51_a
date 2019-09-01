@@ -2,14 +2,6 @@ require 'rails_helper'
 
 describe Product do
   describe '#create' do
-    it "is valid with a name, a price, a category_id, a user_id, a brand_id, a size, a state, 
-        a delivery_burden, a delivery_way a delivery_from, a delivery_time, a detail, a likes_count, a sold" do
-      category = FactoryBot.create(:category)
-      user = FactoryBot.create(:user)
-      brand = FactoryBot.create(:brand)
-      product = FactoryBot.build(:product, category_id: category.id, user_id: user.id, brand_id: brand.id)
-      expect(product).to be_valid
-    end
 
     it "is invalid without a name" do
       product = FactoryBot.build(:product, name: "")
@@ -52,5 +44,6 @@ describe Product do
       product.valid?
       expect(product.errors[:delivery_time]).to include("can't be blank")
     end
+    
   end
 end
