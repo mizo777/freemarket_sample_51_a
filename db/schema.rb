@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_064637) do
+ActiveRecord::Schema.define(version: 2019_09_01_055702) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mail", null: false
@@ -44,13 +44,14 @@ ActiveRecord::Schema.define(version: 2019_08_27_064637) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.bigint "parent_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "parent_id"
     t.index ["parent_id"], name: "index_categories_on_parent_id"
   end
 
@@ -147,9 +148,9 @@ ActiveRecord::Schema.define(version: 2019_08_27_064637) do
 
   create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name"
-    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
     t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
@@ -175,7 +176,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_064637) do
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["delivery_burden"], name: "index_products_on_delivery_burden"
     t.index ["name"], name: "index_products_on_name"
-    t.index ["product_image_id"], name: "index_products_on_product_image_id"
     t.index ["size"], name: "index_products_on_size"
     t.index ["sold"], name: "index_products_on_sold"
     t.index ["state"], name: "index_products_on_state"
@@ -258,7 +258,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_064637) do
   add_foreign_key "product_images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "product_images"
   add_foreign_key "products", "users"
   add_foreign_key "sales", "users"
   add_foreign_key "todo_lists", "orders"
