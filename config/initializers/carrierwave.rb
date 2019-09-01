@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1' #例 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'merukari-test'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/merukari-test'
+  config.fog_directory  = 'mercari-free51'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari-free51'
 end

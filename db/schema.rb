@@ -171,6 +171,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_055702) do
     t.boolean "sold", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_image_id", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["delivery_burden"], name: "index_products_on_delivery_burden"
@@ -221,7 +222,19 @@ ActiveRecord::Schema.define(version: 2019_09_01_055702) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_kana_name", null: false
+    t.string "last_kana_name", null: false
+    t.string "nickname", null: false
+    t.integer "password", null: false
+    t.text "profile", null: false
+    t.string "payment_way", null: false
+    t.string "birthday"
+    t.text "confirmation_document"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
