@@ -59,6 +59,12 @@ end
 gem 'carrierwave'
 gem 'fog-aws'
 
+group :tools do
+  gem 'squasher', '>= 0.6.0'
+  gem 'capistrano'
+  gem 'rubocop'
+end
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
