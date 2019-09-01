@@ -1,4 +1,4 @@
-= link_to "/products/show", class: "mercari-main__bottom__1__items__item" do
+= link_to product_path, class: "mercari-main__bottom__1__items__item" do
   .mercari-main__bottom__1__items__item__bottom
     = image_tag image_url("#{product.product_images.first.name}"), class: "mercari-main__bottom__1__items__item__bottom__image", alt: ""
     .mercari-main__bottom__1__items__item__bottom__article-name
