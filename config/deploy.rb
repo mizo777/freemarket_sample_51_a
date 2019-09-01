@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 set :application, "freemarket_sample_51_a"
-set :repo_url, "git@github.com:Hroki/freemarket_sample_51_a.git"
+set :repo_url, "git@github.com:mizo777/freemarket_sample_51_a.git"
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -12,7 +12,7 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-keys: ['~/.ssh/MerukariKey.pem']
+keys: ['~/.ssh/free51.pem']
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
@@ -28,6 +28,13 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
