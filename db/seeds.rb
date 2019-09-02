@@ -1,17 +1,82 @@
 categories = [
-  { id: 1, name: "レディース", parent_id: 0, created_at: "2019-08-26 22:03:30", updated_at: "2019-08-26 22:05:00" },
-  { id: 2, name: "メンズ", parent_id: 0, created_at: "2019-08-26 22:07:30", updated_at: "2019-08-26 22:07:45" },
-  { id: 3, name: "ベビー・キッズ", parent_id: 0, created_at: "2019-08-26 22:08:30", updated_at: "2019-08-26 22:08:45" },
-  { id: 4, name: "インテリア・住まい・小物", parent_id: 0, created_at: "2019-08-26 22:10:45", updated_at: "2019-08-26 22:11:00" },
-  { id: 5, name: "本・音楽・ゲーム", parent_id: 0, created_at: "2019-08-26 22:14:00", updated_at: "2019-08-26 22:14:20" },
-  { id: 6, name: "おもちゃ・ホビー・グッズ", parent_id: 0, created_at: "2019-08-26 22:15:00", updated_at: "2019-08-26 22:15:45" },
-  { id: 7, name: "コスメ・香水・美容", parent_id: 0, created_at: "2019-08-26 22:16:45", updated_at: "2019-08-26 22:17:00" },
-  { id: 8, name: "家電・スマホ・カメラ", parent_id: 0, created_at: "2019-08-26 22:18:00", updated_at: "2019-08-26 22:18:20" },
-  { id: 9, name: "スポーツ・レジャー", parent_id: 0, created_at: "2019-08-26 22:19:10", updated_at: "2019-08-26 22:19:20" },
-  { id: 10, name: "ハンドメイド", parent_id: 0, created_at: "2019-08-26 22:30:45", updated_at: "2019-08-26 22:31:00" },
-  { id: 11, name: "チケット", parent_id: 0, created_at: "2019-08-26 22:32:00", updated_at: "2019-08-26 22:33:15" },
-  { id: 12, name: "自動車・オートバイ", parent_id: 0, created_at: "2019-08-26 22:34:00", updated_at: "2019-08-26 22:34:15" },
-  { id: 13, name: "その他", parent_id: 0, created_at: "2019-08-26 22:35:20", updated_at: "2019-08-26 22:35:40" }
+  { id: 1, name: "レディース", created_at: "2019-08-26 22:03:30", updated_at: "2019-08-26 22:05:00", ancestry: 0 },
+  { id: 2, name: "メンズ", created_at: "2019-08-26 22:07:30", updated_at: "2019-08-26 22:07:45", ancestry: 0 },
+  { id: 3, name: "ベビー・キッズ", created_at: "2019-08-26 22:08:30", updated_at: "2019-08-26 22:08:45", ancestry: 0 },
+  { id: 4, name: "インテリア・住まい・小物", created_at: "2019-08-26 22:10:45", updated_at: "2019-08-26 22:11:00", ancestry: 0 },
+  { id: 5, name: "本・音楽・ゲーム", created_at: "2019-08-26 22:14:00", updated_at: "2019-08-26 22:14:20", ancestry: 0 },
+  { id: 6, name: "おもちゃ・ホビー・グッズ", created_at: "2019-08-26 22:15:00", updated_at: "2019-08-26 22:15:45", ancestry: 0 },
+  { id: 7, name: "コスメ・香水・美容", created_at: "2019-08-26 22:16:45", updated_at: "2019-08-26 22:17:00", ancestry: 0 },
+  { id: 8, name: "家電・スマホ・カメラ", created_at: "2019-08-26 22:18:00", updated_at: "2019-08-26 22:18:20", ancestry: 0 },
+  { id: 9, name: "スポーツ・レジャー", created_at: "2019-08-26 22:19:10", updated_at: "2019-08-26 22:19:20", ancestry: 0 },
+  { id: 10, name: "ハンドメイド", created_at: "2019-08-26 22:30:45", updated_at: "2019-08-26 22:31:00", ancestry: 0 },
+  { id: 11, name: "チケット", created_at: "2019-08-26 22:32:00", updated_at: "2019-08-26 22:33:15", ancestry: 0 },
+  { id: 12, name: "自動車・オートバイ", created_at: "2019-08-26 22:34:00", updated_at: "2019-08-26 22:34:15", ancestry: 0 },
+  { id: 13, name: "その他", created_at: "2019-08-26 22:35:20", updated_at: "2019-08-26 22:35:40", ancestry: 0 },
+  { id: 14, name: "トップス", created_at: "2019-09-02 09:44:45", updated_at: "2019-09-02 09:44:50", ancestry: 1 },
+  { id: 15, name: "ジャケット/アウター", created_at: "2019-09-02 09:45:30", updated_at: "2019-09-02 09:46:00", ancestry: 1 },
+  { id: 16, name: "パンツ", created_at: "2019-09-02 09:47:30", updated_at: "2019-09-02 09:47:45", ancestry: 1 },
+  { id: 17, name: "スカート", created_at: "2019-09-02 09:48:15", updated_at: "2019-09-02 09:48:30", ancestry: 1 },
+  { id: 18, name: "ワンピース", created_at: "2019-09-02 09:48:31", updated_at: "2019-09-02 09:48:32", ancestry: 1 },
+  { id: 19, name: "靴", created_at: "2019-09-02 09:48:33", updated_at: "2019-09-02 09:48:34", ancestry: 1 },
+  { id: 20, name: "ルームウェア/パジャマ", created_at: "2019-09-02 09:48:33", updated_at: "2019-09-02 09:48:34", ancestry: 1 },
+  { id: 21, name: "レッグウェア", created_at: "2019-09-02 09:48:35", updated_at: "2019-09-02 09:48:36", ancestry: 1 },
+  { id: 22, name: "帽子", created_at: "2019-09-02 09:48:37", updated_at: "2019-09-02 09:48:38", ancestry: 1 },
+  { id: 23, name: "バッグ", created_at: "2019-09-02 09:48:39", updated_at: "2019-09-02 09:48:40", ancestry: 1 },
+  { id: 24, name: "アクセサリー", created_at: "2019-09-02 09:48:41", updated_at: "2019-09-02 09:48:42", ancestry: 1 },
+  { id: 25, name: "ヘアアクセサリー", created_at: "2019-09-02 09:48:43", updated_at: "2019-09-02 09:48:44", ancestry: 1 },
+  { id: 26, name: "小物", created_at: "2019-09-02 09:48:45", updated_at: "2019-09-02 09:48:46", ancestry: 1 },
+  { id: 27, name: "時計", created_at: "", updated_at: "", ancestry: 1 },
+  { id: 28, name: "トップス", created_at: "2019-09-02 09:48:47", updated_at: "2019-09-02 09:48:48", ancestry: 2 },
+  { id: 29, name: "ジャケット/アウター", created_at: "2019-09-02 09:48:49", updated_at: "2019-09-02 09:48:50", ancestry: 2 },
+  { id: 30, name: "パンツ", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 31, name: "靴", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 32, name: "バッグ", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 33, name: "スーツ", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 34, name: "帽子", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 35, name: "アクセサリー", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 36, name: "小物", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 37, name: "時計", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 38, name: "水着", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 39, name: "レッグウェア", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 40, name: "アンダーウエア", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 41, name: "その他", created_at: "", updated_at: "", ancestry: 2 },
+  { id: 42, name: "ベビー服(女の子用)~95cm", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 43, name: "ベビー服(男の子用)~95cm", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 44, name: "ベビー服(男女兼用)~95cm", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 45, name: "キッズ服(女の子用)100cm~", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 46, name: "キッズ服(男の子用)100cm~", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 47, name: "キッズ服(男女兼用)100cm~", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 48, name: "キッズ靴", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 49, name: "子供用ファッション小物", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 50, name: "おむつ/トイレ/バス", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 51, name: "外出/移動用品", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 52, name: "授乳/食事", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 53, name: "ベビー家具/寝具/室内用品", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 54, name: "おもちゃ", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 55, name: "行事/記念品", created_at: "", updated_at: "", ancestry: 3 },
+  { id: 56, name: "ベースメイク", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 57, name: "メイクアップ", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 58, name: "ネイルケア", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 59, name: "香水", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 60, name: "スキンケア/基礎化粧品", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 61, name: "ヘアケア", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 62, name: "ボディケア", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 63, name: "オーラルケア", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 64, name: "リラクゼーション", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 65, name: "ダイエット", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 66, name: "その他", created_at: "", updated_at: "", ancestry: 7 },
+  { id: 67, name: "Tシャツ/カットソー(半袖/袖なし)", created_at: "", updated_at: "", ancestry: "1/14" },
+  { id: 68, name: "その他", created_at: "", updated_at: "", ancestry: "1/15" },
+  { id: 69, name: "スニーカー", created_at: "", updated_at: "", ancestry: "1/19" },
+  { id: 70, name: "ローファー/革靴", created_at: "", updated_at: "", ancestry: "1/19" },
+  { id: 71, name: "ニットキャップ/ビーニー", created_at: "", updated_at: "", ancestry: "1/22" },
+  { id: 72, name: "ハンドバッグ", created_at: "", updated_at: "", ancestry: "1/23" },
+  { id: 73, name: "ショルダーバッグ", created_at: "", updated_at: "", ancestry: "1/23" },
+  { id: 74, name: "ポーチ/バニティ", created_at: "", updated_at: "", ancestry: "1/23" },
+  { id: 75, name: "長財布", created_at: "", updated_at: "", ancestry: "1/26" },
+  { id: 76, name: "キーケース", created_at: "", updated_at: "", ancestry: "1/26" },
+  { id: 77, name: "ベルト", created_at: "", updated_at: "", ancestry: "1/26" },
+  { id: 78, name: "サングラス/メガネ", created_at: "", updated_at: "", ancestry: "1/26" }
 ]
 
 brands = [
@@ -24,7 +89,7 @@ brands = [
 ]
 
 users = [
-  { id: 1, email: "eee@i.softbank.jp", password: "aaajjjj", password_confirmation: "aaajjjj", created_at: "2019-08-26 20:21:30", updated_at: "2019-08-26 20:21:30" }
+  { id: 1, email: "eee@i.softbank.jp", password: "aaajjjj", password_confirmation: "aaajjjj", created_at: "2019-08-26 20:21:30", updated_at: "2019-08-26 20:21:30", first_name: "a", last_name: "b", first_kana_name: "c", last_kana_name: "d", nickname: "e", profile: "f", payment_way: "g", birthday: "h", confirmation_document: "i"  }
 ]
 
 products = [
@@ -64,7 +129,7 @@ products = [
   { id: 34, name: "LOUIS VUITTON ルイヴィトン モノグラム柄 ネクタイ 美品", price: 7980, category_id: 2, user_id: 1, brand_id: 3, size: "", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "兵庫県", delivery_time: "1~2日で発送", detail: "【商品名】LOUIS VUITTON ルイヴィトン モノグラム柄 ネクタイ 美品 シルク100% イタリア製 高級ネクタイ 艶感 【J】\n\n\n\n\nSize\n\n\n【剣先】約8cm\n【全長】約147cm\n\n\n配送 -即日配送-\nお住まい、時間帯にもよりますが購入後(入金後)、1～2日後にはお届けできると思います。\n\n\n\n生産国 イタリア製\n\n\n\n\n\n状態\n\n\n目立った汚れ等ありません★\n\n\n\n\n＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿\n\n\nヴィンテージ品の為\n使用感等ございます。\nあくまでも（一度人の手に渡った者）になりますので、\nご理解頂けない方、\n神経質な方はお控え下さい。\n\n光の当たり具合などで\n若干色味が違う場合がございますご了承ください。\n\n出品物はすべて実物画像です。", likes_count: 1, sold: false, created_at: "2019-08-29 11:47:40", updated_at: "2019-08-29 11:47:50" },
   { id: 35, name: "綺麗、ハンドバッグ", price: 64000, category_id: 1, user_id: 1, brand_id: 3, size: "", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "未定", delivery_from: "兵庫県", delivery_time: "1~2日で発送", detail: "神戸の正規店にて購入致しました。\nヌメ革部分に多少使用感はございますが、日常使いはしておりませんので、まだまだ綺麗なお品です♪\n内側のベタつきもございません♪\nおおよそですが縦37横35まち9.5\nシリアルナンバーお写真にて確認ください。\n現品のみの発送です。\nよろしくお願いいたします。", likes_count: 10, sold: false, created_at: "2019-08-29 11:57:30", updated_at: "2019-08-29 11:57:45" },
   { id: 36, name: "ルイ ヴィトン ソミュール モノグラム", price: 24299, category_id: 1, user_id: 1, brand_id: 3, size: "", state: "やや傷や汚れあり", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "広島県", delivery_time: "1~2日で発送", detail: "使用感はありますがベタつきもなく、まだまだお使いいただけると思います。\n\n1部破損がありますが使用の際に支障はありません。\n\n詳しくは写真をご覧ください\n\n自宅保管の中古品となりますので、ご納得の上ご購入ください。\n付属品はありません。\n\n\n\nルイヴィトンソミュール\nルイヴィトン\nショルダーバッグ", likes_count: 5, sold: false, created_at: "2019-08-29 12:11:30", updated_at: "2019-08-29 12:11:45" },
-  { id: 37, name: "supreme 18ss Westbag", price: 40000, category_id: 2, user_id: 1, brand_id: 4, size: "", state: "新品、未使用", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "未定", delivery_time: "2~3日で発送", detail: "大人気supremeの18ss Westbag\n半タグ、納品書つき新品未使用品\n\n使うか迷っている商品ですのでよろしくお願いします", likes_count: 0, sold: false, created_at: "2019-08-29 13:19:30", updated_at: "2019-08-29 13:19:45" },
+  { id: 37, name: "supreme 18ss Westbag", price: 40000, category_id: 2, user_id: 1, brand_id: 4, size: "", state: "新品、未使用", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "未定", delivery_time: "2~3日で発送", detail: "大人気supremeの18ss Westbag\n半タグ、納品書つき新品未使用品\n新品未使用品はなかなか見つからないと思います\n\n使うか迷っている商品ですのでよろしくお願いします\n\n即購入の方のみ値下げ可能です\n\n#シュプリーム#supreme#18SS", likes_count: 0, sold: false, created_at: "2019-08-29 13:19:30", updated_at: "2019-08-29 13:19:45" },
   { id: 38, name: "underhanded 手袋", price: 1200, category_id: 2, user_id: 1, brand_id: 4, size: "", state: "やや傷や汚れあり", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "福岡県", delivery_time: "1~2日で発送", detail: "underhandedの手袋です。\n国内正規の丈夫な作りです。\n\nほぼ未使用なのですが、左手の親指あたりの糸が解れ、空間アリ(５枚目)\nクリーニング屋や、マジックミシンで安く直してもらえます。\n\n掌部：ポリエステル 80%、ポリウレタン 20%\n甲部：ポリエステル 100%\nマチ：ポリエステル 100%\n手首周り：ポリエステル 100%\n全長約/23・横幅約/9・手囲い約/24\n定価7000円くらい\n\n#BMX\n#snowboard\n#BIKE\n#bicycle\n#skateboard\n好きに是非！", likes_count: 2, sold: false, created_at: "2019-08-29 13:32:20", updated_at: "2019-08-29 13:32:45" },
   { id: 39, name: "supreme 12fw flannel shirt ネルシャツ", price: 10500, category_id: 2, user_id: 1, brand_id: 4, size: "M", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "神奈川県", delivery_time: "1~2日で発送", detail: "supreme 12fw flannel shirt ネルシャツ \n\nカラー ベージュ系チェック\nサイズ M 肩幅47身幅54着丈76袖65\n程度 数回着用", likes_count: 3, sold: false, created_at: "2019-08-29 13:42:20", updated_at: "2019-08-29 13:43:00" },
   { id: 40, name: "Supreme Terry Richardson Dopingirls Tee", price: 19000, category_id: 2, user_id: 1, brand_id: 4, size: "L", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "北海道", delivery_time: "1~2日で発送", detail: "13年にリリースされたシュプリームとテリーリチャードソンのTシャツになります。\n2013年のTシャツは名作揃いでその中でも貴重なTシャツです。\n状態も良くこの状態は中々見つからないです！\n\nサイズL\n着丈 71cm\n身幅 56cm\n袖丈 22cm\n肩幅 50cm\n\n是非この機会に！", likes_count: 5, sold: false, created_at: "2019-08-29 13:52:20", updated_at: "2019-08-29 13:52:40" },
@@ -270,10 +335,6 @@ product_images = [
  { id: 188, name: "m10618931963_2.jpg", created_at: "2019-08-29 15:11:20", updated_at: "2019-08-29 15:11:40", product_id: 48 },
  { id: 189, name: "m10618931963_3.jpg", created_at: "2019-08-29 15:12:30", updated_at: "2019-08-29 15:12:40", product_id: 48 }
 ]
-
-
-
-
 
 ActiveRecord::Base.transaction do
   categories.each do |category|
