@@ -65,20 +65,13 @@
                   .form-question
                     = link_to "?", "/jp/help_center/article/68/", target: "_blank", class: "form-question"
                   .sell-form-box
-                    .form-group
+                    .form-group#burden-head
                       %label
                         配送料の負担
                         %span.form-require 必須
                       .select-wrap
                         %i.icon-arrow-bottom
-                        = f.select :delivery_burden, ["---", "送料込み(出品者負担)", "着払い(購入者負担)"], {}, class:"select-default"                    
-                    .form-group
-                      %label
-                        配送の方法
-                        %span.form-require 必須
-                      .select-wrap
-                        %i.icon-arrow-bottom
-                        = f.select :delivery_way, ["---", "ヤマト"], {}, class:"select-default"
+                        = f.select :delivery_burden, ["---", ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, class:"select-default", id: "delivery_burden"
                     .form-group
                       %label
                         発送元の地域
