@@ -11,6 +11,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @random_products = Product.order("RAND()").limit(2)
+    @same_brand_products = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).order("RAND()").limit(6)
   end
   
   def purchase_confirmation
