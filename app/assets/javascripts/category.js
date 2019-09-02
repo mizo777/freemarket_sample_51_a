@@ -1,7 +1,11 @@
 $(document).on('turbolinks:load', function() {
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
-      var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;      
+      var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;      
+      return html;
+    }
+    function appendSizeOption(size){
+      var html = `<option value="${size.name}" data-category="${size.id}">${size.name}</option>`;      
       return html;
     }
     // 子カテゴリーの表示作成
@@ -9,7 +13,7 @@ $(document).on('turbolinks:load', function() {
       var childSelectHtml = '';
       childSelectHtml = `<div class='select-wrap' id='children_wrapper'>
                           <i class="icon-arrow-bottom"></i>      
-                          <select class="select-default" id="child_category" name="category_id">-
+                          <select class="select-default" id="child_category" name="product[category_id]">-
                             <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           <select>
@@ -22,7 +26,7 @@ $(document).on('turbolinks:load', function() {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class='select-wrap' id= 'grandchildren_wrapper'>
                               <i class="icon-arrow-bottom"></i>      
-                                <select class="select-default" id="grandchild_category" name="category_id">
+                                <select class="select-default" id="grandchild_category" name="product[category_id]">
                                   <option value="---" data-category="---">---</option>
                                   ${insertHTML}
                                 </select>
@@ -43,7 +47,7 @@ $(document).on('turbolinks:load', function() {
                               <div>
                                 <div class="select-wrap size_wrapper">
                                   <i class="icon-arrow-bottom"></i>
-                                  <select class="select-default"ｒ name="size_id">
+                                  <select class="select-default"ｒ name="product[size]">
                                     <option value="---" data-category="---">---</option>                               
                                     ${insertHTML}
                                   </select>
@@ -135,7 +139,7 @@ $(document).on('turbolinks:load', function() {
           $('#brand_wrapper').remove();
           var insertHTML = '';
           sizeCategory.forEach(function(size){
-            insertHTML += appendOption(size);
+            insertHTML += appendSizeOption(size);
           });
           appendSizeCategory(insertHTML);
       })

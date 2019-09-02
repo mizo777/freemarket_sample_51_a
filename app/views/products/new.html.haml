@@ -52,7 +52,7 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.collection_select :category_id, @parents, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[category_id][]'
+                          = f.collection_select :aaa, @parents, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                     .form-group
                       %label
                         商品の状態
