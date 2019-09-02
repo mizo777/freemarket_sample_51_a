@@ -100,13 +100,13 @@
                           .l-right.sell-price-input
                             .yen ¥ 
                             %div
-                              = f.number_field :price, class:"input-default", placeholder: "例）300", style:"width:80%;"
+                              = f.number_field :price, class:"input-default", placeholder: "例）300", style:"width:80%;", id: "price-form"
                       %li.clearfix
                         .l-left 販売手数料 (10%)
-                        .l-right -
+                        .l-right#fee -
                       %li.clearfix.bold
                         .l-left 販売利益
-                        .l-right -
+                        .l-right#profit -
                 .modal{:role => "dialog", :tabindex => "-1"}
                   .modal-inner
                 .sell-content.sell-btn-box
