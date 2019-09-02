@@ -7,7 +7,7 @@ tops.children.create([{name: "Tシャツ"}, {name: "パーカー"}])
 shoes.children.create([{name: "ブーツ"}, {name: "スニーカー"}])
 book, geme = hoby.children.create([{name: "本"}, {name: "ゲーム"}])
 # ブランド
-Brand.create([{name:"ディーゼル"}, {name:"ユニクロ"}])
+Brand.create([{name:"---"}, {name:"ユニクロ"}])
 # 画像
 ProductImage.create(image:"done.png")
 # 商品

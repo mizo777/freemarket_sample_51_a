@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_005255) do
+ActiveRecord::Schema.define(version: 2019_09_02_081810) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mail", null: false
@@ -51,7 +51,9 @@ ActiveRecord::Schema.define(version: 2019_08_31_005255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "ancestry"
+    t.bigint "size_id"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["size_id"], name: "index_categories_on_size_id"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -158,7 +160,7 @@ ActiveRecord::Schema.define(version: 2019_08_31_005255) do
     t.integer "price", null: false
     t.bigint "category_id", null: false
     t.bigint "user_id"
-    t.bigint "brand_id"
+    t.bigint "brand_id", default: 1
     t.string "size", null: false
     t.string "state", null: false
     t.integer "delivery_burden", null: false
@@ -188,6 +190,21 @@ ActiveRecord::Schema.define(version: 2019_08_31_005255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size1"
+    t.string "size2"
+    t.string "size3"
+    t.string "size4"
+    t.string "size5"
+    t.string "size6"
+    t.string "size7"
+    t.string "size8"
+    t.string "size9"
+    t.string "size10"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "todo_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -237,6 +254,7 @@ ActiveRecord::Schema.define(version: 2019_08_31_005255) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "bank_accounts", "users"
+  add_foreign_key "categories", "sizes"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "contacts", "informations"
