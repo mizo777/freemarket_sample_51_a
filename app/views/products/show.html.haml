@@ -15,7 +15,7 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
         %td.item-container__content__detail-table__row__data
-          = link_to "name", "", class: "item-container__content__detail-table__row__data__text"
+          = link_to "#{@product.user.nickname}", "", class: "item-container__content__detail-table__row__data__text"
           %ul.item-container__content__detail-table__row__data__wrapper
             %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
               %i.fas.fa-smile
@@ -29,13 +29,15 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header カテゴリー
         %td.item-container__content__detail-table__row__data
-          = link_to "#{@product.category.name}", "", class: "item-container__content__detail-table__row__data__text"
+          = link_to "#{@product.category.parent.parent.name}", "", class: "item-container__content__detail-table__row__data__text"
           = link_to "" do
             = fa_icon 'chevron-right', class: "chevron-right-2"
-            %span.item-container__content__detail-table__row__data__text child
+            %span.item-container__content__detail-table__row__data__text
+              = @product.category.parent.name
           = link_to "" do
             = fa_icon 'chevron-right', class: "chevron-right-2"
-            %span.item-container__content__detail-table__row__data__text grandchild
+            %span.item-container__content__detail-table__row__data__text
+              = @product.category.name
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header ブランド
         %td.item-container__content__detail-table__row__data
