@@ -207,7 +207,10 @@ products = [
   { id: 45, name: "NIKE ナイキ フリース パーカー", price: 1500, category_id: 91, user_id: 33, brand_id: 2, size: "110cm", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "岐阜県", delivery_time: "4~7日で発送", detail: "ブランド:NIKE\nサイズ:110\n\n多少の使用感はありますが、\n目立った難なくまだまだ着て頂けます。\n中古品ご理解宜しくお願い致します。\n\n\n\n\n\n\n\nナイキ パーカー フリース トレーナー プルオーバー ロゴ 100 110", likes_count: 0, sold: false, created_at: "2019-08-29 14:45:30", updated_at: "2019-08-29 14:45:50" },
   { id: 46, name: "NIKEストレンジャーシングス TEE XS", price: 4880, category_id: 79, user_id: 26, brand_id: 2, size: "XS(SS)", state: "新品、未使用", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "未定", delivery_time: "1~2日で発送", detail: "商品に興味をもっていただき、ありがとうございます。\n以下お読みいただき、入札又は購入をお待ちしています。\n\n【商品の説明】\n商品名 : NIKEストレンジャーシングス tee\nブランド・メーカー：NIKE\nサイズ：xs\n\n【商品の状態】\n使用状況 :新品未使用\n\n【購入先】\nアンディフィーテッドオンライン\n\nお値下げ不可\n\n購入の際は迅速に対応致します。\nどうぞよろしくお願い致します。", likes_count: 1, sold: false, created_at: "2019-08-29 14:51:20", updated_at: "2019-08-29 14:52:10" },
   { id: 47, name: "NIKE THERMA WNTRZD HOODY", price: 6000, category_id: 83, user_id: 24, brand_id: 2, size: "XL(LL)", state: "新品、未使用", delivery_burden: 0, delivery_way: "未定", delivery_from: "富山県", delivery_time: "2~3日で発送", detail: "◆商品名:NIKE THERMA WNTRZD HOODY\n\n◆品番:AO1441-010\n\n◆サイズ:XL\n\n◆サイズ感\n       胸囲:103〜109\n       身長:176〜185\n\n◆状態:新品未使用   タグ付き\n\n◆用途:カジュアル（トレーニング）\n\n◆定価:¥12,000＋税\n\n◆個人での保管になるので気になる方は御了承下さい。\n\n◆その他:購入前にご連絡を頂けると助かります。", likes_count: 1, sold: false, created_at: "2019-08-29 15:00:30", updated_at: "2019-08-29 15:00:45" },
-  { id: 48, name: "NIKE ナイキ Tシャツ Mサイズ", price: 1800, category_id: 67, user_id: 12, brand_id: 2, size: "M", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "未定", delivery_from: "大阪府", delivery_time: "1~2日で発送", detail: "NIKE ナイキ Tシャツ Mサイズ\n\n数回着用できれいですが\nお気になさる方はご遠慮ください。\n\n肩幅40\n身幅45\n着丈62\n\n\nお取置きはお受けしておりません。\n \n発送は送料込みでお安い方法にさせて頂きます。\n保証がございませんので発送後の紛失、破損、郵便事故など、一切こちらでは責任をとれませんのでご了承ください。\n\nUSEDの場合、キズ・汚れなどは記載しておりますが\n見落としがある場合もありますので神経質な方のご入札はご遠慮ください。\n新品につきましても自宅保管になりますので\n完璧なものをお求めの方はご遠慮ください。\nキャンセル、返品はご遠慮ください。\n \n★当方、子供がいますので対応が遅れることがありますのでご了承ください\n\nナイキ\nNIKE\nアディダス\nadidas\n\n", likes_count: 0, sold: false, created_at: "2019-08-29 15:08:10", updated_at: "2019-08-29 15:08:30" }
+  { id: 48, name: "NIKE ナイキ Tシャツ Mサイズ", price: 1800, category_id: 67, user_id: 12, brand_id: 2, size: "M", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "未定", delivery_from: "大阪府", delivery_time: "1~2日で発送", detail: "NIKE ナイキ Tシャツ Mサイズ\n\n数回着用できれいですが\nお気になさる方はご遠慮ください。\n\n肩幅40\n身幅45\n着丈62\n\n\nお取置きはお受けしておりません。\n \n発送は送料込みでお安い方法にさせて頂きます。\n保証がございませんので発送後の紛失、破損、郵便事故など、一切こちらでは責任をとれませんのでご了承ください。\n\nUSEDの場合、キズ・汚れなどは記載しておりますが\n見落としがある場合もありますので神経質な方のご入札はご遠慮ください。\n新品につきましても自宅保管になりますので\n完璧なものをお求めの方はご遠慮ください。\nキャンセル、返品はご遠慮ください。\n \n★当方、子供がいますので対応が遅れることがありますのでご了承ください\n\nナイキ\nNIKE\nアディダス\nadidas\n\n", likes_count: 0, sold: false, created_at: "2019-08-29 15:08:10", updated_at: "2019-08-29 15:08:30" },
+  { id: 49, name: "supreme キャップ Supreme", price: 23000, category_id: 87, user_id: 14, brand_id: 4, size: "", state: "目立った傷や汚れなし", delivery_burden: 0, delivery_way: "らくらくメルカリ便", delivery_from: "広島県", delivery_time: "1~2日で発送", detail: "だいぶ前に福岡のシュプリーム 大名店で購入した物です！\n中古品ですが、状態は悪くありません^_^\n返品・交換は受け付けておりません。\n\nご質問お待ちしてます！", likes_count: 0, sold: false, created_at: "", updated_at: "" },
+  { id: 50, name: "Supreme classic script new era cap", price: 13200, category_id: 87, user_id: 14, brand_id: 4, size: "", state: "新品、未使用", delivery_burden: 0, delivery_way: "未定", delivery_from: "大阪府", delivery_time: "1~2日で発送", detail: "18fw supreme\n\nclassic script new era cap\n\nクラシック スクリプト ニューエラ シュプリーム\n\nred レッド 赤\n\nsize 7 3/8\n\nシュプリーム店舗購入\n\n必要であればレシートコピーお付け致します\n\n新品未使用、確実に正規品\n\n#boxlogo\n#ボックスロゴ \n#smallbox\n#スモールボックス\n#newera\n#ニューエラ", likes_count: 4, sold: false, created_at: "", updated_at: "" },
+  { id: 51, name: "supreme シュプリーム キャップ", price: 8200, category_id: 87, user_id: 14, brand_id: 4, size: "", state: "未使用に近い", delivery_burden: 0, delivery_way: "未定", delivery_from: "大阪府", delivery_time: "1~2日で発送", detail: "box logo ボックスロゴ\nサイズ：FREE\nカラー ：ブラック\n試着程度美品\nシュプリーム店舗購入\n\nシャネル っぽい生地感でオシャレです。\n\n折りたたんで発送致しますのでご了承下さい。\n\n\n\nSUPREME CAP\nシュプリーム キャップ\nSUPREME キャップ\nSUPREME CAMP CAP\nSUPREME\nシュプリーム", likes_count: 9, sold: false, created_at: "", updated_at: "" }
 ]
 
 product_images = [
@@ -399,7 +402,19 @@ product_images = [
  { id: 186, name: "m35270026622_4.jpg", created_at: "2019-08-29 15:05:20", updated_at: "2019-08-29 15:05:30", product_id: 47 },
  { id: 187, name: "m10618931963_1.jpg", created_at: "2019-08-29 15:10:20", updated_at: "2019-08-29 15:10:45", product_id: 48 },
  { id: 188, name: "m10618931963_2.jpg", created_at: "2019-08-29 15:11:20", updated_at: "2019-08-29 15:11:40", product_id: 48 },
- { id: 189, name: "m10618931963_3.jpg", created_at: "2019-08-29 15:12:30", updated_at: "2019-08-29 15:12:40", product_id: 48 }
+ { id: 189, name: "m10618931963_3.jpg", created_at: "2019-08-29 15:12:30", updated_at: "2019-08-29 15:12:40", product_id: 48 },
+ { id: 190, name: "m80691617324_1.jpg", created_at: "", updated_at: "", product_id: 49 },
+ { id: 191, name: "m80691617324_2.jpg", created_at: "", updated_at: "", product_id: 49 },
+ { id: 192, name: "m80691617324_3.jpg", created_at: "", updated_at: "", product_id: 49 },
+ { id: 193, name: "m80691617324_4.jpg", created_at: "", updated_at: "", product_id: 49 },
+ { id: 194, name: "m80691617324_5.jpg", created_at: "", updated_at: "", product_id: 49 },
+ { id: 195, name: "m24255548152_1.jpg", created_at: "", updated_at: "", product_id: 50 },
+ { id: 196, name: "m24255548152_2.jpg", created_at: "", updated_at: "", product_id: 50 },
+ { id: 197, name: "m24255548152_3.jpg", created_at: "", updated_at: "", product_id: 50 },
+ { id: 198, name: "m24255548152_4.jpg", created_at: "", updated_at: "", product_id: 50 },
+ { id: 199, name: "m61709744138_1.jpg", created_at: "", updated_at: "", product_id: 51 },
+ { id: 200, name: "m61709744138_2.jpg", created_at: "", updated_at: "", product_id: 51 },
+ { id: 201, name: "m61709744138_3.jpg", created_at: "", updated_at: "", product_id: 51 }
 ]
 
 ActiveRecord::Base.transaction do
