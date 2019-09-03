@@ -19,13 +19,16 @@
           %ul.item-container__content__detail-table__row__data__wrapper
             %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
               %i.fas.fa-smile
-              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings__count 4
+              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings__count
+                = "#{rand(0..255)}"
             %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
               %i.fas.fa-meh
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count 1
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count
+                = "#{rand(0..255)}"
             %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
               %i.fas.fa-frown
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count 0
+              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count
+                = "#{rand(0..255)}"
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header カテゴリー
         %td.item-container__content__detail-table__row__data
