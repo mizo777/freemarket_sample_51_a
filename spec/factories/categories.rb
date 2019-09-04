@@ -1,5 +1,7 @@
 FactoryBot.define do
   factory :category do
-    name {"本"}
+    id {76}
+    name {"キーケース"}
+    ancestry {"1/26"}
   end
 end
