@@ -1,4 +1,4 @@
-= link_to product_path(product.id), class: "user-items-profile__related-items__items__item" do
+= link_to product_path(product), class: "user-items-profile__related-items__items__item" do
   .user-items-profile__related-items__items__item__bottom
     = image_tag image_url("#{product.product_images.first.name}"), class: "user-items-profile__related-items__items__item__bottom__image", alt: ""
     .user-items-profile__related-items__items__item__bottom__article-name
