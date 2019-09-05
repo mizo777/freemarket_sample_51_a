@@ -62,8 +62,9 @@ body.markup-item-purchase-confirmation-page {
           height: 33px;
           &__text {
             margin: 0 auto;
-            width: 42.95%;
+            text-align: center;
             height: 33px;
+            font-size: 0;
             p {
               display: inline-block;
               font-size: 22px;

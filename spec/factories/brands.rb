@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :brand do
-    name {"アシックス"}
+    id {3}
+    name {"ルイ ヴィトン"}
   end
 end
