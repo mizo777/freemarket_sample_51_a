@@ -46,6 +46,9 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
@@ -87,3 +90,4 @@ gem 'devise'
 gem 'active_hash'
 gem 'jquery-rails'
 gem "jquery-slick-rails"
+gem 'ancestry'
