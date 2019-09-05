@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def new
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
-    @product.product_images.build
+    10.times { @product.product_images.build }
   end
 
   def create
@@ -56,5 +56,5 @@ end
   private
 
   def product_params
-    params.require(:product).permit(:name, :product_image_id, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: {image: []} )
+    params.require(:product).permit(:name, :product_image_id, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image )
   end
