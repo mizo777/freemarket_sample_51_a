@@ -1,16 +1,15 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:toggle_status, :pay]
+
   def index
     @products = Product.all
 
   end
 
-  def show
-  end
-
   def new
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
-    10.times { @product.product_images.build }
+    10.times { @product.product_images.build }    
   end
 
   def create
@@ -20,6 +19,11 @@ class ProductsController < ApplicationController
   #   else
   #     render 'new'
   #  end    
+  end
+
+  def pay
+    @product.update(status: 2)
+    redirect_to @product
   end
   
   def category
@@ -51,10 +55,20 @@ class ProductsController < ApplicationController
       end
     end
   end
-end
+
+  def toggle_status
+    @product.toggle_status!
+    redirect_to @product
+  end
+
 
   private
 
   def product_params
     params.require(:product).permit(:name, :product_image_id, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image )
   end
+  
+  def set_product
+    @product = Product.find(params[:id] || params[:product_id])
+  end
+end
