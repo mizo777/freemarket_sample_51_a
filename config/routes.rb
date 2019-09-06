@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
   # 取引情報
-  resources :orders 
+  resources :orders, only: [:new]
   # 商品関連
   resources :products, only: [:index, :new, :create, :show] do
     patch :toggle_status
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   
   # マイページ
-  resources :mypage do
+  resources :mypage, only: [:index] do
     collection do
       get 'notification'
       get 'todo'
@@ -47,7 +47,7 @@ Rails.application.routes.draw do
     end
   end
   # 新規登録
-  resources :signup do
+  resources :signup, only: [:index] do
     collection do
       get 'step1'
       get 'step2'
