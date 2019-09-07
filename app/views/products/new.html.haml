@@ -52,7 +52,14 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.collection_select :aaa, @parents, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[category_id]'
+                          = f.collection_select :category, @parents, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[category_id]'
+                    .form-group.brand-form
+                      %label
+                        ブランド
+                        %span.form-require.optional 任意
+                      .select-wrap
+                        %i.icon-arrow-bottom
+                        = f.collection_select :brnd_id, @brand, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[brand_id]'
                     .form-group
                       %label
                         商品の状態

@@ -6,9 +6,8 @@ Category.find_by(id:2).children.create([{name: "トップス"}, {name: "ジャ�
 Category.find_by(id:14).children.create([{name: "Tシャツ"}, {name: "シャツ"}, {name: "パーカー"}, {name: "ポロシャツ"}, {name: "タンクトップ"}, {name: "カーディガン"}, {name: "ジャージ"}])
 Category.find_by(id:1).children.create([{name: "トップス"}, {name: "ジャケット/アウター"}, {name: "パンツ"}, {name: "靴"}, {name: "バッグ"}, {name: "スーツ"}, {name: "帽子"}])
 Category.find_by(id:31).children.create([{name: "スニーカー"}, {name: "サンダル"}, {name: "ブーツ"}, {name: "モカシン"}, {name: "ドレス"}, {name: "長靴"}, {name: "デッキシューズ"}])
-Category.find_by(id:35).children.create([{name: "20cm以下"}, {name: "20.5cm"}, {name: "21cm"}, {name: "21.5cm"}, {name: "22cm"}, {name: "22.5cm"}, {name: "23cm"}])
 # ブランド
-Brand.create([{name:"---"}, {name:"ユニクロ"}])
+Brand.create([{name:"ユニクロ"}, {name:"無印"}, {name:"ナイキ"}, {name:"アディダス"}, {name:"パナソニック"}])
 # 画像
 ProductImage.create(image:"done.png")
 # 商品

@@ -25,8 +25,8 @@ $(document).on('turbolinks:load', function() {
                         </select>
                       </div>
                    </div>`
+     $('#burden-head').append(seller);
     // 着払い選択時
-     $('#burden-head').append(seller);  
     } else if(burdenValue == "着払い(購入者負担)"){
       var buyer = `<div class="form-group" id="burden">
                     <label>

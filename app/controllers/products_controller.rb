@@ -3,22 +3,22 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-
   end
 
   def new
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
+    @brand = Brand.all
     10.times { @product.product_images.build }    
   end
 
   def create
     @product = Product.create!(product_params)
-  #   if @user.save
-  #     render 'index'
-  #   else
-  #     render 'new'
-  #  end    
+    if @product.save
+      redirect_to root_path
+    else
+      render 'new'
+   end    
   end
 
   def pay
@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :product_image_id, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image )
+    params.require(:product).permit(:name, :product_image_id, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image ).merge(user_id: current_user.id)
   end
   
   def set_product

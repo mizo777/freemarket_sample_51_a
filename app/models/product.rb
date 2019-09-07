@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   has_one :order
   belongs_to :user, optional: true
   belongs_to :category, optional: true
-  belongs_to :brand
+  belongs_to :brand, optional: true
   has_many :product_images, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy

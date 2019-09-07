@@ -290,6 +290,12 @@ body.exhibit {
   .sell-content {
     padding: 40px;
     border-top: 1px solid #eee;
+    .brand-form{ 
+      display: none;
+      .optional{
+        background: #aaa;
+      }
+    }
   }
 
   .form-group:first-child, #preview {
