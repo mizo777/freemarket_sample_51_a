@@ -17,5 +17,5 @@
 /config/master.key
 config/secrets.yml
 # ここより追記
-/public/images
+/public/uploads
 config/secrets.yml
