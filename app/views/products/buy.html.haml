@@ -6,7 +6,7 @@
     %section.mercari-confirmation__container__buy-item
       .mercari-confirmation__container__buy-item__inner
         .mercari-confirmation__container__buy-item__inner__item
-          %h3= image_tag image_url("#{@product.product_images.first.name}"), width: "64", height: "85"
+          %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "64", height: "85"          
           %p= @product.name
         .mercari-confirmation__container__buy-item__inner__price-box
           .mercari-confirmation__container__buy-item__inner__price-box__text
@@ -18,8 +18,8 @@
           %ul
             %li 支払い金額
             %li= number_to_currency(@product.price, unit: "￥", precision: 0)
-        %button.mercari-confirmation__container__buy-item__inner__buy-btn
-          購入する
+        = form_with url: product_buy_path, method: :post, action: :pay, class: "" do |f| 
+          = f.submit "購入する", class: "mercari-confirmation__container__buy-item__inner__buy-btn"
     %section.mercari-confirmation__container__buy-user-info
       .mercari-confirmation__container__buy-user-info__inner
         %h3 配送先

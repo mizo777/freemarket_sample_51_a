@@ -3,11 +3,24 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
   # 取引情報
-  resources :orders 
+  resources :orders, only: [:new]
   # 商品関連
-  resources :products 
+  resources :products, only: [:show] do
+    get 'buy'
+    post 'buy' => 'products#pay'
+  end  
+  resources :products, only: [:index, :new, :create, :show] do
+    patch :toggle_status
+    collection do
+      get 'category', defaults: { format: 'json' }
+      get 'child_category', defaults: { format: 'json' }
+      get 'size_category', defaults: { format: 'json' }
+      post 'pay/:id' => 'products#pay'
+    end
+  end
+
   # マイページ
-  resources :mypage do
+  resources :mypage, only: [:index] do
     collection do
       get 'notification'
       get 'todo'
@@ -34,7 +47,7 @@ Rails.application.routes.draw do
     end
   end
   # 新規登録
-  resources :signup do
+  resources :signup, only: [:index] do
     collection do
       get 'step1'
       get 'step2'
