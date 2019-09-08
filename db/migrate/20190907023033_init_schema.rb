@@ -1,4 +1,4 @@
-class InitSchema < ActiveRecord::Migration
+class InitSchema < ActiveRecord::Migration[4.2]
   def up
     create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.string "mail", null: false
@@ -8,7 +8,7 @@ class InitSchema < ActiveRecord::Migration
       t.string "city", null: false
       t.string "street", null: false
       t.string "building"
-      t.bigint "user_id", null: false
+      t.integer "user_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -21,7 +21,7 @@ class InitSchema < ActiveRecord::Migration
       t.string "account_holder_sei", null: false
       t.string "account_holder_mei", null: false
       t.text "adress", null: false
-      t.bigint "user_id", null: false
+      t.integer "user_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["user_id"], name: "index_bank_accounts_on_user_id"
@@ -40,18 +40,18 @@ class InitSchema < ActiveRecord::Migration
     end
     create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.text "comment", null: false
-      t.bigint "user_id", null: false
-      t.bigint "product_id", null: false
+      t.integer "user_id", null: false
+      t.integer "product_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["product_id"], name: "index_comments_on_product_id"
       t.index ["user_id"], name: "index_comments_on_user_id"
     end
     create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.bigint "product_id"
+      t.integer "product_id"
       t.text "content", null: false
-      t.bigint "user_id", null: false
-      t.bigint "information_id", null: false
+      t.integer "user_id", null: false
+      t.integer "information_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.string "position"
@@ -63,18 +63,18 @@ class InitSchema < ActiveRecord::Migration
     create_table "informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.string "title"
       t.text "content", null: false
-      t.bigint "user_id", null: false
+      t.integer "user_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
-      t.bigint "contact_id", null: false
-      t.bigint "notice_id", null: false
+      t.integer "contact_id", null: false
+      t.integer "notice_id", null: false
       t.index ["contact_id"], name: "index_informations_on_contact_id"
       t.index ["notice_id"], name: "index_informations_on_notice_id"
       t.index ["user_id"], name: "index_informations_on_user_id"
     end
     create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.bigint "user_id", null: false
-      t.bigint "product_id", null: false
+      t.integer "user_id", null: false
+      t.integer "product_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["product_id"], name: "index_likes_on_product_id"
@@ -82,10 +82,10 @@ class InitSchema < ActiveRecord::Migration
     end
     create_table "notices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.text "content", null: false
-      t.bigint "comment_id", null: false
+      t.integer "comment_id", null: false
       t.boolean "checked"
-      t.bigint "user_id", null: false
-      t.bigint "information_id", null: false
+      t.integer "user_id", null: false
+      t.integer "information_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["comment_id"], name: "index_notices_on_comment_id"
@@ -93,7 +93,7 @@ class InitSchema < ActiveRecord::Migration
       t.index ["user_id"], name: "index_notices_on_user_id"
     end
     create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.bigint "product_id", null: false
+      t.integer "product_id", null: false
       t.integer "use_point", null: false
       t.integer "payment", null: false
       t.string "payment_way", null: false
@@ -114,8 +114,8 @@ class InitSchema < ActiveRecord::Migration
     create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.integer "point", null: false
       t.text "reason", null: false
-      t.bigint "user_id", null: false
-      t.bigint "order_id", null: false
+      t.integer "user_id", null: false
+      t.integer "order_id", null: false
       t.integer "dead_line", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
@@ -126,15 +126,15 @@ class InitSchema < ActiveRecord::Migration
       t.text "image"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
-      t.bigint "product_id"
+      t.integer "product_id"
       t.index ["product_id"], name: "index_product_images_on_product_id"
     end
     create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.string "name", null: false
       t.integer "price", null: false
-      t.bigint "category_id", null: false
-      t.bigint "user_id"
-      t.bigint "brand_id", default: 1
+      t.integer "category_id", null: false
+      t.integer "user_id"
+      t.integer "brand_id", default: 1
       t.string "size", null: false
       t.string "state", null: false
       t.string "delivery_burden", null: false
@@ -159,17 +159,17 @@ class InitSchema < ActiveRecord::Migration
     create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.integer "price", null: false
       t.string "reason", null: false
-      t.bigint "user_id"
+      t.integer "user_id"
       t.integer "dead_line"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["user_id"], name: "index_sales_on_user_id"
     end
     create_table "todo_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.bigint "user_id", null: false
-      t.bigint "order_id", null: false
+      t.integer "user_id", null: false
+      t.integer "order_id", null: false
       t.text "content", null: false
-      t.bigint "transaction_message_id", null: false
+      t.integer "transaction_message_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.index ["order_id"], name: "index_todo_lists_on_order_id"
@@ -177,8 +177,8 @@ class InitSchema < ActiveRecord::Migration
       t.index ["user_id"], name: "index_todo_lists_on_user_id"
     end
     create_table "transaction_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.bigint "order_id", null: false
-      t.bigint "user_id", null: false
+      t.integer "order_id", null: false
+      t.integer "user_id", null: false
       t.text "message"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
