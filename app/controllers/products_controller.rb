@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show,:toggle_status, :pay]
+  before_action :set_product, only: [:show, :toggle_status, :pay, :buy]
 
   def index
     @ladies_products = Product.ladies_products
@@ -32,6 +32,12 @@ class ProductsController < ApplicationController
     else
       render 'new'
    end    
+  end
+
+  def buy
+    @random_products = Product.order("RAND()").limit(2)
+    @same_brand_products = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).order("RAND()").limit(6)
+    @exhibitor_related_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("RAND()").limit(6)    
   end
 
   def pay
