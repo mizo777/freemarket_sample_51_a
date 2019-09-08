@@ -8,12 +8,12 @@ class ProductsController < ApplicationController
   def new
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
-    @brand = Brand.all
-    10.times { @product.product_images.build }    
+    @brands = Brand.all
+    10.times { @products.product_images.build }    
   end
 
   def create
-    @product = Product.create(product_params)
+    @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
     else
