@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: :show 
+  before_action :set_product, only: [:show, :destroy]
   def index
     @ladies_products = Product.ladies_products
     @mens_products = Product.mens_products
@@ -9,6 +9,18 @@ class ProductsController < ApplicationController
     @louis_vuitton_products = Product.where(brand_id: 3)
     @supreme_products = Product.where(brand_id: 4)
     @nike_products = Product.where(brand_id: 2)
+  end
+
+  def destroy
+    if @product.id == current_user.id
+      @product.destroy
+    end
+    redirect_to mypage_index_path
+  end
+
+  def toggle_status
+    @product.toggle_status!
+    redirect_to @product
   end
 
   def show

@@ -16,6 +16,15 @@ class Product < ApplicationRecord
   validates :delivery_from, presence: true
   validates :delivery_time, presence: true
 
+  enum status: { exhibiting: 0, stop_exhibit: 1, exhibit_trading: 2, exhibited: 3 }
+  def toggle_status!
+    if exhibiting?
+      stop_exhibit!
+    else
+      exhibiting!
+    end
+  end
+
   class << self
     def ladies_products
       ladies = []

@@ -97,6 +97,16 @@
         = fa_icon 'lock', class: "lock"
         %span.item-container__buttons--right__text あんしん・あんぜんへの取り組み
 .item-detail-message
+  .item-detail-message__container  
+    .item-detail-message__container__content
+      = link_to "商品の編集", "", class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+    .item-detail-message__container__content
+      - if @product.stop_exhibit?
+        = link_to "出品を再開する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+      - if @product.exhibiting?
+        = link_to "出品を一旦停止する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+      = link_to "この商品をを削除する", , method: :delete, class: "btn", style: "margin-top:10px;background: gray;border: 1px solid gray;color: #fff;"
+.item-detail-message
   .item-detail-message__container
     .item-detail-message__container__content
       %p.item-detail-message__container__content__text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。

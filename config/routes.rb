@@ -3,9 +3,22 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
   # 取引情報
-  resources :orders 
+  resources :orders
   # 商品関連
-  resources :products 
+  resources :products, only: [:index, :new, :create, :show, :destroy] do
+    patch :toggle_status
+    collection do
+      get 'category', defaults: { format: 'json' }
+      get 'child_category', defaults: { format: 'json' }
+      get 'size_category', defaults: { format: 'json' }
+      post 'pay/:id' => 'products#pay'
+    end
+  end
+  resources :products, only: [:show] do
+    get 'buy'
+    post 'buy' => 'products#pay'
+  end
+
   # マイページ
   resources :mypage do
     collection do
