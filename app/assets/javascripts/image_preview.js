@@ -91,3 +91,14 @@ $(document).on("click", ".sell-upload-delete", function () {
     })
   }
 })
+$(document).on("click", ".sell-upload-edit", function () {
+  // 何番目のプレビュー 画像か
+  var previewIndex = $('.sell-upload-edit').index(this);
+  // プレビュー 画像の総数
+  ImageAmount = $("#preview li").length
+  // プレビュー 画像と同じinput要素の順番
+  var inputIndex = previewIndex - ImageAmount;
+  console.log(inputIndex);
+  // input要素の削除・補充
+  $(".sell-upload-drop-box input").eq(inputIndex).click();
+})

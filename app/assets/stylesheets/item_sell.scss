@@ -680,13 +680,19 @@ body.exhibit {
                 width: 50%;
                 background: #f5f5f5;
                 line-height: 44px;
-                text-align: center;                
+                text-align: center;  
+                color: #0099e8;              
               }
               div:last-child{
               box-sizing: border-box;
               border-left: 1px solid #eee;
               }
-            }            
+              div:hover{
+                cursor: pointer;
+                text-decoration: underline;
+                opacity: 0.6;
+              }              
+            }
           }
           li:first-child, li:nth-child(6){
             margin-left: 0 !important;
