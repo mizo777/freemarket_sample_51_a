@@ -6,19 +6,19 @@
     %section.mercari-confirmation__container__buy-item
       .mercari-confirmation__container__buy-item__inner
         .mercari-confirmation__container__buy-item__inner__item
-          %h3= image_tag "https://static.mercdn.net/thumb/photos/m43988409821_1.jpg?1565087077", width: "64", height: "85"
-          %p ロングワンピース
+          %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "64", height: "85"          
+          %p= @product.name
         .mercari-confirmation__container__buy-item__inner__price-box
           .mercari-confirmation__container__buy-item__inner__price-box__text
-            %p ¥2,000
+            %p= number_to_currency(@product.price, unit: "￥", precision: 0)
             %p 送料込み
         .mercari-confirmation__container__buy-item__inner__point-info
           %p ポイントはありません
         .mercari-confirmation__container__buy-item__inner__payment-box
           %ul
             %li 支払い金額
-            %li ¥2,000
-        = form_with model: @product, action: :pay, class: "" do |f| 
+            %li= number_to_currency(@product.price, unit: "￥", precision: 0)
+        = form_with url: product_buy_path, method: :post, action: :pay, class: "" do |f| 
           = f.submit "購入する", class: "mercari-confirmation__container__buy-item__inner__buy-btn"
     %section.mercari-confirmation__container__buy-user-info
       .mercari-confirmation__container__buy-user-info__inner

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # 取引情報
   resources :orders, only: [:new]
   # 商品関連
+  resources :products, only: [:show] do
+    get 'buy'
+    post 'buy' => 'products#pay'
+  end  
   resources :products, only: [:index, :new, :create, :show] do
     patch :toggle_status
     collection do
@@ -14,11 +18,7 @@ Rails.application.routes.draw do
       post 'pay/:id' => 'products#pay'
     end
   end
-  resources :products, only: [:show] do
-    get 'buy'
-    post 'buy' => 'products#pay'
-  end
-  
+
   # マイページ
   resources :mypage, only: [:index] do
     collection do

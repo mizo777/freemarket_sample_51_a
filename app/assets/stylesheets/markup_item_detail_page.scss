@@ -26,9 +26,9 @@ body.markup_item_detail_page {
     display: block;
     margin: 16px 0 0;
     width: 620px;
-    height: 420px;
+    min-height: 420px;
     @media screen and (max-width: 768px) {
-      height: 880px;
+      min-height: 880px;
       margin: 16px auto 0;
     }
     @media screen and (max-width: 620px) {
@@ -47,7 +47,10 @@ body.markup_item_detail_page {
         float: left;
         min-width: 300px;
         max-width: 300px;
-        height: 375px;
+        min-height: 375px;
+      }
+      ul.slick-slider {
+        margin-bottom: 15px;
       }
       &__top {
         position: relative;
@@ -233,7 +236,6 @@ body.markup_item_detail_page {
               &__count {
                 vertical-align: middle;
                 font-size: 14px;
-
               }
             }
           }
@@ -265,7 +267,7 @@ body.markup_item_detail_page {
   &__buy-btn {
     display: block;
     height: 56px;
-    margin: 16px 0 24px;
+    margin: 16px 0 0;
     background: $cinnabar;
     line-height: 56px;
     text-align: center;
@@ -585,6 +587,7 @@ body.markup_item_detail_page {
     &__items {
       width: 92%;
       margin: 0 auto;
+      font-size: 0;
       @media screen and (min-width: 768px) {
         width: auto;
       }
@@ -624,6 +627,7 @@ body.markup_item_detail_page {
             position: relative;
             padding: 16px 16px 0 16px;
             font-weight: 400;
+            font-size: 16px;
             color: $black;
             height: 3em;
             line-height: 1.5;
@@ -638,6 +642,7 @@ body.markup_item_detail_page {
           &__price-heart {
             margin-top: 8px;
             padding: 0 16px 16px;
+            font-size: 16px;
             &__article-price {
               float: left;
               font-size: 17px;
