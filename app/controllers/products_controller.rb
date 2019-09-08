@@ -11,6 +11,18 @@ class ProductsController < ApplicationController
     @nike_products = Product.where(brand_id: 2)
   end
 
+  def destroy
+    if @product.id == current_user.id
+      @product.destroy
+    end
+    redirect_to mypage_index_path
+  end
+
+  def toggle_status
+    @product.toggle_status!
+    redirect_to @product
+  end
+
   def show
     @random_products = Product.order("RAND()").limit(2)
     @same_brand_products = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).order("RAND()").limit(6)
