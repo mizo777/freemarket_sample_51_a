@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
   # 取引情報
-  resources :orders 
+  resources :orders
   # 商品関連
   resources :products, only: [:index, :new, :create, :show, :destroy] do
     patch :toggle_status
