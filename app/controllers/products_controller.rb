@@ -2,14 +2,27 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:toggle_status, :pay]
 
   def index
-    @products = Product.all
+    @ladies_products = Product.ladies_products
+    @mens_products = Product.mens_products
+    @babys_and_kids_products = Product.babys_and_kids_products
+    @cosmetics_and_perfume_and_beauty_products = Product.cosmetics_and_perfume_and_beauty_products
+    @chanel_products = Product.where(brand_id: 1)
+    @louis_vuitton_products = Product.where(brand_id: 3)
+    @supreme_products = Product.where(brand_id: 4)
+    @nike_products = Product.where(brand_id: 2)
+  end
+
+  def show
+    @random_products = Product.order("RAND()").limit(2)
+    @same_brand_products = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).order("RAND()").limit(6)
+    @exhibitor_related_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("RAND()").limit(6)
   end
 
   def new
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
     @brands = Brand.all
-    10.times { @products.product_images.build }    
+    10.times { @product.product_images.build }    
   end
 
   def create
@@ -65,9 +78,9 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :product_image_id, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image ).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image ).merge(user_id: current_user.id)
   end
-  
+
   def set_product
     @product = Product.find(params[:id] || params[:product_id])
   end

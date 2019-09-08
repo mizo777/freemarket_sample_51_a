@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :product_image do
-    image                  {"user-icon.jpg"}
+    image {"m91926180915_1.jpg"}
   end
 end

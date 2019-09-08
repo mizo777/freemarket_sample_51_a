@@ -28,8 +28,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-gem 'mini_magick', '~> 4.8'
-
+# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '4.9.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -47,6 +47,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'  
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
 end
 
 group :development do
@@ -59,6 +62,12 @@ group :development do
 end
 gem 'carrierwave'
 gem 'fog-aws'
+
+group :tools do
+  gem 'squasher', '>= 0.6.0'
+  gem 'capistrano'
+  gem 'rubocop'
+end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -83,4 +92,3 @@ gem 'active_hash'
 gem 'jquery-rails'
 gem "jquery-slick-rails"
 gem 'ancestry'
-gem 'pry-rails'
