@@ -18,31 +18,36 @@ Rails.application.routes.draw do
   end
 
   # マイページ
-  resources :mypage, only: [:index] do
-    collection do
-      get 'notification'
-      get 'todo'
-      get 'like'
-      get 'exhibit_trading'
-      get 'exhibiting'
-      get 'exhibited'
-      get 'purchase'
-      get 'purchased'
-      get 'news'
-      get 'review'
-      get 'contact'
-      get 'sales'
-      get 'point'
-      get 'profile'
-      get 'delivery_address'
-      get 'card'
-      get 'card_create'
-      get 'email_password'
-      get 'identification'
-      get 'sms_confirmation'
-      get 'help_center'
-      get 'logout'
+  resources :users, only: [:index] do
+    member do
+      resources :mypage, only: [:index] do   
+        collection do
+          get 'notification'
+          get 'todo'
+          get 'like'
+          get 'exhibit_trading'
+          get 'exhibiting'
+          get 'exhibited'
+          get 'purchase'
+          get 'purchased'
+          get 'news'
+          get 'review'
+          get 'contact'
+          get 'sales'
+          get 'point'
+          get 'profile'
+          get 'delivery_address'
+          get 'card'
+          get 'card_create'
+          get 'email_password'
+          get 'identification'
+          get 'sms_confirmation'
+          get 'help_center'
+          get 'logout'
+        end           
     end
+  end
+
   end
   # 新規登録
   resources :signup, only: [:index] do
