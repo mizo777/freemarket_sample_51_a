@@ -2,13 +2,7 @@ Rails.application.routes.draw do
   # ログイン
   devise_for :users
   root 'products#index'
-  # 取引情報
-  resources :orders, only: [:new]
   # 商品関連
-  resources :products, only: [:show] do
-    get 'buy'
-    post 'buy' => 'products#pay'
-  end  
   resources :products, only: [:index, :new, :create, :show] do
     patch :toggle_status
     collection do
@@ -16,6 +10,10 @@ Rails.application.routes.draw do
       get 'child_category', defaults: { format: 'json' }
       get 'size_category', defaults: { format: 'json' }
       post 'pay/:id' => 'products#pay'
+    end
+    member do
+      get :buy
+      post :buy, to: 'products#pay'
     end
   end
 

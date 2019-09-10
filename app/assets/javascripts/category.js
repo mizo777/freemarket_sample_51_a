@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() {
         data: { parent_id: parentValue },
         dataType: 'json'
       })
-      .done(function(children){ // childrenにサブカテゴリのname, idが入っている
+      .done(function(children){ // childrenにサブカテゴリのname, idが入っている        
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -83,9 +83,9 @@ $(document).on('turbolinks:load', function() {
 
   //  サイズ表示・ブランド表示
   $('#parent-category').on('change', '#grandchild_category', function(){
-    var grandChildId = document.getElementById("grandchild_category").value;
+    var parentValue = document.getElementById("grandchild_category").value;
     $('#size_wrapper').remove();
-    if (35 <= grandChildId && 41 >= grandChildId) {
+    if (69 <= parentValue && 70 >= parentValue) {
       var shoesHtml = '';
       shoesHtml =
       `<div class="form-group " id= "size_wrapper">
@@ -121,7 +121,7 @@ $(document).on('turbolinks:load', function() {
         </div>
       </div>`      
       $('#parent-category').append(shoesHtml);
-    }else if(21 <= grandChildId && 27 >= grandChildId) {
+    }else if(79 <= parentValue && 82 >= parentValue) {
       var tshirtsHtml = '';
       tshirtsHtml =
       `<div class="form-group " id= "size_wrapper">
