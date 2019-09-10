@@ -55,7 +55,7 @@ span.optional{
   @include signupFormat();
 }
 // form
-.form-format{
+.form-format, .new_user{
   @include formFormat();
 }  
 
