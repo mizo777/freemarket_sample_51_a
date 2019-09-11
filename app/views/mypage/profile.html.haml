@@ -1,6 +1,7 @@
 = render partial: 'shared/header_before_login'
+- breadcrumb :profile, class: "breadcrumbs"
+= render 'shared/breadcrumbs'
 %body.mypage
-  = render partial: 'breadcrumb'
   %main.mypage-content
     .mypage-content__r-content
       %h2.mypage-title.bold プロフィール
