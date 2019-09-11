@@ -1,6 +1,7 @@
 = render partial: 'shared/header_before_login'
+- breadcrumb :logout, class: "breadcrumbs"
+= render 'shared/breadcrumbs'
 %body.mypage
-  = render partial: 'breadcrumb'
   %main.mypage-content
     .signup-login__box.mypage-content__r-content
       .content-inner
