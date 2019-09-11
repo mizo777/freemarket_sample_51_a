@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $('.mercari-main__top').slick({
     accessibility: true,
     autoplay: true,

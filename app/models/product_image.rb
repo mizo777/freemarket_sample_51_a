@@ -1,5 +1,6 @@
 class ProductImage < ApplicationRecord
-  belongs_to :product, optional: true
+  validates :image, presence: true
 
-  validates :name, presence: true
+  mount_uploader :image, ImageUploader
+  belongs_to :product, optional: true
 end

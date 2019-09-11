@@ -11,6 +11,12 @@
       %ul.item-container__content__photo__bottom
         - @product.product_images.each do |image|
           = render partial: 'item_photos_bottom' , locals: { product_image: image }
+      - if @product.stop_exhibit?
+        .item-stop-badge 
+          %div 公開停止中
+      - if @product.exhibited? || @product.exhibit_trading?
+        .item-stop-badge.sold
+          %div SOLD
     %table.item-container__content__detail-table
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
@@ -77,8 +83,12 @@
       = number_to_currency(@product.price, unit: "￥", precision: 0)
     %span.item-container__price-box__item-tax (税込)
     %span.item-container__price-box__item-shipping-fee 送料込み
-  .item-container__buy-btn
-    = link_to "購入画面に進む", new_order_path(@product), class: "item-container__buy-btn__text"
+  - if @product.exhibiting?  
+    .item-container__buy-btn
+      = link_to "購入画面に進む", product_buy_path(@product), class: "item-container__buy-btn__text"
+  - if @product.exhibited? || @product.exhibit_trading?
+    .item-container__buy-btn.sold
+      = link_to "売り切れました", {}, class: "item-container__buy-btn__text"
   .item-container__item-description
     %p.item-container__item-description__inner
       = raw(nl2br(@product.detail))
@@ -108,7 +118,17 @@
           = link_to "出品を一旦停止する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
         = link_to "この商品をを削除する", product_path(@product), method: :delete, class: "btn", style: "margin-top:10px;background: gray;border: 1px solid gray;color: #fff;"
 .item-detail-message
-  .item-detail-message__container
+  .item-detail-message__container  
+    .item-detail-message__container__content
+      = link_to "商品の編集", "", class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+    .item-detail-message__container__content
+      - if @product.stop_exhibit?
+        = link_to "出品を再開する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+      - if @product.exhibiting?
+        = link_to "出品を一旦停止する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+      = link_to "この商品をを削除する", , method: :delete, class: "btn", style: "margin-top:10px;background: gray;border: 1px solid gray;color: #fff;"
+.item-detail-message
+  .item-detail-message__container  
     .item-detail-message__container__content
       %p.item-detail-message__container__content__text 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
       %textarea.item-detail-message__container__content__textarea
