@@ -15,4 +15,3 @@ FactoryBot.define do
     confirmation_document {"i"}
   end
 end
-

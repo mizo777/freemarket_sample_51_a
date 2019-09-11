@@ -1,6 +1,6 @@
 = link_to product_path(product), class: "mercari-main__bottom__4__items__item" do
   .mercari-main__bottom__4__items__item__bottom
-    = image_tag image_url("#{product.product_images.first.name}"), class: "mercari-main__bottom__4__items__item__bottom__image", alt: ""
+    = image_tag image_url("#{product.product_images.first.image}"), class: "mercari-main__bottom__4__items__item__bottom__image", alt: ""
     .mercari-main__bottom__4__items__item__bottom__article-name
       = product.name
     .mercari-main__bottom__4__items__item__bottom__price-heart
