@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:show, :toggle_status, :pay, :buy]
+  before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy]
 
   def index
     @ladies_products = Product.ladies_products
@@ -30,17 +30,6 @@ class ProductsController < ApplicationController
     @same_brand_products = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).order("RAND()").limit(6)
     @exhibitor_related_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("RAND()").limit(6)
   end
-
-  def destroy
-    if @product.user_id == current_user.id
-      @product.destroy
-      redirect_to mypage_index_path
-    else
-      render :show
-    end
-  end
-
-  def purchase_confirmation
 
   def new
     @parents = Category.order("id ASC").limit(15)

@@ -214,20 +214,20 @@ ActiveRecord::Schema.define(version: 2019_09_07_023033) do
   end
 
   create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "email", default: ""
+    t.string "encrypted_password", default: ""
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "first_name", default: "default", null: false
-    t.string "last_name", default: "default", null: false
-    t.string "first_kana_name", default: "default", null: false
-    t.string "last_kana_name", default: "default", null: false
-    t.string "nickname", default: "default", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_kana_name"
+    t.string "last_kana_name"
+    t.string "nickname"
     t.text "profile"
-    t.string "payment_way", default: "default", null: false
+    t.string "payment_way"
     t.string "birthday"
     t.text "confirmation_document"
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -186,20 +186,20 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.index ["user_id"], name: "index_transaction_messages_on_user_id"
     end
     create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-      t.string "email", default: "", null: false
-      t.string "encrypted_password", default: "", null: false
+      t.string "email", default: ""
+      t.string "encrypted_password", default: ""
       t.string "reset_password_token"
       t.datetime "reset_password_sent_at"
       t.datetime "remember_created_at"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.string "first_name", null: false, default: "default"
-      t.string "last_name", null: false, default: "default"
-      t.string "first_kana_name", null: false, default: "default"
-      t.string "last_kana_name", null: false, default: "default"
-      t.string "nickname", null: false, default: "default"
+      t.datetime "created_at"
+      t.datetime "updated_at"
+      t.string "first_name"
+      t.string "last_name"
+      t.string "first_kana_name"
+      t.string "last_kana_name"
+      t.string "nickname"
       t.text "profile"
-      t.string "payment_way", null: false, default: "default"
+      t.string "payment_way"
       t.string "birthday"
       t.text "confirmation_document"
       t.index ["email"], name: "index_users_on_email", unique: true
