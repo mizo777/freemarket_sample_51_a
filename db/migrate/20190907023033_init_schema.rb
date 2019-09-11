@@ -193,13 +193,13 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.datetime "remember_created_at"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
-      t.string "first_name", null: false
-      t.string "last_name", null: false
-      t.string "first_kana_name", null: false
-      t.string "last_kana_name", null: false
-      t.string "nickname", null: false
+      t.string "first_name", null: false, default: "default"
+      t.string "last_name", null: false, default: "default"
+      t.string "first_kana_name", null: false, default: "default"
+      t.string "last_kana_name", null: false, default: "default"
+      t.string "nickname", null: false, default: "default"
       t.text "profile"
-      t.string "payment_way", null: false
+      t.string "payment_way", null: false, default: "default"
       t.string "birthday"
       t.text "confirmation_document"
       t.index ["email"], name: "index_users_on_email", unique: true

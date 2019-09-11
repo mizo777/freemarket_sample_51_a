@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   # ログイン
   devise_for :users
   root 'products#index'
-  # 取引情報
-  resources :orders, only: [:new]
   # 商品関連
   resources :products, only: [:index, :new, :create, :show, :destroy] do
     patch :toggle_status
@@ -13,6 +11,10 @@ Rails.application.routes.draw do
       get 'size_category', defaults: { format: 'json' }
       post 'pay/:id' => 'products#pay'
     end
+    member do
+      get :buy
+      post :buy, to: 'products#pay'
+    end
   end
   resources :products, only: [:show] do
     get 'buy'
@@ -20,31 +22,36 @@ Rails.application.routes.draw do
   end
 
   # マイページ
-  resources :mypage, only: [:index] do
-    collection do
-      get 'notification'
-      get 'todo'
-      get 'like'
-      get 'exhibit_trading'
-      get 'exhibiting'
-      get 'exhibited'
-      get 'purchase'
-      get 'purchased'
-      get 'news'
-      get 'review'
-      get 'contact'
-      get 'sales'
-      get 'point'
-      get 'profile'
-      get 'delivery_address'
-      get 'card'
-      get 'card_create'
-      get 'email_password'
-      get 'identification'
-      get 'sms_confirmation'
-      get 'help_center'
-      get 'logout'
+  resources :users, only: [:index] do
+    member do
+      resources :mypage, only: [:index] do   
+        collection do
+          get 'notification'
+          get 'todo'
+          get 'like'
+          get 'exhibit_trading'
+          get 'exhibiting'
+          get 'exhibited'
+          get 'purchase'
+          get 'purchased'
+          get 'news'
+          get 'review'
+          get 'contact'
+          get 'sales'
+          get 'point'
+          get 'profile'
+          get 'delivery_address'
+          get 'card'
+          get 'card_create'
+          get 'email_password'
+          get 'identification'
+          get 'sms_confirmation'
+          get 'help_center'
+          get 'logout'
+        end           
     end
+  end
+
   end
   # 新規登録
   resources :signup, only: [:index] do

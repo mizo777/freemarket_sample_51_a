@@ -221,13 +221,13 @@ ActiveRecord::Schema.define(version: 2019_09_07_023033) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_kana_name", null: false
-    t.string "last_kana_name", null: false
-    t.string "nickname", null: false
+    t.string "first_name", default: "default", null: false
+    t.string "last_name", default: "default", null: false
+    t.string "first_kana_name", default: "default", null: false
+    t.string "last_kana_name", default: "default", null: false
+    t.string "nickname", default: "default", null: false
     t.text "profile"
-    t.string "payment_way", null: false
+    t.string "payment_way", default: "default", null: false
     t.string "birthday"
     t.text "confirmation_document"
     t.index ["email"], name: "index_users_on_email", unique: true
