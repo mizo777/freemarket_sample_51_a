@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
+
   validates :name, presence: true  
   validates :price, presence: true  
   validates :category_id, presence: true  
