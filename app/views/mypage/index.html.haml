@@ -1,6 +1,7 @@
 = render partial: 'shared/header_before_login'
+- breadcrumb :mypage, class: "breadcrumbs"
+= render 'shared/breadcrumbs'
 %body.mypage
-  = render partial: 'breadcrumb'
   %main.mypage-content
     .mypage-content__r-content
       %section.mypage-content__r-content__user-icon
@@ -15,7 +16,6 @@
             %div.inlign-block.m-left16
               出品数
               %span.bold 19
-
       %section.mypage-content__r-content__index
         %ul.mypage-content__r-content__index__tab.flex
           %li.mypage-tab.is-active

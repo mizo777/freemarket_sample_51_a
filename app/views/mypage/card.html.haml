@@ -1,6 +1,7 @@
 = render partial: 'shared/header_before_login'
+- breadcrumb :card, class: "breadcrumbs"
+= render 'shared/breadcrumbs'
 %body.mypage
-  = render partial: 'breadcrumb'
   %main.mypage-content
     .signup-login__box.mypage-content__r-content
       %h2.mypage-title.bold.text-center 支払い方法
