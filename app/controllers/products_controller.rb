@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy]
+  before_action :authenticate_user! , only: [:new] 
 
   def index
     @ladies_products = Product.ladies_products
