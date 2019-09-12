@@ -101,7 +101,7 @@ $(document).on('turbolinks:load', function() {
             <select class="select-default" name="product[size]">
               <option value="---">---</option>
               <option value="20cm以下">20cm以下</option>
-              <option value="20.5cm<">20.5cm</option>
+              <option value="20.5cm">20.5cm</option>
               <option value="21cm">21cm</option>
               <option value="21.5cm">21.5cm</option>
               <option value="22cm">22cm</option>

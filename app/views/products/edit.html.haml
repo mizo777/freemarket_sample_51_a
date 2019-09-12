@@ -52,14 +52,33 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @parents, :id, :name, {include_blank: @product.category.parent.parent.name}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
-                    .form-group.brand-form
+                          = f.collection_select :category, @parents, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                        .select-wrap#children_wrapper
+                          %i.icon-arrow-bottom
+                          = f.collection_select :category, @children , :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                        .select-wrap#grandchildren_wrapper
+                          %i.icon-arrow-bottom
+                          = f.collection_select :category_id, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                    .form-group#size_wrapper
+                      %label
+                        サイズ
+                        %span.form-require 必須
+                      -if @product.category.name == "スニーカー"
+                        .select-wrap.size_wrapper
+                          %i.icon-arrow-bottom
+                          = f.select :size, Product.shoes_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                      -elsif @product.category.name == "Tシャツ/カットソー(半袖/袖なし)"
+                        .select-wrap.size_wrapper
+                          %i.icon-arrow-bottom
+                          = f.select :size, Product.tshirts__sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                    
+                    .form-group.brand-form{style: "display:block"}
                       %label
                         ブランド
                         %span.form-require.optional 任意
                       .select-wrap
                         %i.icon-arrow-bottom
-                        = f.collection_select :brnd_id, @brands, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[brand_id]'
+                        = f.collection_select :brand_id, @brands, :id, :name, {}, class:"select-default", id: "parent-form", value: @product.brand.name
                     .form-group
                       %label
                         商品の状態
