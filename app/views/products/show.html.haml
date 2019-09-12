@@ -100,7 +100,7 @@
   .item-detail-message
     .item-detail-message__container  
       .item-detail-message__container__content
-        = link_to "商品の編集", "", class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+        = link_to "商品の編集", edit_product_path(@product), class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
       .item-detail-message__container__content
         - if @product.stop_exhibit?
           = link_to "出品を再開する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"

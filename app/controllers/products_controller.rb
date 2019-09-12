@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy]
+  before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
   before_action :authenticate_user! , only: [:new] 
 
   def index
@@ -47,6 +47,20 @@ class ProductsController < ApplicationController
       render 'new'
    end    
   end
+
+  def edit
+    @parents = Category.order("id ASC").limit(15)
+    @children = @product.category.parent.parent.children    
+    @grandchildren = @product.category.parent.children    
+    @brands = Brand.all    
+  end
+
+  def update
+    if @product.user_id == current_user.id
+      @product.update!(product_params)
+      redirect_to @product
+    end
+  end  
 
   def buy
     @random_products = Product.order("RAND()").limit(2)
