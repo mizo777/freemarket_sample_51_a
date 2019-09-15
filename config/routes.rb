@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cards/new'
+  get 'cards/show'
   # ログイン
   devise_for :users
   root 'products#index'
@@ -11,12 +13,19 @@ Rails.application.routes.draw do
       get 'category', defaults: { format: 'json' }
       get 'child_category', defaults: { format: 'json' }
       get 'size_category', defaults: { format: 'json' }
-      post 'pay/:id' => 'products#pay'
     end
   end
   resources :products, only: [:show] do
     get 'buy'
     post 'buy' => 'products#pay'
+  end
+
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show' => 'cards#show'
+      post 'pay' => 'cards#pay'
+      post 'delete' => 'cards#delete'
+    end
   end
 
   # マイページ
