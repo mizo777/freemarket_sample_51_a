@@ -38,6 +38,20 @@ class ProductsController < ApplicationController
     end
   end
 
+  def buy
+    @product = Product.find(params[:product_id])
+  end
+
+  def pay
+    Payjp.api_key = Settings.key[:payjp_secret_key]
+    charge = Payjp::Charge.create(
+      amount: 1400,
+      card: params['payjp-token'],
+      currency: 'jpy'
+    )
+    redirect_to root_path notice: "支払いが完了しました"
+  end
+
   def purchase_confirmation
   end
 
