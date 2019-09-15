@@ -1,7 +1,7 @@
 .field.field-first
   %label カード番号
   %span.require 必須
-  %br
+  %br 
   %input{name: "", placeholder: "半角数字のみ"}
   %br
   %ul.card-list.flex.decoration-non
@@ -26,11 +26,11 @@
   /date_selectで書き換える
   .select-harf.select-box
     %select{name: "", placeholder: "", class: "select-form"}
-    =fa_icon "chevron-down"    
+    = fa_icon "chevron-down"    
     %span{style: "margin:0 3px; line-height: 52px;"} 月
   .select-harf.select-box    
     %select{name: "", placeholder: "", class: "select-form"}
-    =fa_icon "chevron-down"        
+    = fa_icon "chevron-down"        
     %span{style: "margin:0 3px; line-height: 52px;"} 年
   %br 
 .field 
@@ -40,6 +40,6 @@
   %input{name: "", placeholder: "カード背面4桁もしは3桁の番号"}
   %br
 %p.text.text-right
-  =link_to "", class: "nodeco-blue" do
-    =fa_icon "question-circle"
+  = link_to "", class: "nodeco-blue" do
+    = fa_icon "question-circle"
     カード裏面の番号とは?
