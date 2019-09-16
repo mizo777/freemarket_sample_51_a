@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post :buy, to: 'products#pay'
     end
   end
+  resources :product_images, only: [:destroy]
 
   # マイページ
   resources :users, only: [:index] do
