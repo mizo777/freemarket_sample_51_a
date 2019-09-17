@@ -1,4 +1,22 @@
 $(document).on('turbolinks:load', function() {
+  var imageAmount = $('#preview li').length
+  if (imageAmount == 10) {
+    $(".sell-upload-drop-box").remove();
+  } else if (imageAmount <= 4) {
+    $(".sell-upload-drop-box").css({
+      'width': `calc(100% - (20% * ${imageAmount}))`
+    })
+  } else if (imageAmount == 5) {
+    $(".sell-upload-drop-box").css({
+      'float': 'right',
+      'display': 'none !important',
+      'width': '100%',
+    })
+  } else if (6 <= imageAmount <= 9) {
+    $(".sell-upload-drop-box").css({
+      'width': `calc(100% - (20% * (${imageAmount} - 5)))`,
+    })
+  }
   // 同じinputがクリックされないように
   $(document).on("click", ".edit-box", function () {
     var imgCount = $(".sell-upload-items li").length
@@ -52,7 +70,7 @@ $(document).on('turbolinks:load', function() {
           })
         } else if (imageAmount == 5) {
           $(".sell-upload-drop-box").css({
-            'float': 'none',
+            'float': 'right',
             'display': 'none !important',
             'width': '100%',
           })
@@ -60,7 +78,7 @@ $(document).on('turbolinks:load', function() {
           $(".sell-upload-drop-box").css({
             'width': `calc(100% - (20% * (${imageAmount} - 5)))`,
           })
-        }            
+        }
       };      
     })(file);
     reader.readAsDataURL(file);
@@ -77,25 +95,28 @@ $(document).on('turbolinks:load', function() {
     $('.sell-upload-drop-box input[type="hidden"]').eq(previewIndex)[0].remove();
     var inputField = $('<input class="file-icon" id="file" onchange="previewFiles()" name="product[product_images_attributes][0][image][]" type="file">')
     $(".sell-upload-drop-box").append(inputField)
-    // // 削除後のinput枠調整
-    // AfterImageAmount = ImageAmount -1
-    // if (AfterImageAmount == 10) {
-    //   $(".sell-upload-drop-box").remove();
-    // } else if (AfterImageAmount <= 4) {
-    //   $(".sell-upload-drop-box").css({
-    //     'width': `calc(100% - (20% * ${AfterImageAmount}))`
-    //   })
-    // } else if (AfterImageAmount == 5) {
-    //   $(".sell-upload-drop-box").css({
-    //     'float': 'none',
-    //     'display': 'none !important',
-    //     'width': '100%',
-    //   })
-    // } else if (6 <= AfterImageAmount <= 9) {
-    //   $(".sell-upload-drop-box").css({
-    //     'width': `calc(100% - (20% * (${AfterImageAmount} - 5)))`,
-    //   })
-    // }    
+    // 削除後のinput枠調整
+    var imageAmount = $('#preview li').length
+    console.log(imageAmount)
+    AfterImageAmount = imageAmount
+    if (AfterImageAmount == 10) {
+      $(".sell-upload-drop-box").remove();
+    } else if (AfterImageAmount <= 4) {
+      $(".sell-upload-drop-box").css({
+        'float': 'right',
+        'width': `calc(100% - (20% * ${AfterImageAmount}))`
+      })
+    } else if (AfterImageAmount == 5) {
+      $(".sell-upload-drop-box").css({
+        'float': 'none',
+        'display': 'none !important',
+        'width': '100%',
+      })
+    } else if (6 <= AfterImageAmount <= 9) {
+      $(".sell-upload-drop-box").css({
+        'width': `calc(100% - (20% * (${AfterImageAmount} - 5)))`,
+      })
+    }
     $.ajax({
       url: '/product_images/' + deleteImage,
       type: 'DELETE',
