@@ -22,9 +22,16 @@
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
                         %ul#preview
-                    %label.sell-upload-drop-box.have-item-0
+                          - @product.product_images.first(@image_count).each do |images|
+                            %li.sell-upload-item.registered-image
+                              %figure.sell-upload-figure
+                                = image_tag image_url("#{images.image}"), class: "registered-file"
+                              .sell-upload-button.edit-upload-button
+                                .sell-upload-edit 編集
+                                .edit-delete 削除
+                    .sell-upload-drop-box.have-item-0.edit-box
                       = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
-                        = image.file_field :image, class: "file-icon"
+                        = image.file_field :image, class: ""
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
@@ -78,7 +85,7 @@
                         %span.form-require.optional 任意
                       .select-wrap
                         %i.icon-arrow-bottom
-                        = f.collection_select :brand_id, @brands, :id, :name, {}, class:"select-default", id: "parent-form", value: @product.brand.name
+                        -# = f.collection_select :brand_id, @brands, :id, :name, {}, class:"select-default", id: "parent-form", value: @product.brand.name
                     .form-group
                       %label
                         商品の状態
