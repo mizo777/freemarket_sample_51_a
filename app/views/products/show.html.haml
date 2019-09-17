@@ -45,7 +45,8 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header ブランド
         %td.item-container__content__detail-table__row__data
-          = link_to "#{@product.brand.name}", "", class: "item-container__content__detail-table__row__data__link"
+          - if @product.brand_id.present?
+            = link_to "#{@product.brand.name}", "", class: "item-container__content__detail-table__row__data__link"
       - if @product.size.empty?
       - else
         %tr.item-container__content__detail-table__row
