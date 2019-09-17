@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function() {
         // 要素追加
         $("#preview img").wrap(li);
         var img = `<div class="sell-upload-button">
-                    <div class="sell-upload-edit">編集</div>
+                    <div class="edit-edit">編集</div>
                     <div class="edit-delete">削除</div>
                   </div> </li>`;
         $('.sell-upload-item').append(img);
@@ -82,7 +82,8 @@ $(document).on('turbolinks:load', function() {
       };      
     })(file);
     reader.readAsDataURL(file);
-  })    
+  })   
+
   // 登録済み画像削除
   $(document).on("click", ".edit-delete", function () {
     var previewIndex = $('.edit-delete').index(this);
@@ -92,29 +93,29 @@ $(document).on('turbolinks:load', function() {
     var deleteImage=  ary[ary.length - 2];
     $(".sell-upload-item").eq(previewIndex).remove();
     $('.sell-upload-drop-box input[type="file"]').eq(previewIndex)[0].remove();
-    $('.sell-upload-drop-box input[type="hidden"]').eq(previewIndex)[0].remove();
+    if($($('.sell-upload-drop-box input[type="hidden"]').eq(previewIndex)[0]).length){
+      $($('.sell-upload-drop-box input[type="hidden"]').eq(previewIndex)[0]).remove();
+    }
     var inputField = $('<input class="file-icon" id="file" onchange="previewFiles()" name="product[product_images_attributes][0][image][]" type="file">')
     $(".sell-upload-drop-box").append(inputField)
     // 削除後のinput枠調整
     var imageAmount = $('#preview li').length
-    console.log(imageAmount)
-    AfterImageAmount = imageAmount
-    if (AfterImageAmount == 10) {
+    if (imageAmount == 10) {
       $(".sell-upload-drop-box").remove();
-    } else if (AfterImageAmount <= 4) {
+    } else if (imageAmount <= 4) {
       $(".sell-upload-drop-box").css({
         'float': 'right',
-        'width': `calc(100% - (20% * ${AfterImageAmount}))`
+        'width': `calc(100% - (20% * ${imageAmount}))`
       })
-    } else if (AfterImageAmount == 5) {
+    } else if (imageAmount == 5) {
       $(".sell-upload-drop-box").css({
         'float': 'none',
         'display': 'none !important',
         'width': '100%',
       })
-    } else if (6 <= AfterImageAmount <= 9) {
+    } else if (6 <= imageAmount <= 9) {
       $(".sell-upload-drop-box").css({
-        'width': `calc(100% - (20% * (${AfterImageAmount} - 5)))`,
+        'width': `calc(100% - (20% * (${imageAmount} - 5)))`,
       })
     }
     $.ajax({
@@ -125,4 +126,25 @@ $(document).on('turbolinks:load', function() {
     }).done(function () {
     });
   })
+  
+// 編集
+$(document).on("click", ".edit-edit", function () {
+  $(".edit-box").click();
+  var previewIndex = $('.edit-edit').index(this);
+  var deleteImg = $(this).parent().parent().find("img")[0]
+  var deleteSrc = $(deleteImg).attr("src")
+  var ary = (deleteSrc.split('/'));
+  var deleteImage=  ary[ary.length - 2];
+  $(".sell-upload-item").eq(previewIndex).remove();
+  $('.sell-upload-drop-box input[type="file"]').eq(previewIndex)[0].remove();
+  $('.sell-upload-drop-box input[type="hidden"]').eq(previewIndex)[0].remove();
+  var inputField = $('<input class="file-icon" id="file" name="product[product_images_attributes][0][image][]" type="file">')
+  $(".sell-upload-drop-box").append(inputField)
+$.ajax({
+  url: '/product_images/' + deleteImage,
+  type: 'DELETE',
+  data: { delete_image: deleteImage },
+  dataType: 'json'
+})
+})
 })

@@ -27,7 +27,7 @@
                               %figure.sell-upload-figure
                                 = image_tag image_url("#{images.image}"), class: "registered-file"
                               .sell-upload-button.edit-upload-button
-                                .sell-upload-edit 編集
+                                .edit-edit 編集
                                 .edit-delete 削除
                     .sell-upload-drop-box.have-item-0.edit-box
                       = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
@@ -169,8 +169,8 @@
                       また、出品をもちまして
                       =link_to "加盟店規約", "/jp/seller_terms/"
                       に同意したことになります。
-                  = f.submit "出品する", class: "btn-default btn-red"                   
-                  %a.btn-default.btn-gray もどる
+                  = f.submit "変更する", class: "btn-default btn-red"                   
+                  =link_to "キャンセル", product_path, class: "btn-default btn-gray"
               .overlay
     %footer.signup-login__footer
       = render partial: 'signup/footer'
