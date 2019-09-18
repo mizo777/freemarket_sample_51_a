@@ -1,6 +1,6 @@
 $(document).on('turbolinks:load', function() {
   // 画像プレビュー表示
-  $('form').on('change', 'input[type="file"]', function(e) {
+  $('form').on('change', '.new-box input[type="file"]', function(e) {
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $("#preview");
@@ -8,7 +8,6 @@ $(document).on('turbolinks:load', function() {
         // 既存のプレビューを削除用
         editIndex = (11 - $(this).index());
         editPreviewIndex = $("#preview img").length - editIndex
-
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
@@ -26,7 +25,9 @@ $(document).on('turbolinks:load', function() {
           title: file.name
       }));
         // 既存のプレビューを削除
-      $(".preview").eq(editPreviewIndex).remove();
+        if (0 <= editPreviewIndex){
+          $(".preview").eq(editPreviewIndex).remove();
+        }
         var li = $('<li class="sell-upload-item"><figure class="sell-upload-figure landscape"></figure></li>');
         // 要素追加
         $("#preview img").wrap(li);
@@ -35,7 +36,6 @@ $(document).on('turbolinks:load', function() {
                     <div class="sell-upload-delete">削除</div>
                   </div> </li>`;
         $('.sell-upload-item').append(img);
-        
         // 画像数によって表示幅の変更
         imageAmount = $("#preview img").length
         if (imageAmount == 10) {
@@ -66,7 +66,8 @@ $(document).on('turbolinks:load', function() {
   $(document).on("change", ".file-icon", function() {
     $(this).appendTo(".sell-upload-drop-box");
   })
-})  
+})
+
 // 削除
 $(document).on("click", ".sell-upload-delete", function () {
   // 何番目のプレビュー 画像か
@@ -101,6 +102,7 @@ $(document).on("click", ".sell-upload-delete", function () {
     })
   }
 })
+
 // 編集
 $(document).on("click", ".sell-upload-edit", function () {
   // 何番目のプレビュー 画像か
