@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy]
+  before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
+  before_action :authenticate_user! , only: [:new] 
 
   def index
     @ladies_products = Product.ladies_products
@@ -35,7 +36,7 @@ class ProductsController < ApplicationController
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
     @brands = Brand.all
-    10.times { @product.product_images.build }    
+    10.times { @product.product_images.build }
   end
 
   def create
@@ -44,7 +45,25 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       render 'new'
-   end    
+   end
+  end
+
+  def edit
+    @parents = Category.order("id ASC").limit(15)
+    @children = @product.category.parent.parent.children
+    @grandchildren = @product.category.parent.children
+    @brands = Brand.all
+    @image_count = @product.product_images.length    
+    (10 - @image_count).times { @product.product_images.build }
+  end
+
+  def update
+    if @product.user_id == current_user.id
+      @product.update!(update_params)
+      redirect_to @product
+    else
+      render 'edit'
+    end
   end
 
   def buy
@@ -98,6 +117,10 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: :image ).merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params.require(:product).permit(:name, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: [:image, :id] ).merge(user_id: current_user.id)
   end
 
   def set_product

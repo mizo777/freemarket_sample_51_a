@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
   # 商品関連
-  resources :products, only: [:index, :new, :create, :show, :destroy] do
+  resources :products do
     patch :toggle_status
     collection do
       get 'category', defaults: { format: 'json' }
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       post :buy, to: 'products#pay'
     end
   end
+  resources :product_images, only: [:destroy]
 
   # マイページ
   resources :users, only: [:index] do

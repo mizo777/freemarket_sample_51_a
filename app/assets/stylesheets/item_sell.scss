@@ -6,14 +6,6 @@ body.exhibit {
   color: rgb(51, 51, 51);
   line-height: 1;
   background: rgb(245, 245, 245);
-
-
-
-
-  img {
-    // vertical-align: middle;
-  }
-
   input {
     border: 0;
     outline: 0;
@@ -212,7 +204,6 @@ body.exhibit {
   }
 
   .sell-upload-items {
-    // float: left;
     display: block;
     ul {
       display: block;
@@ -658,7 +649,6 @@ body.exhibit {
             vertical-align: top; 
             figure{
               position: relative;
-              // overflow: hidden;
               width: 100%;
               height: 0;
               padding: 0 0 100%;
@@ -699,16 +689,13 @@ body.exhibit {
           }
         }
       }
-    }
-    .sell-upload-drop-box{
-    }    
+    }  
   }
   @media screen and (min-width: 768px){
     .sell-dropbox-container {
       display: block;
       width: 620px;
       .sell-upload-items {
-        // float: left;
         display: block;
         ul {
           display: block;
