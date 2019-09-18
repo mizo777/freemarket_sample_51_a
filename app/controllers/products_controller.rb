@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       render 'new'
-   end    
+   end
   end
 
   def edit
@@ -61,8 +61,10 @@ class ProductsController < ApplicationController
     if @product.user_id == current_user.id
       @product.update!(update_params)
       redirect_to @product
+    else
+      render 'edit'
     end
-  end  
+  end
 
   def buy
     @random_products = Product.order("RAND()").limit(2)
