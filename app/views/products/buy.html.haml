@@ -21,6 +21,7 @@
         .mercari-confirmation__container__buy-item__inner__buy-btn
           = form_tag(action: :pay, method: :post) do
             %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "#{Settings.key.payjp_public_key}"}
+            = hidden_field_tag :price, @product.price
     %section.mercari-confirmation__container__buy-user-info
       .mercari-confirmation__container__buy-user-info__inner
         %h3 配送先
@@ -39,11 +40,13 @@
       .mercari-confirmation__container__buy-user-info__inner
         %h3 支払い方法
         %p
-          ************5555
+          = "************" + @default_card_information.last4
           %br
-          03 / 24
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
         %figure
-          = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", width: "49", height: "15", alt: "visa"
+          = image_tag "#{@card_src}", width: '48', height: "36", alt: @card_brand
         = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
           %span 変更する
           = fa_icon 'chevron-right', class: "chevron-right-4"
