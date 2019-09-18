@@ -20,41 +20,87 @@ Rails.application.routes.draw do
     post 'buy' => 'products#pay'
   end
 
-  resources :cards, only: [:new, :show] do
-    collection do
-      post 'show' => 'cards#show'
-      post 'pay' => 'cards#pay'
-      post 'delete' => 'cards#delete'
+  # resources :cards, only: [:new, :show] do
+  #   collection do
+  #     post 'show' => 'cards#show'
+  #     post 'pay' => 'cards#pay'
+  #     post 'delete' => 'cards#delete'
+  #   end
+  # end
+
+  # マイページ
+  resources :users, only: [:index] do
+    member do
+      resources :cards, only: [:new, :show] do
+        collection do
+          post 'show' => 'cards#show'
+          post 'pay' => 'cards#pay'
+          post 'delete' => 'cards#delete'
+        end
+      end
+      resources :mypage, only: [:index] do
+        collection do
+          get 'notification'
+          get 'todo'
+          get 'like'
+          get 'exhibit_trading'
+          get 'exhibiting'
+          get 'exhibited'
+          get 'purchase'
+          get 'purchased'
+          get 'news'
+          get 'review'
+          get 'contact'
+          get 'sales'
+          get 'point'
+          get 'profile'
+          get 'delivery_address'
+          get 'card'
+          get 'card_create'
+          get 'email_password'
+          get 'identification'
+          get 'sms_confirmation'
+          get 'help_center'
+          get 'logout'
+        end
+      end
     end
   end
 
-  # マイページ
-  resources :mypage do
-    collection do
-      get 'notification'
-      get 'todo'
-      get 'like'
-      get 'exhibit_trading'
-      get 'exhibiting'
-      get 'exhibited'
-      get 'purchase'
-      get 'purchased'
-      get 'news'
-      get 'review'
-      get 'contact'
-      get 'sales'
-      get 'point'
-      get 'profile'
-      get 'delivery_address'
-      get 'card'
-      get 'card_create'
-      get 'email_password'
-      get 'identification'
-      get 'sms_confirmation'
-      get 'help_center'
-      get 'logout'
-    end
-  end
+  # resources :mypage do
+  #   resources :cards, only: [:new, :show] do
+  #     collection do
+  #       post 'show' => 'cards#show'
+  #       post 'pay' => 'cards#pay'
+  #       post 'delete' => 'cards#delete'
+  #     end
+  #   end
+  #   collection do
+  #     get 'notification'
+  #     get 'todo'
+  #     get 'like'
+  #     get 'exhibit_trading'
+  #     get 'exhibiting'
+  #     get 'exhibited'
+  #     get 'purchase'
+  #     get 'purchased'
+  #     get 'news'
+  #     get 'review'
+  #     get 'contact'
+  #     get 'sales'
+  #     get 'point'
+  #     get 'profile'
+  #     get 'delivery_address'
+  #     get 'card'
+  #     get 'card_create'
+  #     get 'email_password'
+  #     get 'identification'
+  #     get 'sms_confirmation'
+  #     get 'help_center'
+  #     get 'logout'
+  #   end
+  # end
+
   # 新規登録
   resources :signup do
     collection do
