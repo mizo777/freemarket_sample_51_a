@@ -4,7 +4,6 @@ class Product < ApplicationRecord
   validates :price, presence: true
   validates :category_id, presence: true  
   validates :user_id, presence: true  
-  validates :size, presence: true 
   validates :state, presence: true
   validates :delivery_burden, presence: true
   validates :delivery_way, presence: true
@@ -28,13 +27,13 @@ class Product < ApplicationRecord
     else
       exhibiting!
     end
-  end 
+  end
 
   class << self
     def ladies_products
       ladies = []
       all.each do |product|
-        if product.category.parent.parent.id == 1
+        if product.exhibiting? && product.category.parent.parent.id == 1
           ladies << product
         end
       end
@@ -43,7 +42,7 @@ class Product < ApplicationRecord
     def mens_products
       mens = []
       all.each do |product|
-        if product.category.parent.parent.id == 2
+        if product.exhibiting? && product.category.parent.parent.id == 2
           mens << product
         end
       end
@@ -52,7 +51,7 @@ class Product < ApplicationRecord
     def babys_and_kids_products
       babys_and_kids = []
       all.each do |product|
-        if product.category.parent.parent.id == 3
+        if product.exhibiting? && product.category.parent.parent.id == 3
           babys_and_kids << product
         end
       end
@@ -61,11 +60,47 @@ class Product < ApplicationRecord
     def cosmetics_and_perfume_and_beauty_products
       cosmetics_and_perfume_and_beauty = []
       all.each do |product|
-        if product.category.parent.parent.id == 7
+        if product.exhibiting? && product.category.parent.parent.id == 7
           cosmetics_and_perfume_and_beauty << product
         end
       end
       return cosmetics_and_perfume_and_beauty
+    end
+    def chanel_products
+      chanel = []
+      all.each do |product|
+        if product.exhibiting? && product.brand_id == 1
+          chanel << product
+        end
+      end
+      return chanel
+    end
+    def louis_vuitton_products
+      louis_vuitton = []
+      all.each do |product|
+        if product.exhibiting? && product.brand_id == 3
+          louis_vuitton << product
+        end
+      end
+      return louis_vuitton
+    end
+    def supreme_products
+      supreme = []
+      all.each do |product|
+        if product.exhibiting? && product.brand_id == 4
+          supreme << product
+        end
+      end
+      return supreme
+    end
+    def nike_products
+      nike = []
+      all.each do |product|
+        if product.exhibiting? && product.brand_id == 2
+          nike << product
+        end
+      end
+      return nike
     end
   end
 end
