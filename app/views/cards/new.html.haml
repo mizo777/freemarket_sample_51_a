@@ -1,61 +1,20 @@
-%body.signup-login-body
-  .signup-login
-    = render partial: 'shared/header_2'
-    %main.signup-login__box
-      .signup-login__box__title
-        %h2 クレジットカード情報入力
-        = form_with(url: pay_cards_path, method: :post, id: 'charge_form') do |f|
-          .form-format__content
-            .field.field-first
-              = f.label :カード番号
-              %span.require 必須
-              %br
-              = f.text_field :card_number, name: "card_number", type: 'text', placeholder: '半角数字のみ', maxlength: "16", id: "card_number", class: "card_number"
-              %br
-              %ul.card-list.flex.decoration-non
-                %li
-                  = image_tag "visa.png", height: "20", alt: "visa"
-                %li
-                  = image_tag "mastercard.png", height: "20", alt: "mastercard"    
-                %li   
-                  = image_tag "saison.png", height: "20", alt: "saison"
-                %li   
-                  = image_tag "JCB.png", height: "20", alt: "JCB"
-                %li
-                  = image_tag "americanExpress.jpg", height: "20", alt: "americanExpress"
-                %li
-                  = image_tag "dinersClub.jpg", height: "20", alt: "dinersClub"
-                %li   
-                  = image_tag "discover.png", height: "20", alt: "discover"
-            .field
-              = f.label :有効期限
-              %label 有効期限
-              %span.require 必須
-              %br
-              .select-harf.select-box
-                //%select{name: "", placeholder: "", class: "select-form"}
-                = f.select :expire_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , name: "expire_month", type: "text", id: "expire_month"
-                = fa_icon "chevron-down"    
-                %span{style: "margin:0 3px; line-height: 52px;"} 月
-              .select-harf.select-box    
-                //%select{name: "", placeholder: "", class: "select-form"}
-                = f.select :expire_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , name: "expire_year", type: "text", id: "expire_year"
-                = fa_icon "chevron-down"        
-                %span{style: "margin:0 3px; line-height: 52px;"} 年
-              %br 
-            .field 
-              = f.label :セキュリティコード
-              %span.require 必須
-              %br
-              //%input{name: "", placeholder: "カード背面4桁もしは3桁の番号"}
-              = f.text_field :cvc, name: "cvc", type: 'text', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "cvc", class: "cvc"
-              %br
-            %p.text.text-right
-              = link_to "", class: "nodeco-blue" do
-                = fa_icon "question-circle"
-                カード裏面の番号とは?
-            //%input{type: "submit", value: "登録する", class: "btn"}
-            = f.submit '追加', id: 'token_submit'
-        %input.payjp-token{ type: "hidden", name: "payjp-token", value: "" }
-    %footer.signup-login__footer
-      = render partial: 'signup/footer'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+  - breadcrumb :mypage, class: "breadcrumbs"
+  = render 'shared/breadcrumbs'
+- else
+  = render partial: 'shared/header_before_login'
+%body.mypage
+  %main.mypage-content
+    .signup-login__box.delivery-form.float-right
+      .mypage-head
+        %h2.bold.text-center クレジットカード情報入力
+      = render partial: 'signup/credit'
+    .side
+      = render partial: 'shared/sidebar'     
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to new_product_path do
+    = fa_icon 'camera', class: "camera"
