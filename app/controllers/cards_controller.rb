@@ -47,7 +47,6 @@ class CardsController < ApplicationController
       Payjp.api_key = Settings.key[:payjp_secret_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
-      
       # 登録しているカード会社のブランドアイコンを表示する
       @card_brand = @default_card_information.brand      
       case @card_brand
