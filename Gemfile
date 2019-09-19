@@ -93,3 +93,6 @@ gem 'jquery-rails'
 gem "jquery-slick-rails"
 gem 'ancestry'
 gem 'gretel'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
