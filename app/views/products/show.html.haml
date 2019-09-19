@@ -77,8 +77,9 @@
       = number_to_currency(@product.price, unit: "￥", precision: 0)
     %span.item-container__price-box__item-tax (税込)
     %span.item-container__price-box__item-shipping-fee 送料込み
-  .item-container__buy-btn
-    = link_to "購入画面に進む", product_buy_path(@product), method: :get, class: "item-container__buy-btn__text"
+  - if user_signed_in? && current_user.id != @product.user_id
+    .item-container__buy-btn
+      = link_to "購入画面に進む", product_buy_path(@product), method: :get, class: "item-container__buy-btn__text"
   .item-container__item-description
     %p.item-container__item-description__inner
       = raw(nl2br(@product.detail))
