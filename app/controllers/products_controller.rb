@@ -25,9 +25,9 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @random_products = Product.order("RAND()").limit(2)
-    @same_brand_products = Product.where(brand_id: @product.brand_id).where.not(id: params[:id]).order("RAND()").limit(6)
-    @exhibitor_related_products = Product.where(user_id: @product.user_id).where.not(id: params[:id]).order("RAND()").limit(6)
+    @random_products = Product.where(status: 0).order("RAND()").limit(2)
+    @same_brand_products = Product.where(brand_id: @product.brand_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
+    @exhibitor_related_products = Product.where(user_id: @product.user_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
   end
 
   def destroy
