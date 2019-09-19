@@ -19,3 +19,4 @@ config/secrets.yml
 # ここより追記
 /public/uploads
 config/secrets.yml
+.env
