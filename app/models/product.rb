@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :price, presence: true
   validates :category_id, presence: true  
-  validates :user_id, presence: true  
+  validates :user_id, presence: true
   validates :state, presence: true
   validates :delivery_burden, presence: true
   validates :delivery_way, presence: true
