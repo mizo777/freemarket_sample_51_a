@@ -41,26 +41,31 @@ class ProductsController < ApplicationController
 
   def buy
     @product = Product.find(params[:product_id])
-    card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = Settings.key[:payjp_secret_key]
-    customer = Payjp::Customer.retrieve(card.customer_id)
-    @default_card_information = customer.cards.retrieve(card.card_id)
-    
-    # 登録しているカード会社のブランドアイコンを表示する
-    @card_brand = @default_card_information.brand      
-    case @card_brand
-    when "Visa"
-      @card_src = "visa.png"
-    when "JCB"
-      @card_src = "JCB.png"
-    when "MasterCard"
-      @card_src = "mastercard.png"
-    when "American Express"
-      @card_src = "americanExpress.png"
-    when "Diners Club"
-      @card_src = "dinersClub.png"
-    when "Discover"
-      @card_src = "discover.png"
+    # ユーザーが出品した商品の購入確認ページには入れないようにする
+    if @product.user_id != current_user.id
+      card = Card.where(user_id: current_user.id).first
+      Payjp.api_key = Settings.key[:payjp_secret_key]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+      # 登録しているカード会社のブランドアイコンを表示する
+      @card_brand = @default_card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "visa.png"
+      when "JCB"
+        @card_src = "JCB.png"
+      when "MasterCard"
+        @card_src = "mastercard.png"
+      when "American Express"
+        @card_src = "americanExpress.png"
+      when "Diners Club"
+        @card_src = "dinersClub.png"
+      when "Discover"
+        @card_src = "discover.png"
+      end
+    else
+      # 直前の画面に戻る
+      return_back and return
     end
   end
 
@@ -79,13 +84,6 @@ class ProductsController < ApplicationController
     else
       redirect_to action: :buy
     end
-  end
-
-  def trade
-
-  end
-
-  def purchase_confirmation
   end
 
   private
