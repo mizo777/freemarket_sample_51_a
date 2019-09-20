@@ -19,17 +19,16 @@ Rails.application.routes.draw do
     get 'buy'
     post 'buy' => 'products#pay'
   end
-
+  # クレジットカード決済・消去
+  resources :cards do
+    collection do
+      post 'pay' => 'cards#pay'
+      post 'delete' => 'cards#delete'
+    end
+  end
   # マイページ
   resources :users, only: [:index] do
     member do
-      resources :cards, only: [:new, :show] do
-        collection do
-          post 'show' => 'cards#show'
-          post 'pay' => 'cards#pay'
-          post 'delete' => 'cards#delete'
-        end
-      end
       resources :mypage, only: [:index] do
         collection do
           get 'notification'
@@ -58,7 +57,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
   # 新規登録
   resources :signup do
     collection do
