@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @product = Product.find(params[:product_id])
+    @product = Product.find(params[:id])
     # ユーザーが出品した商品の購入確認ページには入れないようにする
     if @product.user_id != current_user.id
       card = Card.where(user_id: current_user.id).first
@@ -102,9 +102,9 @@ class ProductsController < ApplicationController
       card: params['payjp-token'],
       currency: 'jpy'
     )
-    product = Product.find(params[:product_id])
+    product = Product.find(params[:id])
     product.exhibit_trading!
-    order = Order.new(product_id: params[:product_id], buyer_id: current_user.id)
+    order = Order.new(product_id: params[:id], buyer_id: current_user.id)
     if order.save
       redirect_to controller: :orders, action: :show, id: order.product_id
     else
