@@ -12,10 +12,6 @@ Rails.application.routes.draw do
       get 'child_category', defaults: { format: 'json' }
       get 'size_category', defaults: { format: 'json' }
     end
-    member do
-      get :buy
-      post :buy, to: 'products#pay'
-    end
   end
   resources :products, only: [:show] do
     get 'buy'
