@@ -1,19 +1,20 @@
-= render partial: 'shared/header_before_login'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+  - breadcrumb :card_new, class: "breadcrumbs"
+  = render 'shared/breadcrumbs'
+- else
+  = render partial: 'shared/header_before_login'
 %body.mypage
-  = render partial: 'breadcrumb'
   %main.mypage-content
     .signup-login__box.delivery-form.float-right
       .mypage-head
         %h2.bold.text-center クレジットカード情報入力
-      %form{action: "/", method: "post", class: "form-format"} 
-        .form-format__content
-          = render partial: 'signup/credit'     
-          %input{type: "submit", value: "次へ進む", class: "btn"}
+      = render partial: 'signup/credit'
     .side
-      = render partial: 'sidebar'     
+      = render partial: 'shared/sidebar'     
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn
   .mercari-sell-btn__text 出品
-  = link_to "https://www.mercari.com/jp/sell/" do
-    = fa_icon 'camera', class: "camera"          
+  = link_to new_product_path do
+    = fa_icon 'camera', class: "camera"
