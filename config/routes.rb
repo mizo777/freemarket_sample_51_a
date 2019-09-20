@@ -4,15 +4,17 @@ Rails.application.routes.draw do
   # ログイン
   devise_for :users
   root 'products#index'
-  # 取引情報
-  resources :orders
   # 商品関連
-  resources :products, only: [:index, :new, :create, :show, :destroy] do
+  resources :products do
     patch :toggle_status
     collection do
       get 'category', defaults: { format: 'json' }
       get 'child_category', defaults: { format: 'json' }
       get 'size_category', defaults: { format: 'json' }
+    end
+    member do
+      get :buy
+      post :buy, to: 'products#pay'
     end
   end
   resources :products, only: [:show] do
@@ -26,10 +28,12 @@ Rails.application.routes.draw do
       post 'delete' => 'cards#delete'
     end
   end
+  # 商品画像
+  resources :product_images, only: [:destroy]
   # マイページ
   resources :users, only: [:index] do
     member do
-      resources :mypage, only: [:index] do
+      resources :mypage, only: [:index] do   
         collection do
           get 'notification'
           get 'todo'
@@ -58,7 +62,7 @@ Rails.application.routes.draw do
     end
   end
   # 新規登録
-  resources :signup do
+  resources :signup, only: [:index] do
     collection do
       get 'step1'
       get 'step2'

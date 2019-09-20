@@ -16,19 +16,20 @@
         %th.item-container__content__detail-table__row__header 出品者
         %td.item-container__content__detail-table__row__data
           = link_to "#{@product.user.nickname}", "", class: "item-container__content__detail-table__row__data__text"
-          %ul.item-container__content__detail-table__row__data__wrapper
-            %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
-              %i.fas.fa-smile
-              %span.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings__count
-                = "#{rand(0..255)}"
-            %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
-              %i.fas.fa-meh
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count
-                = "#{rand(0..255)}"
-            %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
-              %i.fas.fa-frown
-              %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count
-                = "#{rand(0..255)}"
+            -if @product.user.id != current_user.id
+            %ul.item-container__content__detail-table__row__data__wrapper
+              %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
+                %i.fas.fa-smile
+                %span.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings__count
+                  = "#{rand(0..255)}"
+              %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
+                %i.fas.fa-meh
+                %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count
+                  = "#{rand(0..255)}"
+              %li.item-container__content__detail-table__row__data__wrapper__item-user-ratings
+                %i.fas.fa-frown
+                %span.item-container__content__detail-table__row__data__wrapper__item-user-ratings__count
+                  = "#{rand(0..255)}"
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header カテゴリー
         %td.item-container__content__detail-table__row__data
@@ -44,7 +45,8 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header ブランド
         %td.item-container__content__detail-table__row__data
-          = link_to "#{@product.brand.name}", "", class: "item-container__content__detail-table__row__data__link"
+          - if @product.brand_id.present?
+            = link_to "#{@product.brand.name}", "", class: "item-container__content__detail-table__row__data__link"
       - if @product.size.empty?
       - else
         %tr.item-container__content__detail-table__row
@@ -58,8 +60,7 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 配送料の負担
         %td.item-container__content__detail-table__row__data
-          - if @product.delivery_burden == 0
-            送料込み(出品者負担)
+          = @product.delivery_burden
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 配送の方法
         %td.item-container__content__detail-table__row__data
@@ -83,31 +84,32 @@
   .item-container__item-description
     %p.item-container__item-description__inner
       = raw(nl2br(@product.detail))
-  .item-container__buttons
-    .item-container__buttons--left
-      %button.item-container__buttons--left__like-btn
-        = fa_icon 'heart', class: "heart-2"
-        %span.item-container__buttons--left__like-btn__text いいね！
-        %span.item-container__buttons--left__like-btn__count
-          = @product.likes_count
-      %button.item-container__buttons--left__flag-btn
-        = fa_icon 'flag', class: "flag"
-        %span.item-container__buttons--left__flag-btn__text 不適切な商品の報告
-    .item-container__buttons--right
-      = link_to "https://www.mercari.com/jp/safe/description/" do
-        = fa_icon 'lock', class: "lock"
-        %span.item-container__buttons--right__text あんしん・あんぜんへの取り組み
+  -if @product.user.id != current_user.id
+    .item-container__buttons
+      .item-container__buttons--left
+        %button.item-container__buttons--left__like-btn
+          = fa_icon 'heart', class: "heart-2"
+          %span.item-container__buttons--left__like-btn__text いいね！
+          %span.item-container__buttons--left__like-btn__count
+            = @product.likes_count
+        %button.item-container__buttons--left__flag-btn
+          = fa_icon 'flag', class: "flag"
+          %span.item-container__buttons--left__flag-btn__text 不適切な商品の報告
+      .item-container__buttons--right
+        = link_to "https://www.mercari.com/jp/safe/description/" do
+          = fa_icon 'lock', class: "lock"
+          %span.item-container__buttons--right__text あんしん・あんぜんへの取り組み
 - if user_signed_in? && current_user.id == @product.user_id
   .item-detail-message
     .item-detail-message__container  
       .item-detail-message__container__content
-        = link_to "商品の編集", "", class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+        = link_to "商品の編集", edit_product_path(@product), class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
       .item-detail-message__container__content
         - if @product.stop_exhibit?
           = link_to "出品を再開する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
         - if @product.exhibiting?
-          = link_to "出品を一旦停止する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
-        = link_to "この商品をを削除する", product_path(@product), method: :delete, class: "btn", style: "margin-top:10px;background: gray;border: 1px solid gray;color: #fff;"
+          = link_to "出品を一旦停止する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #aaa;border: 1px solid #aaa;color: #fff;"
+        = link_to "この商品をを削除する", product_path(@product), method: :delete, class: "btn", style: "margin-top:10px;background: #aaa;border: 1px solid #aaa;color: #fff;"
 .item-detail-message
   .item-detail-message__container
     .item-detail-message__container__content
@@ -115,46 +117,48 @@
       %textarea.item-detail-message__container__content__textarea
       %button.item-detail-message__container__content__comment-btn
         %span.item-detail-message__container__content__comment-btn__text コメントする
-%ul.item-link
-  %li.item-link__prev
-    = link_to product_path(@random_products[0].id) do
-      = fa_icon 'chevron-left', class: "item-link__prev__icon"
-      %span.item-link__prev__text
-        = @random_products[0].name
-  %li.item-link__next
-    = link_to product_path(@random_products[1].id) do
-      = fa_icon 'chevron-right', class: "item-link__next__icon"
-      %span.item-link__next__text
-        = @random_products[1].name
-.social-media-box
-  %ul.social-media-box__icons
-    %li.social-media-box__icons__facebook
-      = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F" do
-        %i.fab.fa-facebook-square#icon-facebook-1
-    %li.social-media-box__icons__twitter
-      = link_to "http://twitter.com/share?count=horizontal&amp;original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;text=%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%28%C2%A5%202%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
-        %i.fab.fa-twitter-square#icon-twitter-1
-    %li.social-media-box__icons__pinterest
-      = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm43988409821_1.jpg%3F1565087077&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
-        %i.fab.fa-pinterest-square#icon-pinterest-1
-.user-items-profile
-  %section.user-items-profile__related-items
-    %h2.user-items-profile__related-items__title
-      = link_to "#{@product.user.nickname}のその他の出品", "", class: "user-items-profile__related-items__title__text"
-    .user-items-profile__related-items__items
-      - @exhibitor_related_products.each do |product|
-        = render partial: 'exhibitor_related_items', locals: { product: product }
-  %section.user-items-profile__related-items
-    %h2.user-items-profile__related-items__title
-      = link_to "#{@product.brand.name}のその他の商品", "", class: "user-items-profile__related-items__title__text"
-    .user-items-profile__related-items__items
-      - @same_brand_products.each do |product|
-        = render partial: 'exhibit_related_items' , locals: { product: product }
-%nav.pos-bottom
-  %ul.pos-bottom__lists
-    %li= link_to "メルカリ", "", class: "pos-bottom__lists__left-list"
-    = fa_icon 'chevron-right', class: "chevron-right-3"
-    %li.pos-bottom__lists__right-list
-      = @product.name
+-if @product.user.id != current_user.id
+
+  %ul.item-link
+    %li.item-link__prev
+      = link_to product_path(@random_products[0].id) do
+        = fa_icon 'chevron-left', class: "item-link__prev__icon"
+        %span.item-link__prev__text
+          = @random_products[0].name
+    %li.item-link__next
+      = link_to product_path(@random_products[1].id) do
+        = fa_icon 'chevron-right', class: "item-link__next__icon"
+        %span.item-link__next__text
+          = @random_products[1].name
+  .social-media-box
+    %ul.social-media-box__icons
+      %li.social-media-box__icons__facebook
+        = link_to "http://www.facebook.com/share.php?u=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F" do
+          %i.fab.fa-facebook-square#icon-facebook-1
+      %li.social-media-box__icons__twitter
+        = link_to "http://twitter.com/share?count=horizontal&amp;original_referer=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;text=%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%28%C2%A5%202%2C000%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89" do
+          %i.fab.fa-twitter-square#icon-twitter-1
+      %li.social-media-box__icons__pinterest
+        = link_to "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm43988409821%2F&amp;media=https%3A%2F%2Fstatic.mercdn.net%2Fitem%2Fdetail%2Forig%2Fphotos%2Fm43988409821_1.jpg%3F1565087077&amp;description=%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E5%95%86%E5%93%81%3A%20%E3%83%AD%E3%83%B3%E3%82%B0%E3%83%AF%E3%83%B3%E3%83%94%E3%83%BC%E3%82%B9%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA" do
+          %i.fab.fa-pinterest-square#icon-pinterest-1
+  .user-items-profile
+    %section.user-items-profile__related-items
+      %h2.user-items-profile__related-items__title
+        = link_to "#{@product.user.nickname}のその他の出品", "", class: "user-items-profile__related-items__title__text"
+      .user-items-profile__related-items__items
+        - @exhibitor_related_products.each do |product|
+          = render partial: 'exhibitor_related_items', locals: { product: product }
+    %section.user-items-profile__related-items
+      %h2.user-items-profile__related-items__title
+        = link_to "#{@product.brand.name}のその他の商品", "", class: "user-items-profile__related-items__title__text"
+      .user-items-profile__related-items__items
+        - @same_brand_products.each do |product|
+          = render partial: 'exhibit_related_items' , locals: { product: product }
+  %nav.pos-bottom
+    %ul.pos-bottom__lists
+      %li= link_to "メルカリ", "", class: "pos-bottom__lists__left-list"
+      = fa_icon 'chevron-right', class: "chevron-right-3"
+      %li.pos-bottom__lists__right-list
+        = @product.name
 = render 'shared/app-banner'
 = render 'shared/footer'

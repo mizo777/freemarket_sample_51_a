@@ -12,7 +12,7 @@
           %div{"data-reactroot" => ""}
             .sell-container-inner
               %h2.l-single-head 商品の情報を入力
-              = form_with model: @product, class: "sell-form" do |f| 
+              = form_with model: @product, method: :patch , class: "sell-form" do |f| 
                 .sell-upload-box
                   %h3.sell-upload-head
                     出品画像
@@ -22,9 +22,16 @@
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
                         %ul#preview
-                    %label.sell-upload-drop-box.have-item-0.new-box
+                          - @product.product_images.first(@image_count).each do |images|
+                            %li.sell-upload-item.registered-image
+                              %figure.sell-upload-figure
+                                = image_tag image_url("#{images.image}"), class: "registered-file"
+                              .sell-upload-button.edit-upload-button
+                                .edit-edit 編集
+                                .edit-delete 削除
+                    .sell-upload-drop-box.have-item-0.edit-box
                       = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
-                        = image.file_field :image, class: "file-icon"
+                        = image.file_field :image, class: ""
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
@@ -52,14 +59,33 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @parents, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[category_id]'
-                    .form-group.brand-form
+                          = f.collection_select :category, @parents, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                        .select-wrap#children_wrapper
+                          %i.icon-arrow-bottom
+                          = f.collection_select :category, @children , :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                        .select-wrap#grandchildren_wrapper
+                          %i.icon-arrow-bottom
+                          = f.collection_select :category_id, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                    .form-group#size_wrapper
+                      %label
+                        サイズ
+                        %span.form-require 必須
+                      -if @product.category.name == "スニーカー"
+                        .select-wrap.size_wrapper
+                          %i.icon-arrow-bottom
+                          = f.select :size, Product.shoes_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                      -elsif @product.category.name == "Tシャツ/カットソー(半袖/袖なし)"
+                        .select-wrap.size_wrapper
+                          %i.icon-arrow-bottom
+                          = f.select :size, Product.tshirts__sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                    
+                    .form-group.brand-form{style: "display:block"}
                       %label
                         ブランド
                         %span.form-require.optional 任意
                       .select-wrap
                         %i.icon-arrow-bottom
-                        = f.collection_select :brnd_id, @brands, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[brand_id]'
+                        -# = f.collection_select :brand_id, @brands, :id, :name, {}, class:"select-default", id: "parent-form", value: @product.brand.name
                     .form-group
                       %label
                         商品の状態
@@ -79,6 +105,18 @@
                       .select-wrap
                         %i.icon-arrow-bottom
                         = f.select :delivery_burden, ["---", ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, class:"select-default", id: "delivery_burden"
+                    .form-group#burden
+                      %label
+                        配送の方法
+                        %span.form-require 必須
+                      -if @product.delivery_burden == "送料込み(出品者負担)"
+                        .select-wrap
+                          %i.icon-arrow-bottom
+                          = f.select :delivery_way, Product.seller_deliveries.keys, {}, class:"select-default", id: "delivery_burden"
+                      -else
+                        .select-wrap
+                          %i.icon-arrow-bottom
+                          = f.select :delivery_way, Product.buyer_deliveries.keys, {}, class:"select-default", id: "delivery_burden"
                     .form-group
                       %label
                         発送元の地域
@@ -131,8 +169,8 @@
                       また、出品をもちまして
                       =link_to "加盟店規約", "/jp/seller_terms/"
                       に同意したことになります。
-                  = f.submit "出品する", class: "btn-default btn-red"                   
-                  %a.btn-default.btn-gray もどる
+                  = f.submit "変更する", class: "btn-default btn-red"                   
+                  =link_to "キャンセル", product_path, class: "btn-default btn-gray"
               .overlay
     %footer.signup-login__footer
       = render partial: 'signup/footer'

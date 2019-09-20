@@ -6,7 +6,7 @@
     %section.mercari-confirmation__container__buy-item
       .mercari-confirmation__container__buy-item__inner
         .mercari-confirmation__container__buy-item__inner__item
-          %h3= image_tag image_url("#{@product.product_images.first.name}"), width: "64", height: "85"
+          %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "64", height: "85"          
           %p= @product.name
         .mercari-confirmation__container__buy-item__inner__price-box
           .mercari-confirmation__container__buy-item__inner__price-box__text

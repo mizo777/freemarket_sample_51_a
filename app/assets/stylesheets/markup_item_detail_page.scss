@@ -120,6 +120,40 @@ body.markup_item_detail_page {
           } 
         }
       }
+      @media screen and (min-width: 768px){
+        .item-stop-badge div{
+          top: 40px;
+          left: -20px;
+          font-size: 26px;
+        }
+      }      
+      .item-stop-badge div{
+        top: 28px;
+        left: 0 !important;
+        font-size: 18px;
+        position: absolute;
+        left: 0;
+        z-index: 5 !important;
+        color: #fff;
+        transform: rotate(-45deg);
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+      .item-stop-badge:after{
+        border-width: 120px 120px 0 0;
+        border-color: #888 transparent transparent transparent;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;      
+      } 
+      .item-stop-badge.sold:after{
+        border-color: red transparent transparent transparent; 
+      } 
     }
     &__detail-table {
       display: inline-block;
@@ -253,6 +287,9 @@ body.markup_item_detail_page {
       } 
     }
   }
+  &__buy-btn.sold{
+    background: #888;
+  }  
   &__item-description {
     padding: 24px 0 0;
     line-height: 1.5;
