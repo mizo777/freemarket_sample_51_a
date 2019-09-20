@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_20_004951) do
+ActiveRecord::Schema.define(version: 2019_09_07_023033) do
 
   create_table "addresses", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "mail", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_004951) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cards", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "customer_id", null: false
     t.string "card_id", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_09_20_004951) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 2019_09_20_004951) do
     t.index ["user_id"], name: "index_notices_on_user_id"
   end
 
-  create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "product_id", null: false
+  create_table "orders", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "product_id", null: false
     t.integer "use_point"
     t.integer "payment"
     t.string "payment_way"
@@ -201,12 +201,9 @@ ActiveRecord::Schema.define(version: 2019_09_20_004951) do
     t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
-  create_table "tables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-  end
-
-  create_table "todo_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "order_id", null: false
+  create_table "todo_lists", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "order_id", null: false
     t.text "content", null: false
     t.integer "transaction_message_id", null: false
     t.datetime "created_at", null: false
@@ -264,7 +261,6 @@ ActiveRecord::Schema.define(version: 2019_09_20_004951) do
   add_foreign_key "notices", "informations"
   add_foreign_key "notices", "users"
   add_foreign_key "orders", "products"
-  add_foreign_key "orders", "users", column: "buyer_id"
   add_foreign_key "points", "orders"
   add_foreign_key "points", "users"
   add_foreign_key "product_images", "products"
