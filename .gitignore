@@ -17,6 +17,7 @@
 /config/master.key
 config/secrets.yml
 # ここより追記
+/db/fixtures
 /public/images
 config/secrets.yml
 config/settings.local.yml
