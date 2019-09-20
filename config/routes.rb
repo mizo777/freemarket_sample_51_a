@@ -28,6 +28,8 @@ Rails.application.routes.draw do
       post 'delete' => 'cards#delete'
     end
   end
+  # 注文
+  resources :orders, only: [:show]
   # 商品画像
   resources :product_images, only: [:destroy]
   # マイページ
