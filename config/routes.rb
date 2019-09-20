@@ -12,10 +12,10 @@ Rails.application.routes.draw do
       get 'child_category', defaults: { format: 'json' }
       get 'size_category', defaults: { format: 'json' }
     end
-  end
-  resources :products, only: [:show] do
-    get 'buy'
-    post 'buy' => 'products#pay'
+    member do
+      get :buy
+      post :buy, to: 'products#pay'
+    end
   end
   # クレジットカード決済・消去
   resources :cards do
