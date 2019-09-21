@@ -34,19 +34,19 @@
               %label ニックネーム
               %span.require 必須
               %br
-              = f.text_field :nickname, class: "", placeholder: "例）メルカリ太郎"
+              = f.text_field :nickname, class: "", placeholder: "例）メルカリ太郎", value: "#{@user.nickname}"
               %br
             .field
               %label メ-ルアドレス
               %span.require 必須
               %br
-              = f.email_field :email, class: "", placeholder: "携帯・PCどちらでも可"
+              = f.email_field :email, class: "", placeholder: "携帯・PCどちらでも可", value: "#{@user.email}"
               %br
             .field  
               %label パスワード
               %span.require 必須
               %br
-              = f.password_field :password, class: "", placeholder: "７文字以上"              
+              = f.password_field :password, class: "", placeholder: "７文字以上"
               %br
             .field  
               %label パスワード(確認)

@@ -45,4 +45,28 @@ describe User do
     end
 
   end
+
+  feature "SNS login, signup" do
+    describe "facebook連携でサインアップする" do 
+      it "連携したユーザーでなければ新規登録" do
+        OmniAuth.config.mock_auth[:facebook] = nil
+        Rails.application.env_config['omniauth.auth'] = facebook_mock
+        visit signup_index_path
+        click_link "Facebookで登録する"
+        fill_in 'user_password', with: 'm123456'
+        fill_in 'user_password_confirmation', with: 'm123456'
+        expect{
+          click_button '次へ進む'
+        }.to change(User, :count).by(1)
+      end
+
+      it '連携したユーザーだとログイン' do
+        user = FactoryBot.build(:user)
+        visit new_user_session_path
+        expect{
+          click_link "facebookでログイン"
+        }.not_to change(User, :count)
+      end
+    end
+  end
 end
