@@ -168,6 +168,13 @@ body.mypage{
               color: #ccc;              
             }         
           }
+          .purchase-lists {
+            max-height: 420px;
+            overflow: auto;
+          }
+          .purchase-lists::-webkit-scrollbar {
+            display: none;
+          }
         }
         &__content.is-show {
           display:block;
@@ -192,7 +199,6 @@ body.mypage{
         position: relative;
         margin: 16px 4% 0;
         height: 44px;
-      
         li{
           position: absolute;
           top: 0;

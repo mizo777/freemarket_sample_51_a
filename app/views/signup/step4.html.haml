@@ -27,10 +27,6 @@
     %main.signup-login__box
       .signup-login__box__title
         %h2 支払い方法
-        %form{action: "/", method: "post", class: "form-format"} 
-          .form-format__content
-            = render partial: 'credit'     
-            %input{type: "submit", value: "次へ進む", class: "btn"}
-
+      = render partial: 'signup/credit'
     %footer.signup-login__footer
       = render partial: 'signup/footer'

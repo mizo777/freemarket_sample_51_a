@@ -1,6 +1,9 @@
-= render partial: 'shared/header_before_login'
-- breadcrumb :purchased, class: "breadcrumbs"
-= render 'shared/breadcrumbs'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+  - breadcrumb :purchased, class: "breadcrumbs"
+  = render 'shared/breadcrumbs'
+- else
+  = render partial: 'shared/header_before_login'
 %body.mypage
   %main.mypage-content
     .mypage-content__r-content
@@ -29,7 +32,7 @@
           = link_to "", class: "" do
             = fa_icon "chevron-right"             
     .side
-      = render partial: 'sidebar'
+      = render partial: 'shared/sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn

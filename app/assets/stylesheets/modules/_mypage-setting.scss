@@ -6,7 +6,7 @@
   line-height: 1.4;
 }
 
-// pfofile
+// profile
 .profile{
   &__name{
     padding: 72px 16px 24px;
@@ -72,6 +72,9 @@
   &__box{
     max-width: 320px;
     margin: 0 auto;
+    h3 {
+      font-size: 16px;
+    }
   }
  .creditcard{
   padding: 24px 0;
@@ -82,7 +85,7 @@
     padding: 24px 0;
     border-bottom: 1px solid #eee;     
    }
-   form{
+   section{
     position: relative;
     max-width: 320px;
     margin: 0 auto;
@@ -101,6 +104,7 @@
       color: #ea352d;
       width: 70px;
       font-size: 12px;
+      cursor: pointer;
     }      
    }
  } 

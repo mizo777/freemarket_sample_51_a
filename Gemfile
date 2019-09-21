@@ -93,3 +93,5 @@ gem 'jquery-rails'
 gem "jquery-slick-rails"
 gem 'ancestry'
 gem 'gretel'
+gem 'payjp'
+gem 'config'
