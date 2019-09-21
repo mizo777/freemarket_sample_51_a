@@ -17,5 +17,12 @@
 /config/master.key
 config/secrets.yml
 # ここより追記
+/db/fixtures
 /public/images
 config/secrets.yml
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+/config/settings/development.yml
+/config/settings/production.yml
+/config/settings/test.yml

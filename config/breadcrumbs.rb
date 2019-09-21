@@ -81,8 +81,13 @@ crumb :delivery_address do
   parent :mypage
 end
 
-crumb :card do
-  link "支払い方法", card_mypage_index_path
+crumb :card_new do
+  link "支払い方法", cards_new_path
+  parent :mypage
+end
+
+crumb :card_show do
+  link "支払い方法", cards_show_path
   parent :mypage
 end
 

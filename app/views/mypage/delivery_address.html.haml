@@ -1,6 +1,9 @@
-= render partial: 'shared/header_before_login'
-- breadcrumb :delivery_address, class: "breadcrumbs"
-= render 'shared/breadcrumbs'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+  - breadcrumb :delivery_address, class: "breadcrumbs"
+  = render 'shared/breadcrumbs'
+- else
+  = render partial: 'shared/header_before_login'
 %body.mypage
   %main.mypage-content
     .signup-login__box.mypage-content__r-content
@@ -63,7 +66,7 @@
               %br          
             %input{type: "submit", value: "変更する", class: "btn"}
     .side
-      = render partial: 'sidebar'
+      = render partial: 'shared/sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn

@@ -1,0 +1,53 @@
+%body.markup-item-purchase-confirmation-page
+= render 'shared/header_2'
+%main.mercari-confirmation
+  %section.mercari-confirmation__container
+    %h2 購入内容の確認
+    %section.mercari-confirmation__container__buy-item
+      .mercari-confirmation__container__buy-item__inner
+        .mercari-confirmation__container__buy-item__inner__item
+          %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "64", height: "85"          
+          %p= @product.name
+        .mercari-confirmation__container__buy-item__inner__price-box
+          .mercari-confirmation__container__buy-item__inner__price-box__text
+            %p= number_to_currency(@product.price, unit: "￥", precision: 0)
+            %p 送料込み
+        .mercari-confirmation__container__buy-item__inner__point-info
+          %p ポイントはありません
+        .mercari-confirmation__container__buy-item__inner__payment-box
+          %ul
+            %li 支払い金額
+            %li= number_to_currency(@product.price, unit: "￥", precision: 0)
+        .mercari-confirmation__container__buy-item__inner__buy-btn
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "#{Settings.key.payjp_public_key}"}
+            = hidden_field_tag :price, @product.price
+    %section.mercari-confirmation__container__buy-user-info
+      .mercari-confirmation__container__buy-user-info__inner
+        %h3 配送先
+        %address
+          〒601-8343
+          %br 
+          京都府京都市南区吉祥院稲葉町24
+          %br
+          ヤマト運輸
+        %address 
+        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+          %span 変更する
+          = fa_icon 'chevron-right', class: "chevron-right-4"
+          
+    %section.mercari-confirmation__container__buy-user-info
+      .mercari-confirmation__container__buy-user-info__inner
+        %h3 支払い方法
+        %p
+          = "************" + @default_card_information.last4
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+        %figure
+          = image_tag "#{@card_src}", width: '48', height: "36", alt: @card_brand
+        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+          %span 変更する
+          = fa_icon 'chevron-right', class: "chevron-right-4"
+= render 'shared/footer_2'

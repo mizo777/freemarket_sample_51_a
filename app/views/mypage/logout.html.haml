@@ -1,6 +1,9 @@
-= render partial: 'shared/header_before_login'
-- breadcrumb :logout, class: "breadcrumbs"
-= render 'shared/breadcrumbs'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+  - breadcrumb :logout, class: "breadcrumbs"
+  = render 'shared/breadcrumbs'
+- else
+  = render partial: 'shared/header_before_login'
 %body.mypage
   %main.mypage-content
     .signup-login__box.mypage-content__r-content
@@ -8,7 +11,7 @@
         .content-inner__box
           = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn mail"
     .side
-      = render partial: 'sidebar'
+      = render partial: 'shared/sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn

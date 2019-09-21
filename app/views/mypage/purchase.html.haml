@@ -1,6 +1,9 @@
-= render partial: 'shared/header_before_login'
-- breadcrumb :purchase, class: "breadcrumbs"
-= render 'shared/breadcrumbs'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+  - breadcrumb :purchase, class: "breadcrumbs"
+  = render 'shared/breadcrumbs'
+- else
+  = render partial: 'shared/header_before_login'
 %body.mypage
   %main.mypage-content
     .mypage-content__r-content
@@ -16,10 +19,11 @@
               = link_to purchased_mypage_index_path, class: "" do
                 過去の取引
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
-          %ul
-            = render partial: 'purchase_panel'
+          %ul.purchase-lists
+            - @products.each do |product| 
+              = render partial: 'purchase_panel', locals: { product: product }
         .mypage-content__r-content__index__content.mypage-panel2
-          %ul
+          %ul.purchase-lists
             = render partial: 'purchased_panel'
       %ul.mypage-history
         %li.prev
@@ -29,7 +33,7 @@
           = link_to "", class: "" do
             = fa_icon "chevron-right"            
     .side
-      = render partial: 'sidebar'
+      = render partial: 'shared/sidebar'
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn
