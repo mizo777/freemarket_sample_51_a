@@ -26,6 +26,10 @@ p.gray{
 a.nodeco-blue{
   color: #0099e8 !important;
   text-decoration: none; 
+  &:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+  }
 }
 .decoration-non{
   text-decoration: none; 

@@ -31,6 +31,13 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
     end
+    create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+      t.integer "user_id", null: false
+      t.string "customer_id", null: false
+      t.string "card_id", null: false
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
+    end
     create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.string "name", null: false
       t.datetime "created_at", null: false
@@ -94,12 +101,12 @@ class InitSchema < ActiveRecord::Migration[4.2]
     end
     create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
       t.integer "product_id", null: false
-      t.integer "use_point", null: false
-      t.integer "payment", null: false
-      t.string "payment_way", null: false
-      t.integer "delivery_fee", null: false
-      t.string "adress", null: false
-      t.integer "sell_fee", null: false
+      t.integer "use_point"
+      t.integer "payment"
+      t.string "payment_way"
+      t.integer "delivery_fee"
+      t.string "adress"
+      t.integer "sell_fee"
       t.integer "sell_gain"
       t.string "buyer_rank"
       t.string "buyer_review"
@@ -109,6 +116,8 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.boolean "delivery_check"
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
+      t.bigint "buyer_id", null: false
+      t.index ["buyer_id"], name: "index_orders_on_buyer_id"
       t.index ["product_id"], name: "index_orders_on_product_id"
     end
     create_table "points", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

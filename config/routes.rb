@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'cards/new'
+  get 'cards/show'
   # ログイン
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'products#index'
@@ -9,15 +11,23 @@ Rails.application.routes.draw do
       get 'category', defaults: { format: 'json' }
       get 'child_category', defaults: { format: 'json' }
       get 'size_category', defaults: { format: 'json' }
-      post 'pay/:id' => 'products#pay'
     end
     member do
       get :buy
       post :buy, to: 'products#pay'
     end
   end
+  # クレジットカード決済・消去
+  resources :cards do
+    collection do
+      post 'pay' => 'cards#pay'
+      post 'delete' => 'cards#delete'
+    end
+  end
+  # 注文
+  resources :orders, only: [:show]
+  # 商品画像
   resources :product_images, only: [:destroy]
-
   # マイページ
   resources :users, only: [:index] do
     member do
@@ -45,10 +55,9 @@ Rails.application.routes.draw do
           get 'sms_confirmation'
           get 'help_center'
           get 'logout'
-        end           
+        end
+      end
     end
-  end
-
   end
   # 新規登録
   resources :signup, only: [:index] do
