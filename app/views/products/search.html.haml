@@ -1,0 +1,27 @@
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+- else
+  = render partial: 'shared/header_before_login'
+%main.mercari-search
+  .mercari-search__search-side
+    %form.search-form
+      .search-form__sort
+      .search-form__dropdown-content
+  .mercari-search__products-content
+    %section
+      %h2.search-result-title
+      .search-result-number
+      .products-box-content
+        = render partial: "search_product"
+%nav.pos-bottom
+  %ul.pos-bottom__lists
+    %li= link_to "メルカリ", root_path, class: "pos-bottom__lists__left-list"
+    = fa_icon 'chevron-right', class: "chevron-right-3"
+    %li.pos-bottom__lists__right-list
+      キーワード
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to new_product_path do
+    = fa_icon 'camera', class: "camera"
