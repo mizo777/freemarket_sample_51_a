@@ -17,6 +17,10 @@
 /config/master.key
 config/secrets.yml
 # ここより追記
+/public/uploads
+config/secrets.yml
+.env
+/config/certs/*
 /db/fixtures
 /public/images
 config/secrets.yml
