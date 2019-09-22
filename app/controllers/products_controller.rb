@@ -111,6 +111,14 @@ class ProductsController < ApplicationController
       redirect_to action: :buy
     end  
   end
+
+  def search
+    @products = Product.where('name LIKE(?)', "#{params[:keyword]}")
+    respond_to do |format|
+      format.html
+      format.json { @products }
+    end
+  end
   
   def category
     respond_to do |format|
