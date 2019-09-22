@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
-  before_action :authenticate_user! , only: [:new] 
+  before_action :authenticate_user! , only: [:new, :buy]
 
   def index
     @ladies_products = Product.ladies_products
@@ -29,6 +29,7 @@ class ProductsController < ApplicationController
     @random_products = Product.where(status: 0).order("RAND()").limit(2)
     @same_brand_products = Product.where(brand_id: @product.brand_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
     @exhibitor_related_products = Product.where(user_id: @product.user_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
+    @card = Card.where(user_id: current_user.id).first
   end
 
   def new
