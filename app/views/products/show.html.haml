@@ -156,7 +156,7 @@
           = render partial: 'exhibit_related_items' , locals: { product: product }
   %nav.pos-bottom
     %ul.pos-bottom__lists
-      %li= link_to "メルカリ", "", class: "pos-bottom__lists__left-list"
+      %li= link_to "メルカリ", root_path, class: "pos-bottom__lists__left-list"
       = fa_icon 'chevron-right', class: "chevron-right-3"
       %li.pos-bottom__lists__right-list
         = @product.name
