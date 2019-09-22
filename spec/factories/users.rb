@@ -13,5 +13,7 @@ FactoryBot.define do
     payment_way {"g"}
     birthday {"h"}
     confirmation_document {"i"}
+    provider {"facebook"}
+    uid {"12345"}
   end
 end
