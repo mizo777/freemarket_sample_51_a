@@ -1,0 +1,111 @@
+.mercari-search {
+  display: block;
+  position: relative;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  @media screen and (min-width: 1068px) {
+    margin: 40px auto 0;
+    width: 1020px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+  &__search-side {
+    margin: 40px auto 0;
+    @media screen and (min-width: 1068px) {
+      float: left;
+      width: 280px;
+      margin: 0 40px 0 0;
+    }
+    @media screen and (min-width: 768px) {
+      width: 700px;
+    }
+    form.search-form {
+      @media screen and (min-width: 1068px) {
+        position: relative;
+      }
+      &__sort {
+
+      }
+      &__dropdown-content {
+        
+      }
+    }
+  }
+  &__products-content {
+    width: 100%;
+    @media screen and (min-width: 1068px) {
+      float: right;
+    }
+    @media screen and (min-width: 768px) {
+      float: none;
+      width: 700px;
+    }
+    section {
+      h2.search-result-title {
+        margin: 16px 4% 8px;
+        line-height: 1.4;
+        font-size: 18px;
+        font-weight: 600;
+        @media screen and (min-width: 1068px) {
+          font-size: 22px;
+          margin: 0 0 8px;
+        }
+        @media screen and (min-width: 768px) {
+          margin: 16px 0 8px;
+        }
+      }
+      .search-result-number {
+        margin: 8px 4%;
+        font-size: 12px;
+        color: #888;
+        @media screen and (min-width: 768px) {
+          margin: 16px 0;
+        }
+      }
+      .products-box-content {
+        width: 92%;
+        margin: 0 auto;
+        @media screen and (min-width: 768px) {
+          width: auto;
+        }
+        &__product {
+          @media screen and (min-width: 768px) {
+            width: 127px;
+            margin: 0 16px 16px 0;
+          }
+          .product-photo {
+            @media screen and (min-width: 768px) {
+              width: 127px;
+              height: 127px;
+            }
+          }
+          .product-box-body {
+            @media screen and (min-width: 768px) {
+              position: relative;
+              height: 58px;
+              padding: 8px 12px;
+            }
+            &__name {
+              overflow: hidden;
+              position: relative;
+              font-weight: 400;
+              color: #333;
+              height: 3em;
+              line-height: 1.5;
+              word-break: break-word;
+              white-space: normal;
+              @media screen and (min-width: 768px) {
+                font-size: 14px;
+              }
+            }
+            &__number {
+              margin: 8px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
