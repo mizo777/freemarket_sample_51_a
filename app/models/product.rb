@@ -34,78 +34,77 @@ class Product < ApplicationRecord
     end
   end
 
-  class << self
-    def ladies_products
-      ladies = []
-      all.each do |product|
-        if product.exhibiting? && product.category.parent.parent.id == 1
-          ladies << product
-        end
+  def self.ladies_products
+    ladies = []
+    all.each do |product|
+      if product.exhibiting? && product.category.parent.parent.id == 1
+        ladies << product
       end
-      return ladies
     end
-    def mens_products
-      mens = []
-      all.each do |product|
-        if product.exhibiting? && product.category.parent.parent.id == 2
-          mens << product
-        end
+    return ladies
+  end  
+
+  def self.mens_products
+    mens = []
+    all.each do |product|
+      if product.exhibiting? && product.category.parent.parent.id == 2
+        mens << product
       end
-      return mens
     end
-    def babys_and_kids_products
-      babys_and_kids = []
-      all.each do |product|
-        if product.exhibiting? && product.category.parent.parent.id == 3
-          babys_and_kids << product
-        end
+    return mens
+  end
+  def self.babys_and_kids_products
+    babys_and_kids = []
+    all.each do |product|
+      if product.exhibiting? && product.category.parent.parent.id == 3
+        babys_and_kids << product
       end
-      return babys_and_kids
     end
-    def cosmetics_and_perfume_and_beauty_products
-      cosmetics_and_perfume_and_beauty = []
-      all.each do |product|
-        if product.exhibiting? && product.category.parent.parent.id == 7
-          cosmetics_and_perfume_and_beauty << product
-        end
+    return babys_and_kids
+  end
+  def self.cosmetics_and_perfume_and_beauty_products
+    cosmetics_and_perfume_and_beauty = []
+    all.each do |product|
+      if product.exhibiting? && product.category.parent.parent.id == 7
+        cosmetics_and_perfume_and_beauty << product
       end
-      return cosmetics_and_perfume_and_beauty
     end
-    def chanel_products
-      chanel = []
-      all.each do |product|
-        if product.exhibiting? && product.brand_id == 1
-          chanel << product
-        end
+    return cosmetics_and_perfume_and_beauty
+  end
+  def self.chanel_products
+    chanel = []
+    all.each do |product|
+      if product.exhibiting? && product.brand_id == 1
+        chanel << product
       end
-      return chanel
     end
-    def louis_vuitton_products
-      louis_vuitton = []
-      all.each do |product|
-        if product.exhibiting? && product.brand_id == 3
-          louis_vuitton << product
-        end
+    return chanel
+  end
+  def self.louis_vuitton_products
+    louis_vuitton = []
+    all.each do |product|
+      if product.exhibiting? && product.brand_id == 3
+        louis_vuitton << product
       end
-      return louis_vuitton
     end
-    def supreme_products
-      supreme = []
-      all.each do |product|
-        if product.exhibiting? && product.brand_id == 4
-          supreme << product
-        end
+    return louis_vuitton
+  end
+  def self.supreme_products
+    supreme = []
+    all.each do |product|
+      if product.exhibiting? && product.brand_id == 4
+        supreme << product
       end
-      return supreme
     end
-    def nike_products
-      nike = []
-      all.each do |product|
-        if product.exhibiting? && product.brand_id == 2
-          nike << product
-        end
+    return supreme
+  end
+  def self.nike_products
+    nike = []
+    all.each do |product|
+      if product.exhibiting? && product.brand_id == 2
+        nike << product
       end
-      return nike
     end
+    return nike
   end
 end

@@ -11,6 +11,12 @@
       %ul.item-container__content__photo__bottom
         - @product.product_images.each do |image|
           = render partial: 'item_photos_bottom' , locals: { product_image: image }
+      - if @product.stop_exhibit?
+        .item-stop-badge 
+          %div 公開停止中
+      - if @product.exhibited? || @product.exhibit_trading?
+        .item-stop-badge.sold
+          %div SOLD          
     %table.item-container__content__detail-table
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 出品者
