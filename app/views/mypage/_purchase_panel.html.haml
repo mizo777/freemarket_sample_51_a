@@ -1,9 +1,12 @@
-%li
-  = link_to order_path(product), class: "item-list" do
-    %figure
-      = image_tag image_url("#{product.product_images.first.image}") , alt: product.name
-    .message-box
-      .message
-        = "#{product.name}" + 'を購入しました'
-      .item-status.doing 取引中
-    = fa_icon "chevron-right"
+- if @purchase_products
+  %li
+    = link_to order_path(product), class: "item-list" do
+      %figure
+        = image_tag image_url("#{product.product_images.first.image}") , alt: product.name
+      .message-box
+        .message
+          = "#{product.name}" + 'を購入しました'
+        .item-status.doing 取引中
+      = fa_icon "chevron-right"
+- else
+  %li.not-found.bold 購入した商品はありません

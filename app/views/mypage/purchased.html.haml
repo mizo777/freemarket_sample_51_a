@@ -18,19 +18,17 @@
             %h3.bold
               = link_to "", class: "" do
                 過去の取引
-        .mypage-content__r-content__index__content.mypage-panel2
-          %ul
-            = render partial: 'purchase_panel'
         .mypage-content__r-content__index__content.mypage-panel2.is-show2
-          %ul
-            = render partial: 'purchased_panel'
+          %ul.purchase-lists
+            - @purchased_products.each do |product| 
+              = render partial: 'purchased_panel', locals: { product: product }
       %ul.mypage-history
         %li.prev
           = link_to "", class: "" do
             = fa_icon "chevron-left"
         %li.foward
           = link_to "", class: "" do
-            = fa_icon "chevron-right"             
+            = fa_icon "chevron-right"
     .side
       = render partial: 'shared/sidebar'
 = render partial: 'shared/app-banner'
