@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to @product, notice: '出品が完了しました'
     else
       render 'new'
    end
@@ -58,8 +58,8 @@ class ProductsController < ApplicationController
 
   def update
     if @product.user_id == current_user.id
-      @product.update!(update_params)
-      redirect_to @product
+      @product.update(update_params)
+      redirect_to @product, notice: '編集が完了しました'
     else
       render 'edit'
     end
