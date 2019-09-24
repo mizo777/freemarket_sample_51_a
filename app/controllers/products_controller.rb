@@ -14,10 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.id == current_user.id
-      @product.destroy
+    if @product.destroy
+      redirect_to mypage_index_path(current_user.id), notice: '商品を削除しました'
+    else
+      render @product
     end
-    redirect_to mypage_index_path
   end
 
   def show
@@ -48,7 +49,7 @@ class ProductsController < ApplicationController
       @children = @product.category.parent.parent.children
       @grandchildren = @product.category.parent.children
       @brands = Brand.all
-      @image_count = @product.product_images.length    
+      @image_count = @product.product_images.length
       (10 - @image_count).times { @product.product_images.build }
     else
       redirect_to root_path, alert: '編集権限がありません'
