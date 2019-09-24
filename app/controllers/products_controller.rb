@@ -43,12 +43,16 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @parents = Category.order("id ASC").limit(15)
-    @children = @product.category.parent.parent.children
-    @grandchildren = @product.category.parent.children
-    @brands = Brand.all
-    @image_count = @product.product_images.length    
-    (10 - @image_count).times { @product.product_images.build }
+    if @product.user_id == current_user.id
+      @parents = Category.order("id ASC").limit(15)
+      @children = @product.category.parent.parent.children
+      @grandchildren = @product.category.parent.children
+      @brands = Brand.all
+      @image_count = @product.product_images.length    
+      (10 - @image_count).times { @product.product_images.build }
+    else
+      redirect_to root_path, alert: '編集権限がありません'
+    end
   end
 
   def update
