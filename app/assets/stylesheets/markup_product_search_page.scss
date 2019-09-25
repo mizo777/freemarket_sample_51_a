@@ -20,6 +20,7 @@ body {
     background: #f5f5f5;
     @media screen and (min-width: 1068px) {
       //float: left;
+      display: inline-block;
       width: 280px;
       margin: 0 40px 0 0;
     }
@@ -132,11 +133,13 @@ body {
               top: -1px;
               margin: 0 4px 0 0;
               color: #888;
-              font-size: 17.44px;
+              //font-size: 17.44px;
+              font-size: 16px;
               vertical-align: middle;
             }
             span {
-              font-size: 17.44px;
+              //font-size: 17.44px;
+              font-size: 16px;
               vertical-align: middle;
               //font-weight: 600;
             }
@@ -155,12 +158,16 @@ body {
           .select-wrap {
             display: block;
             margin: 8px 0 0;
+            //height: 48px;
             i {
+              position: relative;
+              top: 46px;
+              left: 86%;
               margin: 0 4px 0 0;
               vertical-align: middle;
               z-index: 2;
               color: #888;
-              font-size: 8px;
+              font-size: 20px;
               -webkit-transform: translate(0, -50%);
               transform: translate(0, -50%);
             }
@@ -413,20 +420,20 @@ body {
     @media screen and (min-width: 1068px) {
       float: right;
     }
-    
     section {
       h2.search-result-title {
         margin: 16px 4% 8px;
         line-height: 1.4;
         font-size: 18px;
         font-weight: 600;
+        @media screen and (min-width: 768px) {
+          margin: 16px 0 8px;
+        }
         @media screen and (min-width: 1068px) {
           font-size: 22px;
           margin: 0 0 8px;
         }
-        @media screen and (min-width: 768px) {
-          margin: 16px 0 8px;
-        }
+        
       }
       .search-result-number {
         margin: 8px 4%;
@@ -439,13 +446,19 @@ body {
       .products-box-content {
         width: 92%;
         margin: 0 auto;
+        font-size: 0;
         @media screen and (min-width: 768px) {
           width: auto;
         }
         &__product {
+          display: inline-block;
+          &:nth-child(5n) {
+            margin-bottom: 16px;
+          }
           @media screen and (min-width: 768px) {
             width: 127px;
             margin: 0 16px 16px 0;
+            
           }
           .product-photo {
             @media screen and (min-width: 768px) {
@@ -454,9 +467,11 @@ body {
             }
           }
           .product-box-body {
+            background: #fff;
             @media screen and (min-width: 768px) {
-              position: relative;
-              height: 58px;
+              //position: relative;
+              width: 103px;
+              height: 42px;
               padding: 8px 12px;
             }
             &__name {
@@ -473,7 +488,67 @@ body {
               }
             }
             &__number {
-              margin: 8px 0 0;
+              //margin: 8px 0 0;
+              //display: block;
+              //display: none;
+              float: left;
+              width: 10px;
+              height: 2px;
+              &__price {
+                //display: block;
+                //margin: 8px 0 0;
+                font-size: 20px;
+                font-weight: 600;
+                color: #333;
+                
+                @media screen and (min-width: 768px) {
+                  //z-index: 2;
+                  position: relative;
+                  bottom: 78px;
+                  right: 12px;
+                  //min-width: 100%;
+                  //white-space:nowrap;
+                  //width: 45%;
+                  //max-width: calc(100% - 40px);
+                  //height: 17px;
+                  padding: 4px 12px 4px 8px;
+                  border-radius: 0 16px 16px 0;
+                  font-weight: 600;
+                  color: #fff;
+                  font-size: 16px;
+                  //line-height: 17px;
+                  background-color: rgba(0,0,0,0.3);
+                }
+                @media screen and (min-width: 1068px) {
+                  font-size: 16px;
+                }
+                div {
+                  display: block;
+                  width: 30px;
+                }
+              }
+              &__like {
+                font-size: 16px;
+                font-weight: 400;
+                color: #333;
+                width: 30px;
+                @media screen and (min-width: 768px) {
+                  position: relative;
+                  left: 42px;
+                  bottom: 42px;
+                  padding-left: 32px;
+                  background: linear-gradient(to right, rgba(255,255,255,0), #fff 24px);
+                }
+                i {
+                  color: #ccc;
+                }
+                span {
+                  font-size: 16px;
+                  font-weight: 400;
+                  color: #333;
+                }
+
+              }
             }
           }
         }
