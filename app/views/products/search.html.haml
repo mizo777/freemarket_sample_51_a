@@ -4,18 +4,24 @@
   = render partial: 'shared/header_before_login'
 %main.mercari-search
   .mercari-search__search-side
-    %form.search-form
+    .search-form
       .search-form__sort
-        並び替え
-        %i.fas.fa-chevron-down
+        //%i.fas.fa-chevron-down
+        %select{name: "sort_order", class: "select-default"}
+          %option{value: ""}並び替え
+          %option{value: "price_asc"}価格の安い順
+          %option{value: "price_desc"}価格の高い順
+          %option{value: "created_asc"}出品の古い順
+          %option{value: "created_desc"}出品の新しい順
+          %option{value: "like_desc"}いいね!の多い順
       .search-form__dropdown-content
         %h3 詳細検索
-        %form.search-form-group
+        .search-form-group
           %label
             %i.fas.fa-plus
             %span.search-list キーワードを追加する
           %input{type: "text", value: "jj", name: "keyword", placeholder: "例）値下げ", class: "input-default"}
-        %form.search-form-group
+        .search-form-group
           %label
             %i.fas.fa-list-ul
             %span カテゴリーを選択する
@@ -36,12 +42,12 @@
               %option{value: "1027", id: "1027"}チケット
               %option{value: "1318", id: "1318"}自動車・オートバイ
               %option{value: "10", id: "10"}その他
-        %form.search-form-group
+        .search-form-group
           %label
             %i.fas.fa-tag
             %span ブランド名から探す
           %input{type: "text", name: "brand_name", value: "", placeholder: "例）シャネル", class: "input-default"}
-        %form.search-form-group
+        .search-form-group
           %label
             %i.fas.fa-expand
             %span サイズを指定する
@@ -63,9 +69,9 @@
               %option{value: "11", id: "11"}タイヤのサイズ
               %option{value: "18", id: "18"}スキーのサイズ
               %option{value: "15", id: "15"}スノーボードのサイズ
-        %form.search-form-group-price
+        .search-form-group-price
           %label
-            %i.fas.fa-money-bill-alt
+            %i.fas.fa-money-bill
             %span 価格
           .select-wrap
             %i.fas.fa-chevron-down
@@ -80,7 +86,7 @@
           %input{type: "number", name: "price_min", value: "", placeholder: "¥ Min", class: "input-default"}
           %span ~
           %input{type: "number", name: "price_max", value: "", placeholder: "¥ Max", class: "input-default"}
-        %form.search-form-group-checkbox
+        .search-form-group-checkbox
           %label
             %i.fas.fa-star
             %span 商品状態
@@ -112,7 +118,7 @@
             %input{type: "checkbox", name: "item_condition_id[6]", id: "item_condition_id[6]", value: "1"}
             %i.far.fa-square
             %label{for: "item_condition_id[6]"} 全体的に状態が悪い
-        %form.search-form-group-checkbox
+        .search-form-group-checkbox
           %label
             %i.fas.fa-truck
             %span 配送料の負担
@@ -128,7 +134,7 @@
             %input{type: "checkbox", name: "shipping_payer_id[2]", id: "shipping_payer_id[2]", value: "1"}
             %i.far.fa-square
             %label{for: "shipping_payer_id[2]"} 送料込み(出品者負担)
-        %form.search-form-group-checkbox
+        .search-form-group-checkbox
           %label
             %i.fas.fa-shopping-cart
             %span 販売状況
