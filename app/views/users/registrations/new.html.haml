@@ -46,13 +46,13 @@
               %label パスワード
               %span.require 必須
               %br
-              = f.password_field :password, class: "", placeholder: "７文字以上"
+              = f.password_field :password, class: "", placeholder: "７文字以上", value: "#{@user.password}"
               %br
             .field  
               %label パスワード(確認)
               %span.require 必須
               %br
-              = f.password_field :password_confirmation, class: "", placeholder: "７文字以上"              
+              = f.password_field :password_confirmation, class: "", placeholder: "７文字以上", value: "#{@user.password}"
               %br
             .field  
               %h3 本人確認
