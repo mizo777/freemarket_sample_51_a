@@ -156,7 +156,8 @@
           = render partial: 'exhibitor_related_items', locals: { product: product }
     %section.user-items-profile__related-items
       %h2.user-items-profile__related-items__title
-        = link_to "#{@product.brand.name}のその他の商品", "", class: "user-items-profile__related-items__title__text"
+        - if @product.brand_id.present?
+          = link_to "#{@product.brand.name}のその他の商品", "", class: "user-items-profile__related-items__title__text"
       .user-items-profile__related-items__items
         - @same_brand_products.each do |product|
           = render partial: 'exhibit_related_items' , locals: { product: product }
