@@ -20,11 +20,6 @@ class ProductsController < ApplicationController
     redirect_to mypage_index_path
   end
 
-  def toggle_status
-    @product.toggle_status!
-    redirect_to @product
-  end
-
   def show
     @random_products = Product.where(status: 0).order("RAND()").limit(2)
     @same_brand_products = Product.where(brand_id: @product.brand_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
@@ -146,7 +141,6 @@ class ProductsController < ApplicationController
     @product.toggle_status!
     redirect_to @product
   end
-
 
   private
 

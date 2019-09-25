@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
-  has_one :card
-  has_many :products
+  has_one :card, dependent: :destroy
+  has_many :products, dependent: :destroy
   has_many :orders
   has_many :todo_lists
   has_many :sales, dependent: :destroy
@@ -25,11 +25,12 @@ class User < ApplicationRecord
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if (data = session['devise.omniauth_data'])
+      if data = session['devise.omniauth_data']
         user.email = data['email'] if user.email.blank?
         user.nickname = data['name'] if user.nickname.blank?
-        user.uid = data['uid'] if data['uid'] && user.uid.blank?
-        user.provider = data['provider']
+        user.uid = data['uid'] if user.uid.blank?
+        user.provider = data['provider'] if user.provider.blank?
+        user.password = Devise.friendly_token[0,20] if user.password.blank?
       end
     end
   end

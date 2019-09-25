@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'cards/new'
-  get 'cards/show'
   # ログイン
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'products#index'
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
   # クレジットカード決済・消去
-  resources :cards do
+  resources :cards, only: [:index] do
     collection do
       post 'pay' => 'cards#pay'
       post 'delete' => 'cards#delete'
