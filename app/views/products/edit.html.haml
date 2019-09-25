@@ -85,7 +85,10 @@
                         %span.form-require.optional 任意
                       .select-wrap
                         %i.icon-arrow-bottom
-                        = f.collection_select :brand_id, @brands, :id, :name, {}, class:"select-default", id: "parent-form", value: @product.brand.name
+                        - if @product.brand_id.present?
+                          = f.collection_select :brand_id, @brands, :id, :name, {}, class:"select-default", id: "parent-form", value: @product.brand.name
+                        - else
+                          = f.collection_select :brand_id, @brands, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form"
                     .form-group
                       %label
                         商品の状態

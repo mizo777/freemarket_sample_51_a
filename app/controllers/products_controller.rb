@@ -14,10 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.id == current_user.id
-      @product.destroy
+    if @product.destroy
+      redirect_to mypage_index_path(current_user.id), notice: '商品を削除しました'
+    else
+      render @product
     end
-    redirect_to mypage_index_path
   end
 
   def show
@@ -36,25 +37,29 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to @product, notice: '出品が完了しました'
     else
       render 'new'
    end
   end
 
   def edit
-    @parents = Category.order("id ASC").limit(15)
-    @children = @product.category.parent.parent.children
-    @grandchildren = @product.category.parent.children
-    @brands = Brand.all
-    @image_count = @product.product_images.length    
-    (10 - @image_count).times { @product.product_images.build }
+    if @product.user_id == current_user.id
+      @parents = Category.order("id ASC").limit(15)
+      @children = @product.category.parent.parent.children
+      @grandchildren = @product.category.parent.children
+      @brands = Brand.all
+      @image_count = @product.product_images.length
+      (10 - @image_count).times { @product.product_images.build }
+    else
+      redirect_to root_path, alert: '編集権限がありません'
+    end
   end
 
   def update
     if @product.user_id == current_user.id
-      @product.update!(update_params)
-      redirect_to @product
+      @product.update(update_params)
+      redirect_to @product, notice: '編集が完了しました'
     else
       render 'edit'
     end

@@ -1,4 +1,6 @@
 class MypageController < ApplicationController
+  before_action :set_user
+  
   def index
     purchase_products
   end
@@ -26,6 +28,7 @@ class MypageController < ApplicationController
   end
   
   def purchased
+    purchase_products
   end
   
   def news
@@ -94,12 +97,19 @@ class MypageController < ApplicationController
   # ユーザーが購入した商品を表示できるようにする
   def purchase_products
     @orders = Order.where(buyer_id: current_user.id).order(id: "ASC")
-    @products = []
+    @purchase_products = []
+    @purchased_products = []
     @orders.each do |order|
       product = Product.find_by(id: order.product_id)
       if product.exhibit_trading?
-        @products << product
+        @purchase_products << product
+      elsif product.exhibited?
+        @purchased_products << product
       end
     end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
