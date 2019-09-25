@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def pay
-    Payjp.api_key = Settings.key[:payjp_secret_key]
+    Payjp::api_key = ENV['PAYJP_SECRET_KEY']
     if  params['payjp-token'].blank?
       redirect_to card_create_mypage_index_path
     else
@@ -25,7 +25,7 @@ class CardsController < ApplicationController
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
-      Payjp.api_key = Settings.key[:payjp_secret_key]
+      Payjp::api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete

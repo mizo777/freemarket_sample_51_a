@@ -20,7 +20,7 @@
             %li= number_to_currency(@product.price, unit: "￥", precision: 0)
         .mercari-confirmation__container__buy-item__inner__buy-btn
           = form_tag(action: :pay, method: :post) do
-            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "#{Settings.key.payjp_public_key}"}
+            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}"}
             = hidden_field_tag :price, @product.price
     %section.mercari-confirmation__container__buy-user-info
       .mercari-confirmation__container__buy-user-info__inner

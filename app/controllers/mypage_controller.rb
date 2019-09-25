@@ -57,7 +57,7 @@ class MypageController < ApplicationController
     if card.blank?
       redirect_to card_create_mypage_index_path
     else
-      Payjp.api_key = Settings.key[:payjp_secret_key]
+      Payjp::api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
       # 登録しているカード会社のブランドアイコンを表示する

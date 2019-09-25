@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
     # ユーザーが出品した商品の購入確認ページには入れないようにする
     if @product.user_id != current_user.id
       card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = Settings.key[:payjp_secret_key]
+      Payjp::api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
       # 登録しているカード会社のブランドアイコンを表示する
@@ -96,7 +96,7 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = Settings.key[:payjp_secret_key]
+    Payjp::api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
       amount: params[:price],
       card: params['payjp-token'],
