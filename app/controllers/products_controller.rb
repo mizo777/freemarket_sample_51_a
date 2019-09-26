@@ -113,11 +113,9 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.where('name LIKE(?)', "#{params[:keyword]}")
-    respond_to do |format|
-      format.html
-      format.json { @products }
-    end
+    #@product = Product.new
+    @products = Product.where('name LIKE(?)', "%#{params[:name]}%")
+    #binding.pry
   end
   
   def category
