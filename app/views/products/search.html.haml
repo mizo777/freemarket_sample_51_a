@@ -162,7 +162,8 @@
       .search-result-number
         1 - 132件表示
       .products-box-content
-        = render partial: "search_product"
+        - @products.each do |product|
+          = render partial: "search_product", locals: { product: product }
 %nav.pos-bottom
   %ul.pos-bottom__lists
     %li= link_to "メルカリ", root_path, class: "pos-bottom__lists__left-list"
