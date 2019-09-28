@@ -24,10 +24,6 @@ body {
       width: 280px;
       margin: 0 40px 0 0;
     }
-    @media screen and (min-width: 768px) {
-      //width: 700px;
-    }
-    
     .search-form {
       @media screen and (min-width: 1068px) {
         position: relative;
@@ -47,16 +43,16 @@ body {
           width: auto;
         }
         i {
-          //font-size: 14px;
-          // position: absolute;
-          // right: 16px;
-          // top: 50%;
-          //z-index: 2;
+          position: absolute;
+          top: 26px;
+          left: 88%;
+          margin: 0 4px 0 0;
+          vertical-align: middle;
+          z-index: 2;
           color: #888;
-          font-size: 8px;
+          font-size: 20px;
           -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-          //background: yellow;
         }
         select.select-default {
           position: relative;
@@ -111,13 +107,9 @@ body {
             display: block;
           }
         }
-        // form.form-group {
-        //   background-color: blue;
-        // }
         .search-form-group {
           display: block;
           margin: 40px 0 0;
-          //background-color: yellow;
           font-size: 0;
           &:first-of-type {
             margin: 24px 0 0;
@@ -131,15 +123,12 @@ body {
               top: -1px;
               margin: 0 4px 0 0;
               color: #888;
-              //font-size: 17.44px;
               font-size: 16px;
               vertical-align: middle;
             }
             span {
-              //font-size: 17.44px;
               font-size: 16px;
               vertical-align: middle;
-              //font-weight: 600;
             }
           }
           input.input-default {
@@ -156,19 +145,6 @@ body {
           .select-wrap {
             display: block;
             margin: 8px 0 0;
-            //height: 48px;
-            i {
-              position: relative;
-              top: 46px;
-              left: 86%;
-              margin: 0 4px 0 0;
-              vertical-align: middle;
-              z-index: 2;
-              color: #888;
-              font-size: 20px;
-              -webkit-transform: translate(0, -50%);
-              transform: translate(0, -50%);
-            }
             select.select-default {
               position: relative;
               z-index: 2;
@@ -192,12 +168,22 @@ body {
           width: 100%;
           font-size: 0;
           label {
-            font-size: 14px;
+            display: block;
+            font-weight: 600;
+            font-size: 0;
             i {
-
+              position: relative;
+              top: -1px;
+              margin: 0 4px 0 0;
+              color: #888;
+              font-size: 16px;
+              vertical-align: middle;
             }
             span {
-
+              position: relative;
+              width: 13%;
+              font-size: 16px;
+              vertical-align: middle;
             }
           }
           .select-wrap {
@@ -242,8 +228,6 @@ body {
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
-            //background: none;
-            //border: none;
           }
           span {
             display: inline-block;
@@ -259,18 +243,12 @@ body {
           label {
             display: block;
             i {
-              //font-size: 14px;
               vertical-align: middle;
               margin: 0 4px 0 0;
               color: #888;
               font-size: 16px;
             }
             span {
-              // display: block;
-              // position: relative;
-              // z-index: 2;
-              // padding: 0 0 0 28px;
-              //width: 95px;
               font-size: 14px;
               font-weight: 400;
               vertical-align: middle;
@@ -289,43 +267,12 @@ body {
               vertical-align: middle;
             }
             input[type=checkbox] {
-              //font-family: inherit;
-              //-webkit-appearance: none;
               display: none;
               vertical-align: middle;
-              //visibility: hidden;
-              // border: 0;
-              // outline: 0;
-              // font-family: inherit;
-              // -webkit-appearance: none;
-              // position: absolute;
-              // top: 50%;
-              // left: 0;
-              // display: inline-block;
-              // position: relative;
-              // top: 11px;
-              // margin: 0 4px 0 0;
-              // z-index: 1;
-              // width: 20px;
-              // height: 20px;
-              // border-radius: 2px;
-              // background: #fff;
-              // border: 1px solid #ccc;
-              // font-size: 10px;
-              // line-height: 17px;
-              // text-align: center;
-              // color: #fff;
-              // vertical-align: middle;
-              // -webkit-transition: all ease-out .3s;
-              // transition: all ease-out .3s;
-              // -webkit-transform: translate(0, -50%);
-              // transform: translate(0, -50%);
             }
             i {
               display: inline-block;
               position: relative;
-              //float: left;
-              //content: '';
               top: 10.5px;
               margin: 0 4px 0 0;
               z-index: 1;
@@ -348,14 +295,9 @@ body {
             label {
               display: inline-block;
               position: relative;
-              //white-space: pre-wrap;
-              //float: left;
-              // z-index: 2;
-              // padding: 0 0 0 28px;
               font-size: 14px;
               font-weight: 400;
               width: 95px;
-              //text-align: left;
               vertical-align: middle;
               cursor: pointer;
               word-break: break-word;
@@ -374,7 +316,6 @@ body {
             color: #fff;
             line-height: 48px;
             font-size: 14px;
-            //border: 1px solid transparent;
             -webkit-transition: all ease-out .3s;
             transition: all ease-out .3s;
             cursor: pointer;
@@ -392,12 +333,8 @@ body {
             color: #fff;
             -webkit-transition: all ease-out .3s;
             transition: all ease-out .3s;
-            //background-color: transparent;
-            //border: none;
             cursor: pointer;
-            //outline: none;
             padding: 0;
-            //appearance: none;
           }
         }
       }
@@ -415,24 +352,39 @@ body {
     }
     section { 
       h2.search-result-title {
-        //margin: 16px 4% 8px;
         line-height: 1.4;
         font-size: 18px;
         font-weight: 600;
-        @media screen and (min-width: 768px) {
-          //margin: 16px 0 8px;
-        }
         @media screen and (min-width: 1068px) {
           font-size: 22px;
-          //margin: 0 0 8px;
+          margin: 0 0 8px;
         }
         span.search-result-head-text {
-          //margin: 0 0 0 4px;
           font-size: 16px;
           font-weight: 400;
           @media screen and (min-width: 1068px) {
             font-size: 18px;
           }
+        }
+      }
+      p.search-result-description {
+        margin: 16px 4% 24px;
+        font-size: 14px;
+        line-height: 1.5;
+        @media screen and (min-width: 768px) {
+          margin: 16px 0 40px;
+        }
+      }
+      h3.search-result-no-head {
+        margin: 16px 4% 8px;
+        font-size: 18px;
+        font-weight: 600;
+        @media screen and (min-width: 768px) {
+          font-size: 22px;
+          margin: 16px 0;
+        }
+        @media screen and (min-width: 1068px) {
+          margin: 0 0 16px;
         }
       }
       .search-result-number {
@@ -470,7 +422,6 @@ body {
           .product-box-body {
             background: #fff;
             @media screen and (min-width: 768px) {
-              //position: relative;
               width: 103px;
               height: 42px;
               padding: 8px 12px;
@@ -489,52 +440,36 @@ body {
               }
             }
             &__number {
-              //margin: 8px 0 0;
-              //display: block;
-              //display: none;
               float: left;
               width: 10px;
               height: 2px;
               &__price {
-                //display: block;
-                //margin: 8px 0 0;
                 font-size: 20px;
                 font-weight: 600;
                 color: #333;
-                
                 @media screen and (min-width: 768px) {
-                  //z-index: 2;
                   display: block;
                   position: relative;
                   bottom: 80px;
                   right: 12px;
-                  //min-width: 100%;
-                  //white-space:nowrap;
                   width: 70px;
-                  //vertical-align: middle;
-                  //max-width: calc(100% - 40px);
                   height: 17px;
                   padding: 4px 12px 4px 8px;
                   border-radius: 0 16px 16px 0;
                   font-weight: 600;
                   color: #fff;
                   font-size: 16px;
-                  //line-height: 16px;
                   background-color: rgba(0,0,0,0.3);
                 }
                 @media screen and (min-width: 1068px) {
                   font-size: 16px;
                 }
-                // div {
-                //   display: block;
-                //   width: 30px;
-                // }
               }
               &__like {
-                font-size: 16px;
+                font-size: 0;
                 font-weight: 400;
                 color: #333;
-                width: 30px;
+                width: 35px;
                 @media screen and (min-width: 768px) {
                   position: relative;
                   left: 42px;
@@ -544,13 +479,14 @@ body {
                 }
                 i {
                   color: #ccc;
+                  font-size: 16px;
+                  margin-right: 1px;
                 }
                 span {
                   font-size: 16px;
                   font-weight: 400;
                   color: #333;
                 }
-
               }
             }
           }

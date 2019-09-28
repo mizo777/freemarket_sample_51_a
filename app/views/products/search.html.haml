@@ -4,172 +4,43 @@
   = render partial: 'shared/header_before_login'
 %main.mercari-search
   .mercari-search__search-side
-    .search-form
-      .search-form__sort
-        //%i.fas.fa-chevron-down
-        %select{name: "sort_order", class: "select-default"}
-          %option{value: ""}並び替え
-          %option{value: "price_asc"}価格の安い順
-          %option{value: "price_desc"}価格の高い順
-          %option{value: "created_asc"}出品の古い順
-          %option{value: "created_desc"}出品の新しい順
-          %option{value: "like_desc"}いいね!の多い順
-      .search-form__dropdown-content
-        %h3 詳細検索
-        .search-form-group
-          %label
-            %i.fas.fa-plus
-            %span.search-list キーワードを追加する
-          %input{type: "text", value: "jj", name: "keyword", placeholder: "例）値下げ", class: "input-default"}
-        .search-form-group
-          %label
-            %i.fas.fa-list-ul
-            %span カテゴリーを選択する
-          .select-wrap
-            %i.fas.fa-chevron-down
-            %select{name: "category_root", class: "select-default"}
-              %option{value: ""}すべて
-              %option{value: "1", id: "1"}レディース
-              %option{value: "2", id: "2"}メンズ
-              %option{value: "3", id: "3"}ベビー・キッズ
-              %option{value: "4", id: "4"}インテリア・住まい・小物
-              %option{value: "5", id: "5"}本・音楽・ゲーム
-              %option{value: "1328", id: "1328"}おもちゃ・ホビー・グッズ
-              %option{value: "6", id: "6"}コスメ・香水・美容
-              %option{value: "7", id: "7"}家電・スマホ・カメラ
-              %option{value: "8", id: "8"}スポーツ・レジャー
-              %option{value: "9", id: "9"}ハンドメイド
-              %option{value: "1027", id: "1027"}チケット
-              %option{value: "1318", id: "1318"}自動車・オートバイ
-              %option{value: "10", id: "10"}その他
-        .search-form-group
-          %label
-            %i.fas.fa-tag
-            %span ブランド名から探す
-          %input{type: "text", name: "brand_name", value: "", placeholder: "例）シャネル", class: "input-default"}
-        .search-form-group
-          %label
-            %i.fas.fa-expand
-            %span サイズを指定する
-          .select-wrap
-            %i.fas.fa-chevron-down
-            %select{name: "size_group", class: "select-default"}
-              %option{value: ""}すべて
-              %option{value: "1", id: "1"}洋服のサイズ
-              %option{value: "2", id: "2"}メンズ靴のサイズ
-              %option{value: "3", id: "3"}レディース靴のサイズ
-              %option{value: "6", id: "6"}スカートのサイズ
-              %option{value: "7", id: "7"}キッズ服のサイズ
-              %option{value: "8", id: "8"}ベビー・キッズ靴のサイズ
-              %option{value: "9", id: "9"}ベビー服のサイズ
-              %option{value: "14", id: "14"}テレビのサイズ
-              %option{value: "17", id: "17"}カメラレンズのサイズ
-              %option{value: "12", id: "12"}オートバイのサイズ
-              %option{value: "13", id: "13"}ヘルメットのサイズ
-              %option{value: "11", id: "11"}タイヤのサイズ
-              %option{value: "18", id: "18"}スキーのサイズ
-              %option{value: "15", id: "15"}スノーボードのサイズ
-        .search-form-group-price
-          %label
-            %i.fas.fa-money-bill
-            %span 価格
-          .select-wrap
-            %i.fas.fa-chevron-down
-            %select{name: "", class: "select-default"}
-              %option{value: ""}選択してください
-              %option{value: "300-1000"}300 ~ 1000
-              %option{value: "1000-5000"}1000 ~ 5000
-              %option{value: "5000-10000"}5000 ~ 10000
-              %option{value: "10000-30000"}10000 ~ 30000
-              %option{value: "30000-50000"}30000 ~ 50000
-              %option{value: "50000"}50000 ~
-          %input{type: "number", name: "price_min", value: "", placeholder: "¥ Min", class: "input-default"}
-          %span ~
-          %input{type: "number", name: "price_max", value: "", placeholder: "¥ Max", class: "input-default"}
-        .search-form-group-checkbox
-          %label
-            %i.fas.fa-star
-            %span 商品状態
-          .checkbox-default
-            %input{type: "checkbox", name: "condition_all", id: "condition_all", value: "1"}
-            %i.far.fa-square
-            %label{for: "condition-all"} すべて
-          .checkbox-default
-            %input{type: "checkbox", name: "item_condition_id[1]", id: "item_condition_id[1]", value: "1"}
-            %i.far.fa-square
-            %label{for: "item_condition_id[1]"} 新品、未使用
-          .checkbox-default
-            %input{type: "checkbox", name: "item_condition_id[2]", id: "item_condition_id[2]", value: "1"}
-            %i.far.fa-square
-            %label{for: "item_condition_id[2]"} 未使用に近い
-          .checkbox-default
-            %input{type: "checkbox", name: "item_condition_id[3]", id: "item_condition_id[3]", value: "1"}
-            %i.far.fa-square
-            %label{for: "item_condition_id[3]"} 目立った傷や汚れなし
-          .checkbox-default
-            %input{type: "checkbox", name: "item_condition_id[4]", id: "item_condition_id[4]", value: "1"}
-            %i.far.fa-square
-            %label{for: "item_condition_id[4]"} やや傷や汚れあり
-          .checkbox-default
-            %input{type: "checkbox", name: "item_condition_id[5]", id: "item_condition_id[5]", value: "1"}
-            %i.far.fa-square
-            %label{for: "item_condition_id[5]"} 傷や汚れあり
-          .checkbox-default
-            %input{type: "checkbox", name: "item_condition_id[6]", id: "item_condition_id[6]", value: "1"}
-            %i.far.fa-square
-            %label{for: "item_condition_id[6]"} 全体的に状態が悪い
-        .search-form-group-checkbox
-          %label
-            %i.fas.fa-truck
-            %span 配送料の負担
-          .checkbox-default
-            %input{type: "checkbox", name: "shipping_payer_all", id: "shipping_payer_all", value: "1"}
-            %i.far.fa-square
-            %label{for: "shipping_payer_all"} すべて
-          .checkbox-default
-            %input{type: "checkbox", name: "shipping_payer_id[1]", id: "shipping_payer_id[1]", value: "1"}
-            %i.far.fa-square
-            %label{for: "shipping_payer_id[1]"} 着払い(購入者負担)
-          .checkbox-default
-            %input{type: "checkbox", name: "shipping_payer_id[2]", id: "shipping_payer_id[2]", value: "1"}
-            %i.far.fa-square
-            %label{for: "shipping_payer_id[2]"} 送料込み(出品者負担)
-        .search-form-group-checkbox
-          %label
-            %i.fas.fa-shopping-cart
-            %span 販売状況
-          .checkbox-default
-            %input{type: "checkbox", name: "status_all", id: "status_all", value: "1"}
-            %i.far.fa-square
-            %label{for: "status_all"} すべて
-          .checkbox-default
-            %input{type: "checkbox", name: "status_on_sale", id: "status_on_sale", value: "1"}
-            %i.far.fa-square
-            %label{for: "status_on_sale"} 販売中
-          .checkbox-default
-            %input{type: "checkbox", name: "status_trading_sold_out", id: "status_trading_sold_out", value: "1"}
-            %i.far.fa-square
-            %label{for: "status_trading_sold_out"} 売り切れ
-        .search-extend-btn
-          .gray_btn クリア
-          %button{type: "submit", class: "red_btn"} 完了
+    = render partial: 'search_form'
   .mercari-search__products-content
     %section
-      %h2.search-result-title
-        jj
-        %span.search-result-head-text 
-          の検索結果
-      .search-result-number
-        1 - 132件表示
-      .products-box-content
-        - @products.each do |product|
-          = render partial: "search_product", locals: { product: product }
+      - if @products.count == 0
+        %h2.search-result-title
+          = params[:name]
+          %span.search-result-head-text 
+            の検索結果
+        %p.search-result-description
+          該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        %h3.search-result-no-head
+          出品商品
+        .products-box-content
+          - @exhibit_products.each do |product|
+            = render partial: "search_product", locals: { product: product }
+      - elsif params[:name] == ""
+        %h3.search-result-no-head
+          出品商品
+        .products-box-content
+          - @exhibit_products.each do |product|
+            = render partial: "search_product", locals: { product: product }
+      - else
+        %h2.search-result-title
+          = params[:name]
+          %span.search-result-head-text 
+            の検索結果
+        .search-result-number
+          = "1 - #{@products.count}件表示"
+        .products-box-content
+          - @products.each do |product|
+            = render partial: "search_product", locals: { product: product }
 %nav.pos-bottom
   %ul.pos-bottom__lists
     %li= link_to "メルカリ", root_path, class: "pos-bottom__lists__left-list"
     = fa_icon 'chevron-right', class: "chevron-right-3"
     %li.pos-bottom__lists__right-list
-      キーワード
+      = params[:name]
 = render partial: 'shared/app-banner'
 = render partial: 'shared/footer'
 .mercari-sell-btn
