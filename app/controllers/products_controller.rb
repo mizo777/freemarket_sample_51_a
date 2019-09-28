@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
-  before_action :authenticate_user! , only: [:new] 
+  before_action :authenticate_user! , only: [:new, :buy] 
 
   def index
     @ladies_products = Product.ladies_products
@@ -66,9 +66,8 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @product = Product.find(params[:id])
-    # ユーザーが出品した商品の購入確認ページには入れないようにする
-    if @product.user_id != current_user.id
+    @user_card = User.find(current_user.id).card
+    if @user_card.present?
       card = Card.where(user_id: current_user.id).first
       Payjp::api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -89,9 +88,6 @@ class ProductsController < ApplicationController
       when "Discover"
         @card_src = "discover.png"
       end
-    else
-      # 直前の画面に戻る
-      return_back and return
     end
   end
 
