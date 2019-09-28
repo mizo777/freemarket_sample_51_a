@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
       redirect_to @product, notice: '出品が完了しました'
     else
       render 'new'
-   end
+    end
   end
 
   def edit
