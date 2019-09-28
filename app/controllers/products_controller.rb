@@ -113,9 +113,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    #@product = Product.new
-    @products = Product.where('name LIKE(?)', "%#{params[:name]}%")
-    #binding.pry
+    @products = Product.all.search(params[:name])
+    @exhibit_products = Product.exhibit_products
   end
   
   def category
