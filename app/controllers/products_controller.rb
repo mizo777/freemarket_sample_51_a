@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
       redirect_to @product, notice: '出品が完了しました'
     else
       render 'new'
-   end
+    end
   end
 
   def edit
@@ -57,8 +57,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.user_id == current_user.id
-      @product.update(update_params)
+    if @product.update(update_params)
       redirect_to @product, notice: '編集が完了しました'
     else
       render 'edit'

@@ -4,6 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
+  validates :nickname, presence: true
+  validates :password_confirmation, presence: true
+  validates :password, presence: true, length: { in: 7..128 }
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_kana_name, presence: true
+  validates :first_kana_name, presence: true
+  validates :birthday, presence: true
+  validate :add_error
+  def add_error
+    unless password.match(/([0-9].*[a-zA-Z]|[a-zA-Z].*[0-9])/)
+      errors.add(:password, "は、英字と数字両方を含むものを設定してください")
+    end
+  end  
+
   has_one :card, dependent: :destroy
   has_many :products, dependent: :destroy
   has_many :orders
