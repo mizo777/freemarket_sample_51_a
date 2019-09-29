@@ -74,7 +74,11 @@ span.optional{
   select{
     width: 100%;
   } 
-}  
+}
+// 検索フォーム
+.touchForm {
+  border-color: #3399FF !important;
+}
 // date_select
 .select-box{
   position: relative;
