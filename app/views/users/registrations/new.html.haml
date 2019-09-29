@@ -28,43 +28,48 @@
     %main.signup-login__box
       .signup-login__box__title
         %h2 会員情報入力
-        = form_for @user, url: "/users", class: "form-format" do |f|
+        = form_for @user, url: "/users", class: "form-format", html: {novalidate: "novalidate"} do |f|
           .form-format__content.signup-content{style: "margin:0 auto;"}
             .field.field-first
               %label ニックネーム
               %span.require 必須
               %br
-              = f.text_field :nickname, class: "", placeholder: "例）メルカリ太郎"
+              = f.text_field :nickname, class: "", placeholder: "例）メルカリ太郎", value: "#{@user.nickname}"
+              = render partial: 'shared/error_messages' , locals: { key: :nickname }
               %br
             .field
               %label メ-ルアドレス
               %span.require 必須
               %br
-              = f.email_field :email, class: "", placeholder: "携帯・PCどちらでも可"
-              %br
+              = f.email_field :email, class: "", placeholder: "携帯・PCどちらでも可", value: "#{@user.email}"
+              = render partial: 'shared/error_messages' , locals: { key: :email }
             .field  
               %label パスワード
               %span.require 必須
               %br
-              = f.password_field :password, class: "", placeholder: "７文字以上"              
+              = f.password_field :password, class: "", placeholder: "７文字以上", value: "#{@user.password}"
+              = render partial: 'shared/error_messages' , locals: { key: :password }
               %br
             .field  
               %label パスワード(確認)
               %span.require 必須
               %br
-              = f.password_field :password_confirmation, class: "", placeholder: "７文字以上"              
+              = f.password_field :password_confirmation, class: "", placeholder: "７文字以上", value: "#{@user.password}"
+              = render partial: 'shared/error_messages' , locals: { key: :password_confirmation }
               %br
-            .field  
+            .field
               %h3 本人確認
               %p.text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-            .field  
+            .field
               %label お名前（全角）
               %span.require 必須
               %br
               .split{style: "display:inline-flex"}
                 = f.text_field :last_name, class: "", placeholder: "例）山田"
                 = f.text_field :first_name, class: "", placeholder: "例）彩", style: "margin-left:10px"
-              %br          
+              = render partial: 'shared/error_messages' , locals: { key: :last_name }                
+              = render partial: 'shared/error_messages' , locals: { key: :first_name }
+              %br
             .field
               %label お名前カナ（全角）
               %span.require 必須
@@ -72,6 +77,8 @@
               .split{style: "display:inline-flex"}
                 = f.text_field :last_kana_name, class: "", placeholder: "例）ヤマダ"
                 = f.text_field :first_kana_name, class: "", placeholder: "例）アヤ", style: "margin-left:10px"
+              = render partial: 'shared/error_messages' , locals: { key: :last_kana_name }               
+              = render partial: 'shared/error_messages' , locals: { key: :first_kana_name }
               %br
             .field
               %label 生年月日
@@ -80,6 +87,7 @@
               .birthday.flex
                 = raw sprintf(f.date_select(:birthday,use_month_numbers: true,start_year: 1900,end_year: (Time.now.year - 18), include_blank: "---", date_separator: '%s'),'年 ', '月 ') + '日'
               %br
+              = render partial: 'shared/error_messages' , locals: { key: :birthday }
             %p.text.text-gray ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
             .field 私はロボットではありません
             .field

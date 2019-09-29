@@ -18,6 +18,7 @@
 config/secrets.yml
 # ここより追記
 /public/uploads
+config/secrets.yml
 .env
 /config/certs/*
 /db/fixtures
@@ -29,3 +30,4 @@ config/environments/*.local.yml
 /config/settings/development.yml
 /config/settings/production.yml
 /config/settings/test.yml
+config/settings.yml

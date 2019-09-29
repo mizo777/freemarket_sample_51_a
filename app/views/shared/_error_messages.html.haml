@@ -1,0 +1,4 @@
+.error-messages
+  - @user.errors.full_messages_for(key).each do |message|
+    %p.error-message
+      = message

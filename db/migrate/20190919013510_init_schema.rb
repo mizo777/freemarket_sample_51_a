@@ -211,6 +211,8 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.string "payment_way"
       t.string "birthday"
       t.text "confirmation_document"
+      t.string "provider"
+      t.string "uid"
       t.index ["email"], name: "index_users_on_email", unique: true
       t.index ["first_name"], name: "index_users_on_first_name"
       t.index ["last_name"], name: "index_users_on_last_name"

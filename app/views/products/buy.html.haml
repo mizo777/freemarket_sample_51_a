@@ -10,18 +10,22 @@
           %p= @product.name
         .mercari-confirmation__container__buy-item__inner__price-box
           .mercari-confirmation__container__buy-item__inner__price-box__text
-            %p= number_to_currency(@product.price, unit: "￥", precision: 0)
+            %p= number_to_currency(@product.price)
             %p 送料込み
         .mercari-confirmation__container__buy-item__inner__point-info
           %p ポイントはありません
         .mercari-confirmation__container__buy-item__inner__payment-box
           %ul
             %li 支払い金額
-            %li= number_to_currency(@product.price, unit: "￥", precision: 0)
-        .mercari-confirmation__container__buy-item__inner__buy-btn
-          = form_tag(action: :pay, method: :post) do
-            %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "#{Settings.key.payjp_public_key}"}
-            = hidden_field_tag :price, @product.price
+            %li= number_to_currency(@product.price)
+        - if @user_card.present?
+          .mercari-confirmation__container__buy-item__inner__buy-btn
+            = form_tag(action: :pay, method: :post) do
+              %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}"}
+              = hidden_field_tag :price, @product.price
+        - else
+          %p.has-error-text 配送先と支払い方法の入力を完了してください。
+          .mercari-confirmation__container__buy-item__inner__point-info.no-card 購入する
     %section.mercari-confirmation__container__buy-user-info
       .mercari-confirmation__container__buy-user-info__inner
         %h3 配送先
@@ -39,14 +43,15 @@
     %section.mercari-confirmation__container__buy-user-info
       .mercari-confirmation__container__buy-user-info__inner
         %h3 支払い方法
-        %p
-          = "************" + @default_card_information.last4
-          %br
-          - exp_month = @default_card_information.exp_month.to_s
-          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-          = exp_month + " / " + exp_year
-        %figure
-          = image_tag "#{@card_src}", width: '48', height: "36", alt: @card_brand
+        - if @user_card.present?
+          %p
+            = "************" + @default_card_information.last4
+            %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          %figure
+            = image_tag "#{@card_src}", width: '48', height: "36", alt: @card_brand
         = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
           %span 変更する
           = fa_icon 'chevron-right', class: "chevron-right-4"
