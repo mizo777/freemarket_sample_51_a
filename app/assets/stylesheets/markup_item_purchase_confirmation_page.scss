@@ -135,6 +135,16 @@ body.markup-item-purchase-confirmation-page {
             }
           }
         }
+        .has-error-text{
+          color:#ea352d;
+          margin-top:10px;
+        }
+        .no-card{
+          background:#888;
+          text-align:center;
+          cursor:not-allowed;
+          color:white;
+        }
       }
     }
     &__buy-user-info {

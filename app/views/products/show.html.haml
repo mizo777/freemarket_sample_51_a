@@ -22,7 +22,7 @@
         %th.item-container__content__detail-table__row__header 出品者
         %td.item-container__content__detail-table__row__data
           = link_to "#{@product.user.nickname}", "", class: "item-container__content__detail-table__row__data__text"
-            -if @product.user.id != current_user.id
+          - unless user_signed_in? && current_user.id == @product.user_id
             %ul.item-container__content__detail-table__row__data__wrapper
               %li.item-container__content__detail-table__row__data__wrapper__first-item-user-ratings
                 %i.fas.fa-smile
@@ -84,13 +84,13 @@
       = number_to_currency(@product.price, unit: "￥", precision: 0)
     %span.item-container__price-box__item-tax (税込)
     %span.item-container__price-box__item-shipping-fee 送料込み
-  - if user_signed_in? && current_user.id != @product.user_id
+  - unless user_signed_in? && current_user.id == @product.user_id
     .item-container__buy-btn
       = link_to "購入画面に進む", buy_product_path(@product), method: :get, class: "item-container__buy-btn__text"
   .item-container__item-description
     %p.item-container__item-description__inner
       = raw(nl2br(@product.detail))
-  -if @product.user.id != current_user.id
+  - unless user_signed_in? && current_user.id == @product.user_id
     .item-container__buttons
       .item-container__buttons--left
         %button.item-container__buttons--left__like-btn
@@ -123,8 +123,7 @@
       %textarea.item-detail-message__container__content__textarea
       %button.item-detail-message__container__content__comment-btn
         %span.item-detail-message__container__content__comment-btn__text コメントする
--if @product.user.id != current_user.id
-
+- unless user_signed_in? && current_user.id == @product.user_id
   %ul.item-link
     %li.item-link__prev
       = link_to product_path(@random_products[0].id) do
