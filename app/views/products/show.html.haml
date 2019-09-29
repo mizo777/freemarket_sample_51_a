@@ -81,7 +81,7 @@
           = @product.delivery_time
   .item-container__price-box
     %span.item-container__price-box__item-price
-      = number_to_currency(@product.price, unit: "￥", precision: 0)
+      = number_to_currency(@product.price)
     %span.item-container__price-box__item-tax (税込)
     %span.item-container__price-box__item-shipping-fee 送料込み
   - unless user_signed_in? && current_user.id == @product.user_id

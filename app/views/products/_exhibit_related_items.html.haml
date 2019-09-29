@@ -5,7 +5,7 @@
       = product.name
     .user-items-profile__related-items__items__item__bottom__price-heart
       .user-items-profile__related-items__items__item__bottom__price-heart__article-price
-        = number_to_currency(product.price, unit: "￥", precision: 0)
+        = number_to_currency(product.price)
       .user-items-profile__related-items__items__item__bottom__price-heart__article-heart
         = fa_icon 'heart', class: "heart"
         .user-items-profile__related-items__items__item__bottom__price-heart__article-heart__count
