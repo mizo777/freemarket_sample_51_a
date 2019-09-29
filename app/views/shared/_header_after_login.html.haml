@@ -19,18 +19,22 @@
       %nav.mercari-header__inner__bottom--right-after-login
         %ul.mercari-header__inner__bottom--right-after-login__nav
           %li.mercari-header__inner__bottom--right-after-login__nav__like-list
-            = link_to like_mypage_index_path(current_user) do
-              = fa_icon 'heart', class: "heart"
-              %span.mercari-header__inner__bottom--right-after-login__nav__like-list__text いいね！一覧
+            - if user_signed_in?
+              = link_to like_mypage_index_path(current_user) do
+                = fa_icon 'heart', class: "heart"
+                %span.mercari-header__inner__bottom--right-after-login__nav__like-list__text いいね！一覧
           %li.mercari-header__inner__bottom--right-after-login__nav__notification
-            = link_to notification_mypage_index_path(current_user) do
-              = fa_icon 'bell', class: "bell"
-              %span.mercari-header__inner__bottom--right-after-login__nav__notification__text お知らせ
+            - if user_signed_in?
+              = link_to notification_mypage_index_path(current_user) do
+                = fa_icon 'bell', class: "bell"
+                %span.mercari-header__inner__bottom--right-after-login__nav__notification__text お知らせ
           %li.mercari-header__inner__bottom--right-after-login__nav__todo-list
-            = link_to todo_mypage_index_path(current_user) do
-              = fa_icon 'check', class: "check"
-              %span.mercari-header__inner__bottom--right-after-login__nav__todo-list__text やることリスト
+            - if user_signed_in?
+              = link_to todo_mypage_index_path(current_user) do
+                = fa_icon 'check', class: "check"
+                %span.mercari-header__inner__bottom--right-after-login__nav__todo-list__text やることリスト
           %li.mercari-header__inner__bottom--right-after-login__nav__my-page
-            = link_to mypage_index_path(current_user) do
-              = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "mercari-header__inner__bottom--right-after-login__nav__my-page__image"
-              %span.mercari-header__inner__bottom--right-after-login__nav__my-page__text マイページ
+            - if user_signed_in?
+              = link_to mypage_index_path(current_user) do
+                = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "32", class: "mercari-header__inner__bottom--right-after-login__nav__my-page__image"
+                %span.mercari-header__inner__bottom--right-after-login__nav__my-page__text マイページ
