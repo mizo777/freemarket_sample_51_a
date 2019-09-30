@@ -7,12 +7,12 @@ $(document).on('turbolinks:load', function() {
         reader = new FileReader(),
         fgureClass = $(this).attr('id'),
         previewHtml = 
-                      `<li class="sell-upload-item">
+                      `<li class="sell-upload-item delete_${fgureClass}">
                         <figure class="sell-upload-figure landscape ${fgureClass}">
                         </figure>
                         <div class="sell-upload-button">
                           <label for=${fgureClass} class="sell-upload-edit">編集</label>
-                          <div class="sell-upload-delete">削除</div>
+                          <div class="sell-upload-delete" id="delete_${fgureClass}">削除</div>
                         </div>
                       </li>`;
         t = this
@@ -71,47 +71,26 @@ $(document).on('turbolinks:load', function() {
 
 // 削除
 $(document).on("click", ".sell-upload-delete", function () {
-  // 何番目のプレビュー 画像か
-  var previewIndex = $('.sell-upload-delete').index(this);
-  // プレビュー 画像の総数
+  // プレビュー画像、fileの削除
+  var deleteClass = $(this).attr('id');
+  $("."+ deleteClass).remove()
+  // 削除後の枠調整
   ImageAmount = $("#preview li").length
-  // プレビュー 画像と同じinput要素の順番
-  var inputIndex = previewIndex - ImageAmount;
-  // プレビュー 画像の削除
-  $(this).parent().parent().remove();
-  // input要素の削除・補充
-  $(".sell-upload-drop-box input").eq(inputIndex).remove();
-  var inputField = $('<input class="file-icon" id="file" onchange="previewFiles()" name="product[product_images_attributes][0][image][]" type="file">')
-  $(".sell-upload-drop-box").prepend(inputField)
-  // 削除後のinput枠調整
-  AfterImageAmount = ImageAmount -1
-  if (AfterImageAmount == 10) {
+  if (ImageAmount == 10) {
     $(".sell-upload-drop-box").remove();
-  } else if (AfterImageAmount <= 4) {
+  } else if (ImageAmount <= 4) {
     $(".sell-upload-drop-box").css({
-      'width': `calc(100% - (20% * ${AfterImageAmount}))`
+      'width': `calc(100% - (20% * ${ImageAmount}))`
     })
-  } else if (AfterImageAmount == 5) {
+  } else if (ImageAmount == 5) {
     $(".sell-upload-drop-box").css({
       'float': 'none',
       'display': 'none !important',
       'width': '100%',
     })
-  } else if (6 <= AfterImageAmount <= 9) {
+  } else if (6 <= ImageAmount <= 9) {
     $(".sell-upload-drop-box").css({
-      'width': `calc(100% - (20% * (${AfterImageAmount} - 5)))`,
+      'width': `calc(100% - (20% * (${ImageAmount} - 5)))`,
     })
   }
 })
-
-// 編集
-// $(document).on("click", ".sell-upload-edit", function () {
-//   // 何番目のプレビュー 画像か
-//   var previewIndex = $('.sell-upload-edit').index(this);
-//   // プレビュー 画像の総数
-//   ImageAmount = $("#preview li").length
-//   // プレビュー 画像と同じinput要素の順番
-//   var inputIndex = previewIndex - ImageAmount;
-//   // input要素の削除・補充
-//   $(".sell-upload-drop-box input").eq(inputIndex).click();
-// })
