@@ -1,41 +1,42 @@
 $(document).on('turbolinks:load', function() {
   // 画像プレビュー表示
-  $('form').on('change', '.new-box input[type="file"]', function(e) {
+  $(document).on('change', 'input[type="file"]', function(e) {
+    // ファイルをプレビュー場所に移動
+    $("#preview").append(this)
     var file = e.target.files[0],
         reader = new FileReader(),
-        $preview = $("#preview");
-        t = this;
-        // 既存のプレビューを削除用
-        editIndex = (11 - $(this).index());
-        editPreviewIndex = $("#preview img").length - editIndex
+        fgureClass = $(this).attr('id'),
+        previewHtml = 
+                      `<li class="sell-upload-item">
+                        <figure class="sell-upload-figure landscape ${fgureClass}">
+                        </figure>
+                        <div class="sell-upload-button">
+                          <div class="sell-upload-edit">編集</div>
+                          <div class="sell-upload-delete">削除</div>
+                        </div>
+                      </li>`;
+        t = this
+
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
     }
+    // ファイルにhtml追加
+    if ($("."+ fgureClass).length == 0){
+    $(previewHtml).insertBefore(this);
+    }
     // ファイル読み込みが完了した際のイベント登録
     reader.onload = (function(file) {
       return function(e) {
-        // 重複削除        
-        $("#preview figure").unwrap();
-        $("#preview img").unwrap();
-        $(".sell-upload-button").remove();
-        $preview.append($('<img>').attr({
+        // 既存のプレビューを削除
+        $("."+ fgureClass + " " + "img").remove();
+        // プレビューの追加
+        $("."+ fgureClass).append($('<img>').attr({
           src: e.target.result,
+          width: "50px",
           class: "preview",
           title: file.name
-      }));
-        // 既存のプレビューを削除
-        if (0 <= editPreviewIndex){
-          $(".preview").eq(editPreviewIndex).remove();
-        }
-        var li = $('<li class="sell-upload-item"><figure class="sell-upload-figure landscape"></figure></li>');
-        // 要素追加
-        $("#preview img").wrap(li);
-        var img = `<div class="sell-upload-button">
-                    <div class="sell-upload-edit">編集</div>
-                    <div class="sell-upload-delete">削除</div>
-                  </div> </li>`;
-        $('.sell-upload-item').append(img);
+        }));
         // 画像数によって表示幅の変更
         imageAmount = $("#preview img").length
         if (imageAmount == 10) {
@@ -54,19 +55,19 @@ $(document).on('turbolinks:load', function() {
           $(".sell-upload-drop-box").css({
             'width': `calc(100% - (20% * (${imageAmount} - 5)))`,
           })
-        }            
-      };      
+        }
+      };
     })(file);
     reader.readAsDataURL(file);
+    // inputファイルの追加
+    var file_num = $('#preview input[type="file"]').length
+    var touchFile = $('.sell-upload-drop-box input').length
+    if(touchFile == 0){
+    $('.sell-upload-drop-box').append('<input class="file-icon delete_image_' + file_num + '" id="image_' + file_num + '" type="file" name="product[product_images_attributes]['+ file_num +'][image]">');
+    $(".sell-upload-drop-box").attr("for",'image_' + file_num + '');
+    }
   });
 })  
-
-// プレビュー表示したinputタグを最後尾に移動(同じものがクリックされないよう)
-$(document).on('turbolinks:load', function() {
-  $(document).on("change", ".file-icon", function() {
-    $(this).appendTo(".sell-upload-drop-box");
-  })
-})
 
 // 削除
 $(document).on("click", ".sell-upload-delete", function () {

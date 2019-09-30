@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
     @brands = Brand.all
-    10.times { @product.product_images.build }
+    @product.product_images.build
   end
 
   def create
