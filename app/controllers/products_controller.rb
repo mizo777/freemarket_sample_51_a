@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
-  before_action :authenticate_user! , only: [:new, :buy]
+  before_action :authenticate_user! , only: [:new, :buy] 
 
   def index
     @ladies_products = Product.ladies_products
@@ -14,15 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.id == current_user.id
-      @product.destroy
+    if @product.destroy
+      redirect_to mypage_index_path(current_user.id), notice: '商品を削除しました'
+    else
+      render @product
     end
-    redirect_to mypage_index_path
-  end
-
-  def toggle_status
-    @product.toggle_status!
-    redirect_to @product
   end
 
   def show
@@ -42,36 +38,38 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to @product, notice: '出品が完了しました'
     else
       render 'new'
-   end
+    end
   end
 
   def edit
-    @parents = Category.order("id ASC").limit(15)
-    @children = @product.category.parent.parent.children
-    @grandchildren = @product.category.parent.children
-    @brands = Brand.all
-    @image_count = @product.product_images.length    
-    (10 - @image_count).times { @product.product_images.build }
+    if @product.user_id == current_user.id
+      @parents = Category.limit(15)
+      @children = @product.category.parent.parent.children
+      @grandchildren = @product.category.parent.children
+      @brands = Brand.all
+      @image_count = @product.product_images.length
+      (10 - @image_count).times { @product.product_images.build }
+    else
+      redirect_to root_path, alert: '編集権限がありません'
+    end
   end
 
   def update
-    if @product.user_id == current_user.id
-      @product.update!(update_params)
-      redirect_to @product
+    if @product.update(update_params)
+      redirect_to @product, notice: '編集が完了しました'
     else
       render 'edit'
     end
   end
 
   def buy
-    @product = Product.find(params[:id])
-    # ユーザーが出品した商品の購入確認ページには入れないようにする
-    if @product.user_id != current_user.id
+    @user_card = current_user.card
+    if @user_card.present?
       card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = Settings.key[:payjp_secret_key]
+      Payjp::api_key = ENV['PAYJP_SECRET_KEY']
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
       # 登録しているカード会社のブランドアイコンを表示する
@@ -90,14 +88,11 @@ class ProductsController < ApplicationController
       when "Discover"
         @card_src = "discover.png"
       end
-    else
-      # 直前の画面に戻る
-      return_back and return
     end
   end
 
   def pay
-    Payjp.api_key = Settings.key[:payjp_secret_key]
+    Payjp::api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
       amount: params[:price],
       card: params['payjp-token'],
@@ -111,6 +106,11 @@ class ProductsController < ApplicationController
     else
       redirect_to action: :buy
     end  
+  end
+
+  def search
+    @products = Product.all.search(params[:name])
+    @exhibit_products = Product.exhibit_products
   end
   
   def category
@@ -147,7 +147,6 @@ class ProductsController < ApplicationController
     @product.toggle_status!
     redirect_to @product
   end
-
 
   private
 

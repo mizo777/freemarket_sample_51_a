@@ -681,6 +681,11 @@ body.markup_item_detail_page {
     }
     &__left-list {
       color: $black;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.7;
+      }
     }
     &__right-list {
       font-weight: 600;

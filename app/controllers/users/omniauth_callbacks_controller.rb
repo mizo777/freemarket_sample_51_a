@@ -20,19 +20,21 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "#{provider}") if is_navigational_format?
     else
       # 新規登録用にセッションに必要情報を格納
-      if (data = request.env['omniauth.auth'])
+      if data = request.env['omniauth.auth']
         session['devise.omniauth_data'] = {
-            email: data.info.email,
-            name: data.info.name,
-            uid: data.uid,
-            provider: data.provider
+          email: data.info.email,
+          name: data.info.name,
+          uid: data.uid,
+          provider: data.provider
         }
       end
+      # User.newがないとuserが存在するエラーが発生
+      @user = User.new()
       redirect_to new_user_registration_path
     end  
   end
 
   def failure
-    redirect_to root_path
+    redirect_to root_path, alert: "新規登録・ログインに失敗しました"
   end
 end

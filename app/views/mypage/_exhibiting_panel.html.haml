@@ -1,13 +1,25 @@
 %ul
-  /  - if message.present?
-  %li
-    = link_to "", class: "item-list" do
-      %figure
-        = image_tag "camera.jpg", alt: "商品画像"  
-      .message-box
-        .message 
-          事務局から個別メッセージ「ログイン通知」
-        .item-status.exhibit 出品中
-      = fa_icon "chevron-right"
-  / - else
-  /   %li.not-found.bold 現在、やることリストはありません      
+  - if @user.products.exhibiting.length == 0 && @user.products.stop_exhibit.length == 0
+    %li.not-found.bold 出品中の商品がありません
+  - else
+    - @user.products.each do |product|
+      - if product.status == "exhibiting"
+        %li
+          = link_to product_path(product), class: "item-list" do
+            %figure
+              = image_tag product.product_images.first.image.url
+            .message-box
+              .message 
+                = product.name
+              .item-status.exhibit 出品中
+            = fa_icon "chevron-right"
+      - elsif product.status == "stop_exhibit"
+        %li
+          = link_to product_path(product), class: "item-list" do
+            %figure
+              = image_tag product.product_images.first.image.url
+            .message-box
+              .message 
+                = product.name
+              .item-status.stop-exhibit 公開停止中
+            = fa_icon "chevron-right"

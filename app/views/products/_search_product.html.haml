@@ -1,0 +1,12 @@
+= link_to product_path(product), class: "products-box-content__product" do
+  = image_tag image_url("#{product.product_images.first.image}"), class: "product-photo"
+  .product-box-body
+    %h3.product-box-body__name
+      = product.name
+    .product-box-body__number
+      .product-box-body__number__price
+        = number_to_currency(product.price, unit: "￥", precision: 0)
+      .product-box-body__number__like
+        %i.far.fa-heart
+        %span
+          = product.likes_count
