@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
                         <figure class="sell-upload-figure landscape ${fgureClass}">
                         </figure>
                         <div class="sell-upload-button">
-                          <div class="sell-upload-edit">編集</div>
+                          <label for=${fgureClass} class="sell-upload-edit">編集</label>
                           <div class="sell-upload-delete">削除</div>
                         </div>
                       </li>`;
@@ -105,13 +105,13 @@ $(document).on("click", ".sell-upload-delete", function () {
 })
 
 // 編集
-$(document).on("click", ".sell-upload-edit", function () {
-  // 何番目のプレビュー 画像か
-  var previewIndex = $('.sell-upload-edit').index(this);
-  // プレビュー 画像の総数
-  ImageAmount = $("#preview li").length
-  // プレビュー 画像と同じinput要素の順番
-  var inputIndex = previewIndex - ImageAmount;
-  // input要素の削除・補充
-  $(".sell-upload-drop-box input").eq(inputIndex).click();
-})
+// $(document).on("click", ".sell-upload-edit", function () {
+//   // 何番目のプレビュー 画像か
+//   var previewIndex = $('.sell-upload-edit').index(this);
+//   // プレビュー 画像の総数
+//   ImageAmount = $("#preview li").length
+//   // プレビュー 画像と同じinput要素の順番
+//   var inputIndex = previewIndex - ImageAmount;
+//   // input要素の削除・補充
+//   $(".sell-upload-drop-box input").eq(inputIndex).click();
+// })
