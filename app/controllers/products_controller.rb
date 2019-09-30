@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
   def edit
     if @product.user_id == current_user.id
-      @parents = Category.order("id ASC").limit(15)
+      @parents = Category.limit(15)
       @children = @product.category.parent.parent.children
       @grandchildren = @product.category.parent.children
       @brands = Brand.all
