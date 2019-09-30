@@ -42,7 +42,7 @@ class Product < ApplicationRecord
       end
     end
     return ladies
-  end  
+  end
 
   def self.mens_products
     mens = []
@@ -106,5 +106,19 @@ class Product < ApplicationRecord
       end
     end
     return nike
+  end
+  def self.exhibit_products
+    exhibit = []
+    all.each do |product|
+      if product.exhibiting?
+        exhibit << product
+      end
+    end
+    exhibit.shuffle!
+    exhibit = exhibit[0..29]
+    return exhibit
+  end
+  def self.search(search)
+    search ? where('name LIKE ?', "%#{search}%") : all
   end
 end

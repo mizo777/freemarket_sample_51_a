@@ -5,7 +5,7 @@
     - @user.products.each do |product|
       -if product.status == "exhibit_trading"
         %li
-          = link_to "/products/#{product.id}", class: "item-list" do
+          = link_to product_path(product), class: "item-list" do
             %figure
               = image_tag product.product_images.first.image.url
             .message-box

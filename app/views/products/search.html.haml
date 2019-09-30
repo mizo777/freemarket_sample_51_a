@@ -1,0 +1,51 @@
+%body#product_search_page
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+- else
+  = render partial: 'shared/header_before_login'
+%main.mercari-search
+  .mercari-search__search-side
+    = render partial: 'search_form'
+  .mercari-search__products-content
+    %section
+      - if @products.count == 0
+        %h2.search-result-title
+          = params[:name]
+          %span.search-result-head-text 
+            の検索結果
+        %p.search-result-description
+          該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        %h3.search-result-no-head
+          出品商品
+        .products-box-content
+          - @exhibit_products.each do |product|
+            = render partial: "search_product", locals: { product: product }
+      - elsif params[:name] == ""
+        %h3.search-result-no-head
+          出品商品
+        .products-box-content
+          - @exhibit_products.each do |product|
+            = render partial: "search_product", locals: { product: product }
+      - elsif params[:name].nil?
+      - else
+        %h2.search-result-title
+          = params[:name]
+          %span.search-result-head-text 
+            の検索結果
+        .search-result-number
+          = "1 - #{@products.count}件表示"
+        .products-box-content
+          - @products.each do |product|
+            = render partial: "search_product", locals: { product: product }
+%nav.pos-bottom
+  %ul.pos-bottom__lists
+    %li= link_to "メルカリ", root_path, class: "pos-bottom__lists__left-list"
+    = fa_icon 'chevron-right', class: "chevron-right-3"
+    %li.pos-bottom__lists__right-list
+      = params[:name]
+= render partial: 'shared/app-banner'
+= render partial: 'shared/footer'
+.mercari-sell-btn
+  .mercari-sell-btn__text 出品
+  = link_to new_product_path do
+    = fa_icon 'camera', class: "camera"

@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
     @random_products = Product.where(status: 0).order("RAND()").limit(2)
     @same_brand_products = Product.where(brand_id: @product.brand_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
     @exhibitor_related_products = Product.where(user_id: @product.user_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
+    @card = Card.where(user_id: current_user.id).first
   end
 
   def new
@@ -45,7 +46,7 @@ class ProductsController < ApplicationController
 
   def edit
     if @product.user_id == current_user.id
-      @parents = Category.order("id ASC").limit(15)
+      @parents = Category.limit(15)
       @children = @product.category.parent.parent.children
       @grandchildren = @product.category.parent.children
       @brands = Brand.all
@@ -65,7 +66,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @user_card = User.find(current_user.id).card
+    @user_card = current_user.card
     if @user_card.present?
       card = Card.where(user_id: current_user.id).first
       Payjp::api_key = ENV['PAYJP_SECRET_KEY']
@@ -105,6 +106,11 @@ class ProductsController < ApplicationController
     else
       redirect_to action: :buy
     end  
+  end
+
+  def search
+    @products = Product.all.search(params[:name])
+    @exhibit_products = Product.exhibit_products
   end
   
   def category

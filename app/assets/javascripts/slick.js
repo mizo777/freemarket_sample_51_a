@@ -11,7 +11,6 @@ $(document).on('turbolinks:load', function(){
     prevArrow: '<img src="https://www.mercari.com/jp/assets/img/common/jp/top/carousel-prev.png" class="slide-arrow prev-arrow">',
     nextArrow: '<img src="https://www.mercari.com/jp/assets/img/common/jp/top/carousel-next.png" class="slide-arrow next-arrow">'
   });
-
   $('.item-container__content__photo__top').slick({
     accessibility: true,
     autoplay: true,
@@ -24,11 +23,10 @@ $(document).on('turbolinks:load', function(){
     customPaging: function(slick,index) {
       // スライダーのインデックス番号に対応した画像のsrcを取得
       var targetImage = slick.$slides.eq(index).find('img').attr('src');
-      // slick-dots > li　の中に上記で取得した画像を設定
+      // slick-dots > liの中に上記で取得した画像を設定
       return '<img src=" ' + targetImage + ' " alt="" width="60" height="60" class="item-container__content__photo__bottom__slick-image">';
     }
   });
-
   $('.item-container__content__photo__bottom__slick-image li').on('mouseover', function(e) {
     var $currTarget = $(e.currentTarget),
     index = $currTarget.data('slick-index'),
