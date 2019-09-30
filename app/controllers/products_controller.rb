@@ -66,7 +66,7 @@ class ProductsController < ApplicationController
   end
 
   def buy
-    @user_card = User.find(current_user.id).card
+    @user_card = current_user.card
     if @user_card.present?
       card = Card.where(user_id: current_user.id).first
       Payjp::api_key = ENV['PAYJP_SECRET_KEY']
