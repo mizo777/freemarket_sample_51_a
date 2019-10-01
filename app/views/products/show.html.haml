@@ -6,8 +6,12 @@
   .item-container__content
     .item-container__content__photo
       %ul.item-container__content__photo__top
-        - @product.product_images.each do |image|
-          = render partial: 'item_photos_top' , locals: { product_image: image }
+        -if @product.product_images.present?
+          - @product.product_images.each do |image|
+            = render partial: 'item_photos_top' , locals: { product_image: image }
+        - else
+          %li.item-container__content__photo__top__wrapper
+            = image_tag "noimage.png", class: "item-container__content__photo__top__wrapper__image"
       %ul.item-container__content__photo__bottom
         - @product.product_images.each do |image|
           = render partial: 'item_photos_bottom' , locals: { product_image: image }
