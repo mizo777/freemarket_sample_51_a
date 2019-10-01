@@ -4,11 +4,19 @@
   %section.mercari-transaction__container
     %section.mercari-transaction__container__messages
       .mercari-transaction__container__messages__1
-        %i.far.fa-clock
-        %p 発送をお待ちください
+        - if @product.exhibit_trading?
+          %i.far.fa-clock
+          %p 発送をお待ちください
+        - if @product.exhibited?
+          %i.fas.fa-check
+          %p 取引が完了しました
       .mercari-transaction__container__messages__2
-        %p 出品者からの発送通知をお待ちください
-    %h2 購入が完了しました
+        - if @product.exhibit_trading?
+          %p 出品者からの発送通知をお待ちください
+        - if @product.exhibited?
+          %p このたびはメルカリのご利用ありがとうございました。
+    - if @product.exhibit_trading?
+      %h2 購入が完了しました
     %section.mercari-transaction__container__transaction-item
       .mercari-transaction__container__transaction-item__inner
         .mercari-transaction__container__transaction-item__inner__item
