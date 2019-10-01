@@ -1,5 +1,8 @@
 = link_to product_path(product), class: "products-box-content__product" do
-  = image_tag image_url("#{product.product_images.first.image}"), class: "product-photo"
+  -if product.product_images.present?
+    = image_tag image_url("#{product.product_images.first.image}"), class: "product-photo"
+  - else
+    = image_tag "noimage.png", class: "product-photo"
   .product-box-body
     %h3.product-box-body__name
       = product.name
