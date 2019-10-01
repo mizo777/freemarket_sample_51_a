@@ -19,7 +19,7 @@ class Product < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   belongs_to_active_hash :region
-  accepts_nested_attributes_for :product_images
+  accepts_nested_attributes_for :product_images, allow_destroy: true
 
   enum seller_delivery: { 未定: 0, らくらくメルカリ便: 1, ゆうメール: 2, レターパック: 3, 普通郵便: 4, クロネコヤマト: 5, ゆうパック: 6, クリックポスト: 7, ゆうパケット: 8 }, _prefix: true
   enum buyer_delivery: { 未定: 0, クロネコヤマト: 1, ゆうパック: 2, ゆうメール: 3 }, _prefix: true

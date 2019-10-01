@@ -24,8 +24,6 @@ Rails.application.routes.draw do
   end
   # 注文
   resources :orders, only: [:show]
-  # 商品画像
-  resources :product_images, only: [:destroy]
   # マイページ
   resources :users, only: [:index] do
     member do

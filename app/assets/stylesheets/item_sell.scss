@@ -684,9 +684,12 @@ body.exhibit {
               }
             }
           }
-          li:first-child, li:nth-child(11){
+          li:first-child, li:nth-of-type(6){
             margin-left: 0 !important;
           }
+        }
+        input[type="checkbox"]{
+          display: none;
         }
       }
     }  
