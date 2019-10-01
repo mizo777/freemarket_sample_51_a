@@ -1,7 +1,6 @@
 @mixin head {
   color: $white;
   font-size: 16px;
-  //font-weight: 100;
   font-weight: 600;
 }
 @mixin detail-lists($padding: 40px) {
@@ -15,7 +14,6 @@
     opacity: .7;
   }
 }
-
 @mixin footer {
   bottom: 0;
   padding: 0 20px 10px 20px;
@@ -24,16 +22,18 @@
   &__top {
     margin: 0 auto;
     width: 72.857%;
-    //height: 298px;
     @media screen and (max-width: 1068px) {
       width: 700px;
       margin: 0px auto;
+    }
+    @media screen and (max-width: 600px) {
+      width: 500px;
+      margin: 0 auto;
     }
     &__cells {
       margin: 0 auto;
       padding-top: 18px;
       width: 100%;
-      //height: 298px;
       &__cell-1 {
         float: left;
         width: 20%;
@@ -101,9 +101,7 @@
       &__cell-3 {
         float: left;
         padding-right: 40px;
-        //width: 38.077%;
         width: 40%;
-        //background: yellow;
         @media screen and (max-width: 1068px) {
           display: inline-block;
           width: 100%;
@@ -197,6 +195,10 @@
       display: block;
       margin-right: 6px;
       color: $white;
+      @media screen and (max-width: 600px) {
+        position: relative;
+        left: -20px;
+      }
     }
     &__copyright {
       display: block;
@@ -215,9 +217,17 @@
         vertical-align: sub;
       }
       @media screen and (max-width: 1068px) {
-        //position: relative;
-        top: 0px;
+        top: 0;
         left: -230px;
+      }
+      @media screen and (max-width: 768px) {
+        top: 10px;
+        left: 150px;
+        font-size: 0.92vw;
+      }
+      @media screen and (max-width: 600px) {
+        top: 12.5px;
+        left: 0;
       }
     }
   }
