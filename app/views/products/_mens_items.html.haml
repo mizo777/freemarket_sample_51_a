@@ -1,6 +1,9 @@
 = link_to product_path(product), class: "mercari-main__middle__2__items__item" do
   .mercari-main__middle__2__items__item__bottom
-    = image_tag image_url("#{product.product_images.first.image}"), class: "mercari-main__middle__2__items__item__bottom__image", alt: "帽子 ハット 石田欧子さん H.at オートモード平田"
+    -if product.product_images.present?
+      = image_tag image_url("#{product.product_images.first.image}"), class: "mercari-main__middle__2__items__item__bottom__image", alt: ""
+    - else
+      = image_tag "noimage.png", class: "mercari-main__middle__2__items__item__bottom__image", alt: ""
     .mercari-main__middle__2__items__item__bottom__article-name
       = product.name
     .mercari-main__middle__2__items__item__bottom__price-heart

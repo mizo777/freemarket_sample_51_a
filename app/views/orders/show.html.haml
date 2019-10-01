@@ -20,7 +20,10 @@
     %section.mercari-transaction__container__transaction-item
       .mercari-transaction__container__transaction-item__inner
         .mercari-transaction__container__transaction-item__inner__item
-          %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "128", height: "170"
+          -if product.product_images.present?
+            %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "128", height: "170"
+          - else
+            %h3= image_tag "noimage.png", width: "128", height: "170"
           %p= @product.name
     %section.mercari-transaction__container__price-box
       .mercari-transaction__container__price-box__text

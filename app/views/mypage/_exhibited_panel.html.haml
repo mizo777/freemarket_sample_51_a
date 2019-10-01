@@ -7,7 +7,10 @@
         %li
           = link_to product_path(product), class: "item-list" do
             %figure
-              = image_tag product.product_images.first.image.url
+              -if product.product_images.present?
+                = image_tag product.product_images.first.image.url
+              - else
+                = image_tag "noimage.png"
             .message-box
               .message 
                 = product.name

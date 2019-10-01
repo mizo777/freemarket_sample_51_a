@@ -2,7 +2,10 @@
   %li
     = link_to order_path(product), class: "item-list" do
       %figure
-        = image_tag image_url("#{product.product_images.first.image}") , alt: product.name
+        -if product.product_images.present?
+          = image_tag image_url("#{product.product_images.first.image}") , alt: product.name
+        - else
+          = image_tag "noimage.png"
       .message-box
         .message
           = "#{product.name}を購入しました。取引が完了しました。"
