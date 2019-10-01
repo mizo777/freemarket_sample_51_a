@@ -1,7 +1,8 @@
 @mixin head {
   color: $white;
   font-size: 16px;
-  font-weight: 100;
+  //font-weight: 100;
+  font-weight: 600;
 }
 @mixin detail-lists($padding: 40px) {
   padding-right: $padding;
@@ -23,15 +24,26 @@
   &__top {
     margin: 0 auto;
     width: 72.857%;
-    height: 298px;
+    //height: 298px;
+    @media screen and (max-width: 1068px) {
+      width: 700px;
+      margin: 0px auto;
+    }
     &__cells {
       margin: 0 auto;
       padding-top: 18px;
       width: 100%;
-      height: 298px;
+      //height: 298px;
       &__cell-1 {
         float: left;
         width: 20%;
+        @media screen and (max-width: 1068px) {
+          display: inline-block;
+          margin-top: 18px;
+          vertical-align: top;
+          width: calc(50% - 10px);
+          padding: 0px 10px 0 0;
+        }
         &__head {
           @include head;
         }
@@ -72,6 +84,13 @@
       &__cell-2 {
         float: left;
         width: 23%;
+        @media screen and (max-width: 1068px) {
+          display: inline-block;
+          margin-top: 18px;
+          vertical-align: top;
+          width: calc(50% - 20px);
+          padding: 0px 10px;
+        }
         &__head {
           @include head;
         }
@@ -82,16 +101,36 @@
       &__cell-3 {
         float: left;
         padding-right: 40px;
-        width: 38.077%;
+        //width: 38.077%;
+        width: 40%;
+        //background: yellow;
+        @media screen and (max-width: 1068px) {
+          display: inline-block;
+          width: 100%;
+          margin-top: 35px;
+          padding-right: 0;
+        }
         &__head {
-          color: $white;
-          font-size: 16px;
-          font-weight: 100;
+          @include head;
         }
         &--left {
           float: left;
           padding-right: 10px;
           width: 47.4%;
+          @media screen and (max-width: 1368px) {
+            padding-right: 0;
+          }
+          @media screen and (max-width: 1170px) {
+            width: 50%;
+          }
+          @media screen and (max-width: 1112px) {
+            width: 156px;
+          }
+          @media screen and (max-width: 1068px) {
+            display: inline-block;
+            width: 47.4%;
+            padding-right: 10px;
+          }
           &__items {
             @include detail-lists(0);
           }
@@ -103,16 +142,43 @@
           &__items {
             @include detail-lists(0);
           }
+          @media screen and (max-width: 1368px) {
+            padding-left: 0;
+          }
+          @media screen and (max-width: 1170px) {
+            width: 50%;
+          }
+          @media screen and (max-width: 1112px) {
+            width: 156px;
+          }
+          @media screen and (max-width: 1068px) {
+            display: inline-block;
+            width: 47.4%;
+            padding-left: 10px;
+          }
         }
       }
       &__cell-4 {
         float: left;
         width: 9.4%;
+        @media screen and (max-width: 1068px) {
+          display: inline-block;
+          float: none;
+          width: 100%;
+          margin-top: 35px;
+        }
         &__head {
           @include head;
         }
         &__items {
           @include detail-lists(0);
+          @media screen and (max-width: 1068px) {
+            display: inline-block;
+          }
+          &__item {
+            float: left;
+            margin-right: 30px;
+          }
         }
       }
     }
@@ -123,11 +189,17 @@
     height: 37px;
     position: relative;
     display: flex;
+    @media screen and (max-width: 1068px) {
+      margin: 55px 161px 10px;
+      
+    }
     &__image {
+      display: block;
       margin-right: 6px;
       color: $white;
     }
     &__copyright {
+      display: block;
       position: relative;
       top: 10px;
       left: 30px;
@@ -141,6 +213,11 @@
         font-size: 0.92vw;
         margin: 10px 0 0;
         vertical-align: sub;
+      }
+      @media screen and (max-width: 1068px) {
+        //position: relative;
+        top: 0px;
+        left: -230px;
       }
     }
   }
