@@ -665,28 +665,31 @@ body.exhibit {
             .sell-upload-button{
               font-size: 14px;
               display: flex;
-              div{
+              .sell-upload-edit, .sell-upload-delete{
                 display: inline-block;
                 width: 50%;
                 background: #f5f5f5;
                 line-height: 44px;
-                text-align: center;  
-                color: #0099e8;              
+                text-align: center;
+                color: #0099e8;
               }
-              div:last-child{
+              .sell-upload-delete{
               box-sizing: border-box;
               border-left: 1px solid #eee;
               }
-              div:hover{
+              .sell-upload-edit:hover, .sell-upload-delete:hover{
                 cursor: pointer;
                 text-decoration: underline;
                 opacity: 0.6;
-              }              
+              }
             }
           }
-          li:first-child, li:nth-child(6){
+          li:first-child, li:nth-of-type(6){
             margin-left: 0 !important;
           }
+        }
+        input[type="checkbox"]{
+          display: none;
         }
       }
     }  

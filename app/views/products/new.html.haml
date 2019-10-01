@@ -22,9 +22,9 @@
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
                         %ul#preview
-                    %label.sell-upload-drop-box.have-item-0.new-box
-                      = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
-                        = image.file_field :image, class: "file-icon"
+                          = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
+                            = image.file_field :image, class: "file-icon delete_file_#{image.object.id}", id: "file_#{image.object.id}" 
+                    %label.sell-upload-drop-box.have-item-0.new-box{for:"file_"}
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
