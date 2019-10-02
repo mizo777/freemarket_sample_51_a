@@ -79,6 +79,16 @@
                       .select-wrap
                         %i.icon-arrow-bottom
                         = f.select :delivery_burden, ["---", ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, class:"select-default", id: "delivery_burden"
+                    .form-group#burden{style: "display: none;"}
+                      %label
+                        配送の方法
+                        %span.form-require 必須
+                      .select-wrap.seller_deliverie{style: "display: none;"}
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, Product.seller_deliveries.keys, {include_blank: "---"}, class:"select-default", id: "delivery_burden"
+                      .select-wrap.buyer_deliverie{style: "display: none;"}
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, Product.buyer_deliveries.keys, {include_blank: "---"}, class:"select-default", id: "delivery_burden"
                     .form-group
                       %label
                         発送元の地域
