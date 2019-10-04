@@ -14,8 +14,11 @@ body {
     margin: 40px auto 0;
     width: 1020px;
   }
-  
+  @media screen and (max-width: 768px) {
+    width: 500px;
+  }
   &__search-side {
+    display: none;
     margin: 40px auto 0;
     background: #f5f5f5;
     @media screen and (min-width: 1068px) {
@@ -350,6 +353,9 @@ body {
     @media screen and (min-width: 1068px) {
       float: right;
     }
+    @media screen and (max-width: 768px) {
+      width: 540px;
+    }
     section { 
       h2.search-result-title {
         line-height: 1.4;
@@ -358,6 +364,9 @@ body {
         @media screen and (min-width: 1068px) {
           font-size: 22px;
           margin: 0 0 8px;
+        }
+        @media screen and (max-width: 768px) {
+          margin: 0 35px;
         }
         span.search-result-head-text {
           font-size: 16px;
@@ -388,15 +397,17 @@ body {
         }
       }
       .search-result-number {
-        margin: 8px 4%;
         font-size: 12px;
         color: #888;
         @media screen and (min-width: 768px) {
           margin: 16px 0;
         }
+        @media screen and (max-width: 768px) {
+          margin: 8px 35px;
+        }
       }
       .products-box-content {
-        width: 92%;
+        width: 430px;
         margin: 0 auto;
         font-size: 0;
         @media screen and (min-width: 768px) {
@@ -404,16 +415,26 @@ body {
         }
         &__product {
           display: inline-block;
-          
+          width: 100px;
+          margin: 0 10px 10px 0;
           @media screen and (min-width: 768px) {
             width: 127px;
             margin: 0 16px 16px 0;
-            
           }
           &:nth-child(5n) {
             margin: 0 0 16px 0;
+            @media screen and (max-width: 768px) {
+              margin: 0 10px 10px 0;
+            }
+          }
+          &:nth-child(4n) {
+            @media screen and (max-width: 768px) {
+              margin: 0 0 10px 0;
+            }
           }
           .product-photo {
+            width: 100px;
+            height: 100px;
             @media screen and (min-width: 768px) {
               width: 127px;
               height: 127px;
@@ -425,6 +446,11 @@ body {
               width: 103px;
               height: 42px;
               padding: 8px 12px;
+            }
+            @media screen and (max-width: 768px) {
+              width: 80px;
+              height: 42px;
+              padding: 7px 10px;
             }
             &__name {
               overflow: hidden;
