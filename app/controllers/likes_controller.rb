@@ -1,9 +1,17 @@
 class LikesController < ApplicationController
-  # before_action :authenticate_user! , only: :create
+  before_action :set_like , only: :destroy
 
   def index
-    @likes = Like.all
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
+
+  # def new
+
+  # end
 
   def create
     like = Like.create(user_id: current_user.id, product_id: params[:format])
@@ -18,5 +26,17 @@ class LikesController < ApplicationController
     #   redirect_to root_path
     # end
     # binding.pry
+  end
+
+  def destroy
+    unless @like.destroy
+      redirect_to product_path(params[:id])
+    end
+  end
+
+  private
+  
+  def set_like
+    @like = Like.find_by(user_id: current_user.id, product_id: params[:id])
   end
 end
