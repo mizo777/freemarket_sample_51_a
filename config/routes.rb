@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
   # いいね！
-  resources :likes, only: [:index, :create]
+  resources :likes, only: [:create, :destroy]
   # 注文
   resources :orders, only: [:show]
   # 商品画像
