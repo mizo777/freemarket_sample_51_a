@@ -287,6 +287,9 @@ body.exhibit {
         background: #aaa;
       }
     }
+    #sizes_wrapper, .shoes_size, .tshirts_size_wrapper{
+      display: none;
+    }
   }
 
   .form-group:first-child, #preview {
