@@ -1,18 +1,6 @@
 class LikesController < ApplicationController
   before_action :set_like , only: :destroy
 
-  def index
-    @product = Product.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
-
-  # def new
-
-  # end
-
   def create
     like = Like.create(user_id: current_user.id, product_id: params[:format])
     # if like.save
