@@ -318,36 +318,41 @@ body.markup_item_detail_page {
       @media screen and (max-width: 768px) {
         text-align: center;
       }
-      &__like-btn {
+      form.button_to {
         display: inline-block;
-        padding: 8px 16px;
-        border-radius: 40px;
-        -webkit-transition: all ease-out .3s;
-        transition: all ease-out .3s;
-        color: $black;
-        border: 1px solid #f5f5f5;
-        background: #f5f5f5;
-        cursor: pointer;
-        &__text {
+        width: 137px;
+        .like-btn {
           display: inline-block;
-          margin: 1px 0 0 8px;
-          font-size: 12px;
-          vertical-align: middle;
-          @media screen and (min-width: 768px) {
-            font-size: 14px;
+          padding: 8px 16px;
+          border-radius: 40px;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          color: $black;
+          border: 1px solid #f5f5f5;
+          background: #f5f5f5;
+          cursor: pointer;
+          font-size: 0;
+          &__text {
+            display: inline-block;
+            margin: 1px 0 0 8px;
+            font-size: 12px;
+            vertical-align: middle;
+            @media screen and (min-width: 768px) {
+              font-size: 14px;
+            }
           }
-        }
-        &__count {
-          display: inline-block;
-          position: relative;
-          bottom: 1px;
-          right: 1px;
-          margin: 1px 0 0 8px;
-          font-size: 12px;
-          vertical-align: middle;
-          animation: fade-in-up ease-out .4s forwards;
-          @media screen and (min-width: 768px) {
-            font-size: 14px;
+          &__count {
+            display: inline-block;
+            position: relative;
+            bottom: 1px;
+            right: 1px;
+            margin: 1px 0 0 8px;
+            font-size: 12px;
+            vertical-align: middle;
+            animation: fade-in-up ease-out .4s forwards;
+            @media screen and (min-width: 768px) {
+              font-size: 14px;
+            }
           }
         }
       }
@@ -362,6 +367,7 @@ body.markup_item_detail_page {
         -webkit-transition: all ease-out .3s;
         transition: all ease-out .3s;
         cursor: pointer;
+        font-size: 0;
         &:hover {
           opacity: .6;
         }
