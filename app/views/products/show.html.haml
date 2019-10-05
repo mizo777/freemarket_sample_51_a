@@ -1,6 +1,6 @@
 %body.markup_item_detail_page
 = render 'shared/header_after_login'
-%section.item-container
+%section.item-container{data: {id: @product.id}}
   %h1.item-container__name
     = @product.name
   .item-container__content
@@ -94,13 +94,13 @@
     .item-container__buttons
       .item-container__buttons--left
         - if user_signed_in? && @like.present?
-          = button_to likes_path(@product), method: :post, class: "like-btn", style: "border: 1px solid #ea352d;background: none;pointer-events: none" do
+          = button_to like_path(@product), method: :delete, class: "like-btn", id: "like-btn-1", onsubmit: "doSomething();return false;", style: "border: 1px solid #ea352d;background: none;" do
             %i.fas.fa-heart.heart-2{style: "color: #ea352d"}
             %span.like-btn__text#like-text{style: "color: #ea352d"} いいね！
             %span.like-btn__count#like-count{style: "color: #ea352d"}
               = @product.likes_count
         - else
-          = button_to likes_path(@product), method: :post, class: "like-btn", onsubmit: "doSomething();return false;" do
+          = button_to likes_path(@product), method: :post, class: "like-btn", id: "like-btn-2", onsubmit: "doSomething();return false;" do
             %i.fas.fa-heart.heart-2
             %span.like-btn__text#like-text いいね！
             %span.like-btn__count#like-count
