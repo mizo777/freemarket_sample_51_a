@@ -53,6 +53,16 @@
                         .select-wrap
                           %i.icon-arrow-bottom
                           = f.collection_select :category, @parents, :id, :name, {include_blank: "---"}, class:"select-default", id: "parent-form", name: 'product[category_id]'
+                    .form-group.size_wrapper#sizes_wrapper
+                      %label
+                        サイズ
+                        %span.form-require 必須
+                      .select-wrap.size_wrapper.shoes_size
+                        %i.icon-arrow-bottom
+                        = f.select :size, Product.shoes_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                      .select-wrap.size_wrapper.tshirts_size
+                        %i.icon-arrow-bottom
+                        = f.select :size, Product.tshirts_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
                     .form-group.brand-form
                       %label
                         ブランド
@@ -79,6 +89,16 @@
                       .select-wrap
                         %i.icon-arrow-bottom
                         = f.select :delivery_burden, ["---", ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, class:"select-default", id: "delivery_burden"
+                    .form-group#burden{style: "display: none;"}
+                      %label
+                        配送の方法
+                        %span.form-require 必須
+                      .select-wrap.seller_deliverie{style: "display: none;"}
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, Product.seller_deliveries.keys, {include_blank: "---"}, class:"select-default", id: "delivery_burden"
+                      .select-wrap.buyer_deliverie{style: "display: none;"}
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, Product.buyer_deliveries.keys, {include_blank: "---"}, class:"select-default", id: "delivery_burden"
                     .form-group
                       %label
                         発送元の地域

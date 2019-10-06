@@ -68,19 +68,28 @@
                         .select-wrap#grandchildren_wrapper
                           %i.icon-arrow-bottom
                           = f.collection_select :category_id, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
-                    .form-group#size_wrapper
+                    .form-group#size_wrapper.size_wrapper
                       %label
                         サイズ
                         %span.form-require 必須
-                      -if @product.category.name == "スニーカー"
+                      -if @product.category.parent.name == "靴"
                         .select-wrap.size_wrapper
                           %i.icon-arrow-bottom
                           = f.select :size, Product.shoes_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
-                      -elsif @product.category.name == "Tシャツ/カットソー(半袖/袖なし)"
+                      -elsif @product.category.parent.name == "トップス"
                         .select-wrap.size_wrapper
                           %i.icon-arrow-bottom
-                          = f.select :size, Product.tshirts__sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
-                    
+                          = f.select :size, Product.tshirts_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                    .form-group.size_wrapper#sizes_wrapper
+                      %label
+                        サイズ
+                        %span.form-require 必須
+                      .select-wrap.size_wrapper.shoes_size
+                        %i.icon-arrow-bottom
+                        = f.select :size, Product.shoes_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                      .select-wrap.size_wrapper.tshirts_size
+                        %i.icon-arrow-bottom
+                        = f.select :size, Product.tshirts_sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
                     .form-group.brand-form{style: "display:block"}
                       %label
                         ブランド

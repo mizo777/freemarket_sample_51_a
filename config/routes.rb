@@ -9,8 +9,6 @@ Rails.application.routes.draw do
       get 'search'
       post 'search' 
       get 'category', defaults: { format: 'json' }
-      get 'child_category', defaults: { format: 'json' }
-      get 'size_category', defaults: { format: 'json' }
     end
     member do
       get :buy

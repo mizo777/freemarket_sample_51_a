@@ -122,26 +122,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def child_category
-    respond_to do |format|
-      format.html
-      format.json do
-       @grandchildren = Category.find(params[:child_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
-  end
-
-  def size_category
-    respond_to do |format|
-      format.html
-      format.json do
-       @size = Category.find(params[:grandchild_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
-  end
-
   def toggle_status
     @product.toggle_status!
     redirect_to @product
