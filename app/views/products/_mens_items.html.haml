@@ -10,6 +10,6 @@
       .mercari-main__middle__2__items__item__bottom__price-heart__article-price
         = number_to_currency(product.price)
       .mercari-main__middle__2__items__item__bottom__price-heart__article-heart
-        = fa_icon 'heart', class: "heart"
+        %i.far.fa-heart.heart
         .mercari-main__middle__2__items__item__bottom__price-heart__article-heart__count
           = product.likes_count

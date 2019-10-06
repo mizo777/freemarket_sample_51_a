@@ -25,10 +25,17 @@ body.markup-item-purchase-transaction-page {
     &__messages {
       padding: 24px 220px;
       background-color: #FFF8DC	;
+      @media screen and (max-width: 768px) {
+        text-align: center;
+        padding: 24px 110px;
+      }
       &__1 {
         position: relative;
         margin-bottom: 11px;
         left: 20px;
+        @media screen and (max-width: 768px) {
+          left: 0px;
+        }
         i {
           display: inline-block;
           font-size: 28px;
