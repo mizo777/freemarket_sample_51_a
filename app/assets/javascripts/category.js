@@ -80,15 +80,77 @@ $(document).on('turbolinks:load', function() {
     })
   });
 
-  //  サイズ表示
+  //  サイズ表示・ブランド表示
   $('#parent-category').on('change', '#grandchild_category', function(){
-    var parentValue = $('#child_category option:selected').data('category');
-    if ( parentValue == 19 || parentValue == 31 ) {
-      $('#sizes_wrapper, .shoes_size').css('display', 'block');
-    }else if( parentValue == 14 || parentValue == 28 ) {
-      $("#sizes_wrapper, .tshirts_size").css('display', 'block');
+    var parentValue = document.getElementById("grandchild_category").value;
+    $('#size_wrapper').remove();
+    if (69 <= parentValue && 70 >= parentValue) {
+      var shoesHtml = '';
+      shoesHtml =
+      `<div class="form-group " id= "size_wrapper">
+        <label>
+        サイズ
+        <span class="form-require">
+        必須
+        </span>
+        </label>
+        <div>
+          <div class="select-wrap size_wrapper">
+            <i class="icon-arrow-bottom"></i>
+            <select class="select-default" name="product[size]">
+              <option value="---">---</option>
+              <option value="20cm以下">20cm以下</option>
+              <option value="20.5cm">20.5cm</option>
+              <option value="21cm">21cm</option>
+              <option value="21.5cm">21.5cm</option>
+              <option value="22cm">22cm</option>
+              <option value="22.5cm">22.5cm</option>
+              <option value="23cm">23cm</option>
+              <option value="23.5cm">23.5cm</option>
+              <option value="24cm">24cm</option>
+              <option value="24.5cm">24.5cm</option>
+              <option value="25cm">25cm</option>
+              <option value="25.5cm">25.5cm</option>
+              <option value="26cm">26cm</option>
+              <option value="26.5cm">26.5cm</option>
+              <option value="27cm">27cm</option>
+              <option value="27.5cm以上">27.5cm以上</option>
+            </select>
+          </div>
+        </div>
+      </div>`      
+      $('#parent-category').append(shoesHtml);
+    }else if(79 <= parentValue && 82 >= parentValue) {
+      var tshirtsHtml = '';
+      tshirtsHtml =
+      `<div class="form-group " id= "size_wrapper">
+        <label>
+        サイズ
+        <span class="form-require">
+        必須
+        </span>
+        </label>
+        <div>
+          <div class="select-wrap size_wrapper">
+            <i class="icon-arrow-bottom"></i>
+            <select class="select-default" name="product[size]">
+              <option value="---">---</option>
+              <option value="XXS以下">XXS以下</option>
+              <option value="XS(SS)">XS(SS)</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL(LL)">XL(LL)</option>
+              <option value="2XL(3L)">2XL(3L)</option>
+              <option value="3XL(4L)">3XL(4L)</option>
+              <option value="4XL(5L)以上">4XL(5L)以上</option>
+              <option value="FREE SIZE">FREE SIZE</option>
+            </select>
+        </div>
+      </div>`      
+      $('#parent-category').append(tshirtsHtml);
     }else{
-      $('.size_wrapper').css('display','none');
+      $('#size_wrapper').remove();
     }
     $('.brand-form').css('display','block');
   });
