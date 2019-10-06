@@ -61,13 +61,13 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @parents, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                          = f.collection_select :category, @parents, :id, :name, {include_blank: @product.category.parent.parent.name}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                         .select-wrap#children_wrapper
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @children , :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                          = f.collection_select :category, @children , :id, :name, {include_blank: @product.category.parent.name}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                         .select-wrap#grandchildren_wrapper
                           %i.icon-arrow-bottom
-                          = f.collection_select :category_id, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                          = f.collection_select :category_id, @grandchildren, :id, :name, {include_blank: @product.category.name}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                     .form-group#size_wrapper
                       %label
                         サイズ
