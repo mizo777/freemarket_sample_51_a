@@ -24,7 +24,7 @@ class Product < ApplicationRecord
   enum seller_delivery: { 未定: 0, らくらくメルカリ便: 1, ゆうメール: 2, レターパック: 3, 普通郵便: 4, クロネコヤマト: 5, ゆうパック: 6, クリックポスト: 7, ゆうパケット: 8 }, _prefix: true
   enum buyer_delivery: { 未定: 0, クロネコヤマト: 1, ゆうパック: 2, ゆうメール: 3 }, _prefix: true
   enum shoes_size: {"20cm以下": 0, "20.5cm": 1, "21cm": 2, "21.5cm": 3, "22cm": 4, "22.5cm": 5, "23cm": 6, "23.5cm": 7, "24cm": 8, "24.5cm": 9, "25cm": 10, "25.5cm": 11, "26cm": 12, "26.5cm": 13, "27cm": 14, "27.5cm以上": 15 }
-  enum tshirts_size: {"XXS以下": 0, "XS(SS)": 1, "S": 2, "M": 3, "L": 4, "XL(LL)": 5, "2XL(3L)": 6, "3XL(4L)": 7, "4XL(5L)以上": 8, "FREE SIZE": 9}
+  enum tshirts__size: {"XXS以下": 0, "XS(SS)": 1, "S": 2, "M": 3, "L": 4, "XL(LL)": 5, "2XL(3L)": 6, "3XL(4L)": 7, "4XL(5L)以上": 8, "FREE SIZE": 9}
   enum status: { exhibiting: 0, stop_exhibit: 1, exhibit_trading: 2, exhibited: 3 }
   def toggle_status!
     if exhibiting?

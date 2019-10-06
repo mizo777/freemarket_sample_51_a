@@ -67,8 +67,8 @@
                           = f.collection_select :category, @children , :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
                         .select-wrap#grandchildren_wrapper
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
-                    .form-group.size_wrapper
+                          = f.collection_select :category_id, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                    .form-group#size_wrapper
                       %label
                         サイズ
                         %span.form-require 必須
@@ -79,7 +79,8 @@
                       -elsif @product.category.name == "Tシャツ/カットソー(半袖/袖なし)"
                         .select-wrap.size_wrapper
                           %i.icon-arrow-bottom
-                          = f.select :size, Product.tshirts__sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"                    .form-group.size_wrapper#sizes_wrapper
+                          = f.select :size, Product.tshirts__sizes.keys, {include_blank: @product.size}, class:"select-default", id: "size_wrapper"
+                    
                     .form-group.brand-form{style: "display:block"}
                       %label
                         ブランド

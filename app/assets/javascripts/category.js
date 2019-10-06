@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function() {
     var parentValue = document.getElementById("parent-form").value;
     $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
     $('#grandchildren_wrapper').remove();
-    $('.size_wrapper').css('display','none');
+    $('#size_wrapper').remove();
     $('.brand-form').css('display','none');
     $.ajax({
       url: '/products/category',
@@ -58,7 +58,7 @@ $(document).on('turbolinks:load', function() {
   $('#parent-category').on('change', '#child_category', function(){
     var parentValue = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
     $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
-    $('.size_wrapper').css('display','none');
+    $('#size_wrapper').remove();
     $('.brand-form').css('display','none');
     $.ajax({
       url: '/products/category',
