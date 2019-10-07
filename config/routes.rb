@@ -9,8 +9,6 @@ Rails.application.routes.draw do
       get 'search'
       post 'search' 
       get 'category', defaults: { format: 'json' }
-      get 'child_category', defaults: { format: 'json' }
-      get 'size_category', defaults: { format: 'json' }
     end
     member do
       get :buy
@@ -28,8 +26,6 @@ Rails.application.routes.draw do
   resources :likes, only: [:create, :destroy]
   # 注文
   resources :orders, only: [:show]
-  # 商品画像
-  resources :product_images, only: [:destroy]
   # マイページ
   resources :users, only: [:index] do
     member do
