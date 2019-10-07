@@ -1,19 +1,12 @@
 class LikesController < ApplicationController
-  before_action :set_like , only: :destroy
+  before_action :new_like, only: :create
+  before_action :set_like, only: :destroy
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    like = Like.create(user_id: current_user.id, product_id: params[:format])
-    # if like.save
-    #   redirect_to product_path(params[:format])
-    # else
-    #   redirect_to root_path
-    # end
-    # if like.save
-    #   redirect_to product_path
-    # else
-    #   redirect_to root_path
-    # end
-    # binding.pry
+    unless @like.save
+      redirect_to product_path(params[:format])
+    end
   end
 
   def destroy
@@ -23,6 +16,10 @@ class LikesController < ApplicationController
   end
 
   private
+
+  def new_like
+    @like = Like.new(user_id: current_user.id, product_id: params[:format])
+  end
   
   def set_like
     @like = Like.find_by(user_id: current_user.id, product_id: params[:id])
