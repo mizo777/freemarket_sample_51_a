@@ -23,15 +23,17 @@
                       .sell-upload-items.have-item-0
                         %ul#preview
                           - @product.product_images.first(@image_count).each do |images|
-                            %li.sell-upload-item.registered-image
-                              %figure.sell-upload-figure
-                                = image_tag image_url("#{images.image}"), class: "registered-file"
+                            %li.sell-upload-item.registered-image{class:"delete_file_#{images.id}"}
+                              %figure.sell-upload-figure{class:"file_#{images.id}"}
+                                = image_tag image_url("#{images.image}")
                               .sell-upload-button.edit-upload-button
-                                .edit-edit 編集
-                                .edit-delete 削除
-                    .sell-upload-drop-box.have-item-0.edit-box
-                      = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
-                        = image.file_field :image, class: ""
+                                %label.sell-upload-edit{for:"file_#{images.id}"} 編集
+                                .sell-upload-delete{id:"delete_file_#{images.id}"} 削除
+                          = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
+                            = image.file_field :image, class: "file-icon delete_file_#{image.object.id}", id: "file_#{image.object.id}"
+                            -if image.object.id.present?
+                              = image.check_box :_destroy, id: "delete_file_#{image.object.id}__destroy"
+                    %label.sell-upload-drop-box.have-item-0.new-box{for:"file_"}
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
@@ -59,13 +61,13 @@
                       %div
                         .select-wrap
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @parents, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                          = f.collection_select :category, @parents, :id, :name, {include_blank: @product.category.parent.parent.name}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                         .select-wrap#children_wrapper
                           %i.icon-arrow-bottom
-                          = f.collection_select :category, @children , :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                          = f.collection_select :category, @children , :id, :name, {include_blank: @product.category.parent.name}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                         .select-wrap#grandchildren_wrapper
                           %i.icon-arrow-bottom
-                          = f.collection_select :category_id, @grandchildren, :id, :name, {}, class:"select-default", id: "parent-form", name: 'product[category_id]', value: @product.category.name
+                          = f.collection_select :category_id, @grandchildren, :id, :name, {include_blank: @product.category.name}, class:"select-default", id: "parent-form", name: 'product[category_id]'
                     .form-group#size_wrapper
                       %label
                         サイズ

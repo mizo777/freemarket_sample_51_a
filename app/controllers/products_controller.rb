@@ -25,14 +25,16 @@ class ProductsController < ApplicationController
     @random_products = Product.where(status: 0).order("RAND()").limit(2)
     @same_brand_products = Product.where(brand_id: @product.brand_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
     @exhibitor_related_products = Product.where(user_id: @product.user_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
-    @card = Card.where(user_id: current_user.id).first
+    if user_signed_in?
+      @like = Like.find_by(user_id: current_user.id, product_id: @product.id)
+    end
   end
 
   def new
     @parents = Category.order("id ASC").limit(15)
     @product = Product.new
     @brands = Brand.all
-    10.times { @product.product_images.build }
+    @product.product_images.build
   end
 
   def create
@@ -51,7 +53,7 @@ class ProductsController < ApplicationController
       @grandchildren = @product.category.parent.children
       @brands = Brand.all
       @image_count = @product.product_images.length
-      (10 - @image_count).times { @product.product_images.build }
+      @product.product_images.build
     else
       redirect_to root_path, alert: '編集権限がありません'
     end
@@ -123,26 +125,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def child_category
-    respond_to do |format|
-      format.html
-      format.json do
-       @grandchildren = Category.find(params[:child_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
-  end
-
-  def size_category
-    respond_to do |format|
-      format.html
-      format.json do
-       @size = Category.find(params[:grandchild_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-      end
-    end
-  end
-
   def toggle_status
     @product.toggle_status!
     redirect_to @product
@@ -155,7 +137,7 @@ class ProductsController < ApplicationController
   end
 
   def update_params
-    params.require(:product).permit(:name, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: [:image, :id] ).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :price, :category_id, :brand_id, :state, :delivery_burden, :delivery_from, :delivery_way, :delivery_time, :size, product_images_attributes: [:image, :id, :_destroy] ).merge(user_id: current_user.id)
   end
 
   def set_product

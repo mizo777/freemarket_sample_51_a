@@ -1,13 +1,12 @@
-%ul
-  /  - if message.present?
+- if @like_products
   %li
-    = link_to "", class: "item-list" do
+    = link_to product_path(product), class: "item-list" do
       %figure
-        = image_tag "camera.jpg", alt: "商品画像"  
+        = image_tag image_url("#{product.product_images.first.image}"), alt: product.name  
       .message-box
-        .message 
-          最終値下げ！iPhone7 SIMフリー 128GBか
-          %p ¥26,555
+        .message
+          = product.name
+          %p= number_to_currency(product.price)
       = fa_icon "chevron-right"
-  / - else
-  /   %li.not-found.bold 現在、やることリストはありません      
+- else
+  %li.not-found.bold いいね！がありません

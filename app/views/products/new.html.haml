@@ -22,9 +22,9 @@
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
                         %ul#preview
-                    %label.sell-upload-drop-box.have-item-0.new-box
-                      = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
-                        = image.file_field :image, class: "file-icon"
+                          = f.fields_for :product_images, class: "sell-upload-drop-file" do |image|
+                            = image.file_field :image, class: "file-icon delete_file_#{image.object.id}", id: "file_#{image.object.id}" 
+                    %label.sell-upload-drop-box.have-item-0.new-box{for:"file_"}
                       %pre.visible-pc
                         :preserve
                           ドラッグアンドドロップ
@@ -79,6 +79,16 @@
                       .select-wrap
                         %i.icon-arrow-bottom
                         = f.select :delivery_burden, ["---", ["送料込み(出品者負担)"], ["着払い(購入者負担)"]], {}, class:"select-default", id: "delivery_burden"
+                    .form-group#burden{style: "display: none;"}
+                      %label
+                        配送の方法
+                        %span.form-require 必須
+                      .select-wrap.seller_deliverie{style: "display: none;"}
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, Product.seller_deliveries.keys, {include_blank: "---"}, class:"select-default", id: "delivery_burden"
+                      .select-wrap.buyer_deliverie{style: "display: none;"}
+                        %i.icon-arrow-bottom
+                        = f.select :delivery_way, Product.buyer_deliveries.keys, {include_blank: "---"}, class:"select-default", id: "delivery_burden"
                     .form-group
                       %label
                         発送元の地域

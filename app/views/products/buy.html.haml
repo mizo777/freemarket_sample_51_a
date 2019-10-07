@@ -6,7 +6,10 @@
     %section.mercari-confirmation__container__buy-item
       .mercari-confirmation__container__buy-item__inner
         .mercari-confirmation__container__buy-item__inner__item
-          %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "64", height: "85"          
+          -if @product.product_images.present?
+            %h3= image_tag image_url("#{@product.product_images.first.image}"), width: "64", height: "85"
+          - else
+            %h3= image_tag "noimage.png", width: "64", height: "85"
           %p= @product.name
         .mercari-confirmation__container__buy-item__inner__price-box
           .mercari-confirmation__container__buy-item__inner__price-box__text
