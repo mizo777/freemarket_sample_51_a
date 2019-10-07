@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
     @random_products = Product.where(status: 0).order("RAND()").limit(2)
     @same_brand_products = Product.where(brand_id: @product.brand_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
     @exhibitor_related_products = Product.where(user_id: @product.user_id, status: 0).where.not(id: params[:id]).order("RAND()").limit(6)
-    @card = Card.where(user_id: current_user.id).first
     @like = Like.find_by(user_id: current_user.id, product_id: @product.id)
   end
 
