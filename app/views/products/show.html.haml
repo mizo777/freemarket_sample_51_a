@@ -1,5 +1,8 @@
 %body.markup_item_detail_page
-= render 'shared/header_after_login'
+- if user_signed_in?
+  = render partial: 'shared/header_after_login'
+- else
+  = render partial: 'shared/header_before_login'
 %section.item-container{data: {id: @product.id}}
   %h1.item-container__name
     = @product.name
@@ -93,14 +96,21 @@
   - unless user_signed_in? && current_user.id == @product.user_id
     .item-container__buttons
       .item-container__buttons--left
-        - if user_signed_in? && @like.present?
-          = button_to like_path(@product), method: :delete, class: "like-btn", id: "like-btn-1", onsubmit: "doSomething();return false;", style: "border: 1px solid #ea352d;background: none;" do
-            %i.fas.fa-heart.heart-2{style: "color: #ea352d"}
-            %span.like-btn__text#like-text{style: "color: #ea352d"} いいね！
-            %span.like-btn__count#like-count{style: "color: #ea352d"}
-              = @product.likes_count
+        - if user_signed_in?
+          - if @like.present?
+            = link_to like_path(@product), method: :delete, class: "like-btn", id: "like-btn-1", onsubmit: "doSomething();return false;", style: "border: 1px solid #ea352d;background: none;" do
+              %i.fas.fa-heart.heart-2{style: "color: #ea352d"}
+              %span.like-btn__text#like-text{style: "color: #ea352d"} いいね！
+              %span.like-btn__count#like-count{style: "color: #ea352d"}
+                = @product.likes_count
+          - else
+            = link_to likes_path(@product), method: :post, class: "like-btn", id: "like-btn-2", onsubmit: "doSomething();return false;" do
+              %i.fas.fa-heart.heart-2
+              %span.like-btn__text#like-text いいね！
+              %span.like-btn__count#like-count
+                = @product.likes_count
         - else
-          = button_to likes_path(@product), method: :post, class: "like-btn", id: "like-btn-2", onsubmit: "doSomething();return false;" do
+          = link_to new_user_session_path, class: "like-btn" do
             %i.fas.fa-heart.heart-2
             %span.like-btn__text#like-text いいね！
             %span.like-btn__count#like-count
