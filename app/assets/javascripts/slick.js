@@ -27,14 +27,4 @@ $(document).on('turbolinks:load', function(){
       return '<img src=" ' + targetImage + ' " alt="" width="60" height="60" class="item-container__content__photo__bottom__slick-image">';
     }
   });
-  // $('.item-container__content__photo__bottom__slick-image li').on('mouseover', function(e) {
-  //   var $currTarget = $(e.currentTarget),
-  //   index = $currTarget.data('slick-index'),
-  //   slickObj = $('.item-container__content__photo__top').slick('getSlick');
-  //   slickObj.slickGoTo(index, true);    // アニメーション中でも切り替える
-  //   $slide.slick('slickPause');     // 自動切り替え停止
-  // })
-  // .on('mouseout', function(e) {
-  //   $slide.slick('slickPlay');  // 自動切り替え再開
-  // });
 });
