@@ -14,15 +14,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if user_signed_in? && current_user.id == @product.user_id
-      if @product.destroy
-        redirect_to mypage_index_path(current_user.id), notice: '商品を削除しました'
-      else
-        render @product
-      end
+    if @product.destroy
+      redirect_to mypage_index_path(current_user.id), notice: '商品を削除しました'
     else
-      # 直前の画面に戻る
-      return_back and return
+      render @product
     end
   end
 
