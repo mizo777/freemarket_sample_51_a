@@ -2,6 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
   before_action :authenticate_user! , only: [:new, :buy] 
   before_action :set_exhibit , only: [:new, :create, :edit] 
+  before_action :product_protect , only: [:edit, :destroy, :update] 
+  skip_before_action :authenticate_user! , only: [:index, :show, :search] 
 
   def index
     @ladies_products = Product.ladies_products
@@ -43,14 +45,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if @product.user_id == current_user.id
-      @children = @product.category.parent.parent.children
-      @grandchildren = @product.category.parent.children
-      @image_count = @product.product_images.length
-      @product.product_images.build
-    else
-      redirect_to root_path, alert: '編集権限がありません'
-    end
+    @children = @product.category.parent.parent.children
+    @grandchildren = @product.category.parent.children
+    @image_count = @product.product_images.length
+    @product.product_images.build
   end
 
   def update
@@ -141,5 +139,12 @@ class ProductsController < ApplicationController
   def set_exhibit
     @parents = Category.order("id ASC").limit(13)
     @brands = Brand.all
+  end
+  
+  def product_protect
+    if user_signed_in? && @product.user_id == current_user
+    else
+      redirect_to root_path, alert: '編集権限がありません'
+    end    
   end
 end

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   before_action :set_request_from
+  before_action :authenticate_user!
   protect_from_forgery with: :exception
 
   # どのページからリクエストが来たか保存する
