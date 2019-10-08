@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
   before_action :authenticate_user! , only: [:new, :buy] 
   before_action :product_protect , only: [:edit, :destroy, :update] 
+  skip_before_action :authenticate_user! , only: [:index, :show, :search] 
 
   def index
     @ladies_products = Product.ladies_products
