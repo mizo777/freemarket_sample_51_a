@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :toggle_status, :pay, :buy, :destroy, :edit, :update]
   before_action :authenticate_user! , only: [:new, :buy] 
+  before_action :set_exhibit , only: [:new, :create, :edit] 
 
   def index
     @ladies_products = Product.ladies_products
@@ -28,9 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @parents = Category.order("id ASC").limit(15)
     @product = Product.new
-    @brands = Brand.all
     @product.product_images.build
   end
 
@@ -45,10 +44,8 @@ class ProductsController < ApplicationController
 
   def edit
     if @product.user_id == current_user.id
-      @parents = Category.limit(15)
       @children = @product.category.parent.parent.children
       @grandchildren = @product.category.parent.children
-      @brands = Brand.all
       @image_count = @product.product_images.length
       @product.product_images.build
     else
@@ -139,5 +136,10 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id] || params[:product_id])
+  end
+
+  def set_exhibit
+    @parents = Category.order("id ASC").limit(13)
+    @brands = Brand.all
   end
 end
