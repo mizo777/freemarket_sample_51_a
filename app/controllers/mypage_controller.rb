@@ -12,6 +12,7 @@ class MypageController < ApplicationController
   end
   
   def like
+    like_products
   end
   
   def exhibit_trading
@@ -96,7 +97,7 @@ class MypageController < ApplicationController
   private
   # ユーザーが購入した商品を表示できるようにする
   def purchase_products
-    @orders = Order.where(buyer_id: current_user.id).order(id: "ASC")
+    @orders = Order.where(buyer_id: current_user.id)
     @purchase_products = []
     @purchased_products = []
     @orders.each do |order|
@@ -106,6 +107,15 @@ class MypageController < ApplicationController
       elsif product.exhibited?
         @purchased_products << product
       end
+    end
+  end
+
+  def like_products
+    @likes = Like.where(user_id: current_user.id)
+    @like_products = []
+    @likes.each do |like|
+      product = Product.find_by(id: like.product_id)
+      @like_products << product
     end
   end
 

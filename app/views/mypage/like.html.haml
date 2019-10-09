@@ -10,7 +10,9 @@
       %section.mypage-content__r-content__index
         .mypage-content__r-content__index__content.is-show2
           %h2.mypage-title.bold いいね一覧
-          = render partial: 'like_panel'
+          %ul.purchase-lists
+            - @like_products.each do |product|
+              = render partial: 'like_panel', locals: { product: product }
       %ul.mypage-history
         %li.prev
           = link_to "", class: "" do

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       post 'delete' => 'cards#delete'
     end
   end
+  # いいね！
+  resources :likes, only: [:create, :destroy]
   # 注文
   resources :orders, only: [:show]
   # マイページ
