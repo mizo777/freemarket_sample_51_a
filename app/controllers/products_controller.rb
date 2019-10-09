@@ -155,7 +155,7 @@ class ProductsController < ApplicationController
   end
   
   def product_protect
-    if user_signed_in? && @product.user_id == current_user
+    if user_signed_in? && @product.user_id == current_user.id
     else
       redirect_to root_path, alert: '編集権限がありません'
     end    
