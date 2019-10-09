@@ -86,6 +86,16 @@ class ProductsController < ApplicationController
         @card_src = "discover.png"
       end
     end
+    # 出品者が自身の出品商品の購入確認ページに遷移できないようにする
+    if user_signed_in? && current_user.id == @product.user_id
+      # 直前の画面に戻る
+      return_back and return
+    end
+    # 購入者が購入した商品の購入確認ページに再度遷移できないようにする
+    if @product.exhibit_trading? || @product.exhibited?
+      # 直前の画面に戻る
+      return_back and return
+    end
   end
 
   def pay
