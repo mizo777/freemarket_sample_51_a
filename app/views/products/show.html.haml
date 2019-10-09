@@ -92,8 +92,9 @@
     %span.item-container__price-box__item-tax (税込)
     %span.item-container__price-box__item-shipping-fee 送料込み
   - unless user_signed_in? && current_user.id == @product.user_id
-    .item-container__buy-btn
-      = link_to "購入画面に進む", buy_product_path(@product), method: :get, class: "item-container__buy-btn__text"
+    - if @product.exhibiting?
+      .item-container__buy-btn
+        = link_to "購入画面に進む", buy_product_path(@product), method: :get, class: "item-container__buy-btn__text"
   .item-container__item-description
     %p.item-container__item-description__inner
       = raw(nl2br(@product.detail))
@@ -128,9 +129,10 @@
           %span.item-container__buttons--right__text あんしん・あんぜんへの取り組み
 - if user_signed_in? && current_user.id == @product.user_id
   .item-detail-message
-    .item-detail-message__container  
-      .item-detail-message__container__content
-        = link_to "商品の編集", edit_product_path(@product), class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
+    .item-detail-message__container
+      - if @product.exhibiting?
+        .item-detail-message__container__content
+          = link_to "商品の編集", edit_product_path(@product), class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
       .item-detail-message__container__content
         - if @product.stop_exhibit?
           = link_to "出品を再開する", product_toggle_status_path(@product), method: :patch, class: "btn", style: "background: #ea352d;border: 1px solid #ea352d;color: #fff;"
