@@ -55,7 +55,7 @@
             = exp_month + " / " + exp_year
           %figure
             = image_tag "#{@card_src}", width: '48', height: "36", alt: @card_brand
-        = link_to "", class: "mercari-confirmation__container__buy-user-info__inner__link" do
+        = link_to card_create_mypage_index_path(current_user), class: "mercari-confirmation__container__buy-user-info__inner__link" do
           %span 変更する
           = fa_icon 'chevron-right', class: "chevron-right-4"
 = render 'shared/footer_2'
