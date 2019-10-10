@@ -144,7 +144,7 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.integer "category_id", null: false
       t.integer "user_id"
       t.integer "brand_id", default: 1
-      t.string "size", null: false
+      t.string "size"
       t.string "state", null: false
       t.string "delivery_burden", null: false
       t.string "delivery_way", null: false
