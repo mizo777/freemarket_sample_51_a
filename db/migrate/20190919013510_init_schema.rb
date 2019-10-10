@@ -151,7 +151,7 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.string "delivery_from", null: false
       t.string "delivery_time", null: false
       t.text "detail"
-      t.integer "likes_count"
+      t.integer "likes_count", default: 0, null: false
       t.boolean "sold", default: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
