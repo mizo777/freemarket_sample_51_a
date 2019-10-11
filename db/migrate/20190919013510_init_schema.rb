@@ -144,14 +144,14 @@ class InitSchema < ActiveRecord::Migration[4.2]
       t.integer "category_id", null: false
       t.integer "user_id"
       t.integer "brand_id", default: 1
-      t.string "size"
+      t.string "size", null: false
       t.string "state", null: false
       t.string "delivery_burden", null: false
       t.string "delivery_way", null: false
       t.string "delivery_from", null: false
       t.string "delivery_time", null: false
       t.text "detail"
-      t.integer "likes_count", default: 0, null: false
+      t.integer "likes_count"
       t.boolean "sold", default: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
