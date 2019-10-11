@@ -1,56 +1,104 @@
 class MypageController < ApplicationController
   before_action :set_user
-  
+  before_action :like_products, only: :like
+  before_action :purchase_products, only: [:index, :purchase, :purchased]
+
   def index
-    purchase_products
+    # 他のユーザーのページに遷移できないようにする
+    unless current_user.id == @user.id
+      # 直前の画面に戻る
+      return_back and return
+    end
   end
 
   def notification
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def todo
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def like
-    like_products
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def exhibit_trading
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def exhibiting
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def exhibit
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def purchase
-    purchase_products
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def purchased
-    purchase_products
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def news
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def review
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def contact
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def sales
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def point
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def profile
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def delivery_address
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
 
   def card
@@ -78,20 +126,37 @@ class MypageController < ApplicationController
         @card_src = "discover.png"
       end
     end
+
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
 
   def card_create
     card = Card.where(user_id: current_user.id)
     redirect_to card_mypage_index_path if card.exists?
+
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
     
   def email_password
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def identification
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
   
   def sms_confirmation
+    unless current_user.id == @user.id
+      return_back and return
+    end
   end
 
   private
