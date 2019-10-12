@@ -60,7 +60,7 @@
         %td.item-container__content__detail-table__row__data
           - if @product.brand_id.present?
             = link_to "#{@product.brand.name}", "", class: "item-container__content__detail-table__row__data__link"
-      - if @product.size.empty?
+      - if @product.size.nil?
       - else
         %tr.item-container__content__detail-table__row
           %th.item-container__content__detail-table__row__header 商品のサイズ
