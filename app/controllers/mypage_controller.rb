@@ -102,6 +102,10 @@ class MypageController < ApplicationController
   end
 
   def card
+    unless current_user.id == @user.id
+      return_back and return
+    end
+
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to card_create_mypage_index_path
@@ -119,26 +123,22 @@ class MypageController < ApplicationController
       when "MasterCard"
         @card_src = "mastercard.png"
       when "American Express"
-        @card_src = "americanExpress.png"
+        @card_src = "americanExpress.jpg"
       when "Diners Club"
-        @card_src = "dinersClub.png"
+        @card_src = "dinersClub.jpg"
       when "Discover"
         @card_src = "discover.png"
       end
     end
-
-    unless current_user.id == @user.id
-      return_back and return
-    end
   end
 
   def card_create
-    card = Card.where(user_id: current_user.id)
-    redirect_to card_mypage_index_path if card.exists?
-
     unless current_user.id == @user.id
       return_back and return
     end
+
+    card = Card.where(user_id: current_user.id)
+    redirect_to card_mypage_index_path if card.exists?
   end
     
   def email_password
