@@ -73,7 +73,10 @@
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 配送料の負担
         %td.item-container__content__detail-table__row__data
-          = @product.delivery_burden
+          - if @product.delivery_burden == '0'
+            送料込み(出品者負担)
+          - else
+            = @product.delivery_burden
       %tr.item-container__content__detail-table__row
         %th.item-container__content__detail-table__row__header 配送の方法
         %td.item-container__content__detail-table__row__data
