@@ -151,7 +151,7 @@ class ProductsController < ApplicationController
   end
 
   def set_exhibit
-    @parents = Category.order("id ASC").limit(13)
+    @parents = Category.order("id ASC").limit(12)
     @brands = Brand.all
   end
   
